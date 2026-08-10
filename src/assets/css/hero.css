@@ -1,0 +1,1956 @@
+/* =========================================================
+   HERO SECTION
+========================================================= */
+
+.hero-section {
+    position: relative;
+    min-height: 95vh;
+
+    display: flex;
+    align-items: center;
+
+    background: var(--primary);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HERO OVERLAY
+========================================================= */
+
+.hero-overlay {
+    display: none;
+}
+
+
+/* =========================================================
+   DECORATIVE CIRCLES
+========================================================= */
+
+.hero-decoration {
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* Top right */
+
+.hero-decoration-one {
+    width: 450px;
+    height: 450px;
+
+    right: -200px;
+    top: -150px;
+
+    background: rgba(133, 100, 67, 0.22);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* Bottom right */
+
+.hero-decoration-two {
+    width: 300px;
+    height: 300px;
+
+    right: 22%;
+    bottom: -190px;
+
+    background: rgba(133, 100, 67, 0.12);
+}
+
+
+/* Bottom left */
+
+.hero-decoration-three {
+    width: 190px;
+    height: 190px;
+
+    left: -100px;
+    bottom: 8%;
+
+    background: rgba(255, 255, 255, 0.025);
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.hero-section .container {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content {
+    position: relative;
+
+    z-index: 4;
+
+    width: 100%;
+    max-width: 760px;
+
+    padding: 55px;
+
+    text-align: left;
+
+    background: transparent;
+
+    border: none;
+
+    border-radius: 28px;
+
+    box-shadow: none;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HERO TAG
+========================================================= */
+
+.hero-tag {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 10px 20px;
+
+    margin-bottom: 25px;
+
+    border-radius: 50px;
+
+    background: rgba(133, 100, 67, 0.28);
+
+    border: 1px solid rgba(133, 100, 67, 0.45);
+
+    color: var(--white);
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+
+    text-align: left;
+
+    box-sizing: border-box;
+}
+
+.hero-tag svg {
+    color: var(--secondary);
+
+    font-size: 16px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+.hero-title {
+    color: var(--white);
+
+    font-size: clamp(40px, 4.4vw, 62px);
+
+    font-weight: 800;
+
+    line-height: 1.08;
+
+    letter-spacing: -1.5px;
+
+    margin: 0 0 25px;
+
+    max-width: 680px;
+
+    text-align: left;
+
+    word-spacing: normal;
+
+    white-space: normal;
+
+    overflow-wrap: normal;
+}
+
+
+/* Optional highlighted text */
+
+.hero-title span {
+    color: var(--secondary);
+
+    display: inline;
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
+.hero-text {
+    color: rgba(255, 255, 255, 0.88);
+
+    font-size: 19px;
+
+    line-height: 1.8;
+
+    max-width: 700px;
+
+    margin: 0;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   APP STORE BUTTONS
+========================================================= */
+
+.hero-buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 35px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   STORE BUTTON
+========================================================= */
+
+.store-btn-hero {
+    border: none;
+    outline: none;
+
+    background: var(--white);
+
+    color: var(--primary);
+
+    border-radius: 14px;
+
+    padding: 14px 20px;
+
+    width: 190px;
+    min-width: 190px;
+
+    min-height: 62px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-start;
+
+    gap: 12px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.store-btn-hero:hover {
+    transform: translateY(-5px);
+
+    background: var(--white);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.28);
+}
+
+
+/* =========================================================
+   STORE ICON
+========================================================= */
+
+.store-icon {
+    color: var(--primary);
+
+    font-size: 32px;
+
+    width: 32px;
+    min-width: 32px;
+
+    height: 32px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   STORE TEXT
+========================================================= */
+
+.store-text {
+    min-width: 0;
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    text-align: left;
+
+    overflow: hidden;
+}
+
+
+/* Small store text */
+
+.store-btn-hero small {
+    display: block;
+
+    color: var(--gray);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.4px;
+
+    line-height: 1.2;
+
+    margin: 0 0 3px;
+
+    padding: 0;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: clip;
+}
+
+
+/* Store name */
+
+.store-btn-hero h6 {
+    color: var(--primary);
+
+    margin: 0;
+
+    padding: 0;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    line-height: 1.15;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   HERO FEATURE CARDS
+========================================================= */
+
+.hero-features {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 12px;
+
+    margin-top: 38px;
+}
+
+
+/* Individual feature card */
+
+.hero-features > div {
+    position: relative;
+
+    min-width: 0;
+
+    min-height: 68px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 11px 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(133, 100, 67, 0.32),
+            rgba(133, 100, 67, 0.16)
+        );
+
+    border: 1px solid rgba(133, 100, 67, 0.60);
+
+    border-radius: 14px;
+
+    box-sizing: border-box;
+
+    color: var(--white);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    line-height: 1.3;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* Subtle background glow inside card */
+
+.hero-features > div::before {
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    right: -25px;
+    top: -30px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    pointer-events: none;
+}
+
+
+/* Feature hover */
+
+.hero-features > div:hover {
+    transform: translateY(-4px);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(133, 100, 67, 0.46),
+            rgba(133, 100, 67, 0.24)
+        );
+
+    border-color: var(--secondary);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.20);
+}
+
+
+/* Feature icon */
+
+.hero-features svg {
+    position: relative;
+
+    z-index: 1;
+
+    width: 38px;
+    min-width: 38px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 9px;
+
+    box-sizing: border-box;
+
+    border-radius: 10px;
+
+    background: var(--secondary);
+
+    color: var(--white);
+
+    font-size: 18px;
+
+    flex-shrink: 0;
+}
+
+
+/* Feature text */
+
+.hero-features span {
+    position: relative;
+
+    z-index: 1;
+
+    display: block;
+
+    min-width: 0;
+
+    color: var(--white);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    line-height: 1.35;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   APP AREA
+========================================================= */
+
+.hero-app-area {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 700px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 3;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   PHONE GLOW
+========================================================= */
+
+.hero-app-glow {
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(133, 100, 67, 0.30) 0%,
+            rgba(133, 100, 67, 0.14) 45%,
+            transparent 72%
+        );
+
+    filter: blur(20px);
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   PHONE WRAPPER
+========================================================= */
+
+.hero-phone-wrapper {
+    position: relative;
+
+    z-index: 3;
+
+    transform:
+        rotate(7deg)
+        translateY(10px);
+
+    animation:
+        heroPhoneFloat 5s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   PHONE FRAME
+========================================================= */
+
+.hero-phone {
+    position: relative;
+
+    width: 330px;
+
+    padding: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #2a2a2a,
+            #080808
+        );
+
+    border-radius: 43px;
+
+    border: 2px solid rgba(255, 255, 255, 0.20);
+
+    box-shadow:
+        0 45px 90px rgba(0, 0, 0, 0.52),
+        0 0 0 8px rgba(255, 255, 255, 0.035);
+
+    overflow: hidden;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   APP SCREEN IMAGE
+========================================================= */
+
+.hero-app-image {
+    display: block;
+
+    width: 100%;
+    height: 500px;
+
+    max-width: 100%;
+
+    border-radius: 34px;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   PHONE NOTCH
+========================================================= */
+
+.phone-speaker {
+    position: absolute;
+
+    z-index: 5;
+
+    top: 17px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 75px;
+    height: 20px;
+
+    background: #050505;
+
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   FLOATING CARDS
+========================================================= */
+
+.hero-floating-card {
+    position: absolute;
+
+    z-index: 6;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: 190px;
+    min-width: 190px;
+
+    padding: 13px 17px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border: 1px solid rgba(255, 255, 255, 0.30);
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(10px);
+
+    -webkit-backdrop-filter: blur(10px);
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   FLOATING CARD TEXT
+========================================================= */
+
+.hero-floating-card strong {
+    display: block;
+
+    color: var(--primary);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+.hero-floating-card span {
+    display: block;
+
+    color: var(--gray);
+
+    font-size: 11px;
+
+    line-height: 1.3;
+
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   FLOATING ICON
+========================================================= */
+
+.floating-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 11px;
+
+    background: rgba(133, 100, 67, 0.14);
+
+    color: var(--secondary);
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   TOP FLOATING CARD
+========================================================= */
+
+.hero-card-top {
+    top: 100px;
+
+    left: -15px;
+
+    transform: rotate(-4deg);
+}
+
+
+/* =========================================================
+   BOTTOM FLOATING CARD
+========================================================= */
+
+.hero-card-bottom {
+    right: -15px;
+
+    bottom: 105px;
+
+    transform: rotate(-4deg);
+}
+
+
+/* =========================================================
+   PHONE FLOAT ANIMATION
+========================================================= */
+
+@keyframes heroPhoneFloat {
+
+    0% {
+        transform:
+            rotate(7deg)
+            translateY(10px);
+    }
+
+    50% {
+        transform:
+            rotate(7deg)
+            translateY(-15px);
+    }
+
+    100% {
+        transform:
+            rotate(7deg)
+            translateY(10px);
+    }
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1400px) {
+
+    .hero-content {
+        padding: 60px;
+    }
+
+    .hero-title {
+        font-size: 64px;
+
+        max-width: 700px;
+    }
+
+    .hero-phone {
+        width: 350px;
+    }
+
+    .hero-app-area {
+        min-height: 750px;
+    }
+
+    .hero-features {
+        gap: 14px;
+    }
+
+    .hero-features > div {
+        padding: 13px 14px;
+    }
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1199px) {
+
+    .hero-content {
+        padding: 45px;
+    }
+
+    .hero-title {
+        font-size:
+            clamp(
+                40px,
+                4.5vw,
+                57px
+            );
+
+        max-width: 620px;
+    }
+
+    .hero-text {
+        font-size: 18px;
+    }
+
+    .hero-phone {
+        width: 290px;
+    }
+
+    .hero-app-area {
+        min-height: 620px;
+    }
+
+    .hero-card-top {
+        left: -5px;
+    }
+
+    .hero-card-bottom {
+        right: -5px;
+    }
+
+    .hero-features {
+        gap: 9px;
+    }
+
+    .hero-features > div {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .hero-features svg {
+        width: 34px;
+        min-width: 34px;
+        height: 34px;
+        padding: 8px;
+        font-size: 16px;
+    }
+
+    .hero-features span {
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .hero-section {
+        min-height: auto;
+
+        padding:
+            80px
+            0
+            90px;
+    }
+
+    .hero-content {
+        max-width: 850px;
+
+        margin: 0 auto;
+
+        padding: 40px;
+
+        text-align: center;
+    }
+
+    .hero-tag {
+        text-align: center;
+    }
+
+    .hero-title {
+        max-width: 100%;
+
+        font-size:
+            clamp(
+                40px,
+                7vw,
+                58px
+            );
+
+        text-align: center;
+    }
+
+    .hero-text {
+        max-width: 750px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        font-size: 18px;
+
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+
+        width: 100%;
+    }
+
+    .store-btn-hero {
+        width: 190px;
+    }
+
+    .hero-features {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        justify-content: center;
+
+        max-width: 750px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        gap: 10px;
+    }
+
+    .hero-features > div {
+        min-height: 64px;
+
+        padding: 9px 10px;
+    }
+
+    .hero-features svg {
+        width: 32px;
+        min-width: 32px;
+
+        height: 32px;
+
+        padding: 7px;
+
+        font-size: 15px;
+    }
+
+    .hero-features span {
+        font-size: 10.5px;
+    }
+
+    .hero-app-area {
+        min-height: 600px;
+
+        margin-top: 25px;
+    }
+
+    .hero-phone {
+        width: 300px;
+    }
+
+    .hero-card-top {
+        left: 12%;
+    }
+
+    .hero-card-bottom {
+        right: 12%;
+    }
+}
+
+@media(max-width: 768px){
+      .hero-app-image{
+        height: 500px;
+        width: 500px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE TABLET
+========================================================= */
+
+@media (max-width: 767px) {
+
+       .hero-app-area{
+        display: none;
+    }
+
+  
+    .hero-section {
+        padding:
+            55px
+            0
+            70px;
+    }
+
+    .hero-content {
+        padding:
+            30px
+            22px;
+
+        border-radius: 22px;
+    }
+
+    .hero-tag {
+        font-size: 12px;
+
+        padding:
+            8px
+            15px;
+    }
+
+    .hero-title {
+        font-size:
+            clamp(
+                34px,
+                8vw,
+                45px
+            );
+
+        line-height: 1.10;
+
+        letter-spacing: -0.8px;
+
+        margin-bottom: 20px;
+
+        text-align: center;
+    }
+
+    .hero-text {
+        font-size: 16px;
+
+        line-height: 1.7;
+
+        text-align: center;
+    }
+
+
+    /* =====================================================
+       STORE BUTTONS
+    ===================================================== */
+
+    .hero-buttons {
+        width: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 12px;
+
+        margin-top: 28px;
+    }
+
+    .store-btn-hero {
+        width: 100%;
+
+        min-width: 0;
+
+        min-height: 60px;
+
+        padding:
+            12px
+            18px;
+
+        justify-content: flex-start;
+
+        gap: 12px;
+    }
+
+    .store-icon {
+        font-size: 30px;
+
+        width: 30px;
+        min-width: 30px;
+
+        height: 30px;
+    }
+
+    .store-btn-hero small {
+        font-size: 9px;
+
+        line-height: 1.2;
+
+        letter-spacing: 0.35px;
+
+        white-space: nowrap;
+    }
+
+    .store-btn-hero h6 {
+        font-size: 17px;
+
+        line-height: 1.15;
+    }
+
+
+    /* =====================================================
+       FEATURE CARDS
+    ===================================================== */
+
+    .hero-features {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        margin-top: 30px;
+    }
+
+    .hero-features > div {
+        width: 100%;
+
+        min-height: 58px;
+
+        padding:
+            10px
+            12px;
+
+        gap: 10px;
+
+        border-radius: 13px;
+
+        justify-content: flex-start;
+
+        text-align: left;
+    }
+
+    .hero-features svg {
+        width: 34px;
+        min-width: 34px;
+
+        height: 34px;
+
+        padding: 8px;
+
+        font-size: 16px;
+    }
+
+    .hero-features span {
+        font-size: 12px;
+
+        line-height: 1.3;
+
+        text-align: left;
+    }
+
+
+    /* =====================================================
+       APP AREA
+    ===================================================== */
+
+    .hero-app-area {
+        width: 100%;
+
+        min-height: 500px;
+
+        margin-top: 15px;
+
+        overflow: visible;
+    }
+
+    .hero-app-glow {
+        width: 380px;
+
+        height: 380px;
+    }
+
+    .hero-phone {
+        width: 260px;
+
+        padding: 8px;
+
+        border-radius: 35px;
+    }
+
+    .hero-app-image {
+        border-radius: 27px;
+    }
+
+
+    /* =====================================================
+       FLOATING CARDS
+    ===================================================== */
+
+    .hero-floating-card {
+        width: 175px;
+
+        min-width: 175px;
+
+        padding:
+            10px
+            12px;
+
+        gap: 9px;
+    }
+
+    .hero-floating-card strong {
+        font-size: 11px;
+    }
+
+    .hero-floating-card span {
+        font-size: 9px;
+    }
+
+    .floating-icon {
+        width: 32px;
+
+        height: 32px;
+
+        font-size: 14px;
+    }
+
+    .hero-card-top {
+        top: 55px;
+
+        left: 2px;
+
+        transform:
+            scale(0.82)
+            rotate(-4deg);
+    }
+
+    .hero-card-bottom {
+        right: 2px;
+
+        bottom: 45px;
+
+        transform:
+            scale(0.82)
+            rotate(-4deg);
+    }
+}
+
+
+/* =========================================================
+   NORMAL MOBILE
+========================================================= */
+
+@media (max-width: 576px) {
+
+    .hero-section {
+        padding:
+            45px
+            0
+            55px;
+    }
+
+    .hero-content {
+        padding:
+            27px
+            18px;
+
+        border-radius: 20px;
+    }
+
+    .hero-tag {
+        font-size: 11px;
+
+        padding:
+            8px
+            13px;
+    }
+
+    .hero-title {
+        font-size: 33px;
+
+        line-height: 1.12;
+
+        letter-spacing: -0.6px;
+
+        text-align: center;
+    }
+
+    .hero-text {
+        font-size: 15px;
+
+        line-height: 1.65;
+    }
+
+
+    /* =====================================================
+       STORE BUTTONS
+    ===================================================== */
+
+    .hero-buttons {
+        gap: 10px;
+
+        margin-top: 25px;
+    }
+
+    .store-btn-hero {
+        width: 100%;
+
+        min-height: 58px;
+
+        padding:
+            11px
+            16px;
+
+        border-radius: 12px;
+
+        gap: 11px;
+    }
+
+    .store-icon {
+        font-size: 28px;
+
+        width: 28px;
+        min-width: 28px;
+
+        height: 28px;
+    }
+
+    .store-btn-hero small {
+        font-size: 8px;
+
+        line-height: 1.2;
+
+        letter-spacing: 0.3px;
+
+        white-space: nowrap;
+    }
+
+    .store-btn-hero h6 {
+        font-size: 16px;
+
+        line-height: 1.15;
+    }
+
+
+    /* =====================================================
+       FEATURE CARDS
+    ===================================================== */
+
+    .hero-features {
+        gap: 9px;
+
+        margin-top: 27px;
+    }
+
+    .hero-features > div {
+        min-height: 55px;
+
+        padding:
+            9px
+            11px;
+
+        border-radius: 12px;
+    }
+
+    .hero-features svg {
+        width: 32px;
+        min-width: 32px;
+
+        height: 32px;
+
+        padding: 7px;
+
+        font-size: 15px;
+    }
+
+    .hero-features span {
+        font-size: 11.5px;
+
+        line-height: 1.3;
+    }
+
+
+    /* =====================================================
+       APP
+    ===================================================== */
+
+    .hero-app-area {
+        min-height: 440px;
+    }
+
+    .hero-phone {
+        width: 230px;
+
+        border-radius: 31px;
+    }
+
+    .hero-app-image {
+        border-radius: 24px;
+    }
+
+
+    /* =====================================================
+       NOTCH
+    ===================================================== */
+
+    .phone-speaker {
+        width: 60px;
+
+        height: 15px;
+
+        top: 13px;
+    }
+
+
+    /* =====================================================
+       FLOATING CARDS
+    ===================================================== */
+
+    .hero-floating-card {
+        width: 150px;
+
+        min-width: 150px;
+
+        padding:
+            9px
+            11px;
+
+        gap: 8px;
+    }
+
+    .hero-floating-card strong {
+        font-size: 11px;
+    }
+
+    .hero-floating-card span {
+        font-size: 9px;
+    }
+
+    .floating-icon {
+        width: 31px;
+
+        height: 31px;
+
+        font-size: 13px;
+    }
+
+    .hero-card-top {
+        top: 40px;
+
+        left: -8px;
+
+        transform:
+            scale(0.72)
+            rotate(-4deg);
+    }
+
+    .hero-card-bottom {
+        right: -8px;
+
+        bottom: 35px;
+
+        transform:
+            scale(0.72)
+            rotate(-4deg);
+    }
+
+
+    /* =====================================================
+       GLOW
+    ===================================================== */
+
+    .hero-app-glow {
+        width: 300px;
+
+        height: 300px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .hero-section {
+        padding:
+            35px
+            0
+            45px;
+    }
+
+    .hero-content {
+        padding:
+            23px
+            15px;
+    }
+
+    .hero-tag {
+        font-size: 10px;
+
+        padding:
+            7px
+            11px;
+    }
+
+    .hero-title {
+        font-size: 30px;
+
+        line-height: 1.12;
+
+        letter-spacing: -0.5px;
+    }
+
+    .hero-text {
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    /* =====================================================
+       STORE BUTTONS
+    ===================================================== */
+
+    .hero-buttons {
+        width: 100%;
+
+        gap: 9px;
+    }
+
+    .store-btn-hero {
+        width: 100%;
+
+        min-height: 56px;
+
+        padding:
+            10px
+            14px;
+
+        gap: 10px;
+    }
+
+    .store-icon {
+        font-size: 25px;
+
+        width: 26px;
+        min-width: 26px;
+
+        height: 26px;
+    }
+
+    .store-btn-hero small {
+        font-size: 8px;
+
+        line-height: 1.2;
+
+        letter-spacing: 0.2px;
+
+        white-space: nowrap;
+    }
+
+    .store-btn-hero h6 {
+        font-size: 15px;
+
+        line-height: 1.15;
+
+        white-space: nowrap;
+    }
+
+
+    /* =====================================================
+       FEATURE CARDS
+    ===================================================== */
+
+    .hero-features {
+        gap: 8px;
+    }
+
+    .hero-features > div {
+        min-height: 53px;
+
+        padding:
+            8px
+            10px;
+    }
+
+    .hero-features svg {
+        width: 30px;
+        min-width: 30px;
+
+        height: 30px;
+
+        padding: 7px;
+
+        font-size: 14px;
+    }
+
+    .hero-features span {
+        font-size: 11px;
+    }
+
+
+    /* =====================================================
+       APP
+    ===================================================== */
+
+    .hero-phone {
+        width: 210px;
+    }
+
+    .hero-app-area {
+        min-height: 410px;
+    }
+
+
+    /* =====================================================
+       FLOATING CARDS
+    ===================================================== */
+
+    .hero-card-top {
+        left: -18px;
+
+        transform:
+            scale(0.65)
+            rotate(-4deg);
+    }
+
+    .hero-card-bottom {
+        right: -18px;
+
+        transform:
+            scale(0.65)
+            rotate(-4deg);
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .hero-section {
+        padding:
+            25px
+            0
+            40px;
+    }
+
+    .hero-content {
+        padding:
+            20px
+            13px;
+
+        border-radius: 18px;
+    }
+
+    .hero-title {
+        font-size: 27px;
+
+        line-height: 1.12;
+    }
+
+    .hero-text {
+        font-size: 13.5px;
+    }
+
+    .hero-tag {
+        font-size: 9px;
+    }
+
+
+    /* =====================================================
+       STORE BUTTONS
+    ===================================================== */
+
+    .hero-buttons {
+        gap: 8px;
+    }
+
+    .store-btn-hero {
+        min-height: 54px;
+
+        padding:
+            9px
+            12px;
+
+        gap: 9px;
+    }
+
+    .store-icon {
+        font-size: 23px;
+
+        width: 24px;
+        min-width: 24px;
+
+        height: 24px;
+    }
+
+    .store-btn-hero small {
+        font-size: 7.5px;
+
+        line-height: 1.2;
+
+        letter-spacing: 0;
+
+        white-space: nowrap;
+    }
+
+    .store-btn-hero h6 {
+        font-size: 14px;
+
+        line-height: 1.15;
+    }
+
+
+    /* =====================================================
+       FEATURE CARDS
+    ===================================================== */
+
+    .hero-features {
+        gap: 7px;
+    }
+
+    .hero-features > div {
+        min-height: 50px;
+
+        padding:
+            7px
+            9px;
+
+        gap: 8px;
+    }
+
+    .hero-features svg {
+        width: 28px;
+        min-width: 28px;
+
+        height: 28px;
+
+        padding: 6px;
+
+        font-size: 13px;
+    }
+
+    .hero-features span {
+        font-size: 10.5px;
+
+        line-height: 1.25;
+    }
+
+
+    /* =====================================================
+       PHONE
+    ===================================================== */
+
+    .hero-phone {
+        width: 195px;
+
+        padding: 7px;
+    }
+
+    .hero-app-area {
+        min-height: 380px;
+    }
+
+
+    /* =====================================================
+       FLOATING CARDS
+    ===================================================== */
+
+    .hero-card-top {
+        left: -24px;
+
+        transform:
+            scale(0.58)
+            rotate(-4deg);
+    }
+
+    .hero-card-bottom {
+        right: -24px;
+
+        transform:
+            scale(0.58)
+            rotate(-4deg);
+    }
+}
+
+
+/* =========================================================
+   EXTRA SMALL PHONES
+========================================================= */
+
+@media (max-width: 320px) {
+
+    .hero-title {
+        font-size: 25px;
+    }
+
+    .hero-text {
+        font-size: 13px;
+    }
+
+
+    /* =====================================================
+       STORE BUTTONS
+    ===================================================== */
+
+    .store-btn-hero {
+        min-height: 52px;
+
+        padding:
+            8px
+            10px;
+
+        gap: 8px;
+    }
+
+    .store-icon {
+        font-size: 21px;
+
+        width: 22px;
+        min-width: 22px;
+
+        height: 22px;
+    }
+
+    .store-btn-hero small {
+        font-size: 7px;
+
+        line-height: 1.15;
+
+        letter-spacing: 0;
+    }
+
+    .store-btn-hero h6 {
+        font-size: 13px;
+
+        line-height: 1.15;
+    }
+
+
+    /* =====================================================
+       FEATURE CARDS
+    ===================================================== */
+
+    .hero-features {
+        gap: 6px;
+    }
+
+    .hero-features > div {
+        min-height: 48px;
+
+        padding:
+            7px
+            8px;
+
+        gap: 7px;
+
+        border-radius: 10px;
+    }
+
+    .hero-features svg {
+        width: 26px;
+        min-width: 26px;
+
+        height: 26px;
+
+        padding: 6px;
+
+        font-size: 12px;
+
+        border-radius: 8px;
+    }
+
+    .hero-features span {
+        font-size: 10px;
+
+        line-height: 1.2;
+    }
+
+
+    /* =====================================================
+       PHONE
+    ===================================================== */
+
+    .hero-phone {
+        width: 180px;
+    }
+
+    .hero-app-area {
+        min-height: 350px;
+    }
+}

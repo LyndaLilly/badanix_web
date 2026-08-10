@@ -1,0 +1,437 @@
+/* ===============================
+   TODAY'S APPOINTMENTS
+================================ */
+
+.todays-appointments-box {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 8px 30px rgba(20, 54, 29, 0.08);
+  height: 100%;
+}
+
+
+/* HEADER */
+
+.dashboard-box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+.dashboard-box-header h5 {
+  margin: 0;
+  color: #14361D;
+  font-size: 16px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.dashboard-box-header small {
+  color: #856443;
+  font-size: 13px;
+}
+
+
+
+/* VIEW BUTTON */
+
+.todays-view-btn {
+  border: none;
+  background: #14361D;
+  color: white;
+
+  padding: 9px 15px;
+
+  border-radius: 10px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  cursor: pointer;
+
+  transition: .3s;
+}
+
+
+.todays-view-btn:hover {
+  background: #856443;
+}
+
+
+
+/* LIST */
+
+.todays-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+
+
+/* CARD */
+
+.todays-appointment-card {
+
+  background: #f8faf8;
+
+  border: 1px solid rgba(20,54,29,.08);
+
+  border-radius: 16px;
+
+  padding: 15px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  transition:.3s;
+
+}
+
+
+.todays-appointment-card:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow:0 10px 25px rgba(20,54,29,.12);
+
+}
+
+
+
+/* LEFT */
+
+.todays-left {
+
+  display:flex;
+
+  align-items:center;
+
+  gap:14px;
+
+}
+
+
+.todays-avatar {
+
+  width:58px;
+  height:58px;
+
+  border-radius:50%;
+
+  object-fit:cover;
+
+  border:3px solid #856443;
+
+}
+
+
+
+.todays-details h6 {
+
+  margin:0;
+
+  color:#14361D;
+
+  font-size:15px;
+
+  font-weight:800;
+
+}
+
+
+.todays-details small {
+
+  color:#777;
+
+}
+
+
+
+/* TIME */
+
+.todays-time {
+
+  margin-top:7px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  color:#856443;
+
+  font-size:13px;
+
+  font-weight:600;
+
+}
+
+
+
+.todays-time svg {
+
+  color:#14361D;
+
+}
+
+
+
+/* RIGHT */
+
+.todays-right {
+
+ display:flex;
+
+ flex-direction:column;
+
+ align-items:flex-end;
+
+ gap:10px;
+
+}
+
+
+
+/* STATUS */
+
+.todays-status {
+
+ padding:5px 12px;
+
+ border-radius:20px;
+
+ font-size:12px;
+
+ font-weight:700;
+
+ text-transform:capitalize;
+
+}
+
+
+/* status colors */
+
+.todays-status.confirmed {
+
+ background:rgba(20,54,29,.12);
+
+ color:#14361D;
+
+}
+
+
+.todays-status.pending {
+
+ background:rgba(133,100,67,.15);
+
+ color:#856443;
+
+}
+
+
+.todays-status.completed {
+
+ background:#e8f3ea;
+
+ color:#14361D;
+
+}
+
+
+.todays-status.cancelled {
+
+ background:#f8dddd;
+
+ color:#a33;
+
+}
+
+
+
+
+/* VIDEO BUTTON */
+
+.todays-join-btn {
+
+border:none;
+
+background:#14361D;
+
+color:white;
+
+padding:10px 18px;
+
+border-radius:12px;
+
+font-size:13px;
+
+font-weight:800;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:8px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+
+.todays-join-btn:hover {
+
+background:#856443;
+
+transform:translateY(-2px);
+
+}
+
+
+
+
+
+/* DISABLED BUTTON */
+
+.todays-disabled-btn {
+
+border:none;
+
+background:#eee;
+
+color:#777;
+
+padding:10px 15px;
+
+border-radius:12px;
+
+font-size:12px;
+
+font-weight:700;
+
+display:flex;
+
+align-items:center;
+
+gap:7px;
+
+cursor:not-allowed;
+
+}
+
+
+
+/* EMPTY */
+
+.todays-empty {
+
+text-align:center;
+
+padding:35px 15px;
+
+background:#f8faf8;
+
+border-radius:15px;
+
+}
+
+
+
+.todays-empty .empty-icon {
+
+font-size:35px;
+
+color:#856443;
+
+margin-bottom:10px;
+
+}
+
+
+.todays-empty h6 {
+
+color:#14361D;
+
+font-weight:800;
+
+}
+
+
+
+.todays-empty p {
+
+font-size:13px;
+
+color:#777;
+
+}
+
+
+
+/* LOADING */
+
+.todays-loading {
+
+padding:30px;
+
+text-align:center;
+
+color:#856443;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.todays-appointment-card{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:15px;
+
+}
+
+
+.todays-right{
+
+width:100%;
+
+align-items:stretch;
+
+}
+
+
+.todays-join-btn,
+.todays-disabled-btn{
+
+width:100%;
+
+justify-content:center;
+
+}
+
+}

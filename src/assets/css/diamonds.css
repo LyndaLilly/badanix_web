@@ -1,0 +1,472 @@
+/* =====================================================
+   PATIENT DIAMOND COLLECTION PAGE
+===================================================== */
+
+
+.diamond-page {
+
+    min-height:100vh;
+
+    background:#f5f7f6;
+
+    padding:40px 20px;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+
+
+
+
+
+
+.diamond-card {
+
+    width:100%;
+
+    max-width:850px;
+
+    background:#fff;
+
+    border-radius:25px;
+
+    padding:35px;
+
+    box-shadow:
+    0 15px 40px rgba(20,54,29,.12);
+
+}
+
+
+
+
+
+/* HEADER
+===================================================== */
+
+
+.diamond-header {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:35px;
+
+}
+
+
+
+.diamond-header h2 {
+
+    margin:0;
+
+    color:#14361D;
+
+    font-size:28px;
+
+    font-weight:800;
+
+}
+
+
+
+.diamond-header p {
+
+    margin-top:8px;
+
+    color:#777;
+
+    font-size:15px;
+
+}
+
+
+
+.diamond-main-icon {
+
+    width:70px;
+
+    height:70px;
+
+    padding:18px;
+
+    border-radius:50%;
+
+    background:#856443;
+
+    color:white;
+
+    box-shadow:
+    0 12px 25px rgba(133,100,67,.3);
+
+}
+
+
+
+
+
+/* DAYS GRID
+===================================================== */
+
+
+.diamond-days {
+
+    display:grid;
+
+    grid-template-columns:repeat(7,1fr);
+
+    gap:15px;
+
+    margin-bottom:35px;
+
+}
+
+
+
+
+
+.diamond-day-card {
+
+    background:#f8f9f8;
+
+    border-radius:18px;
+
+    padding:18px 10px;
+
+    text-align:center;
+
+    border:1px solid #eeeeee;
+
+    transition:.3s;
+
+}
+
+
+
+.diamond-day-card:hover {
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 8px 20px rgba(20,54,29,.08);
+
+}
+
+
+
+
+
+.day-number {
+
+    font-size:14px;
+
+    font-weight:700;
+
+    color:#14361D;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+
+.day-gem {
+
+    width:55px;
+
+    height:55px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:25px;
+
+    background:#eee;
+
+    color:#aaa;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+
+/* ACTIVE AVAILABLE DAY
+===================================================== */
+
+
+.diamond-day-card:first-child .day-gem {
+
+    background:#856443;
+
+    color:white;
+
+}
+
+
+
+
+
+.collect-day-btn {
+
+    width:100%;
+
+    border:none;
+
+    background:#14361D;
+
+    color:white;
+
+    padding:10px;
+
+    border-radius:10px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+.collect-day-btn:hover {
+
+    background:#856443;
+
+}
+
+
+
+
+
+.collect-day-btn:disabled {
+
+    opacity:.7;
+
+    cursor:not-allowed;
+
+}
+
+
+
+
+
+.locked-text {
+
+    font-size:13px;
+
+    color:#999;
+
+    font-weight:600;
+
+}
+
+
+
+
+
+/* REWARD BOX
+===================================================== */
+
+
+.diamond-reward-box {
+
+    background:#14361D;
+
+    color:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    text-align:center;
+
+}
+
+
+
+.diamond-reward-box div {
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+
+
+.diamond-reward-box strong {
+
+    font-size:26px;
+
+}
+
+
+
+.diamond-reward-box span {
+
+    font-size:13px;
+
+    opacity:.8;
+
+}
+
+
+
+
+
+/* COMPLETED
+===================================================== */
+
+
+.diamond-complete {
+
+    margin-top:25px;
+
+    background:#eaf5ed;
+
+    color:#14361D;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    font-weight:700;
+
+}
+
+
+
+
+
+/* RESPONSIVE
+===================================================== */
+
+
+@media(max-width:768px){
+
+
+.diamond-card {
+
+    padding:25px;
+
+}
+
+
+
+.diamond-days {
+
+    grid-template-columns:repeat(4,1fr);
+
+}
+
+
+}
+
+
+
+@media(max-width:480px){
+
+
+.diamond-header {
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+}
+
+
+
+.diamond-days {
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+
+
+.diamond-reward-box {
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+}
+
+
+.diamond-image-wrapper {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.diamond-day-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  transition: .3s;
+}
+
+.diamond-day-image.locked {
+  opacity: .35;
+  filter: grayscale(100%);
+}
+
+.diamond-lock-icon {
+  position: absolute;
+  color: #14361d;
+  font-size: 20px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.diamond-check-icon {
+  font-size: 70px;
+  color: #22c55e;
+}
+
+.collected-text {
+  color: #22c55e;
+  font-weight: 600;
+}

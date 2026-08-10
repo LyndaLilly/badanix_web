@@ -1,0 +1,255 @@
+.patient-login-page {
+    background: #f5f7f9;
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+/* MAIN CONTAINER */
+
+.patient-login-container {
+    max-width: 1200px;
+    min-height: 720px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .12);
+}
+
+/* LEFT IMAGE */
+
+.patient-login-image-section {
+    position: relative;
+    height: 720px;
+    overflow: hidden;
+}
+
+.patient-login-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transform: scale(1.08);
+    transition: transform .5s ease;
+}
+
+.patient-login-image-section:hover .patient-login-image {
+    transform: scale(1.12);
+}
+
+.patient-login-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(20, 54, 29, .72),
+            rgba(20, 54, 29, .50));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 70px;
+}
+
+.patient-login-overlay h1 {
+    font-size: 3.3rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+}
+
+.patient-login-overlay p {
+    max-width: 420px;
+    margin: auto;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    opacity: .95;
+}
+
+/* RIGHT SIDE */
+
+.patient-login-form-wrapper {
+    height: 720px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    background: #fff;
+}
+
+.patient-login-card {
+    position: relative;
+    width: 100%;
+    max-width: 470px;
+    padding: 10px;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.patient-login-back-btn {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: #eef5ef;
+    color: #14361D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+}
+
+.patient-login-back-btn:hover {
+    background: #14361D;
+    color: #fff;
+}
+
+.patient-login-card h2 {
+    color: #14361D;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.3rem;
+    margin-bottom: 10px;
+}
+
+.patient-login-subtitle {
+    text-align: center;
+    color: #777;
+    font-size: 1rem;
+    margin-bottom: 40px;
+    line-height: 1.7;
+}
+
+/* INPUTS */
+
+.patient-login-card .input-group {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.patient-login-card .input-group-text {
+    width: 55px;
+    justify-content: center;
+    background: #f8f9fa;
+    border-right: none;
+    color: #14361D;
+}
+
+.patient-login-card .form-control {
+    height: 56px;
+    border-left: none;
+    box-shadow: none;
+}
+
+.patient-login-card .form-control:focus {
+    border-color: #ced4da;
+    box-shadow: none;
+}
+
+.patient-login-card .btn-light {
+    border-left: none;
+    background: #fff;
+}
+
+.patient-login-card .btn-light:hover {
+    background: #fff;
+}
+
+/* BUTTON */
+
+.patient-login-btn {
+    height: 56px;
+    border-radius: 12px;
+    background: #14361D !important;
+    border: 1px solid #14361D !important;
+    color: #fff !important;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: .3s;
+}
+
+.patient-login-btn:hover {
+    background: #0f2916 !important;
+    border-color: #0f2916 !important;
+    color: #fff !important;
+}
+
+.patient-login-btn:focus,
+.patient-login-btn:active {
+    background: #14361D !important;
+    border-color: #14361D !important;
+    box-shadow: none !important;
+}
+
+.patient-login-btn:disabled {
+    opacity: .8;
+}
+
+/* LINKS */
+
+.patient-login-link {
+    color: #14361D;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.patient-login-link:hover {
+    text-decoration: underline;
+}
+
+/* ERRORS */
+
+.patient-login-error {
+    display: block;
+    margin-top: 8px;
+    color: #dc3545;
+    font-size: .875rem;
+}
+
+/* HR */
+
+.patient-login-card hr {
+    margin: 35px 0;
+    opacity: .15;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 991px) {
+
+    .patient-login-page {
+        padding: 0;
+    }
+
+    .patient-login-container {
+        border-radius: 0;
+        min-height: 100vh;
+        box-shadow: none;
+    }
+
+    .patient-login-form-wrapper {
+        height: auto;
+        min-height: 100vh;
+        padding: 35px 10px;
+    }
+
+    .patient-login-card {
+        max-width: 100%;
+    }
+
+    .patient-login-card h2 {
+        font-size: 1.5rem;
+        margin-top: 30px;
+    }
+
+    .patient-login-back-btn {
+        top: -5px;
+    }
+}
+
+.patient-login-card3{
+    max-width: 100% !important;
+}

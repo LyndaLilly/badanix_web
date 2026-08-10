@@ -1,0 +1,124 @@
+.transaction-page{
+    padding:24px;
+    min-height:100vh;
+    background:#f7f8fb;
+}
+
+.transaction-page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.transaction-page-header h2{
+    margin:0;
+    color:var(--primary);
+}
+
+.back-link{
+    text-decoration:none;
+    color:var(--primary);
+    font-weight:600;
+}
+
+.transaction-history{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.transaction-row{
+    background:#fff;
+    border-radius:14px;
+    padding:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border:1px solid #ececec;
+}
+
+.transaction-row h4{
+    margin:0;
+    font-size:15px;
+    color:var(--primary);
+}
+
+.transaction-row p{
+    margin:5px 0;
+    font-size:13px;
+    color:#777;
+}
+
+.transaction-row small{
+    color:#aaa;
+}
+
+.credit{
+    color:#16a34a;
+    font-size:17px;
+    font-weight:700;
+}
+
+.debit{
+    color:#dc2626;
+    font-size:17px;
+    font-weight:700;
+}
+
+@media(max-width:768px){
+
+    .transaction-page{
+        padding:16px;
+    }
+
+    .transaction-row{
+        align-items:flex-start;
+        gap:15px;
+    }
+
+}
+
+
+.withdraw-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 14px;
+    margin-top: 10px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: capitalize;
+    letter-spacing: 0.4px;
+    border: 1px solid transparent;
+    width: fit-content;
+}
+
+/* Pending */
+.withdraw-status.pending {
+    background: #FFF4D6;
+    color: #C47A00;
+    border-color: #FFD98A;
+}
+
+/* Approved */
+.withdraw-status.approved {
+    background: #E3F8EA;
+    color: #14804A;
+    border-color: #9AE6B4;
+}
+
+/* Paid */
+.withdraw-status.paid {
+    background: #DCEEFF;
+    color: #0A63C9;
+    border-color: #93C5FD;
+}
+
+/* Rejected */
+.withdraw-status.rejected {
+    background: #FFE4E6;
+    color: #D11A2A;
+    border-color: #FDA4AF;
+}

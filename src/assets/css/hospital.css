@@ -1,0 +1,484 @@
+/* =========================================================
+   HOSPITAL PAGE
+========================================================= */
+
+.hospital-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f6f8fb 0%, #ffffff 100%);
+  padding: 30px;
+}
+
+/* ========================================= */
+
+.hospital-back-btn {
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 16px;
+  background: #14361d;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .3s;
+  box-shadow: 0 10px 25px rgba(20,54,29,.18);
+}
+
+.hospital-back-btn:hover {
+  transform: translateY(-4px);
+}
+
+/* ========================================= */
+
+.hospital-hero {
+  margin-top: 25px;
+  margin-bottom: 35px;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  background:
+      linear-gradient(rgba(20,54,29,.88),
+      rgba(20,54,29,.88)),
+      url("https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1600")
+      center/cover;
+  color: white;
+  padding: 70px;
+}
+
+.hospital-hero-content{
+    max-width:700px;
+}
+
+.hospital-hero-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 18px;
+    border-radius:50px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+.hospital-hero h1{
+    font-size:48px;
+    margin-bottom:18px;
+    line-height:1.15;
+}
+
+.hospital-hero p{
+    color:#ecf1ed;
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+/* ========================================= */
+
+.hospital-search-box{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    background:white;
+    padding:18px 24px;
+    border-radius:60px;
+    max-width:600px;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+.hospital-search-box svg{
+    color:#14361D;
+    font-size:18px;
+}
+
+.hospital-search-box input{
+    flex:1;
+    border:none;
+    outline:none;
+    font-size:16px;
+    background:transparent;
+}
+
+.hospital-stat{
+    margin-top:22px;
+    color:#fff;
+    font-weight:600;
+    opacity:.95;
+}
+
+/* ========================================= */
+
+.hospital-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+    gap:30px;
+}
+
+/* ========================================= */
+
+.hospital-card{
+    background:white;
+    border-radius:24px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.35s;
+    box-shadow:0 18px 40px rgba(0,0,0,.08);
+    position:relative;
+}
+
+.hospital-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 25px 55px rgba(20,54,29,.15);
+}
+
+/* ========================================= */
+
+.hospital-image-area{
+    height:250px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hospital-image{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.5s;
+}
+
+.hospital-card:hover .hospital-image{
+    transform:scale(1.08);
+}
+
+.hospital-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(transparent,rgba(0,0,0,.6));
+}
+
+.hospital-overlay span{
+    position:absolute;
+    left:20px;
+    bottom:18px;
+    background:white;
+    color:#14361D;
+    border-radius:30px;
+    padding:8px 15px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.hospital-overlay svg{
+    color:#1ab64f;
+}
+
+/* ========================================= */
+
+.hospital-card-body{
+    padding:24px;
+}
+
+.hospital-card-body h3{
+    font-size:24px;
+    color:#14361D;
+    margin-bottom:16px;
+}
+
+.hospital-location{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#666;
+    margin-bottom:16px;
+}
+
+.hospital-location svg{
+    color:#856443;
+}
+
+.hospital-about{
+    color:#666;
+    line-height:1.8;
+    margin-bottom:22px;
+}
+
+/* ========================================= */
+
+.hospital-services-preview{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.hospital-services-preview span{
+    background:#eef5ef;
+    color:#14361D;
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+}
+
+/* ========================================= */
+
+.hospital-view-btn{
+    width:100%;
+    border:none;
+    padding:15px;
+    border-radius:14px;
+    background:#14361D;
+    color:white;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.hospital-view-btn:hover{
+    background:#1f522d;
+}
+
+/* ========================================= */
+
+.hospital-loading,
+.hospital-empty{
+    padding:120px 20px;
+    text-align:center;
+}
+
+.hospital-empty svg{
+    font-size:60px;
+    color:#14361D;
+    margin-bottom:20px;
+}
+
+.hospital-empty h3{
+    margin-bottom:10px;
+    color:#14361D;
+}
+
+.hospital-empty p{
+    color:#777;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.hospital-modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    padding:35px;
+    animation:fadeIn .25s;
+}
+
+.hospital-modal{
+    width:100%;
+    max-width:980px;
+    max-height:92vh;
+    overflow:auto;
+    background:white;
+    border-radius:28px;
+    position:relative;
+    animation:popup .35s ease;
+}
+
+.hospital-modal::-webkit-scrollbar{
+    width:8px;
+}
+
+.hospital-modal::-webkit-scrollbar-thumb{
+    background:#14361D;
+    border-radius:20px;
+}
+
+/* ========================================= */
+
+.hospital-modal-close{
+    position:absolute;
+    right:22px;
+    top:22px;
+    width:46px;
+    height:46px;
+    border:none;
+    border-radius:50%;
+    background:white;
+    cursor:pointer;
+    font-size:18px;
+    z-index:5;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.hospital-modal-banner{
+    position:relative;
+    height:340px;
+}
+
+.hospital-modal-banner img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.hospital-modal-badge{
+    position:absolute;
+    left:30px;
+    bottom:25px;
+    background:white;
+    color:#14361D;
+    padding:12px 20px;
+    border-radius:40px;
+    display:flex;
+    gap:10px;
+    align-items:center;
+    font-weight:700;
+}
+
+.hospital-modal-badge svg{
+    color:#18b84b;
+}
+
+/* ========================================= */
+
+.hospital-modal-content{
+    padding:35px;
+}
+
+.hospital-modal-content h2{
+    color:#14361D;
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+.hospital-modal-location{
+    display:flex;
+    gap:10px;
+    color:#666;
+    margin-bottom:35px;
+    line-height:1.8;
+}
+
+.hospital-modal-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+}
+
+.hospital-section{
+    background:#fafafa;
+    padding:22px;
+    border-radius:18px;
+}
+
+.hospital-section.full{
+    grid-column:1/-1;
+}
+
+.hospital-section h4{
+    color:#14361D;
+    margin-bottom:12px;
+    font-size:18px;
+}
+
+.hospital-section p{
+    color:#666;
+    line-height:1.8;
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    word-break:break-word;
+}
+
+.hospital-section a{
+    color:#14361D;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.hospital-services{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.hospital-services span{
+    background:#14361D;
+    color:white;
+    padding:10px 16px;
+    border-radius:30px;
+    font-size:13px;
+}
+
+/* ========================================= */
+
+@keyframes popup{
+
+    from{
+        transform:translateY(35px) scale(.95);
+        opacity:0;
+    }
+
+    to{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+/* ========================================= */
+
+@media(max-width:900px){
+
+.hospital-page{
+padding:18px;
+}
+
+.hospital-hero{
+padding:40px 25px;
+}
+
+.hospital-hero h1{
+font-size:34px;
+}
+
+.hospital-grid{
+grid-template-columns:1fr;
+}
+
+.hospital-modal-grid{
+grid-template-columns:1fr;
+}
+
+.hospital-modal-content{
+padding:25px;
+}
+
+.hospital-modal-banner{
+height:240px;
+}
+
+}

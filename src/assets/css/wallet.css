@@ -1,0 +1,687 @@
+.patient-wallet-page{
+    width:100%;
+    min-height:100vh;
+    background:#f7f8fb;
+    display:grid;
+    grid-template-columns:2fr 340px;
+    gap:22px;
+    padding:22px;
+    box-sizing:border-box;
+    align-items:start;
+}
+
+/* LEFT */
+
+.wallet-left{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.wallet-card{
+    background:linear-gradient(135deg,var(--primary),#20552d);
+    color:#fff;
+    border-radius:16px;
+    padding:24px 28px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.wallet-card h2{
+    margin:0;
+    font-size:14px;
+    font-weight:500;
+    opacity:.9;
+}
+
+.wallet-card h1{
+    margin:10px 0 0;
+    font-size:34px;
+    font-weight:700;
+    letter-spacing:.5px;
+}
+
+.transaction-title{
+    margin:2px 0;
+    font-size:18px;
+    font-weight:600;
+    color:var(--darkGray);
+}
+
+.transaction-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.transaction-card{
+    background:#fff;
+    border-radius:14px;
+    padding:14px 18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border:1px solid #ececec;
+    transition:.25s;
+}
+
+.transaction-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+}
+
+.transaction-card h4{
+    margin:0;
+    font-size:15px;
+    font-weight:600;
+    color:var(--primary);
+}
+
+.transaction-card p{
+    margin:4px 0 0;
+    font-size:12px;
+    color:#888;
+}
+
+.credit,
+.debit{
+    font-size:16px;
+    font-weight:700;
+}
+
+.credit{
+    color:#17a34a;
+}
+
+.debit{
+    color:#dc2626;
+}
+
+.empty-transactions{
+    background:#fff;
+    border:1px dashed #ddd;
+    border-radius:14px;
+    padding:40px;
+    text-align:center;
+    color:#888;
+}
+
+/* RIGHT */
+
+.wallet-right{
+    position:sticky;
+    top:20px;
+}
+
+.add-money-card{
+    background:#fff;
+    border-radius:16px;
+    padding:22px;
+    border:1px solid #ececec;
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+}
+
+.add-money-card h2{
+    margin:0 0 18px;
+    font-size:18px;
+    color:var(--primary);
+}
+
+.add-money-card input{
+    width:100%;
+    height:46px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:0 14px;
+    font-size:15px;
+    outline:none;
+    transition:.25s;
+    box-sizing:border-box;
+}
+
+.add-money-card input:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 3px rgba(20,54,29,.08);
+}
+
+.add-money-card button{
+    width:100%;
+    height:46px;
+    margin-top:15px;
+    border:none;
+    border-radius:10px;
+    background:var(--primary);
+    color:#fff;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.add-money-card button:hover{
+    background:var(--secondary);
+}
+
+.add-money-card button:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+/* MODAL */
+
+.wallet-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.wallet-modal-content{
+    width:380px;
+    max-width:92%;
+    background:#fff;
+    border-radius:18px;
+    padding:24px;
+    animation:popup .25s ease;
+}
+
+@keyframes popup{
+    from{
+        opacity:0;
+        transform:translateY(15px) scale(.95);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.back-btn{
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:50%;
+    background:#f3f3f3;
+    cursor:pointer;
+    margin-bottom:18px;
+    transition:.25s;
+}
+
+.back-btn:hover{
+    background:var(--primary);
+    color:#fff;
+}
+
+.wallet-modal-content h2{
+    margin:0;
+    font-size:22px;
+    color:var(--primary);
+}
+
+.wallet-modal-content p{
+    margin:10px 0 24px;
+    color:#777;
+    font-size:14px;
+    line-height:1.5;
+}
+
+.paystack-btn{
+    width:100%;
+    height:64px;
+    border-radius:12px;
+    border:1px solid #ddd;
+    background:#fff;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.paystack-btn:hover{
+    border-color:var(--primary);
+    transform:translateY(-2px);
+}
+
+.paystack-btn img{
+    width:135px;
+    display:block;
+    margin:auto;
+}
+
+/* MOBILE */
+
+@media(max-width:992px){
+
+    .patient-wallet-page{
+        grid-template-columns:1fr;
+    }
+
+    .wallet-right{
+        position:static;
+        order:-1;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .patient-wallet-page{
+        padding:14px;
+        gap:16px;
+    }
+
+    .wallet-card{
+        padding:20px;
+    }
+
+    .wallet-card h1{
+        font-size:28px;
+    }
+
+    .transaction-card{
+        padding:12px 14px;
+    }
+
+    .transaction-card h4{
+        font-size:14px;
+    }
+
+    .credit,
+    .debit{
+        font-size:15px;
+    }
+
+}
+
+.transaction-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.see-more-btn{
+    text-decoration:none;
+    color:var(--primary);
+    font-size:14px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.see-more-btn:hover{
+    color:var(--secondary);
+}
+
+
+/*==================================================
+=                   WITHDRAW MODAL                 =
+==================================================*/
+
+.wallet-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(15,23,42,.55);
+    backdrop-filter:blur(8px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+    overflow-y:auto;
+    z-index:99999;
+}
+
+.withdraw-modal{
+    width:100%;
+    max-width:760px;
+    max-height:90vh;
+    overflow-y:auto;
+    background:#fff;
+    border-radius:28px;
+    box-shadow:0 30px 70px rgba(0,0,0,.25);
+    animation:popup .35s ease;
+}
+
+.withdraw-modal::-webkit-scrollbar{
+    width:8px;
+}
+
+.withdraw-modal::-webkit-scrollbar-thumb{
+    background:#d7d7d7;
+    border-radius:20px;
+}
+
+.withdraw-modal::-webkit-scrollbar-track{
+    background:transparent;
+}
+
+@keyframes popup{
+    from{
+        opacity:0;
+        transform:translateY(30px) scale(.95);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+/*=====================================
+=              HEADER                 =
+=====================================*/
+
+.withdraw-top{
+    background:linear-gradient(135deg,#14361D,#245533);
+    color:#fff;
+    padding:35px;
+    position:relative;
+    text-align:center;
+}
+
+.back-btn{
+    position:absolute;
+    left:25px;
+    top:25px;
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,.18);
+    color:#fff;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:17px;
+    transition:.3s;
+}
+
+.back-btn:hover{
+    background:#fff;
+    color:#14361D;
+}
+
+.withdraw-icon{
+    width:90px;
+    height:90px;
+    margin:auto;
+    border-radius:50%;
+    background:rgba(255,255,255,.18);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:38px;
+    margin-bottom:18px;
+}
+
+.withdraw-top h2{
+    margin:0;
+    font-size:32px;
+    font-weight:700;
+    color:#fff;
+}
+
+.withdraw-top p{
+    margin-top:12px;
+    color:rgba(255,255,255,.88);
+    font-size:15px;
+    line-height:1.7;
+    max-width:520px;
+    margin-inline:auto;
+}
+
+/*=====================================
+=              BODY                   =
+=====================================*/
+
+.withdraw-body{
+    padding:35px;
+}
+
+.withdraw-balance-card{
+    background:linear-gradient(135deg,#1b4b28,#2f7043);
+    color:#fff;
+    border-radius:20px;
+    padding:28px;
+    margin-bottom:30px;
+    box-shadow:0 15px 35px rgba(20,54,29,.15);
+}
+
+.withdraw-balance-card span{
+    display:block;
+    font-size:14px;
+    opacity:.85;
+    letter-spacing:.4px;
+}
+
+.withdraw-balance-card h3{
+    margin:10px 0 0;
+    font-size:22px;
+    font-weight:700;
+}
+
+/*=====================================
+=            INPUT GROUP              =
+=====================================*/
+
+.withdraw-input-group{
+    margin-bottom:28px;
+}
+
+.withdraw-input-group label{
+    display:block;
+    margin-bottom:10px;
+    font-size:15px;
+    font-weight:600;
+    color:#333;
+}
+
+.withdraw-input-group input{
+    width:100%;
+    height:60px;
+    border:2px solid #e4e4e4;
+    border-radius:15px;
+    padding:0 20px;
+    font-size:24px;
+    font-weight:700;
+    transition:.3s;
+    box-sizing:border-box;
+}
+
+.withdraw-input-group input::placeholder{
+    color:#b7b7b7;
+    font-weight:500;
+}
+
+.withdraw-input-group input:focus{
+    outline:none;
+    border-color:#14361D;
+    box-shadow:0 0 0 5px rgba(20,54,29,.08);
+}
+
+/*=====================================
+=            BANK DETAILS             =
+=====================================*/
+
+.bank-details-card{
+    border:1px solid #ececec;
+    border-radius:18px;
+    overflow:hidden;
+    margin-bottom:25px;
+}
+
+.bank-details-card h4{
+    margin:0;
+    background:#f7f8fa;
+    padding:18px 22px;
+    color:#14361D;
+    font-size:17px;
+    font-weight:700;
+}
+
+.bank-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 22px;
+    border-top:1px solid #ececec;
+}
+
+.bank-row span{
+    color:#777;
+    font-size:14px;
+}
+
+.bank-row strong{
+    color:#222;
+    font-size:16px;
+    font-weight:600;
+    text-align:right;
+}
+
+.withdraw-note{
+    background:#FFF8E7;
+    border-left:5px solid #F4B400;
+    padding:18px;
+    border-radius:14px;
+    color:#6a5600;
+    line-height:1.7;
+    font-size:14px;
+    margin-bottom:30px;
+}
+
+/*=====================================
+=              BUTTONS                =
+=====================================*/
+
+.withdraw-actions{
+    display:flex;
+    gap:15px;
+}
+
+.cancel-withdraw-btn{
+    flex:1;
+    height:58px;
+    border:2px solid #ddd;
+    background:#fff;
+    border-radius:14px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.cancel-withdraw-btn:hover{
+    background:#f4f4f4;
+}
+
+.submit-withdraw-btn{
+    flex:2;
+    height:58px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(135deg,#14361D,#245533);
+    color:#fff;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.submit-withdraw-btn:hover:not(:disabled){
+    transform:translateY(-2px);
+    box-shadow:0 15px 30px rgba(20,54,29,.25);
+}
+
+.submit-withdraw-btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+
+
+
+.wallet-withdraw-btn{
+    margin-top:24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+
+    width:100%;
+    height:56px;
+
+    border:none;
+    border-radius:16px;
+
+    background:linear-gradient(135deg,#ffffff,#f5f7fa);
+    color:var(--primary);
+
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:.3px;
+
+    cursor:pointer;
+    transition:all .3s ease;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.12),
+        inset 0 1px 0 rgba(255,255,255,.8);
+}
+
+.wallet-withdraw-btn svg{
+    font-size:20px;
+    transition:.3s ease;
+}
+
+.wallet-withdraw-btn:hover{
+    transform:translateY(-3px);
+    background:linear-gradient(135deg,#fff,#eef7f0);
+    box-shadow:
+        0 16px 35px rgba(0,0,0,.18);
+}
+
+.wallet-withdraw-btn:hover svg{
+    transform:translateX(4px);
+}
+
+.wallet-withdraw-btn:active{
+    transform:translateY(0);
+    box-shadow:
+        0 6px 15px rgba(0,0,0,.12);
+}
+
+.wallet-withdraw-btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    transform:none;
+    box-shadow:none;
+}
+
+.wallet-withdraw-btn::after{
+    content:"→";
+    font-size:18px;
+    font-weight:700;
+    margin-left:2px;
+    transition:.3s ease;
+}
+
+.wallet-withdraw-btn:hover::after{
+    transform:translateX(5px);
+}
+
+.input-error {
+    border: 1px solid #dc2626 !important;
+    background: #fff5f5;
+}
+
+.input-error:focus {
+    border-color: #dc2626 !important;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, .15);
+}
+
+.form-error {
+    display: block;
+    margin-top: 6px;
+    color: #dc2626;
+    font-size: 13px;
+    font-weight: 500;
+}

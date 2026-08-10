@@ -1,0 +1,390 @@
+.pharmacy-orders-page {
+    padding: 30px;
+    background: #f5f7f8;
+    min-height: 100vh;
+}
+
+.pharmacy-orders-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.pharmacy-order-search-card,
+.pharmacy-order-card,
+.pharmacy-medicine-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+.pharmacy-order-search-card h3,
+.pharmacy-order-card h3,
+.pharmacy-medicine-card h3 {
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.pharmacy-order-search {
+    display: flex;
+    gap: 15px;
+}
+
+.pharmacy-order-search input {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 14px;
+}
+
+.pharmacy-order-search button {
+    border: none;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 10px;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.pharmacy-order-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 20px;
+}
+
+.pharmacy-order-info div {
+    background: #fafafa;
+    border-left: 4px solid var(--secondary);
+    border-radius: 10px;
+    padding: 18px;
+}
+
+.pharmacy-order-info svg {
+    color: var(--secondary);
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.pharmacy-order-info span {
+    display: block;
+    color: gray;
+    font-size: 13px;
+}
+
+.pharmacy-order-info strong {
+    display: block;
+    margin-top: 6px;
+    color: var(--primary);
+}
+
+.pending {
+    color: #d97706;
+}
+
+.pharmacy-medicine-card table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.pharmacy-medicine-card th {
+    background: var(--primary);
+    color: white;
+    padding: 15px;
+}
+
+.pharmacy-medicine-card td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.pharmacy-order-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.reject-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+}
+
+.approve-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+}
+
+
+/* ==========================================================
+   PHARMACY ORDERS TABLE
+========================================================== */
+
+.pharmacy-table-wrapper {
+    width: 100%;
+    overflow-y: auto;
+    max-height: 520px;
+    border-radius: 15px;
+    border: 1px solid #e5e7eb;
+}
+
+/* Custom scrollbar */
+.pharmacy-table-wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+.pharmacy-table-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.pharmacy-table-wrapper::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+
+.pharmacy-orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    table-layout: fixed;
+}
+
+
+/* Header */
+
+.pharmacy-orders-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+
+.pharmacy-orders-table th {
+    background: var(--primary);
+    color: #ffffff;
+    padding: 15px;
+    font-size: 14px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+
+/* Body */
+
+.pharmacy-orders-table td {
+    padding: 14px;
+    border-bottom: 1px solid #eeeeee;
+    color: #374151;
+    font-size: 14px;
+    vertical-align: middle;
+    word-wrap: break-word;
+}
+
+
+.pharmacy-orders-table tbody tr {
+    transition: .2s ease;
+}
+
+
+.pharmacy-orders-table tbody tr:hover {
+    background: rgba(20,54,29,.04);
+}
+
+
+/* User information */
+
+.table-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.table-user svg {
+    color: var(--secondary);
+    font-size: 18px;
+}
+
+
+.table-user strong {
+    display: block;
+    color: var(--primary);
+    font-size: 14px;
+}
+
+
+.table-user small {
+    display: block;
+    color: #777;
+    margin-top: 3px;
+}
+
+
+/* Status */
+
+.appointment-status,
+.prescription-ready,
+.prescription-dispensed {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+.appointment-status {
+    background: rgba(133,100,67,.15);
+    color: var(--secondary);
+}
+
+
+.prescription-ready {
+    background: rgba(20,54,29,.12);
+    color: var(--primary);
+}
+
+
+.prescription-dispensed {
+    background: #e5e7eb;
+    color: #555;
+}
+
+
+/* Buttons */
+
+.view-medication-btn,
+.dispense-btn {
+    border: none;
+    border-radius: 10px;
+    padding: 9px 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .25s;
+}
+
+
+.view-medication-btn {
+    background: var(--secondary);
+    color: white;
+}
+
+
+.view-medication-btn:hover {
+    opacity: .85;
+}
+
+
+.dispense-btn {
+    background: var(--primary);
+    color: white;
+}
+
+
+.dispense-btn:hover {
+    opacity: .9;
+}
+
+
+.dispense-btn.disabled,
+.dispense-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+
+
+/* ==========================================================
+   MOBILE RESPONSIVENESS
+========================================================== */
+
+@media(max-width:900px){
+
+    .pharmacy-order-card {
+        padding: 15px;
+    }
+
+
+    .pharmacy-orders-table {
+        min-width: 850px;
+    }
+
+
+    .pharmacy-table-wrapper {
+        overflow-x: auto;
+    }
+
+}
+
+
+
+@media(max-width:600px){
+
+    .pharmacy-orders-page {
+        padding: 15px;
+    }
+
+
+    .pharmacy-order-search {
+        flex-direction: column;
+    }
+
+
+    .pharmacy-order-search button {
+        height: 45px;
+        justify-content: center;
+    }
+
+}
+
+/* ==========================================================
+   PATIENT SUMMARY
+========================================================== */
+
+.pharmacy-patient-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    background: rgba(20,54,29,.05);
+    border-left: 5px solid var(--primary);
+    padding: 18px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+}
+
+
+.pharmacy-patient-summary div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.pharmacy-patient-summary span {
+    font-size: 13px;
+    color: #777;
+}
+
+
+.pharmacy-patient-summary strong {
+    color: var(--primary);
+    font-size: 16px;
+}

@@ -1,0 +1,416 @@
+/* ==========================================================
+   DOCTORS PAGE
+========================================================== */
+
+.doctor-page {
+    min-height: 100vh;
+    background: #f5f7f8;
+    padding: 35px 0 60px;
+}
+
+.doctor-page-header {
+    margin-bottom: 22px;
+}
+
+.doctor-page-header h2 {
+    color: #14361D;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.doctor-page-header p {
+    color: #777;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ==========================================================
+   LOADING
+========================================================== */
+
+.doctor-loading {
+    min-height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.doctor-loading svg {
+    font-size: 42px;
+    color: #14361D;
+    margin-bottom: 18px;
+}
+
+.spin {
+    animation: spin .9s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==========================================================
+   SEARCH
+========================================================== */
+
+.doctor-search-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.doctor-search-wrapper input {
+    width: 100%;
+    height: 54px;
+    border: none;
+    border-radius: 14px;
+    background: #fff;
+    padding: 0 20px 0 52px;
+    font-size: 14px;
+    box-shadow: 0 8px 20px rgba(20,54,29,.08);
+    transition: .3s;
+}
+
+.doctor-search-wrapper input:focus {
+    outline: none;
+    box-shadow: 0 10px 25px rgba(20,54,29,.15);
+}
+
+.doctor-search-icon {
+    position: absolute;
+    left: 18px;
+    top: 19px;
+    color: #888;
+    font-size: 16px;
+}
+
+/* ==========================================================
+   FILTER
+========================================================== */
+
+.doctor-filter-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.doctor-filter-btn {
+    border: none;
+    background: #fff;
+    color: #14361D;
+    border-radius: 50px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: .3s;
+    box-shadow: 0 5px 16px rgba(20,54,29,.08);
+}
+
+.doctor-filter-btn:hover,
+.doctor-filter-btn.active {
+    background: #14361D;
+    color: #fff;
+}
+
+/* ==========================================================
+   RESULT
+========================================================== */
+
+.doctor-result-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.doctor-result-count {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #14361D;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.doctor-result-count svg {
+    color: #856443;
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+
+.doctor-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: .3s;
+    box-shadow: 0 8px 22px rgba(20,54,29,.08);
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 30px rgba(20,54,29,.15);
+}
+
+.doctor-disabled {
+    opacity: .55;
+}
+
+/* ==========================================================
+   IMAGE
+========================================================== */
+
+.doctor-card-image {
+    position: relative;
+}
+
+.doctor-card-image img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    display: block;
+}
+
+.doctor-placeholder {
+    height: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #edf4ef;
+    color: #14361D;
+    font-size: 55px;
+}
+
+.doctor-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 6px 12px;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.doctor-badge.available {
+    background: #198754;
+}
+
+.doctor-badge.unavailable {
+    background: #dc3545;
+}
+
+/* ==========================================================
+   BODY
+========================================================== */
+
+.doctor-card-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.doctor-card-body h5 {
+    color: #14361D;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    line-height: 1.35;
+}
+
+.doctor-specialization {
+    color: #856443;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* ==========================================================
+   RATING
+========================================================== */
+
+.doctor-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.doctor-stars {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.doctor-stars svg {
+    font-size: 15px;
+}
+
+.doctor-stars .filled-star {
+    color: #FFC107 !important;
+}
+
+.doctor-stars .empty-star {
+    color: #d8d8d8 !important;
+}
+
+.doctor-rating-value {
+    color: #14361D;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* ==========================================================
+   BUTTON
+========================================================== */
+
+.doctor-view-btn {
+    width: 100%;
+    height: 42px;
+    border: none;
+    border-radius: 10px;
+    background: #14361D;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: auto;
+    transition: .3s;
+}
+
+.doctor-view-btn:hover:not(:disabled) {
+    background: #856443;
+}
+
+.doctor-view-btn.disabled,
+.doctor-view-btn:disabled {
+    background: #d7d7d7;
+    color: #777;
+    cursor: not-allowed;
+}
+
+/* ==========================================================
+   EMPTY
+========================================================== */
+
+.doctor-empty {
+    background: #fff;
+    border-radius: 18px;
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(20,54,29,.08);
+}
+
+.doctor-empty svg {
+    font-size: 55px;
+    color: #14361D;
+    margin-bottom: 15px;
+}
+
+.doctor-empty h3 {
+    color: #14361D;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.doctor-empty p {
+    color: #777;
+    margin: 0;
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:991px) {
+
+    .doctor-page-header h2 {
+        font-size: 26px;
+    }
+
+    .doctor-card-image img,
+    .doctor-placeholder {
+        height: 160px;
+    }
+}
+
+@media (max-width:767px) {
+
+    .doctor-page {
+        padding: 20px 0 40px;
+    }
+
+    .doctor-card-image img,
+    .doctor-placeholder {
+        height: 180px;
+    }
+
+    .doctor-filter-wrapper {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+    }
+
+    .doctor-filter-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+
+    .doctor-filter-btn {
+        white-space: nowrap;
+    }
+
+    .doctor-result-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+
+.doctor-status {
+    margin: 10px 0 18px;
+}
+
+.verified-text {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: #eafaf0;
+    color: #198754;
+    font-weight: 600;
+    font-size: .85rem;
+}
+
+.not-verified-text {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: #fff3cd;
+    color: #856404;
+    font-weight: 600;
+    font-size: .85rem;
+}
+
+.doctor-disabled {
+    opacity: .7;
+    filter: grayscale(.25);
+}
+
+.doctor-view-btn.disabled {
+    cursor: not-allowed;
+    background: #c9c9c9;
+    color: #666;
+}

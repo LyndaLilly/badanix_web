@@ -1,0 +1,151 @@
+/* ==========================================================
+   DOCTOR RATING
+========================================================== */
+
+.doctor-rating-page{
+    min-height:100vh;
+    background:#f5f7f9;
+    display:flex;
+    align-items:center;
+    padding:60px 0;
+}
+
+.doctor-rating-card{
+    max-width:720px;
+    margin:auto;
+    background:#fff;
+    border-radius:24px;
+    padding:45px;
+    box-shadow:0 15px 45px rgba(20,54,29,.08);
+}
+
+.doctor-rating-header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.doctor-rating-icon{
+    width:90px;
+    height:90px;
+    margin:auto;
+    border-radius:50%;
+    background:#eef7ef;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.doctor-rating-header h2{
+    color:#14361D;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.doctor-rating-header p{
+    color:#777;
+    max-width:520px;
+    margin:auto;
+}
+
+.doctor-summary{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    background:#f8faf9;
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:35px;
+}
+
+.doctor-summary-avatar{
+    width:75px;
+    height:75px;
+    border-radius:18px;
+    background:#14361D;
+    color:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:34px;
+}
+
+.doctor-summary h4{
+    margin-bottom:4px;
+    color:#14361D;
+    font-weight:700;
+}
+
+.doctor-summary span{
+    color:#777;
+}
+
+.rating-stars{
+    display:flex;
+    justify-content:center;
+    gap:18px;
+    margin-bottom:35px;
+}
+
+.rating-stars svg{
+    font-size:48px;
+    color:#ddd;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.rating-stars svg:hover{
+    transform:scale(1.15);
+}
+
+.active-star{
+    color:#ffc107 !important;
+}
+
+.doctor-review{
+    min-height:140px;
+    border-radius:14px;
+    margin-bottom:30px;
+}
+
+.doctor-rating-actions{
+    display:flex;
+    justify-content:flex-end;
+    gap:15px;
+}
+
+.doctor-rating-actions .btn{
+    min-width:170px;
+    padding:12px;
+    font-weight:600;
+}
+
+@media(max-width:768px){
+
+    .doctor-rating-card{
+        padding:25px;
+    }
+
+    .doctor-summary{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .rating-stars{
+        gap:10px;
+    }
+
+    .rating-stars svg{
+        font-size:38px;
+    }
+
+    .doctor-rating-actions{
+        flex-direction:column;
+    }
+
+    .doctor-rating-actions .btn{
+        width:100%;
+    }
+
+}

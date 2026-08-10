@@ -1,0 +1,294 @@
+.patient-verify-page {
+    background: #f5f7f9;
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+/* MAIN CONTAINER */
+
+.patient-verify-container {
+    max-width: 1200px;
+    min-height: 720px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .12);
+}
+
+/* LEFT SIDE */
+
+.patient-verify-image-section {
+    position: relative;
+    height: 720px;
+    overflow: hidden;
+}
+
+.patient-verify-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transform: scale(1.08);
+    transition: transform .5s ease;
+}
+
+.patient-verify-image-section:hover .patient-verify-image {
+    transform: scale(1.12);
+}
+
+.patient-verify-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(20, 54, 29, .72),
+            rgba(20, 54, 29, .50));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding: 70px;
+}
+
+.patient-verify-overlay h1 {
+    font-size: 3.3rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+}
+
+.patient-verify-overlay p {
+    max-width: 430px;
+    margin: auto;
+    line-height: 1.9;
+    font-size: 1.1rem;
+}
+
+/* RIGHT SIDE */
+
+.patient-verify-form-wrapper {
+    height: 720px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    padding: 45px;
+}
+
+.patient-verify-card {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    background: transparent;
+    padding: 10px;
+    box-shadow: none;
+}
+
+/* BACK BUTTON */
+
+.patient-verify-back-btn {
+    position: absolute;
+    left: 0;
+    top: -20px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: #eef5ef;
+    color: #14361D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+
+.patient-verify-back-btn:hover {
+    background: #14361D;
+    color: #fff;
+}
+
+/* ICON */
+
+.patient-verify-icon {
+    width: 95px;
+    height: 95px;
+    margin: auto;
+    border-radius: 50%;
+    background: rgba(20, 54, 29, .08);
+    color: #14361D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.6rem;
+}
+
+/* TITLES */
+
+.patient-verify-card h2 {
+    text-align: center;
+    color: #14361D;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.patient-verify-subtitle {
+    text-align: center;
+    color: #666;
+    line-height: 1.8;
+    margin: 20px 0 35px;
+}
+
+.patient-verify-subtitle strong {
+    color: #14361D;
+    word-break: break-word;
+}
+
+/* OTP */
+
+.patient-otp-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.patient-otp-input {
+    width: 60px;
+    height: 65px;
+    border: 2px solid #dee2e6;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    outline: none;
+    transition: .3s;
+}
+
+.patient-otp-input:focus {
+    border-color: #14361D;
+    box-shadow: 0 0 0 .2rem rgba(20, 54, 29, .12);
+}
+
+.patient-countdown {
+    color: #14361D;
+    font-weight: 700;
+}
+
+/* BUTTON */
+
+.patient-verify-btn {
+    height: 56px;
+    border-radius: 12px;
+    background: #14361D !important;
+    border: 1px solid #14361D !important;
+    color: #fff !important;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.patient-verify-btn:hover {
+    background: #0f2916 !important;
+    border-color: #0f2916 !important;
+}
+
+.patient-verify-btn:focus,
+.patient-verify-btn:active {
+    background: #14361D !important;
+    border-color: #14361D !important;
+    box-shadow: none !important;
+}
+
+.patient-verify-btn:disabled {
+    opacity: .8;
+}
+
+/* RESEND */
+
+.patient-resend-btn {
+    color: #14361D;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.patient-resend-btn:hover {
+    color: #14361D;
+    text-decoration: underline;
+}
+
+/* LOGIN LINK */
+
+.patient-register-login-link {
+    color: #14361D;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.patient-register-login-link:hover {
+    text-decoration: underline;
+}
+
+/* HR */
+
+.patient-verify-card hr {
+    margin: 35px 0;
+    opacity: .15;
+}
+
+/* MOBILE */
+
+@media (max-width:991px) {
+
+    .patient-verify-page {
+        padding: 0;
+    }
+
+    .patient-verify-container {
+        min-height: 100vh;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .patient-verify-form-wrapper {
+        height: auto;
+        min-height: 100vh;
+        padding: 35px 25px;
+    }
+
+    .patient-verify-card {
+        max-width: 100%;
+    }
+
+    .patient-verify-card h2 {
+        font-size: 2rem;
+    }
+
+    .patient-verify-back-btn {
+        top: -5px;
+    }
+
+}
+
+@media (max-width:576px) {
+
+    .patient-otp-container {
+        gap: 8px;
+    }
+
+    .patient-otp-input {
+        width: 46px;
+        height: 52px;
+        font-size: 22px;
+    }
+
+    .patient-verify-icon {
+        width: 75px;
+        height: 75px;
+        font-size: 2rem;
+    }
+
+    .patient-verify-card h2 {
+        font-size: 1.8rem;
+    }
+
+}

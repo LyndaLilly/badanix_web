@@ -1,0 +1,203 @@
+/* ==========================
+   Notification Wrapper
+========================== */
+
+.notification-wrapper {
+    position: relative;
+}
+
+/* ==========================
+   Dropdown
+========================== */
+
+.notification-dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 360px;
+    max-height: 420px;
+    overflow-y: auto;
+    background: var(--white);
+    border: 1px solid rgba(20,54,29,.08);
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,.12);
+    z-index: 999;
+}
+
+.notification-dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+
+.notification-dropdown::-webkit-scrollbar-thumb {
+    background: var(--gray);
+    border-radius: 20px;
+}
+
+.notification-header {
+    background: var(--primary);
+    color: var(--white);
+    padding: 15px 20px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.notification-empty {
+    padding: 35px 20px;
+    text-align: center;
+    color: var(--gray);
+}
+
+/* ==========================
+   Notification Item
+========================== */
+
+.notification-item {
+    padding: 15px 18px;
+    border-bottom: 1px solid var(--lightGray);
+    cursor: pointer;
+    transition: .25s ease;
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-item:hover {
+    background: rgba(20,54,29,.05);
+}
+
+.notification-item strong {
+    display: block;
+    color: var(--primary);
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.notification-item p {
+    margin-bottom: 8px;
+    color: var(--darkGray);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.notification-item small {
+    color: var(--gray);
+    font-size: 12px;
+}
+
+/* unread */
+
+.notification-item.unread {
+    background: rgba(133,100,67,.08);
+    border-left: 5px solid var(--secondary);
+}
+
+/* read */
+
+.notification-item.read {
+    background: var(--white);
+    opacity: .8;
+}
+
+/* ==========================
+   Modal
+========================== */
+
+.notification-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    animation: notificationFade .2s ease;
+}
+
+.notification-modal {
+    width: 92%;
+    max-width: 520px;
+    background: var(--white);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 20px 45px rgba(0,0,0,.18);
+    animation: notificationScale .25s ease;
+}
+
+.notification-modal h4 {
+    color: var(--primary);
+    font-weight: 700;
+    margin: 0;
+}
+
+.notification-modal p {
+    margin: 20px 0;
+    color: var(--darkGray);
+    line-height: 1.8;
+}
+
+.notification-modal small {
+    color: var(--gray);
+}
+
+.notification-modal .btn-primary {
+    background: var(--primary);
+    border-color: var(--primary);
+    border-radius: 8px;
+    min-width: 100px;
+}
+
+.notification-modal .btn-primary:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+}
+
+.notification-modal .btn-close:focus {
+    box-shadow: none;
+}
+
+/* ==========================
+   Badge
+========================== */
+
+.notification-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--red);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* ==========================
+   Animations
+========================== */
+
+@keyframes notificationFade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes notificationScale {
+    from {
+        opacity: 0;
+        transform: scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

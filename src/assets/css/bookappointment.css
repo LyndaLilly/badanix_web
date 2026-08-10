@@ -1,0 +1,240 @@
+.book-appointment-page {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.book-appointment-page h2 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #14361d;
+  margin-bottom: 25px;
+}
+
+.appointment-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #14361d;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  font-size: 15px;
+  transition: 0.3s;
+  background: #fff;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #14361d;
+  box-shadow: 0 0 0 3px rgba(20, 54, 29, 0.1);
+}
+
+.form-group input[readonly] {
+  background: #f5f5f5;
+  color: #555;
+  cursor: not-allowed;
+}
+
+.book-btn {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: #14361d;
+  color: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.book-btn:hover:not(:disabled) {
+  background: #0d2815;
+}
+
+.book-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.doctor-back-btn {
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  background: #14361d;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.doctor-back-btn:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .book-appointment-page {
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .book-appointment-page h2 {
+    font-size: 24px;
+  }
+
+  .appointment-card {
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .book-btn {
+    font-size: 15px;
+    padding: 14px;
+  }
+}
+
+.calendar-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.calendar-card{
+    width:420px;
+    max-width:95%;
+    background:#fff;
+    border-radius:15px;
+    padding:20px;
+}
+
+.calendar-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.calendar-header button{
+    background:none;
+    border:none;
+    font-size:22px;
+    cursor:pointer;
+}
+
+.calendar-week,
+.calendar-grid{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:10px;
+}
+
+.calendar-week span{
+    text-align:center;
+    font-weight:600;
+}
+
+.calendar-day{
+    height:45px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.calendar-day.disabled{
+    background:#f2f2f2;
+    color:#bbb;
+    cursor:not-allowed;
+}
+
+.calendar-day.available{
+    background: var(--primary);
+    color: #fff;
+    cursor: pointer;
+}
+
+.calendar-day.selected{
+    border:3px solid #000;
+}
+
+.calendar-close{
+    width:100%;
+    margin-top:20px;
+}
+
+.calendar-day{
+    height:45px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:8px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.calendar-day.available{
+    background:var(--primary);
+    color:#fff;
+    cursor:pointer;
+}
+
+.calendar-day.available:hover{
+    opacity:.9;
+}
+
+.calendar-day.unavailable{
+    background:#d32f2f;
+    color:#fff;
+    cursor:not-allowed;
+    opacity:.8;
+}
+
+.calendar-day.selected{
+    outline:3px solid #000;
+}

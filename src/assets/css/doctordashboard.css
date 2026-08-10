@@ -1,0 +1,1164 @@
+.doctor-dashboard {
+  padding: 20px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.doctor-welcome h3 {
+  font-size: 18px;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.doctor-welcome p {
+  font-size: 13px;
+}
+
+.availability-card {
+  background: #14361d;
+  color: white;
+  /* height: 60px; */
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.availability-card svg {
+  font-size: 25px;
+  margin-right: 15px;
+}
+
+.availability-card h5 {
+  font-size: 13px;
+  margin: 0;
+}
+
+.availability-card p {
+  font-size: 11px;
+  margin: 0;
+}
+
+.dashboard-stat {
+  background: white;
+  height: 130px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 1px 4px #ddd;
+}
+
+.dashboard-stat p {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.dashboard-stat h3 {
+  font-size: 22px;
+}
+
+.dashboard-box {
+  background: white;
+  border-radius: 5px;
+  padding: 20px;
+  min-height: 150px;
+  box-shadow: 0 1px 4px #ddd;
+}
+
+.box-title {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.box-title h5 {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.empty-request {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+.wallet-income {
+  background: #fafafa;
+  padding: 15px;
+}
+
+.wallet-income h3 {
+  margin: 0;
+}
+
+.wallet-footer {
+  background: #f1f1f1;
+  padding: 10px;
+  font-size: 12px;
+}
+
+.wallet-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.wallet-actions button {
+  background: #14361d;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 12px;
+}
+
+.wallet-actions button:last-child {
+  background: #856443;
+}
+
+.skeleton-box {
+  height: 130px;
+
+  background: linear-gradient(#eee 10px, transparent 10px);
+}
+
+.large {
+  height: 220px;
+}
+
+/* ===========================
+   AVAILABILITY CARD
+=========================== */
+
+.availability-card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+
+  padding: 28px 30px;
+
+  border: none;
+  border-radius: 18px;
+
+  background: var(--primary);
+  color: var(--white);
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  text-align: left;
+}
+
+.availability-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.18);
+}
+
+.availability-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.availability-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+
+  font-size: 1.8rem;
+
+  flex-shrink: 0;
+}
+
+.availability-text h5 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.availability-text p {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 550px;
+}
+
+.availability-arrow {
+  font-size: 1.4rem;
+  opacity: 0.9;
+  transition: transform 0.3s ease;
+}
+
+.availability-card:hover .availability-arrow {
+  transform: translateX(6px);
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 768px) {
+  .availability-card {
+    padding: 22px;
+    gap: 18px;
+  }
+
+  .availability-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .availability-text h5 {
+    font-size: 1rem;
+  }
+
+  .availability-text p {
+    font-size: 0.88rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .availability-card {
+    align-items: flex-start;
+  }
+
+  .availability-left {
+    align-items: flex-start;
+  }
+
+  .availability-arrow {
+    align-self: center;
+  }
+}
+
+/* ===========================
+   Appointment request
+=========================== */
+
+.appointment-request-box {
+  height: 100%;
+}
+
+.request-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.request-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 15px;
+  border: 1px solid #eee;
+  transition: 0.3s ease;
+}
+
+.request-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.request-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.patient-avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #14361d;
+}
+
+.patient-info {
+  flex: 1;
+}
+
+.patient-info h6 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.patient-info span {
+  font-size: 13px;
+  color: #777;
+}
+
+.pending-badge {
+  background: #fff3cd;
+  color: #856404;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.request-body {
+  margin-top: 15px;
+  display: grid;
+  gap: 10px;
+}
+
+.request-body small {
+  color: #777;
+  font-size: 12px;
+}
+
+.request-body p {
+  margin: 3px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.request-purpose,
+.request-date {
+  background: #f8f9f8;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* ==============================
+   UPCOMING APPOINTMENT - FEATURE CARD
+============================== */
+
+.upcoming-appointment {
+  background: #fff;
+
+  margin-bottom: 30px;
+
+  border-radius: 20px;
+
+  padding: 25px;
+
+  height: 100%;
+
+  box-shadow: 0 10px 35px rgba(20, 54, 29, 0.15);
+
+  border: 1px solid rgba(133, 100, 67, 0.15);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* top accent */
+
+.upcoming-appointment::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 5px;
+
+  background: #856443;
+}
+
+.upcoming-appointment .box-title h5 {
+  font-size: 17px;
+
+  color: #14361d;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+/* CARD */
+
+.upcoming-card {
+  border-radius: 18px;
+
+  background: linear-gradient(135deg, #14361d, #214f2b);
+
+  padding: 25px;
+
+  color: white;
+
+  box-shadow: 0 12px 30px rgba(20, 54, 29, 0.35);
+
+  position: relative;
+}
+
+/* badge */
+
+.upcoming-card::before {
+  content: "NEXT CONSULTATION";
+
+  position: absolute;
+
+  top: 18px;
+
+  right: 18px;
+
+  background: #856443;
+
+  color: white;
+
+  padding: 6px 12px;
+
+  border-radius: 20px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+}
+
+/* HEADER */
+
+.upcoming-header {
+  margin-top: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+}
+
+.upcoming-header h4 {
+  font-size: 22px;
+
+  margin-bottom: 5px;
+}
+
+.upcoming-header span {
+  font-size: 14px;
+
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* IMAGE */
+
+.upcoming-header .appointment-avatar {
+  width: 80px;
+
+  height: 80px;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  background: #856443;
+
+  border: 4px solid white;
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* INFO */
+
+.upcoming-info {
+  margin-top: 25px;
+
+  gap: 15px;
+}
+
+.upcoming-info div {
+  background: rgba(255, 255, 255, 0.15);
+
+  padding: 14px 16px;
+
+  border-radius: 14px;
+  margin-bottom: 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.upcoming-info svg {
+  color: white;
+
+  font-size: 20px;
+}
+
+.upcoming-info span {
+  font-size: 15px;
+
+  font-weight: 600;
+}
+
+/* BUTTON */
+
+.upcoming-card .join-video-btn {
+  margin-top: 25px;
+
+  background: #856443;
+
+  color: white;
+
+  padding: 15px;
+
+  border-radius: 14px;
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.upcoming-card .join-video-btn:hover {
+  background: #6d5134;
+
+  transform: translateY(-3px);
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+  .upcoming-card::before {
+    position: static;
+
+    display: inline-block;
+
+    margin-bottom: 15px;
+  }
+
+  .upcoming-header h4 {
+    font-size: 18px;
+  }
+}
+
+/* ==============================
+   VIDEO CONSULTATION BUTTON
+============================== */
+
+.upcoming-card .join-video-btn {
+  width: 100%;
+
+  margin-top: 25px;
+
+  background: linear-gradient(135deg, #856443, #a77b4d);
+
+  color: white;
+
+  border: none;
+
+  padding: 15px 20px;
+
+  border-radius: 14px;
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.3px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  cursor: pointer;
+
+  position: relative;
+
+  overflow: hidden;
+
+  box-shadow: 0 8px 20px rgba(133, 100, 67, 0.35);
+
+  transition: 0.3s ease;
+}
+
+/* video icon */
+
+.upcoming-card .join-video-btn svg {
+  font-size: 20px;
+
+  background: rgba(255, 255, 255, 0.2);
+
+  padding: 8px;
+
+  border-radius: 50%;
+
+  box-sizing: content-box;
+}
+
+/* hover */
+
+.upcoming-card .join-video-btn:hover {
+  transform: translateY(-3px);
+
+  background: linear-gradient(135deg, #14361d, #1f512b);
+
+  box-shadow: 0 12px 25px rgba(20, 54, 29, 0.4);
+}
+
+/* click */
+
+.upcoming-card .join-video-btn:active {
+  transform: scale(0.97);
+}
+
+/* shine animation */
+
+.upcoming-card .join-video-btn::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: -100%;
+
+  width: 60%;
+
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+
+  transition: 0.5s;
+}
+
+.upcoming-card .join-video-btn:hover::before {
+  left: 130%;
+}
+
+.consultation-badge {
+  position: absolute;
+
+  top: 18px;
+
+  right: 18px;
+
+  background: #856443;
+
+  color: white;
+
+  padding: 6px 12px;
+
+  border-radius: 20px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+.upcoming-card {
+  position: relative;
+}
+
+.join-video-btn.disabled {
+  background: #777;
+
+  cursor: not-allowed;
+
+  opacity: 0.7;
+}
+
+/* SEE ALL BUTTON */
+
+.see-all-btn {
+  background: transparent;
+
+  border: none;
+
+  color: #856443;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  padding: 5px 10px;
+
+  border-radius: 8px;
+
+  transition: 0.3s ease;
+}
+
+.see-all-btn:hover {
+  background: #856443;
+
+  color: white;
+}
+
+/* ===========================
+   DASHBOARD STATS
+=========================== */
+
+.dashboard-stats .stat-card {
+  min-height: 150px;
+
+  border-radius: 18px;
+
+  padding: 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+
+  transition: 0.3s ease;
+
+  color: white !important;
+
+  overflow: hidden;
+}
+
+.dashboard-stats .stat-card:hover {
+  transform: translateY(-5px);
+}
+
+/* BALANCE CARD */
+
+.dashboard-stats .balance-card {
+  background: #14361d !important;
+}
+
+/* PATIENT CARD */
+
+.dashboard-stats .patients-card {
+  background: #856443 !important;
+}
+
+/* ICON */
+
+.dashboard-stats .stat-icon {
+  width: 70px;
+
+  height: 70px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.2);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: white;
+
+  font-size: 30px;
+}
+
+.dashboard-stats .stat-content p {
+  margin: 0;
+
+  color: white !important;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+.dashboard-stats .stat-content h3 {
+  margin: 8px 0;
+
+  color: white !important;
+
+  font-size: 32px;
+
+  font-weight: 800;
+}
+
+.dashboard-stats .stat-content span {
+  color: white !important;
+
+  opacity: 0.8;
+
+  font-size: 13px;
+}
+
+/* ==========================
+   APPOINTMENT REQUESTS
+========================== */
+
+.appointment-request-box {
+  background: #fff;
+
+  border-radius: 18px;
+
+  padding: 20px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.appointment-request-box .box-title {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 18px;
+}
+
+.appointment-request-box h5 {
+  margin: 0;
+
+  color: #14361d;
+
+  font-size: 15px;
+
+  font-weight: 800;
+}
+
+.appointment-request-box small {
+  color: #777;
+}
+
+.request-see-all {
+  border: none;
+
+  background: #856443;
+
+  color: white;
+
+  padding: 7px 15px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.request-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.request-card {
+  background: #f8f8f8;
+
+  border-radius: 15px;
+
+  padding: 15px;
+
+  transition: 0.3s ease;
+
+  border-left: 4px solid #856443;
+}
+
+.request-card:hover {
+  transform: translateX(5px);
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.request-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.patient-avatar {
+  width: 55px;
+
+  height: 55px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  border: 3px solid #fff;
+
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.patient-info {
+  flex: 1;
+}
+
+.patient-info h6 {
+  margin: 0;
+
+  color: #14361d;
+
+  font-size: 15px;
+
+  font-weight: 700;
+}
+
+.patient-info span {
+  color: #777;
+
+  font-size: 12px;
+}
+
+.pending-badge {
+  background: #856443;
+
+  color: white;
+
+  padding: 5px 12px;
+
+  border-radius: 20px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+.request-footer {
+  margin-top: 15px;
+
+  padding-top: 12px;
+
+  border-top: 1px solid #ddd;
+}
+
+.request-footer div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: #14361d;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.request-footer svg {
+  color: #856443;
+}
+
+.request-footer p {
+  margin: 8px 0 0;
+
+  color: #666;
+
+  font-size: 13px;
+}
+
+.empty-request {
+  padding: 30px;
+
+  text-align: center;
+
+  color: #777;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.empty-request svg {
+  font-size: 30px;
+
+  color: #856443;
+}
+
+/* ===============================
+   WALLET OVERVIEW
+================================ */
+
+.wallet-overview-box {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 8px 30px rgba(20, 54, 29, 0.08);
+}
+
+/* TITLE */
+
+.wallet-overview-box .box-title h5 {
+  margin: 0;
+
+  color: #14361d;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+}
+
+/* INCOME CARD */
+
+.wallet-income {
+  margin-top: 20px;
+
+  padding: 25px 20px;
+
+  border-radius: 18px;
+
+  background: linear-gradient(135deg, #14361d, #1e4d2a);
+
+  color: white;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.wallet-income::after {
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+
+  height: 120px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  right: -40px;
+
+  top: -40px;
+}
+
+.wallet-income h3 {
+  margin: 0;
+
+  font-size: 32px;
+
+  font-weight: 900;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.wallet-income p {
+  margin: 8px 0 0;
+
+  font-size: 14px;
+
+  opacity: 0.8;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+/* FOOTER */
+
+.wallet-footer {
+  margin-top: 15px;
+
+  padding: 12px 15px;
+
+  background: #f8faf8;
+
+  border-radius: 12px;
+
+  color: #856443;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+/* ACTION BUTTONS */
+
+.wallet-actions {
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 18px;
+}
+
+.wallet-actions button {
+  flex: 1;
+
+  border: none;
+
+  padding: 12px;
+
+  border-radius: 12px;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+/* SEE WALLET */
+
+.wallet-actions button:first-child {
+  background: #14361d;
+
+  color: white;
+}
+
+.wallet-actions button:first-child:hover {
+  background: #856443;
+
+  transform: translateY(-2px);
+}
+
+/* HISTORY */
+
+.wallet-actions button:last-child {
+  background: #856443;
+
+  color: white;
+}
+
+.wallet-actions button:last-child:hover {
+  background: #14361d;
+
+  transform: translateY(-2px);
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .wallet-actions {
+    flex-direction: column;
+  }
+}

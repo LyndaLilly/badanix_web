@@ -1,0 +1,14 @@
+export {default as DoctorDashboard} from "./Dashboard";
+export {default as DoctorProfileFill} from "./ProfileFill";
+export {default as DoctorProfileUpdate} from "./UpdateProfile";
+export {default as DoctorDocumentUpload} from "./DoctorDocumentUpload";
+export {default as DoctorCalendar} from "./DoctorCalendar";
+export {default as DoctorAppointments} from "./Appointments";
+export {default as Patients} from "./Patients";
+export {default as PatientNotes } from "./PatientNotes";
+export {default as PatientEHRSearch } from "./PatientEHRSearch";
+export {default as DoctorVideoConsultation} from "./VideoConsultation";
+export {default as DoctorWallet} from "./DoctorWallet";
+export {default as DoctorWalletTransactions} from "./Transaction";
+export {default as DoctorSettings} from "./Settings";
+export {default as DoctorHistory} from "./History";

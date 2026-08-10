@@ -1,0 +1,235 @@
+/* ==========================================
+   PENDING APPOINTMENT SUMMARY CARD
+========================================== */
+
+.pending-summary-card {
+  height: 100%;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 10px 35px rgba(20, 54, 29, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.pending-summary-header {
+  margin-bottom: 22px;
+}
+
+.pending-summary-tag {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 5px 12px;
+
+  background: rgba(20, 54, 29, 0.08);
+  color: #14361d;
+
+  border-radius: 30px;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+}
+
+.pending-summary-header h5 {
+  margin: 0;
+  color: #14361d;
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.pending-summary-header p {
+  margin-top: 6px;
+  color: #7b7b7b;
+  font-size: 13px;
+}
+
+/* ==========================================
+   BODY
+========================================== */
+
+.pending-summary-body {
+  position: relative;
+  overflow: hidden;
+
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  gap: 22px;
+
+  padding: 24px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    135deg,
+    #14361d 0%,
+    #1b4828 55%,
+    #856443 100%
+  );
+
+  color: #fff;
+}
+
+/* Decorative Circles */
+
+.pending-summary-body::before {
+  content: "";
+
+  position: absolute;
+
+  right: -55px;
+  top: -55px;
+
+  width: 150px;
+  height: 150px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.08);
+}
+
+.pending-summary-body::after {
+  content: "";
+
+  position: absolute;
+
+  left: -35px;
+  bottom: -35px;
+
+  width: 90px;
+  height: 90px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.05);
+}
+
+/* ==========================================
+   ICON
+========================================== */
+
+.pending-summary-icon {
+  position: relative;
+  z-index: 2;
+
+  width: 72px;
+  height: 72px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 18px;
+
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(8px);
+
+  font-size: 30px;
+
+  color: #ffffff;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,.18);
+}
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.pending-summary-content {
+  position: relative;
+  z-index: 2;
+}
+
+.pending-summary-content h3 {
+  margin: 0;
+
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+
+  color: #fff;
+}
+
+.pending-summary-content span {
+  display: block;
+
+  margin-top: 10px;
+
+  color: rgba(255,255,255,.92);
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ==========================================
+   HOVER
+========================================== */
+
+.pending-summary-card:hover .pending-summary-body {
+  transform: translateY(-3px);
+  transition: .3s;
+  box-shadow: 0 16px 35px rgba(20,54,29,.18);
+}
+
+.pending-summary-card:hover .pending-summary-icon {
+  transform: rotate(-10deg) scale(1.08);
+  transition: .3s;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width:768px) {
+
+  .pending-summary-header h5 {
+    font-size: 13px;
+  }
+
+  .pending-summary-body {
+    padding: 22px;
+  }
+
+  .pending-summary-content h3 {
+    font-size: 22px;
+  }
+
+}
+
+@media (max-width:576px) {
+
+  .pending-summary-card {
+    padding: 20px;
+  }
+
+  .pending-summary-body {
+    flex-direction: column;
+    text-align: center;
+    gap: 18px;
+  }
+
+  .pending-summary-icon {
+    width: 65px;
+    height: 65px;
+    font-size: 26px;
+  }
+
+  .pending-summary-content h3 {
+    font-size: 22px;
+  }
+
+  .pending-summary-content span {
+    font-size: 12px;
+  }
+
+}

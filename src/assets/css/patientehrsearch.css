@@ -1,0 +1,1090 @@
+/* =========================================================
+   PATIENT EHR SEARCH
+========================================================= */
+
+.patient-ehr-search-page{
+    min-height:100vh;
+    background:#f4f7fb;
+    padding:30px;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.ehr-search-header{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.ehr-search-header button{
+    width:48px;
+    height:48px;
+    border:none;
+    border-radius:14px;
+    background:#14361D;
+    color:#fff;
+    cursor:pointer;
+    font-size:18px;
+    transition:.3s;
+}
+
+.ehr-search-header button:hover{
+    transform:translateY(-2px);
+    background:#0f2b16;
+}
+
+.ehr-search-header h2{
+    margin:0;
+    font-size:28px;
+    color:#14361D;
+}
+
+.ehr-search-header p{
+    margin-top:5px;
+    color:#666;
+}
+
+/* =========================================================
+   SEARCH FORM
+========================================================= */
+
+.ehr-search-form{
+    display:flex;
+    gap:15px;
+    background:#fff;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+    margin-bottom:30px;
+}
+
+.ehr-search-form input{
+    flex:1;
+    padding:16px 20px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    font-size:15px;
+    outline:none;
+}
+
+.ehr-search-form input:focus{
+    border-color:#14361D;
+}
+
+.ehr-search-form button{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:0 28px;
+    border:none;
+    border-radius:12px;
+    background:#14361D;
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.ehr-search-form button:hover{
+    background:#0d2815;
+}
+
+/* =========================================================
+   PATIENT SUMMARY
+========================================================= */
+
+.patient-summary{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:linear-gradient(135deg,#14361D,#2d6b3f);
+    color:#fff;
+    padding:30px;
+    border-radius:18px;
+    margin-bottom:25px;
+    box-shadow:0 12px 30px rgba(20,54,29,.2);
+}
+
+.patient-summary h3{
+    margin:0;
+    font-size:26px;
+}
+
+.patient-summary span{
+    display:block;
+    margin-top:10px;
+    opacity:.9;
+    letter-spacing:1px;
+}
+
+.record-count{
+    background:#fff;
+    color:#14361D;
+    padding:14px 22px;
+    border-radius:50px;
+    font-weight:700;
+    font-size:15px;
+}
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.table-toolbar{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:20px;
+}
+
+.table-toolbar input{
+    width:350px;
+    padding:14px 18px;
+    border-radius:12px;
+    border:1px solid #ddd;
+    outline:none;
+    background:#fff;
+}
+
+.table-toolbar input:focus{
+    border-color:#14361D;
+}
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.table-wrapper{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+
+.ehr-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.ehr-table thead{
+    background:#14361D;
+    color:#fff;
+}
+
+.ehr-table th{
+    padding:18px;
+    text-align:left;
+    font-size:14px;
+    letter-spacing:.5px;
+    position:sticky;
+    top:0;
+}
+
+.ehr-table td{
+    padding:18px;
+    border-bottom:1px solid #eee;
+    vertical-align:top;
+    color:#444;
+    font-size:14px;
+}
+
+.ehr-table tbody tr{
+    transition:.25s;
+}
+
+.ehr-table tbody tr:hover{
+    background:#f7fbf8;
+}
+
+.empty-row{
+    text-align:center;
+    padding:50px!important;
+    color:#888;
+}
+
+/* =========================================================
+   VIEW BUTTON
+========================================================= */
+
+.view-btn{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    border:none;
+    padding:10px 18px;
+    border-radius:10px;
+    cursor:pointer;
+    background:#14361D;
+    color:#fff;
+    transition:.3s;
+}
+
+.view-btn:hover{
+    background:#0d2815;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.record-modal-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:99999;
+
+    padding:25px;
+
+    overflow-y:auto;
+}
+
+.record-modal{
+    width:min(1000px,100%);
+    max-height:95vh;
+
+    background:#fff;
+    border-radius:18px;
+
+    overflow:hidden;
+
+    display:flex;
+    flex-direction:column;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
+
+    position:relative;
+
+    z-index:100000;
+}
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 28px;
+    border-bottom:1px solid #eee;
+    position:sticky;
+    top:0;
+    background:#fff;
+    z-index:5;
+}
+
+.modal-header h2{
+    margin:0;
+    color:#14361D;
+}
+
+.modal-header button{
+    width:42px;
+    height:42px;
+    border:none;
+    border-radius:10px;
+    background:#f3f3f3;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.modal-header button:hover{
+    background:#14361D;
+    color:#fff;
+}
+
+.modal-body{
+    padding:30px;
+}
+
+.record-section{
+    margin-bottom:25px;
+}
+
+.record-section h4{
+    margin:0 0 10px;
+    color:#14361D;
+    font-size:16px;
+    border-left:5px solid #14361D;
+    padding-left:10px;
+}
+
+.record-section p{
+    margin:0;
+    line-height:1.8;
+    color:#555;
+    background:#fafafa;
+    border:1px solid #eee;
+    padding:16px;
+    border-radius:12px;
+    white-space:pre-wrap;
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.record-modal::-webkit-scrollbar{
+    width:8px;
+}
+
+.record-modal::-webkit-scrollbar-thumb{
+    background:#bbb;
+    border-radius:20px;
+}
+
+    .record-modal{
+        padding: 20px;
+    }
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes pop{
+    from{
+        transform:scale(.9);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:900px){
+
+    .ehr-search-form{
+        flex-direction:column;
+    }
+
+    .ehr-search-form button{
+        justify-content:center;
+        height:50px;
+    }
+
+    .patient-summary{
+        flex-direction:column;
+        gap:20px;
+        align-items:flex-start;
+    }
+
+    .table-toolbar{
+        justify-content:stretch;
+    }
+
+    .table-toolbar input{
+        width:100%;
+    }
+
+    .table-wrapper{
+        overflow-x:auto;
+    }
+
+    .ehr-table{
+        min-width:850px;
+    }
+
+    .record-modal{
+        width:95%;
+    }
+}
+
+
+@media(max-width: 768px){
+    .ehr-search-header h2{
+        font-size: 16px;
+    }
+}
+
+
+/* ================================
+   MEDICAL RECORD MODAL
+================================ */
+
+.record-modal-overlay {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    z-index: 9999;
+
+    overflow: hidden;
+}
+
+.record-modal {
+    width: 100%;
+    max-width: 750px;
+
+    max-height: 90vh;
+
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* ================================
+   MODAL HEADER
+================================ */
+
+.modal-header {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 24px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    background: #ffffff;
+}
+
+.modal-header h2 {
+    margin: 0;
+
+    font-size: 22px;
+
+    color: #14361D;
+}
+
+.modal-header small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #777;
+
+    font-size: 13px;
+}
+
+.modal-header button {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f1f3f4;
+
+    color: #555;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.modal-header button:hover {
+    background: #14361D;
+    color: #ffffff;
+}
+
+/* ================================
+   MODAL BODY SCROLL
+================================ */
+
+.modal-body {
+    flex: 1;
+
+    min-height: 0;
+
+    overflow-y: auto;
+
+    padding: 24px;
+
+    overscroll-behavior: contain;
+
+    scrollbar-width: thin;
+}
+
+/* Chrome / Edge / Safari */
+
+.modal-body::-webkit-scrollbar {
+    width: 7px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: #14361D;
+
+    border-radius: 10px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: #0d2815;
+}
+
+/* ================================
+   RECORD SECTIONS
+================================ */
+
+.record-section {
+    padding: 16px;
+
+    margin-bottom: 14px;
+
+    background: #f8faf9;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+}
+
+.record-section:last-child {
+    margin-bottom: 0;
+}
+
+.record-section h4 {
+    margin: 0 0 8px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #14361D;
+}
+
+.record-section p {
+    margin: 0;
+
+    color: #333;
+
+    line-height: 1.6;
+
+    white-space: pre-wrap;
+
+    overflow-wrap: anywhere;
+}
+
+.record-section small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #777;
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 576px) {
+
+    .record-modal-overlay {
+        padding: 10px;
+    }
+
+    .record-modal {
+        max-height: 94vh;
+
+        border-radius: 10px;
+    }
+
+    .modal-header {
+        padding: 16px;
+    }
+
+    .modal-body {
+        padding: 16px;
+    }
+
+    .modal-header h2 {
+        font-size: 19px;
+    }
+}
+
+/* =========================================
+   FULL MEDICAL RECORD BUTTON
+========================================= */
+
+.patient-summary-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.full-record-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    border: none;
+    border-radius: 8px;
+
+    padding: 10px 16px;
+
+    background: #14361D;
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.full-record-btn:hover {
+    background: #0d2815;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   FULL MEDICAL RECORD OVERLAY
+========================================= */
+
+.full-record-modal-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    z-index: 10000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   FULL MEDICAL RECORD MODAL
+========================================= */
+
+.full-record-modal {
+    width: 100%;
+
+    max-width: 950px;
+
+    height: 92vh;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================
+   DOCUMENT HEADER
+========================================= */
+
+.full-record-header {
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 22px 28px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    background: #ffffff;
+}
+
+.full-record-header h2 {
+    margin: 0;
+
+    color: #14361D;
+
+    font-size: 24px;
+}
+
+.full-record-header p {
+    margin: 4px 0 0;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+.full-record-header button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #f1f3f4;
+
+    color: #555;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.full-record-header button:hover {
+    background: #14361D;
+
+    color: white;
+}
+
+
+/* =========================================
+   DOCUMENT BODY
+========================================= */
+
+.full-record-body {
+    flex: 1;
+
+    min-height: 0;
+
+    overflow-y: auto;
+
+    padding: 30px;
+
+    background: #f5f7f6;
+}
+
+
+/* SCROLLBAR */
+
+.full-record-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.full-record-body::-webkit-scrollbar-track {
+    background: #eeeeee;
+}
+
+.full-record-body::-webkit-scrollbar-thumb {
+    background: #14361D;
+
+    border-radius: 10px;
+}
+
+.full-record-body {
+    scrollbar-width: thin;
+
+    scrollbar-color: #14361D #eeeeee;
+}
+
+
+/* =========================================
+   DOCUMENT SECTION
+========================================= */
+
+.medical-document-section {
+    background: white;
+
+    border: 1px solid #e2e5e3;
+
+    border-radius: 10px;
+
+    padding: 24px;
+
+    margin-bottom: 20px;
+}
+
+.medical-document-title {
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: #14361D;
+
+    padding-bottom: 12px;
+
+    margin-bottom: 20px;
+
+    border-bottom: 2px solid #14361D;
+}
+
+
+/* =========================================
+   PATIENT INFORMATION
+========================================= */
+
+.patient-document-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.patient-document-grid div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.patient-document-grid span {
+    font-size: 12px;
+
+    color: #777;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.4px;
+}
+
+.patient-document-grid strong {
+    color: #222;
+
+    font-size: 15px;
+}
+
+
+/* =========================================
+   MEDICAL HISTORY ENTRY
+========================================= */
+
+.medical-history-entry {
+    border: 1px solid #dfe4e1;
+
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+}
+
+.medical-history-entry:last-child {
+    margin-bottom: 0;
+}
+
+
+/* RECORD HEADER */
+
+.medical-history-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 16px 20px;
+
+    background: #f3f6f4;
+
+    border-bottom: 1px solid #dfe4e1;
+}
+
+.medical-history-header h3 {
+    margin: 0;
+
+    font-size: 17px;
+
+    color: #14361D;
+}
+
+.medical-history-header span {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 13px;
+
+    color: #777;
+}
+
+.doctor-badge {
+    display: inline-block !important;
+
+    margin: 0 !important;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: #14361D;
+
+    color: white !important;
+
+    font-size: 12px !important;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   RECORD CONTENT
+========================================= */
+
+.medical-history-content {
+    padding: 20px;
+}
+
+.document-field {
+    margin-bottom: 18px;
+}
+
+.document-field:last-child {
+    margin-bottom: 0;
+}
+
+.document-field h4 {
+    margin: 0 0 6px;
+
+    color: #14361D;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+.document-field p {
+    margin: 0;
+
+    color: #333;
+
+    line-height: 1.7;
+
+    white-space: pre-wrap;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================
+   EMPTY
+========================================= */
+
+.full-record-empty {
+    padding: 30px;
+
+    text-align: center;
+
+    color: #777;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.full-record-footer {
+    flex-shrink: 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 14px 28px;
+
+    border-top: 1px solid #e5e7eb;
+
+    background: white;
+
+    color: #666;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .full-record-modal-overlay {
+        padding: 10px;
+    }
+
+    .full-record-modal {
+        height: 95vh;
+    }
+
+    .full-record-body {
+        padding: 15px;
+    }
+
+    .full-record-header {
+        padding: 16px;
+    }
+
+    .patient-summary-actions {
+        flex-direction: column;
+
+        align-items: flex-end;
+    }
+
+    .patient-document-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .medical-history-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .full-record-footer {
+        padding: 12px 16px;
+    }
+}

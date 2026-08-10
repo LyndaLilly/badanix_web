@@ -1,0 +1,238 @@
+/* ==========================================
+   SUMMARY CARD
+========================================== */
+
+.summary-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 22px;
+  height: 100%;
+  box-shadow: 0 8px 28px rgba(20, 54, 29, 0.08);
+  transition: all 0.3s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(20, 54, 29, 0.12);
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.summary-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+
+  border-bottom: 1px solid rgba(20, 54, 29, 0.08);
+}
+
+.summary-title h5 {
+  margin: 0;
+
+  color: #14361d;
+
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+
+
+/* ==========================================
+   BODY
+========================================== */
+
+.summary-body {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  min-height: 140px;
+  padding: 22px;
+
+  border-radius: 18px;
+
+  color: #fff;
+}
+
+.summary-body::before {
+  content: "";
+
+  position: absolute;
+
+  top: -45px;
+  right: -45px;
+
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.summary-body::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -35px;
+  left: -35px;
+
+  width: 90px;
+  height: 90px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================
+   ICON
+========================================== */
+
+.summary-icon {
+  position: relative;
+  z-index: 2;
+
+  width: 60px;
+  height: 60px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+
+  color: #fff;
+  font-size: 26px;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.summary-content {
+  position: relative;
+  z-index: 2;
+
+  flex: 1;
+}
+
+.summary-content h3 {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.summary-content p {
+  margin: 6px 0 0;
+
+  color: rgba(255, 255, 255, 0.9);
+
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   WALLET CARD
+========================================== */
+
+.wallet-card .summary-body {
+  background: linear-gradient(135deg, #14361d, #1f4d2a);
+}
+
+/* ==========================================
+   COMPLETED CARD
+========================================== */
+
+.completed-card .summary-body {
+  background: linear-gradient(135deg, #856443, #b88448);
+}
+
+/* ==========================================
+   PENDING CARD
+========================================== */
+
+.pending-card .summary-body {
+  background: linear-gradient(135deg, #d49a32, #e6b046);
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+
+  .summary-card {
+    padding: 18px;
+  }
+
+  .summary-body {
+    min-height: 130px;
+    padding: 20px;
+  }
+
+  .summary-icon {
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+  }
+
+  .summary-content h3 {
+    font-size: 24px;
+  }
+
+  .summary-content p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+
+  .summary-title h5 {
+    font-size: 11px;
+    letter-spacing: .8px;
+  }
+
+  .summary-body {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+    min-height: auto;
+  }
+
+  .summary-icon {
+    margin: 0;
+  }
+
+  .summary-content h3 {
+    font-size: 22px;
+  }
+
+  .summary-content p {
+    font-size: 12px;
+  }
+}
