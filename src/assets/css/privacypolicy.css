@@ -1,0 +1,1148 @@
+/* =========================================================
+   BADANIX PRIVACY POLICY
+   Uses only existing root colors
+========================================================= */
+
+.bdx-privacy-page {
+    width: 100%;
+    background: var(--lightGray);
+    color: var(--darkGray);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.bdx-privacy-hero {
+    position: relative;
+    min-height: 430px;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary) 0%,
+            #1b4527 55%,
+            var(--secondary) 140%
+        );
+
+    color: var(--white);
+}
+
+
+.bdx-privacy-hero-pattern {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+
+    right: -250px;
+    top: -300px;
+
+    border-radius: 50%;
+
+    border: 100px solid rgba(255, 255, 255, 0.04);
+}
+
+
+.bdx-privacy-hero-pattern::after {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    left: -550px;
+    top: 420px;
+
+    border-radius: 50%;
+
+    border: 70px solid rgba(255, 255, 255, 0.035);
+}
+
+
+.bdx-privacy-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+.bdx-privacy-hero-content {
+    max-width: 900px;
+
+    padding: 80px 0 70px;
+}
+
+
+.bdx-privacy-back {
+    display: inline-flex;
+    align-items: center;
+
+    margin-bottom: 45px;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.25s ease;
+    margin-top: 45px;
+}
+
+
+.bdx-privacy-back:hover {
+    color: var(--white);
+
+    transform: translateX(-4px);
+}
+
+
+.bdx-privacy-hero-icon {
+    width: 64px;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 22px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    font-size: 27px;
+
+    backdrop-filter: blur(10px);
+}
+
+
+.bdx-privacy-eyebrow {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.bdx-privacy-hero h1 {
+    margin: 0 0 20px;
+
+    color: var(--white);
+
+    font-size: clamp(2.7rem, 6vw, 4.8rem);
+
+    line-height: 1.05;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+}
+
+
+.bdx-privacy-hero p {
+    max-width: 760px;
+
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.82);
+
+    font-size: 1.08rem;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.bdx-privacy-content-section {
+    padding: 20px 0 20px;
+
+    background: var(--lightGray);
+}
+
+
+.bdx-privacy-layout {
+    display: grid;
+
+    grid-template-columns: 270px minmax(0, 850px);
+
+    gap: 55px;
+
+    align-items: start;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.bdx-privacy-sidebar {
+    position: sticky;
+
+    top: 30px;
+}
+
+
+.bdx-privacy-sidebar-card {
+    padding: 25px 20px;
+
+    background: var(--white);
+
+    border: 1px solid rgba(20, 54, 29, 0.08);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 35px rgba(20, 54, 29, 0.07);
+}
+
+
+.bdx-privacy-sidebar-heading {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 18px;
+
+    color: var(--primary);
+
+    font-size: 14px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.8px;
+}
+
+
+.bdx-privacy-sidebar-heading span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--secondary);
+}
+
+
+.bdx-privacy-navigation {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.bdx-privacy-navigation a {
+    position: relative;
+
+    padding: 10px 8px 10px 13px;
+
+    color: var(--gray);
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    line-height: 1.45;
+
+    border-radius: 8px;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        padding 0.25s ease;
+}
+
+
+.bdx-privacy-navigation a::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 50%;
+
+    width: 3px;
+    height: 0;
+
+    border-radius: 10px;
+
+    background: var(--secondary);
+
+    transform: translateY(-50%);
+
+    transition: height 0.25s ease;
+}
+
+
+.bdx-privacy-navigation a:hover {
+    padding-left: 17px;
+
+    color: var(--primary);
+
+    background: rgba(20, 54, 29, 0.05);
+}
+
+
+.bdx-privacy-navigation a:hover::before {
+    height: 18px;
+}
+
+
+/* =========================================================
+   DOCUMENT
+========================================================= */
+
+.bdx-privacy-document {
+    min-width: 0;
+}
+
+
+.bdx-privacy-introduction {
+    padding-bottom: 45px;
+
+    border-bottom:
+        1px solid rgba(20, 54, 29, 0.1);
+}
+
+
+.bdx-privacy-label {
+    display: inline-block;
+
+    margin-bottom: 14px;
+
+    color: var(--secondary);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+.bdx-privacy-introduction h2 {
+    margin: 0 0 15px;
+
+    color: var(--primary);
+
+    font-size: 2.25rem;
+
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+}
+
+
+.bdx-privacy-introduction p {
+    max-width: 780px;
+
+    margin: 0;
+
+    color: var(--gray);
+
+    font-size: 1rem;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   POLICY SECTION
+========================================================= */
+
+.bdx-privacy-section {
+    display: grid;
+
+    grid-template-columns: 58px minmax(0, 1fr);
+
+    gap: 24px;
+
+    padding: 20px 0;
+
+    border-bottom:
+        1px solid rgba(20, 54, 29, 0.1);
+}
+
+
+.bdx-privacy-section-number {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: rgba(20, 54, 29, 0.07);
+
+    color: var(--primary);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    border:
+        1px solid rgba(20, 54, 29, 0.08);
+}
+
+
+.bdx-privacy-section-body h3 {
+    margin: 0 0 17px;
+
+    color: var(--primary);
+
+    font-size: 1.65rem;
+
+    font-weight: 800;
+}
+
+
+.bdx-privacy-section-body > p {
+    margin: 0 0 18px;
+
+    color: var(--gray);
+
+    font-size: 0.98rem;
+
+    line-height: 1.9;
+}
+
+
+.bdx-privacy-section-body > p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   INFORMATION CARDS
+========================================================= */
+
+.bdx-privacy-info-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 16px;
+
+    margin-top: 30px;
+}
+
+
+.bdx-privacy-info-card {
+    padding: 24px;
+
+    background: var(--white);
+
+    border:
+        1px solid rgba(20, 54, 29, 0.08);
+
+    border-radius: 16px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+
+.bdx-privacy-info-card:hover {
+    transform: translateY(-4px);
+
+    border-color:
+        rgba(133, 100, 67, 0.25);
+
+    box-shadow:
+        0 12px 30px rgba(20, 54, 29, 0.08);
+}
+
+
+.bdx-privacy-card-icon {
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 16px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(133, 100, 67, 0.11);
+
+    font-size: 19px;
+}
+
+
+.bdx-privacy-info-card h4 {
+    margin: 0 0 9px;
+
+    color: var(--primary);
+
+    font-size: 1rem;
+
+    font-weight: 800;
+}
+
+
+.bdx-privacy-info-card p {
+    margin: 0;
+
+    color: var(--gray);
+
+    font-size: 0.86rem;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   LIST
+========================================================= */
+
+.bdx-privacy-list {
+    margin: 25px 0;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.bdx-privacy-list li {
+    position: relative;
+
+    margin-bottom: 13px;
+
+    padding-left: 28px;
+
+    color: var(--gray);
+
+    font-size: 0.96rem;
+
+    line-height: 1.75;
+}
+
+
+.bdx-privacy-list li::before {
+    content: "✓";
+
+    position: absolute;
+
+    left: 0;
+    top: 2px;
+
+    width: 18px;
+    height: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(20, 54, 29, 0.09);
+
+    color: var(--primary);
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.bdx-privacy-note {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+    padding: 18px 20px;
+
+    border-left: 4px solid var(--secondary);
+
+    border-radius: 0 12px 12px 0;
+
+    background:
+        rgba(133, 100, 67, 0.07);
+
+    color: var(--gray);
+
+    font-size: 0.9rem;
+
+    line-height: 1.7;
+}
+
+
+.bdx-privacy-note strong {
+    color: var(--primary);
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   SHARING
+========================================================= */
+
+.bdx-privacy-sharing-list {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+
+    margin-top: 25px;
+}
+
+
+.bdx-privacy-sharing-list > div {
+    padding: 21px;
+
+    border-radius: 14px;
+
+    background: var(--lightGray);
+
+    border:
+        1px solid rgba(20, 54, 29, 0.07);
+}
+
+
+.bdx-privacy-sharing-list strong {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--primary);
+
+    font-size: 0.95rem;
+}
+
+
+.bdx-privacy-sharing-list p {
+    margin: 0;
+
+    color: var(--gray);
+
+    font-size: 0.86rem;
+
+    line-height: 1.7;
+}
+
+
+.bdx-privacy-protection-message {
+    margin-top: 20px;
+
+    padding: 20px;
+
+    border-radius: 13px;
+
+    background: var(--primary);
+
+    color: var(--white);
+
+    font-size: 0.92rem;
+
+    line-height: 1.7;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   SECURITY
+========================================================= */
+
+.bdx-privacy-security-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+
+    margin: 25px 0;
+}
+
+
+.bdx-privacy-security-grid > div {
+    padding: 22px;
+
+    border:
+        1px solid rgba(20, 54, 29, 0.08);
+
+    border-radius: 14px;
+
+    background: var(--white);
+}
+
+
+.bdx-privacy-security-grid span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--secondary);
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+
+.bdx-privacy-security-grid strong {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--primary);
+
+    font-size: 0.95rem;
+}
+
+
+.bdx-privacy-security-grid p {
+    margin: 0;
+
+    color: var(--gray);
+
+    font-size: 0.84rem;
+
+    line-height: 1.7;
+}
+
+
+.bdx-privacy-final-text {
+    margin-top: 25px !important;
+}
+
+
+/* =========================================================
+   RIGHTS
+========================================================= */
+
+.bdx-privacy-rights {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 14px;
+
+    margin: 25px 0;
+}
+
+
+.bdx-privacy-rights > div {
+    padding: 22px;
+
+    background: var(--white);
+
+    border-radius: 14px;
+
+    border:
+        1px solid rgba(20, 54, 29, 0.08);
+}
+
+
+.bdx-privacy-rights strong {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--primary);
+
+    font-size: 0.96rem;
+}
+
+
+.bdx-privacy-rights p {
+    margin: 0;
+
+    color: var(--gray);
+
+    font-size: 0.86rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.bdx-privacy-contact-section {
+    border-bottom: none;
+}
+
+
+.bdx-privacy-email {
+    display: inline-flex;
+
+    align-items: center;
+
+    margin-top: 8px;
+
+    padding: 13px 20px;
+
+    border-radius: 10px;
+
+    background: rgba(20, 54, 29, 0.07);
+
+    color: var(--primary);
+
+    font-size: 0.95rem;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    transition: 0.25s ease;
+}
+
+
+.bdx-privacy-email:hover {
+    background: var(--primary);
+
+    color: var(--white);
+}
+
+
+/* =========================================================
+   THANK YOU
+========================================================= */
+
+.bdx-privacy-thank-you {
+    margin-top: 15px;
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(20, 54, 29, 0.96),
+            var(--primary)
+        );
+
+    color: var(--white);
+
+    box-shadow:
+        0 20px 45px rgba(20, 54, 29, 0.15);
+}
+
+
+.bdx-privacy-thank-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 18px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.15);
+
+    font-size: 22px;
+}
+
+
+.bdx-privacy-thank-you h3 {
+    margin: 0 0 10px;
+
+    color: var(--white);
+
+    font-size: 1.5rem;
+
+    font-weight: 800;
+}
+
+
+.bdx-privacy-thank-you p {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 0.92rem;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .bdx-privacy-layout {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+
+    .bdx-privacy-sidebar {
+        position: static;
+    }
+
+
+    .bdx-privacy-sidebar-card {
+        max-width: 100%;
+    }
+
+
+    .bdx-privacy-navigation {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 3px;
+    }
+
+
+    .bdx-privacy-navigation a {
+        font-size: 14px;
+    }
+
+
+    .bdx-privacy-hero-content {
+        padding: 70px 0;
+    }
+
+
+    .bdx-privacy-content-section {
+        padding: 20px 0 20px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .bdx-privacy-hero {
+        min-height: 390px;
+    }
+
+
+    .bdx-privacy-hero-content {
+        padding: 55px 15px;
+    }
+
+
+    .bdx-privacy-back {
+        margin-bottom: 35px;
+    }
+
+
+    .bdx-privacy-hero-icon {
+        width: 55px;
+        height: 55px;
+
+        border-radius: 15px;
+
+        font-size: 23px;
+    }
+
+
+    .bdx-privacy-hero h1 {
+        font-size: 2.8rem;
+
+        letter-spacing: -1px;
+    }
+
+
+    .bdx-privacy-hero p {
+        font-size: 0.94rem;
+
+        line-height: 1.75;
+    }
+
+
+    .bdx-privacy-content-section {
+        padding: 20px 0 20px;
+    }
+
+
+    .bdx-privacy-layout {
+        gap: 25px;
+    }
+
+
+    .bdx-privacy-sidebar-card {
+        padding: 18px 15px;
+    }
+
+
+    .bdx-privacy-navigation {
+        grid-template-columns: 1fr;
+    }
+
+
+    .bdx-privacy-introduction {
+        padding-bottom: 35px;
+    }
+
+
+    .bdx-privacy-introduction h2 {
+        font-size: 1.8rem;
+    }
+
+
+    .bdx-privacy-introduction p {
+        font-size: 0.92rem;
+    }
+
+
+    .bdx-privacy-section {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+
+        padding: 40px 0;
+    }
+
+
+    .bdx-privacy-section-number {
+        width: 42px;
+        height: 42px;
+
+        border-radius: 12px;
+    }
+
+
+    .bdx-privacy-section-body h3 {
+        font-size: 1.4rem;
+    }
+
+
+    .bdx-privacy-section-body > p {
+        font-size: 0.91rem;
+    }
+
+
+    .bdx-privacy-info-grid,
+    .bdx-privacy-sharing-list,
+    .bdx-privacy-security-grid,
+    .bdx-privacy-rights {
+        grid-template-columns: 1fr;
+    }
+
+
+    .bdx-privacy-info-card {
+        padding: 20px;
+    }
+
+
+    .bdx-privacy-note {
+        flex-direction: column;
+
+        gap: 4px;
+    }
+
+
+    .bdx-privacy-protection-message {
+        font-size: 0.86rem;
+    }
+
+
+    .bdx-privacy-thank-you {
+        padding: 35px 20px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .bdx-privacy-hero {
+        min-height: 360px;
+    }
+
+
+    .bdx-privacy-hero h1 {
+        font-size: 2.35rem;
+    }
+
+
+    .bdx-privacy-eyebrow {
+        font-size: 10px;
+
+        letter-spacing: 1.3px;
+    }
+
+
+    .bdx-privacy-navigation a {
+        font-size: 13px;
+    }
+
+
+    .bdx-privacy-card-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+
+    .bdx-privacy-info-card p,
+    .bdx-privacy-sharing-list p,
+    .bdx-privacy-rights p,
+    .bdx-privacy-security-grid p {
+        font-size: 0.82rem;
+    }
+}
+
+
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .bdx-privacy-back,
+    .bdx-privacy-navigation a,
+    .bdx-privacy-info-card,
+    .bdx-privacy-email {
+        transition: none;
+    }
+}

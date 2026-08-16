@@ -1,0 +1,700 @@
+/* =========================================================
+   BADANIX COOKIES POLICY
+   Uses ONLY existing root colors:
+   --primary
+   --secondary
+   --white
+   --darkGray
+   --lightGray
+   --gray
+   --black
+   ========================================================= */
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.bdx-policy-hero {
+    position: relative;
+    min-height: 430px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(20, 54, 29, 0.97),
+            rgba(133, 100, 67, 0.82)
+        );
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.bdx-policy-hero::before {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    right: -180px;
+    top: -220px;
+}
+
+.bdx-policy-hero::after {
+    content: "";
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    left: -180px;
+    bottom: -200px;
+}
+
+.bdx-policy-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(20, 54, 29, 0.4),
+            rgba(133, 100, 67, 0.12)
+        );
+}
+
+.bdx-policy-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.bdx-policy-back {
+    display: inline-flex;
+    align-items: center;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 65px;
+    transition: 0.3s ease;
+}
+
+.bdx-policy-back:hover {
+    color: rgba(255, 255, 255, 0.7);
+    transform: translateX(-4px);
+}
+
+.bdx-policy-hero-inner {
+    max-width: 850px;
+}
+
+.bdx-policy-hero-label {
+    display: inline-block;
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+    padding: 8px 17px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.bdx-policy-hero-inner h1 {
+    margin: 0;
+    color: var(--white);
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.bdx-policy-hero-inner p {
+    max-width: 720px;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 1.1rem;
+    line-height: 1.9;
+    margin: 25px 0 0;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.bdx-policy-page {
+    background: var(--lightGray);
+    padding: 20px 0 20px;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.bdx-policy-sidebar {
+    position: sticky;
+    top: 30px;
+    background: var(--white);
+    border-radius: 18px;
+    padding: 28px 0;
+    border: 1px solid rgba(20, 54, 29, 0.08);
+    box-shadow: 0 12px 35px rgba(20, 54, 29, 0.06);
+    overflow: hidden;
+}
+
+.bdx-policy-sidebar-title {
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    padding: 0 25px 18px;
+}
+
+.bdx-policy-sidebar a {
+    display: block;
+    padding: 12px 25px;
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border-left: 3px solid transparent;
+    transition: 0.25s ease;
+}
+
+.bdx-policy-sidebar a:hover {
+    color: var(--primary);
+    background: rgba(20, 54, 29, 0.05);
+    border-left-color: var(--secondary);
+    padding-left: 30px;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.bdx-policy-content {
+    background: var(--white);
+    border-radius: 22px;
+    padding: 55px;
+    box-shadow: 0 15px 45px rgba(20, 54, 29, 0.06);
+    border: 1px solid rgba(20, 54, 29, 0.06);
+}
+
+.bdx-policy-section {
+    padding: 0 0 55px;
+    margin-bottom: 55px;
+    border-bottom: 1px solid rgba(20, 54, 29, 0.09);
+    scroll-margin-top: 30px;
+}
+
+.bdx-policy-section:last-of-type {
+    margin-bottom: 0;
+}
+
+.bdx-policy-introduction {
+    padding-bottom: 45px;
+}
+
+.bdx-policy-section-number {
+    display: inline-block;
+    color: var(--secondary);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+}
+
+.bdx-policy-introduction h2 {
+    color: var(--primary);
+    font-size: 2rem;
+    font-weight: 750;
+    margin-bottom: 22px;
+}
+
+.bdx-policy-section-heading {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.bdx-policy-section-heading span {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(20, 54, 29, 0.08);
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.bdx-policy-section-heading h2 {
+    color: var(--primary);
+    font-size: 1.75rem;
+    font-weight: 750;
+    margin: 0;
+}
+
+.bdx-policy-content p {
+    color: var(--darkGray);
+    font-size: 1rem;
+    line-height: 1.95;
+    margin-bottom: 17px;
+}
+
+.bdx-policy-content p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   COOKIE TYPES
+   ========================================================= */
+
+.bdx-cookie-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.bdx-cookie-item {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 20px;
+    padding: 27px;
+    background: rgba(20, 54, 29, 0.035);
+    border: 1px solid rgba(20, 54, 29, 0.07);
+    border-radius: 16px;
+    transition: 0.3s ease;
+}
+
+.bdx-cookie-item:hover {
+    transform: translateY(-3px);
+    border-color: rgba(133, 100, 67, 0.3);
+    box-shadow: 0 10px 25px rgba(20, 54, 29, 0.07);
+}
+
+.bdx-cookie-number {
+    width: 45px;
+    height: 45px;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.bdx-cookie-item h3 {
+    color: var(--primary);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 3px 0 12px;
+}
+
+.bdx-cookie-item p {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.bdx-cookie-example {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    align-items: center;
+    margin-top: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: rgba(133, 100, 67, 0.09);
+    color: var(--darkGray);
+    font-size: 13px;
+}
+
+.bdx-cookie-example strong {
+    color: var(--secondary);
+}
+
+
+/* =========================================================
+   CHECK LIST
+   ========================================================= */
+
+.bdx-policy-check-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.bdx-policy-check-list > div {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 18px;
+    background: rgba(20, 54, 29, 0.035);
+    border-radius: 12px;
+}
+
+.bdx-policy-check-list span {
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.bdx-policy-check-list p {
+    margin: 0;
+    font-size: 0.94rem;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   INFORMATION NOTE
+   ========================================================= */
+
+.bdx-policy-note {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 16px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(20, 54, 29, 0.07),
+            rgba(133, 100, 67, 0.07)
+        );
+    border-left: 4px solid var(--secondary);
+}
+
+.bdx-policy-note-icon {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 19px;
+}
+
+.bdx-policy-note h4 {
+    color: var(--primary);
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 2px 0 8px;
+}
+
+.bdx-policy-note p {
+    font-size: 0.92rem;
+    margin-bottom: 8px;
+}
+
+.bdx-policy-note a {
+    color: var(--secondary);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.bdx-policy-note a:hover {
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.bdx-policy-contact {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            rgba(20, 54, 29, 0.92)
+        );
+    padding: 50px;
+    margin-top: 10px;
+}
+
+.bdx-policy-contact::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    right: -80px;
+    top: -100px;
+}
+
+.bdx-policy-contact-content {
+    position: relative;
+    z-index: 2;
+    max-width: 650px;
+}
+
+.bdx-policy-contact-label {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.bdx-policy-contact h2 {
+    color: var(--white);
+    font-size: 2rem;
+    font-weight: 750;
+    margin: 12px 0 15px;
+}
+
+.bdx-policy-contact p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 25px;
+}
+
+.bdx-policy-contact-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+}
+
+.bdx-policy-contact-details strong {
+    color: var(--white);
+}
+
+.bdx-policy-contact-details a {
+    display: inline-flex;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    text-decoration: none;
+    transition: 0.25s ease;
+}
+
+.bdx-policy-contact-details a:hover {
+    background: var(--secondary);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 991px) {
+
+    .bdx-policy-hero {
+        min-height: 380px;
+    }
+
+    .bdx-policy-back {
+        margin-bottom: 45px;
+    }
+
+    .bdx-policy-sidebar {
+        position: static;
+    }
+
+    .bdx-policy-sidebar a {
+        display: inline-block;
+        width: auto;
+        margin-right: 5px;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+    }
+
+    .bdx-policy-sidebar a:hover {
+        border-left: none;
+        border-bottom-color: var(--secondary);
+        padding-left: 25px;
+    }
+
+    .bdx-policy-check-list {
+        grid-template-columns: 1fr;
+    }
+
+    .bdx-policy-content {
+        padding: 40px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .bdx-policy-hero {
+        min-height: 350px;
+        padding: 30px 0;
+    }
+
+    .bdx-policy-back {
+        margin-bottom: 35px;
+        font-size: 14px;
+    }
+
+    .bdx-policy-hero-inner h1 {
+        font-size: 2.7rem;
+        letter-spacing: -0.8px;
+    }
+
+    .bdx-policy-hero-inner p {
+        font-size: 0.95rem;
+        line-height: 1.75;
+    }
+
+    .bdx-policy-page {
+        padding: 50px 0 70px;
+    }
+
+    .bdx-policy-sidebar {
+        padding: 20px 0;
+    }
+
+    .bdx-policy-sidebar-title {
+        padding-bottom: 12px;
+    }
+
+    .bdx-policy-sidebar a {
+        padding: 9px 20px;
+        font-size: 13px;
+    }
+
+    .bdx-policy-content {
+        padding: 28px 20px;
+        border-radius: 16px;
+    }
+
+    .bdx-policy-section {
+        padding-bottom: 40px;
+        margin-bottom: 40px;
+    }
+
+    .bdx-policy-introduction h2 {
+        font-size: 1.55rem;
+    }
+
+    .bdx-policy-section-heading {
+        gap: 12px;
+    }
+
+    .bdx-policy-section-heading span {
+        width: 40px;
+        height: 40px;
+        border-radius: 11px;
+        font-size: 11px;
+    }
+
+    .bdx-policy-section-heading h2 {
+        font-size: 1.4rem;
+    }
+
+    .bdx-policy-content p {
+        font-size: 0.94rem;
+        line-height: 1.85;
+    }
+
+    .bdx-cookie-item {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 21px;
+    }
+
+    .bdx-cookie-number {
+        width: 40px;
+        height: 40px;
+    }
+
+    .bdx-cookie-item h3 {
+        font-size: 1.05rem;
+    }
+
+    .bdx-cookie-example {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .bdx-policy-note {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .bdx-policy-contact {
+        padding: 35px 25px;
+        border-radius: 16px;
+    }
+
+    .bdx-policy-contact h2 {
+        font-size: 1.6rem;
+    }
+
+    .bdx-policy-contact-details {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .bdx-policy-contact-details a {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .bdx-policy-hero-inner h1 {
+        font-size: 2.35rem;
+    }
+
+    .bdx-policy-hero-label {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .bdx-policy-content {
+        padding: 23px 16px;
+    }
+
+    .bdx-policy-sidebar a {
+        font-size: 12px;
+    }
+
+    .bdx-policy-section-heading h2 {
+        font-size: 1.25rem;
+    }
+
+    .bdx-policy-contact {
+        padding: 30px 20px;
+    }
+}

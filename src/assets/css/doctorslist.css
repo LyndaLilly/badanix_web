@@ -192,8 +192,8 @@
 
 .doctor-badge {
     position: absolute;
-    top: 12px;
-    right: 12px;
+       bottom: -50px;
+    right: 2px;
     padding: 6px 12px;
     border-radius: 30px;
     color: #fff;

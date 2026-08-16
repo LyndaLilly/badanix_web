@@ -1,90 +1,902 @@
-/*=====================
-    HOW IT WORKS
-======================*/
+/* =========================================================
+   HOW IT WORKS SECTION
+========================================================= */
 
-.works-section{
-    padding:100px 0;
-    background:#fff;
+.works-section {
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
+    background: #fafafa;
+    overflow: hidden;
 }
 
-.works-title{
-    color:var(--primary);
-    font-size:3rem;
-    font-weight:700;
-    margin-bottom:30px;
+
+/* =========================================================
+   MAIN TITLE
+========================================================= */
+
+.works-title {
+    margin: 0 0 24px;
+
+    color: var(--primary);
+
+    font-size: clamp(30px, 4vw, 48px);
+    font-weight: 800;
+
+    line-height: 1.12;
+    letter-spacing: -0.8px;
 }
 
-.works-description{
-    color:#495057;
-    font-size:1.25rem;
-    line-height:1.9;
-    margin-bottom:35px;
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.works-description {
+    max-width: 540px;
+
+    margin: 0 0 30px;
+
+    color: #596272;
+
+    font-size: 17px;
+    font-weight: 400;
+
+    line-height: 1.8;
 }
 
-.works-btn{
-    background:var(--primary);
-    color:#fff;
-    padding:15px 35px;
-    border-radius:8px;
-    font-size:18px;
-    font-weight:600;
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+
+
+.step-box {
+    position: relative;
+
+    width: 100%;
+    min-height: 190px;
+
+    padding: 24px;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 18px;
+
+    box-sizing: border-box;
+
+    /*
+       PRIMARY GREEN GLASS
+    */
+    background:
+        linear-gradient(
+            135deg,
+            rgba(20, 54, 29, 0.16),
+            rgba(20, 54, 29, 0.07)
+        );
+
+    border: 1px solid rgba(20, 54, 29, 0.18);
+
+    border-radius: 22px;
+
+    /*
+       Glass blur
+    */
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    /*
+       Soft depth
+    */
+    box-shadow:
+        0 12px 35px rgba(20, 54, 29, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
 }
 
-.works-btn:hover{
-    background:var(--secondary);
-    color:#fff;
+
+/* =========================================================
+   CARD DECORATIVE GLOW
+========================================================= */
+
+.step-box::before {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    top: -80px;
+    right: -70px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(133, 100, 67, 0.14);
+
+    filter: blur(8px);
+
+    pointer-events: none;
+
+    transition:
+        transform 0.45s ease,
+        opacity 0.45s ease;
 }
 
-.step-box{
-    border:2px solid #d9d9d9;
-    padding:28px;
-    display:flex;
-    gap:20px;
-    align-items:flex-start;
-    transition:.3s;
-    height:100%;
-    background:#fff;
+
+/* Second subtle green glow */
+
+.step-box::after {
+    content: "";
+
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    bottom: -70px;
+    left: -60px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(20, 54, 29, 0.12);
+
+    filter: blur(12px);
+
+    pointer-events: none;
+
+    transition:
+        transform 0.45s ease,
+        opacity 0.45s ease;
 }
 
-.step-box:hover{
-    border-color:var(--primary);
-    box-shadow:0 12px 25px rgba(0,0,0,.08);
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.step-box:hover {
+    transform: translateY(-7px);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(20, 54, 29, 0.24),
+            rgba(20, 54, 29, 0.12)
+        );
+
+    border-color:
+        rgba(20, 54, 29, 0.32);
+
+    box-shadow:
+        0 20px 45px rgba(20, 54, 29, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
-.step-icon{
-    font-size:42px;
-    color:var(--primary);
-    min-width:55px;
+.step-box:hover::before {
+    transform: scale(1.45);
 }
 
-.step-box h5{
-    color:var(--primary);
-    font-size:1.35rem;
-    font-weight:700;
-    margin-bottom:10px;
+.step-box:hover::after {
+    transform: scale(1.35);
 }
 
-.step-box p{
-    color:#333;
-    font-size:1.08rem;
-    line-height:1.7;
-    margin:0;
+
+/* =========================================================
+   STEP ICON
+========================================================= */
+
+.step-icon {
+    position: relative;
+
+    z-index: 2;
+
+    width: 58px;
+    height: 58px;
+
+    min-width: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    /*
+       Secondary color used only as subtle accent
+    */
+    background:
+        rgba(133, 100, 67, 0.16);
+
+    border:
+        1px solid rgba(133, 100, 67, 0.25);
+
+    color: var(--secondary);
+
+    font-size: 23px;
+
+    box-shadow:
+        0 8px 20px rgba(20, 54, 29, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-@media(max-width:992px){
 
-.works-title{
-    font-size:2.3rem;
-    text-align:center;
+/* =========================================================
+   ICON HOVER
+========================================================= */
+
+.step-box:hover .step-icon {
+    transform:
+        translateY(-3px)
+        rotate(-3deg);
+
+    background:
+        var(--secondary);
+
+    color: #fff;
+
+    box-shadow:
+        0 10px 24px rgba(133, 100, 67, 0.25);
 }
 
-.works-description{
-    text-align:center;
+
+/* =========================================================
+   STEP CONTENT
+========================================================= */
+
+.step-box > div:last-child {
+    position: relative;
+
+    z-index: 2;
+
+    min-width: 0;
 }
 
-.works-btn{
-    display:block;
-    margin:auto;
+
+/* =========================================================
+   STEP TITLE
+========================================================= */
+
+.step-box h5 {
+    margin: 2px 0 9px;
+
+    color: var(--primary);
+
+    font-size: 15px;
+    font-weight: 800;
+
+    line-height: 1.35;
+
+    letter-spacing: 0.2px;
 }
 
+
+/* =========================================================
+   STEP DESCRIPTION
+========================================================= */
+
+.step-box p {
+    margin: 0;
+
+    color: #596272;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .works-section {
+        padding: 20px 0;
+    }
+
+    .works-title {
+        font-size: 38px;
+    }
+
+    .works-description {
+        font-size: 16px;
+        line-height: 1.75;
+    }
+
+    .step-box {
+        min-height: 175px;
+
+        padding: 21px;
+
+        gap: 15px;
+
+        border-radius: 18px;
+    }
+
+    .step-icon {
+        width: 54px;
+        height: 54px;
+
+        min-width: 54px;
+
+        border-radius: 14px;
+
+        font-size: 21px;
+    }
+
+    .step-box h5 {
+        font-size: 14px;
+    }
+
+    .step-box p {
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .works-section {
+        padding: 20px 0;
+    }
+
+    .works-title {
+        font-size: 32px;
+
+        line-height: 1.15;
+
+        margin-bottom: 18px;
+    }
+
+    .works-description {
+        font-size: 15px;
+
+        line-height: 1.7;
+
+        margin-bottom: 25px;
+    }
+
+ 
+
+    /*
+       Cards remain glass cards
+       and stack naturally.
+    */
+
+    .step-box {
+        min-height: auto;
+
+        padding: 19px;
+
+        gap: 14px;
+
+        border-radius: 17px;
+    }
+
+    .step-icon {
+        width: 50px;
+        height: 50px;
+
+        min-width: 50px;
+
+        border-radius: 13px;
+
+        font-size: 20px;
+    }
+
+    .step-box h5 {
+        margin-top: 1px;
+
+        font-size: 14px;
+
+        line-height: 1.3;
+    }
+
+    .step-box p {
+        font-size: 14px;
+
+        line-height: 1.6;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 576px) {
+
+    .works-section {
+        padding: 20px 0;
+    }
+
+    .works-title {
+        font-size: 29px;
+
+        letter-spacing: -0.4px;
+    }
+
+    .works-description {
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+
+    .step-box {
+        padding: 17px;
+
+        gap: 12px;
+
+        border-radius: 15px;
+    }
+
+    .step-icon {
+        width: 46px;
+        height: 46px;
+
+        min-width: 46px;
+
+        border-radius: 12px;
+
+        font-size: 18px;
+    }
+
+    .step-box h5 {
+        font-size: 13px;
+
+        margin-bottom: 7px;
+    }
+
+    .step-box p {
+        font-size: 14px;
+
+        line-height: 1.55;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .works-section {
+        padding: 20px 0;
+    }
+
+    .works-title {
+        font-size: 26px;
+    }
+
+    .works-description {
+        font-size: 13.5px;
+
+        line-height: 1.6;
+    }
+
+    .step-box {
+        padding: 15px;
+
+        gap: 11px;
+
+        border-radius: 14px;
+    }
+
+    .step-icon {
+        width: 42px;
+        height: 42px;
+
+        min-width: 42px;
+
+        border-radius: 11px;
+
+        font-size: 17px;
+    }
+
+    .step-box h5 {
+        font-size: 12.5px;
+
+        line-height: 1.3;
+    }
+
+    .step-box p {
+        font-size: 14px;
+
+        line-height: 1.5;
+    }
+}
+
+
+/* =========================================================
+   EXTRA SMALL PHONES
+========================================================= */
+
+@media (max-width: 320px) {
+
+    .works-section {
+        padding: 20px 0;
+    }
+
+    .works-title {
+        font-size: 24px;
+    }
+
+    .works-description {
+        font-size: 13px;
+    }
+
+    .step-box {
+        padding: 13px;
+
+        gap: 9px;
+
+        border-radius: 13px;
+    }
+
+    .step-icon {
+        width: 39px;
+        height: 39px;
+
+        min-width: 39px;
+
+        border-radius: 10px;
+
+        font-size: 15px;
+    }
+
+    .step-box h5 {
+        font-size: 12px;
+    }
+
+    .step-box p {
+        font-size: 14px;
+
+        line-height: 1.45;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .step-box,
+    .step-box::before,
+    .step-box::after,
+    .step-icon,
+    .works-btn2 {
+        transition: none;
+    }
+
+    .step-box:hover,
+    .step-box:hover .step-icon {
+        transform: none;
+    }
+}
+
+
+/* =========================================================
+   BOOK NOW BUTTON
+========================================================= */
+
+.works-btn2 {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 54px;
+
+    padding: 13px 26px;
+
+    border: 1px solid rgba(20, 54, 29, 0.15);
+    border-radius: 14px;
+
+    background: var(--primary) !important;
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(20, 54, 29, 0.16);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* =========================================================
+   BUTTON SHINE
+========================================================= */
+
+.works-btn2::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 80%;
+    height: 100%;
+
+    background: linear-gradient(
+        110deg,
+        transparent,
+        rgba(255, 255, 255, 0.18),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.6s ease;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   BUTTON HOVER
+========================================================= */
+
+.works-btn2:hover {
+    background: #1b4726;
+    color: #fff;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 16px 32px rgba(20, 54, 29, 0.25);
+}
+
+.works-btn2:hover::before {
+    left: 130%;
+}
+
+
+/* =========================================================
+   BUTTON ACTIVE
+========================================================= */
+
+.works-btn2:active {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 18px rgba(20, 54, 29, 0.18);
+}
+
+
+/* =========================================================
+   BUTTON FOCUS
+========================================================= */
+
+.works-btn2:focus-visible {
+    outline: 3px solid rgba(133, 100, 67, 0.35);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .works-btn2 {
+        min-height: 50px;
+
+        padding: 12px 23px;
+
+        border-radius: 13px;
+
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 576px) {
+
+    .works-btn2 {
+        width: 100%;
+
+        min-height: 50px;
+
+        padding: 12px 20px;
+
+        border-radius: 12px;
+
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .works-btn2 {
+        min-height: 48px;
+
+        padding: 11px 18px;
+
+        font-size: 12px;
+
+        border-radius: 11px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .works-btn2,
+    .works-btn2::before {
+        transition: none;
+    }
+
+    .works-btn2:hover {
+        transform: none;
+    }
+
+}
+
+
+/* =========================================================
+   WORKS HEADING
+========================================================= */
+
+.works-heading {
+    position: relative;
+    margin-bottom: 28px;
+}
+
+
+/* Small eyebrow */
+
+.works-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 13px;
+
+    color: var(--secondary);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+}
+
+
+/* Small decorative dot */
+
+.works-eyebrow::before {
+    content: "";
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--secondary);
+
+    box-shadow:
+        0 0 0 5px rgba(133, 100, 67, 0.10);
+}
+
+
+/* Main heading */
+
+.works-title {
+    margin: 0;
+
+    color: var(--primary);
+
+    font-size: clamp(38px, 5vw, 62px);
+
+    font-weight: 850;
+
+    line-height: 0.98;
+
+    letter-spacing: -2.5px;
+}
+
+
+/* Highlighted word */
+
+.works-title span {
+    position: relative;
+
+    color: var(--secondary);
+
+    display: inline-block;
+}
+
+
+/* Underline */
+
+.works-title span::after {
+    content: "";
+
+    position: absolute;
+
+    left: 3px;
+    right: -5px;
+    bottom: -7px;
+
+    height: 5px;
+
+    border-radius: 20px;
+
+    background: var(--secondary);
+
+    opacity: 0.22;
+
+    transform: rotate(-1.5deg);
+}
+
+
+/* Decorative line */
+
+.works-heading-line {
+    width: 52px;
+    height: 4px;
+
+    margin-top: 23px;
+
+    border-radius: 20px;
+
+    background: var(--primary);
+
+    opacity: 0.85;
 }

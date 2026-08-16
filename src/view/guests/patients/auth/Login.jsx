@@ -65,14 +65,18 @@ export default function Login() {
       if (response.ok) {
         await login(data.token);
 
-        await Swal.fire({
+        Swal.fire({
           icon: "success",
           title: "Login Successful",
           text: data.message,
+          showConfirmButton: false,
+          timer: 1500,
+          timerProgressBar: true,
           confirmButtonColor: "#14361D",
+          willClose: () => {
+            navigate("/patient/dashboard", { replace: true });
+          },
         });
-
-        navigate("/patient/dashboard", { replace: true });
       } else if (response.status === 422) {
         setErrors(data.errors || {});
       } else if (response.status === 403) {
@@ -144,7 +148,7 @@ export default function Login() {
                   <button
                     type="button"
                     className="patient-login-back-btn"
-                    onClick={() => navigate(-1)}
+                    onClick={() => navigate(-2)}
                   >
                     <FaArrowLeft />
                   </button>

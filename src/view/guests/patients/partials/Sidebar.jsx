@@ -11,22 +11,32 @@ import PharmacyIcon from "../../../../assets/icons/pharmacy.png";
 import { usePatientAuth } from "../../../../contexts/PatientAuthContext";
 import "../../../../assets/css/sidebar.css";
 
-export default function PatientSidebar({ patient, sidebarOpen, closeSidebar }) {
+export default function PatientSidebar({
+  patient,
+  sidebarOpen,
+  closeSidebar,
+}) {
   const { logout, profileCompleted } = usePatientAuth();
 
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    await logout();
+    closeSidebar();
 
-    navigate("/patient/login", {
+    const logoutPromise = logout();
+
+    navigate("/universallogin", {
       replace: true,
     });
+
+    await logoutPromise;
   };
 
   const handleBlockedClick = (e) => {
     if (!profileCompleted) {
       e.preventDefault();
+
+      closeSidebar();
 
       Swal.fire({
         icon: "warning",
@@ -40,29 +50,47 @@ export default function PatientSidebar({ patient, sidebarOpen, closeSidebar }) {
           replace: true,
         });
       });
+
+      return;
     }
+
+    // Close sidebar when a valid menu item is clicked
+    closeSidebar();
   };
 
   return (
     <>
+      {/* Click outside sidebar */}
       {sidebarOpen && (
-        <div className="doctor-sidebar-overlay" onClick={closeSidebar} />
+        <div
+          className="doctor-sidebar-overlay"
+          onClick={closeSidebar}
+        />
       )}
 
       <aside
-        className={`doctor-sidebar ${sidebarOpen ? "doctor-sidebar-open" : ""}`}
+        className={`doctor-sidebar ${
+          sidebarOpen ? "doctor-sidebar-open" : ""
+        }`}
       >
         <div className="doctor-sidebar-header">
           <h3>BADANIX</h3>
 
-          <button className="doctor-sidebar-close" onClick={closeSidebar}>
+          <button
+            type="button"
+            className="doctor-sidebar-close"
+            onClick={closeSidebar}
+          >
             <FaTimes />
           </button>
         </div>
 
         <nav className="doctor-sidebar-nav">
           {/* Dashboard */}
-          <NavLink to="/patient/dashboard" onClick={handleBlockedClick}>
+          <NavLink
+            to="/patient/dashboard"
+            onClick={handleBlockedClick}
+          >
             <img
               src={walletIcon}
               alt="Dashboard"
@@ -71,8 +99,11 @@ export default function PatientSidebar({ patient, sidebarOpen, closeSidebar }) {
             <span>Dashboard</span>
           </NavLink>
 
-          {/* Doctors */}
-          <NavLink to="/patient/doctorcategories" onClick={handleBlockedClick}>
+          {/* Doctors Categories */}
+          <NavLink
+            to="/patient/doctorcategories"
+            onClick={handleBlockedClick}
+          >
             <img
               src={DoctorIcon}
               alt="Doctors"
@@ -81,7 +112,11 @@ export default function PatientSidebar({ patient, sidebarOpen, closeSidebar }) {
             <span>Doctors Categories</span>
           </NavLink>
 
-             <NavLink to="/patient/doctors" onClick={handleBlockedClick}>
+          {/* Doctors */}
+          <NavLink
+            to="/patient/doctors"
+            onClick={handleBlockedClick}
+          >
             <img
               src={DoctorIcon}
               alt="Doctors"
@@ -91,7 +126,10 @@ export default function PatientSidebar({ patient, sidebarOpen, closeSidebar }) {
           </NavLink>
 
           {/* Appointments */}
-          <NavLink to="/patient/appointments" onClick={handleBlockedClick}>
+          <NavLink
+            to="/patient/appointments"
+            onClick={handleBlockedClick}
+          >
             <img
               src={scheduleIcon}
               alt="Appointments"
@@ -101,7 +139,10 @@ export default function PatientSidebar({ patient, sidebarOpen, closeSidebar }) {
           </NavLink>
 
           {/* Pharmacies */}
-          <NavLink to="/patient/pharmacies" onClick={handleBlockedClick}>
+          <NavLink
+            to="/patient/pharmacies"
+            onClick={handleBlockedClick}
+          >
             <img
               src={PharmacyIcon}
               alt="Pharmacies"
@@ -111,7 +152,10 @@ export default function PatientSidebar({ patient, sidebarOpen, closeSidebar }) {
           </NavLink>
 
           {/* Hospitals */}
-          <NavLink to="/patient/hospitals" onClick={handleBlockedClick}>
+          <NavLink
+            to="/patient/hospitals"
+            onClick={handleBlockedClick}
+          >
             <img
               src={PatientIcon}
               alt="Hospitals"
@@ -121,7 +165,10 @@ export default function PatientSidebar({ patient, sidebarOpen, closeSidebar }) {
           </NavLink>
 
           {/* Laboratories */}
-          <NavLink to="/patient/laboratories" onClick={handleBlockedClick}>
+          <NavLink
+            to="/patient/laboratories"
+            onClick={handleBlockedClick}
+          >
             <img
               src={PatientIcon}
               alt="Laboratories"
@@ -131,19 +178,33 @@ export default function PatientSidebar({ patient, sidebarOpen, closeSidebar }) {
           </NavLink>
 
           {/* Wallet */}
-          <NavLink to="/patient/wallet" onClick={handleBlockedClick}>
-            <img src={walletIcon} alt="Wallet" className="sidebar-menu-image" />
+          <NavLink
+            to="/patient/wallet"
+            onClick={handleBlockedClick}
+          >
+            <img
+              src={walletIcon}
+              alt="Wallet"
+              className="sidebar-menu-image"
+            />
             <span>Wallet</span>
           </NavLink>
 
           {/* Settings */}
-          <NavLink to="/patient/settings" onClick={handleBlockedClick}>
+          <NavLink
+            to="/patient/settings"
+            onClick={handleBlockedClick}
+          >
             <FaKey />
             <span>Settings</span>
           </NavLink>
 
           {/* Logout */}
-          <button className="doctor-sidebar-logout" onClick={handleLogout}>
+          <button
+            type="button"
+            className="doctor-sidebar-logout"
+            onClick={handleLogout}
+          >
             <FaSignOutAlt />
             <span>Logout</span>
           </button>

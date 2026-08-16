@@ -148,7 +148,7 @@ export default function UpcomingAppointment() {
         <div className="empty-dashboard">No upcoming appointments.</div>
       ) : (
         <div className="upcoming-card">
-          <div className="consultation-badge">NEXT CONSULTATION</div>
+          {/* <div className="consultation-badge">NEXT CONSULTATION</div> */}
 
           <div className="upcoming-header">
             <div className="appointment-avatar">

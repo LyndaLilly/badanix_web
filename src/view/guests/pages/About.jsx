@@ -1,449 +1,690 @@
 import "../../../assets/css/about.css";
+import {
+  FaArrowRight,
+  FaCheck,
+  FaHeartbeat,
+  FaLaptopMedical,
+  FaShieldAlt,
+  FaUsers,
+  FaLightbulb,
+  FaHandHoldingHeart,
+  FaGlobe,
+  FaLock,
+  FaChartLine,
+  FaHospital,
+  FaMobileAlt,
+  FaBrain,
+  FaClock,
+  FaStethoscope,
+  FaBullseye,
+  FaEye,
+} from "react-icons/fa";
 
-const About = () => {
+import img1 from "../../../assets/img/img29.jpg"
+import img2 from "../../../assets/img/img7.jpg"
+
+import img4 from "../../../assets/img/img20.jpg"
+import img5 from "../../../assets/img/img24.jpg"
+import img6 from "../../../assets/img/img15.png"
+
+const values = [
+  {
+    icon: <FaLightbulb />,
+    title: "Innovation",
+    text: "Harnessing modern technologies to create smarter and more effective digital healthcare solutions.",
+  },
+  {
+    icon: <FaHandHoldingHeart />,
+    title: "Compassion",
+    text: "Putting the e-patient experience first and ensuring technology never replaces the human side of care.",
+  },
+  {
+    icon: <FaGlobe />,
+    title: "Accessibility",
+    text: "Making quality digital healthcare accessible to people regardless of location.",
+  },
+  {
+    icon: <FaLock />,
+    title: "Integrity",
+    text: "Building trust through transparency, privacy and responsible handling of healthcare information.",
+  },
+  {
+    icon: <FaUsers />,
+    title: "Collaboration",
+    text: "Connecting e-patients, healthcare professionals, institutions and technology partners.",
+  },
+];
+
+const services = [
+  {
+    icon: <FaLaptopMedical />,
+    number: "01",
+    title: "Telemedicine Services",
+    image: img1,
+    text: "Secure virtual consultations with licensed healthcare professionals from wherever you are.",
+  },
+  {
+    icon: <FaHeartbeat />,
+    number: "02",
+    title: "Electronic Health Records",
+    image: img2,
+    text: "Efficiently manage medical histories, laboratory results, prescriptions and other healthcare information.",
+  },
+  {
+    icon: <FaBrain />,
+    number: "03",
+    title: "AI-powered Diagnostics",
+    image:
+      "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=900&q=80",
+    text: "Technology-assisted diagnostic tools designed to support healthcare professionals in making informed decisions.",
+  },
+  {
+    icon: <FaMobileAlt />,
+    number: "04",
+    title: "E-Health Applications",
+    image: img4,
+    text: "Digital tools that allow e-patients to manage appointments, prescriptions and healthcare information.",
+  },
+  {
+    icon: <FaHospital />,
+    number: "05",
+    title: "Hospital Management",
+    image: img5,
+    text: "Digital solutions that help healthcare institutions improve operational efficiency and patient management.",
+  },
+  {
+    icon: <FaClock />,
+    number: "06",
+    title: "Remote Monitoring",
+    image: img6,
+    text: "Connected healthcare technology that supports continuous monitoring and better preventive care.",
+  },
+];
+
+const features = [
+  "E-Patient-Centered Solutions",
+  "End-to-End Healthcare Support",
+  "Advanced Security Measures",
+  "Scalable Digital Infrastructure",
+  "Connected Healthcare Ecosystem",
+  "Accessible Digital Care",
+];
+
+export default function About() {
   return (
-    <>
-      {/* Hero Section */}
-      <section className="about-hero">
-        <div className="hero-overlay"></div>
+    <main className="badanix-about-page">
 
-        <div className="container hero-content">
-          <a href="/" className="back-home">
-            ← Back to Home
+      {/* =====================================================
+          HERO
+      ===================================================== */}
+
+      <section className="badanix-about-hero">
+
+        <div className="badanix-about-hero-overlay"></div>
+
+        <div className="badanix-about-hero-pattern"></div>
+
+        <div className="badanix-about-container">
+
+          <a href="/" className="badanix-about-back">
+            <span>←</span>
+            Back to Home
           </a>
 
-          <div className="hero-title">
-            <h1>About Us</h1>
+          <div className="badanix-about-hero-content">
+
+            <div className="badanix-about-hero-badge">
+              <FaHeartbeat />
+              DIGITAL HEALTHCARE
+            </div>
+
+            <h1>
+              Healthcare,
+              <span> Reimagined.</span>
+            </h1>
+
+            <p>
+              Connecting people, healthcare professionals and institutions
+              through intelligent digital healthcare solutions.
+            </p>
+
+            <div className="badanix-about-hero-actions">
+
+              <a href="/services" className="badanix-about-primary-btn">
+                Explore Our Services
+                <FaArrowRight />
+              </a>
+
+              <a href="#about-introduction" className="badanix-about-outline-btn">
+                Discover BADANIX
+              </a>
+
+            </div>
+
           </div>
+
+          <div className="badanix-about-hero-card">
+
+            <div className="badanix-about-hero-card-icon">
+              <FaStethoscope />
+            </div>
+
+            <div>
+              <strong>Digital Healthcare</strong>
+              <span>Connected. Accessible. Patient-focused.</span>
+            </div>
+
+          </div>
+
         </div>
+
       </section>
 
-      {/* About Intro */}
-      <section className="about-intro py-5">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-10 text-center">
-              <h2 className="section-title">
-                About BADANIX Digital Healthcare
+
+      {/* =====================================================
+          INTRODUCTION
+      ===================================================== */}
+
+      <section
+        className="badanix-about-introduction"
+        id="about-introduction"
+      >
+
+        <div className="badanix-about-container">
+
+          <div className="badanix-about-intro-layout">
+
+            <div className="badanix-about-intro-label">
+
+              <span>01</span>
+
+              <div></div>
+
+              <strong>WHO WE ARE</strong>
+
+            </div>
+
+            <div className="badanix-about-intro-content">
+
+              <h2>
+                Transforming the way
+                <span> healthcare connects.</span>
               </h2>
 
-              <p className="section-text mt-4">
-                At BADANIX Digital Healthcare, we are committed in transforming
-                to e-healthcare through the power of technology. Our mission is
-                to deliver innovative, accessible, and reliable digital
-                healthcare solutions that enhance well-being, streamline
-                e-clinical workflows, and empower e-healthcare providers to
-                offer high-quality care.
-              </p>
+              <div className="badanix-about-intro-text">
 
-              <p className="section-text mt-4">
-                With a focus on the future, BADANIX bridges the gap between
-                cutting-edge technology and compassionate care.
-              </p>
+                <p>
+                  At BADANIX Digital Healthcare, we are committed to
+                  transforming healthcare through the power of technology.
+                  Our platform brings together e-patients, doctors,
+                  hospitals, pharmacies and laboratories within a connected
+                  digital healthcare ecosystem.
+                </p>
+
+                <p>
+                  We combine innovation with compassionate care to make
+                  healthcare more accessible, convenient and efficient while
+                  empowering healthcare professionals with the digital tools
+                  they need to deliver better services.
+                </p>
+
+              </div>
+
+              <div className="badanix-about-intro-highlight">
+
+                <FaHeartbeat />
+
+                <div>
+                  <strong>Technology with a human purpose.</strong>
+                  <span>
+                    We believe better technology should lead to better care.
+                  </span>
+                </div>
+
+              </div>
+
             </div>
+
           </div>
+
         </div>
+
       </section>
 
-      {/* Core Values */}
-      <section className="core-values py-5">
-        <div className="container">
-          <div className="row align-items-center g-5">
-            {/* Left Image */}
-            <div className="col-lg-6">
+
+      {/* =====================================================
+          CORE VALUES
+      ===================================================== */}
+
+      <section className="badanix-about-values">
+
+        <div className="badanix-about-container">
+
+          <div className="badanix-about-section-header">
+
+            <div>
+              <span className="badanix-about-eyebrow">
+                OUR FOUNDATION
+              </span>
+
+              <h2>
+                The values behind
+                <span> BADANIX.</span>
+              </h2>
+            </div>
+
+            <p>
+              Every solution we create is guided by principles that keep
+              people, trust and better healthcare at the center.
+            </p>
+
+          </div>
+
+
+          <div className="badanix-about-values-layout">
+
+            <div className="badanix-about-values-image">
+
               <img
-                src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=900&q=80"
-                alt="Doctor consultation"
-                className="img-fluid values-image"
+                src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=1000&q=80"
+                alt="Healthcare professional"
               />
+
+              <div className="badanix-about-values-overlay">
+
+                <FaShieldAlt />
+
+                <strong>
+                  Healthcare you can trust.
+                </strong>
+
+                <span>
+                  Built around people, privacy and accessibility.
+                </span>
+
+              </div>
+
             </div>
 
-            {/* Right Content */}
-            <div className="col-lg-6">
-              <h2 className="core-title">Our Core Values</h2>
 
-              <ul className="values-list">
-                <li>
-                  <strong>Innovation:</strong> Harnessing the latest
-                  technologies to develop groundbreaking e-healthcare solutions.
-                </li>
+            <div className="badanix-about-values-list">
 
-                <li>
-                  <strong>Compassion:</strong> Our solutions prioritize the
-                  e-patient experience, ensuring that technology enhances
-                  empathy in care delivery.
-                </li>
+              {values.map((value, index) => (
 
-                <li>
-                  <strong>Accessibility:</strong> We believe that everyone
-                  deserves access to quality e-healthcare, regardless of
-                  location or financial status globally.
-                </li>
+                <div
+                  className="badanix-about-value"
+                  key={index}
+                >
 
-                <li>
-                  <strong>Integrity:</strong> Transparency, privacy, and data
-                  security are at the core of everything we do.
-                </li>
+                  <div className="badanix-about-value-number">
+                    0{index + 1}
+                  </div>
 
-                <li>
-                  <strong>Collaboration:</strong> We work closely with
-                  e-healthcare providers, e-patients, and technology partners to
-                  create impactful solutions.
-                </li>
-              </ul>
+                  <div className="badanix-about-value-icon">
+                    {value.icon}
+                  </div>
+
+                  <div className="badanix-about-value-content">
+
+                    <h3>{value.title}</h3>
+
+                    <p>{value.text}</p>
+
+                  </div>
+
+                </div>
+
+              ))}
+
             </div>
+
           </div>
+
         </div>
+
       </section>
 
-      {/* Vision & Mission */}
-      <section className="vision-mission py-5">
-        <div className="container">
-          <div className="text-center mb-5">
-            <span className="section-badge">WHO WE ARE</span>
-            <h2 className="section-heading">Our Purpose</h2>
-            <p className="section-subtitle">
-              Building the future of digital healthcare through innovation,
-              accessibility and compassionate care.
+
+      {/* =====================================================
+          VISION / MISSION
+      ===================================================== */}
+
+      <section className="badanix-about-purpose">
+
+        <div className="badanix-about-container">
+
+          <div className="badanix-about-purpose-heading">
+
+            <span className="badanix-about-eyebrow">
+              OUR PURPOSE
+            </span>
+
+            <h2>
+              Where we are going
+              <span> and why.</span>
+            </h2>
+
+            <p>
+              Our vision and mission guide the products, partnerships and
+              healthcare experiences we build.
             </p>
+
           </div>
 
-          <div className="row g-4">
-            {/* Vision */}
-            <div className="col-lg-6">
-              <div className="purpose-card h-100">
-                <div className="purpose-icon">👁️</div>
 
-                <h3>Our Vision</h3>
+          <div className="badanix-about-purpose-grid">
 
-                <p>
-                  To become a global leader in digital healthcare, reshaping the
-                  delivery of medical services through seamless,
-                  e-patient-centered solutions and enabling healthier lives for
-                  all.
-                </p>
+            <article className="badanix-about-purpose-card">
+
+              <div className="badanix-about-purpose-top">
+
+                <div className="badanix-about-purpose-icon">
+                  <FaEye />
+                </div>
+
+                <span>01</span>
+
               </div>
-            </div>
 
-            {/* Mission */}
-            <div className="col-lg-6">
-              <div className="purpose-card h-100">
-                <div className="purpose-icon">🚀</div>
+              <h3>Our Vision</h3>
 
-                <h3>Our Mission</h3>
+              <p>
+                To become a global leader in digital healthcare, reshaping
+                the delivery of medical services through seamless,
+                e-patient-centered solutions and enabling healthier lives
+                for all.
+              </p>
 
-                <p>
-                  We aim to empower e-healthcare providers and e-patients with
-                  intuitive digital tools that enhance accessibility,
-                  transparency, and efficiency in e-healthcare delivery. By
-                  integrating advanced technologies into every touchpoint of
-                  care, we are committed to making high-quality e-healthcare
-                  services available and affordable to all.
-                </p>
+              <div className="badanix-about-purpose-line"></div>
+
+              <span className="badanix-about-purpose-caption">
+                A healthier digital future
+              </span>
+
+            </article>
+
+
+            <article className="badanix-about-purpose-card badanix-about-purpose-card-accent">
+
+              <div className="badanix-about-purpose-top">
+
+                <div className="badanix-about-purpose-icon">
+                  <FaBullseye />
+                </div>
+
+                <span>02</span>
+
               </div>
-            </div>
+
+              <h3>Our Mission</h3>
+
+              <p>
+                We aim to empower e-healthcare providers and e-patients with
+                intuitive digital tools that enhance accessibility,
+                transparency and efficiency in healthcare delivery.
+              </p>
+
+              <div className="badanix-about-purpose-line"></div>
+
+              <span className="badanix-about-purpose-caption">
+                Technology that empowers care
+              </span>
+
+            </article>
+
           </div>
+
         </div>
+
       </section>
 
-      {/* ================= WHAT WE OFFER ================= */}
 
-      <section className="offer-section py-5">
-        <div className="container">
-          <div className="text-center mb-5">
-            <span className="section-badge">OUR SERVICES</span>
+      {/* =====================================================
+          SERVICES
+      ===================================================== */}
 
-            <h2 className="section-heading">What We Offer</h2>
+      <section className="badanix-about-services">
 
-            <p className="section-subtitle">
-              Innovative digital healthcare solutions designed to improve
-              patient care, streamline operations and empower healthcare
-              providers.
+        <div className="badanix-about-container">
+
+          <div className="badanix-about-services-heading">
+
+            <div>
+
+              <span className="badanix-about-eyebrow">
+                WHAT WE DO
+              </span>
+
+              <h2>
+                One ecosystem.
+                <span> Many healthcare possibilities.</span>
+              </h2>
+
+            </div>
+
+            <p>
+              BADANIX combines digital healthcare services and technology
+              into one connected experience for patients and providers.
             </p>
+
           </div>
 
-          <div className="row g-4">
-            {/* Card 1 */}
-            <div className="col-lg-4 col-md-6">
-              <div className="offer-card">
-                <img
-                  src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=900&q=80"
-                  className="offer-image"
-                  alt=""
-                />
 
-                <div className="offer-body">
-                  <div className="offer-icon">💻</div>
+          <div className="badanix-about-services-grid">
 
-                  <h4>Telemedicine Services</h4>
+            {services.map((service) => (
 
-                  <p>
-                    BADANIX offers secure, virtual consultations with licensed
-                    e-healthcare professionals, enabling e-patients to access
-                    care from the comfort of their homes. Our telemedicine
-                    platform supports video consultations, remote monitoring,
-                    and e-prescriptions, ensuring that care is just a click
-                    away.
-                  </p>
+              <article
+                className="badanix-about-service-card"
+                key={service.number}
+              >
+
+                <div className="badanix-about-service-image">
+
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                  />
+
+                  <span className="badanix-about-service-number">
+                    {service.number}
+                  </span>
+
                 </div>
-              </div>
-            </div>
 
-            {/* Card 2 */}
-            <div className="col-lg-4 col-md-6">
-              <div className="offer-card">
-                <img
-                  src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=900&q=80"
-                  className="offer-image"
-                  alt=""
-                />
+                <div className="badanix-about-service-body">
 
-                <div className="offer-body">
-                  <div className="offer-icon">📋</div>
+                  <div className="badanix-about-service-icon">
+                    {service.icon}
+                  </div>
 
-                  <h4>Electronic Health Records (EHR)</h4>
+                  <h3>{service.title}</h3>
 
-                  <p>
-                    Our EHR solution enables healthcare facilities to store,
-                    manage, and access e-patient data efficiently. It improves
-                    clinical decision-making through real-time access to medical
-                    histories, lab results, and medication records, ensuring
-                    seamless coordination across departments and providers.
-                  </p>
+                  <p>{service.text}</p>
+
+                  {/* <div className="badanix-about-service-link">
+                    Learn more
+                    <FaArrowRight />
+                  </div> */}
+
                 </div>
-              </div>
-            </div>
 
-            {/* Card 3 */}
-            <div className="col-lg-4 col-md-6">
-              <div className="offer-card">
-                <img
-                  src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=900&q=80"
-                  className="offer-image"
-                  alt=""
-                />
+              </article>
 
-                <div className="offer-body">
-                  <div className="offer-icon">🤖</div>
+            ))}
 
-                  <h4>AI-powered Diagnostics and Monitoring</h4>
-
-                  <p>
-                    With Artificial Intelligence integrated into our diagnostic
-                    tools, e-healthcare providers can make faster and more
-                    accurate diagnoses. Our AI algorithms assist in predicting
-                    e-health risks, interpreting medical images, and monitoring
-                    chronic conditions, reducing human error and enhancing care
-                    quality.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 4 */}
-            <div className="col-lg-4 col-md-6">
-              <div className="offer-card">
-                <img
-                  src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=900&q=80"
-                  className="offer-image"
-                  alt=""
-                />
-
-                <div className="offer-body">
-                  <div className="offer-icon">📱</div>
-
-                  <h4>E-Health Management Apps</h4>
-
-                  <p>
-                    BADANIX offers mobile apps that help e-patients track their
-                    e-health metrics, book appointments, manage prescriptions,
-                    and stay informed through personalized e-health content.
-                    These apps empower users to take control of their well-being
-                    and maintain healthier lifestyles.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 5 */}
-            <div className="col-lg-4 col-md-6">
-              <div className="offer-card">
-                <img
-                  src="https://images.unsplash.com/photo-1532187643603-ba119ca4109e?auto=format&fit=crop&w=900&q=80"
-                  className="offer-image"
-                  alt=""
-                />
-
-                <div className="offer-body">
-                  <div className="offer-icon">🏥</div>
-
-                  <h4>Hospital Management Systems (HMS)</h4>
-
-                  <p>
-                    Our advanced HMS simplifies administrative tasks such as
-                    billing, inventory management, and e-patient scheduling.
-                    With our solutions, e-healthcare institutions can improve
-                    operational efficiency, reduce costs, and ensure better
-                    e-patient outcomes.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 6 */}
-            <div className="col-lg-4 col-md-6">
-              <div className="offer-card">
-                <img
-                  src="https://images.unsplash.com/photo-1510017803434-a899398421b3?auto=format&fit=crop&w=900&q=80"
-                  className="offer-image"
-                  alt=""
-                />
-
-                <div className="offer-body">
-                  <div className="offer-icon">⌚</div>
-
-                  <h4>Wearable Technology Integration</h4>
-
-                  <p>
-                    We partner with wearable device manufacturers to collect
-                    real-time e-health data, including heart rate, blood
-                    pressure, and glucose levels etc. This integration supports
-                    preventive care and provides valuable insights to
-                    e-healthcare professionals for continuous e-patient
-                    monitoring.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
+
         </div>
+
       </section>
 
-      {/* ================= WHY CHOOSE US ================= */}
 
-<section className="why-badanix py-5">
+      {/* =====================================================
+          WHY BADANIX
+      ===================================================== */}
 
-    <div className="container">
+      <section className="badanix-about-why">
 
-        <div className="why-wrapper">
+        <div className="badanix-about-container">
 
-            <div className="row align-items-center g-5">
+          <div className="badanix-about-why-wrapper">
 
-                {/* Left */}
+            <div className="badanix-about-why-content">
 
-                <div className="col-lg-5">
+              <span className="badanix-about-eyebrow">
+                WHY BADANIX
+              </span>
 
-                    <span className="section-badge">
-                        WHY CHOOSE US
-                    </span>
+              <h2>
+                Healthcare should feel
+                <span> simpler.</span>
+              </h2>
 
-                    <h2 className="why-title">
-                        Why Choose BADANIX?
-                    </h2>
+              <p>
+                We are building an ecosystem where accessing healthcare,
+                managing medical information and connecting with healthcare
+                professionals can happen through one trusted digital
+                platform.
+              </p>
 
-                    <p className="why-description">
-                        At BADANIX Digital Healthcare, we believe in a future
-                        where technology and medicine intersect to create
-                        healthier communities.
-                    </p>
-
-                    <div className="row g-3 mt-4">
-
-                        <div className="col-6">
-                            <div className="stat-box">
-                                <h3>24/7</h3>
-                                <span>Digital Care</span>
-                            </div>
-                        </div>
-
-                        <div className="col-6">
-                            <div className="stat-box">
-                                <h3>100%</h3>
-                                <span>Secure</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                {/* Right */}
-
-                <div className="col-lg-7">
-
-                    <div className="row g-4">
-
-                        <div className="col-md-6">
-                            <div className="feature-box">
-                                ✔ E-Patient-Centered Solutions
-                            </div>
-                        </div>
-
-                        <div className="col-md-6">
-                            <div className="feature-box">
-                                ✔ End-to-End Support
-                            </div>
-                        </div>
-
-                        <div className="col-md-6">
-                            <div className="feature-box">
-                                ✔ Advanced Security Measures
-                            </div>
-                        </div>
-
-                        <div className="col-md-6">
-                            <div className="feature-box">
-                                ✔ Scalable Solutions
-                            </div>
-                        </div>
-
-                        <div className="col-md-6">
-                            <div className="feature-box">
-                                ✔ Global Reach
-                            </div>
-                        </div>
-
-                        <div className="col-md-6">
-                            <div className="feature-box">
-                                ✔ Impactful Change
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
+              <a
+                href="/services"
+                className="badanix-about-why-button"
+              >
+                Explore BADANIX
+                <FaArrowRight />
+              </a>
 
             </div>
 
-            <hr className="my-5" />
 
-            <div className="text-center">
+            <div className="badanix-about-feature-grid">
 
-                <h2 className="join-title">
-                    Join Us in Shaping the Future of E-Healthcare
-                </h2>
+              {features.map((feature, index) => (
 
-                <p className="join-text">
-                    At BADANIX Digital Healthcare, we believe in a future
-                    where technology and medicine intersect to create
-                    healthier communities. Whether you're a provider looking
-                    to digitize your practice or an e-patient seeking more
-                    accessible care, join us on this journey.
-                </p>
+                <div
+                  className="badanix-about-feature"
+                  key={index}
+                >
 
-                <a href="#" className="download-btn">
-                    Download Our App
+                  <span>
+                    <FaCheck />
+                  </span>
+
+                  <strong>{feature}</strong>
+
+                </div>
+
+              ))}
+
+            </div>
+
+
+            <div className="badanix-about-stat-row">
+
+              <div className="badanix-about-stat">
+
+                <FaClock />
+
+                <div>
+                  <strong>24/7</strong>
+                  <span>Digital access</span>
+                </div>
+
+              </div>
+
+              <div className="badanix-about-stat">
+
+                <FaShieldAlt />
+
+                <div>
+                  <strong>Secure</strong>
+                  <span>Healthcare ecosystem</span>
+                </div>
+
+              </div>
+
+              <div className="badanix-about-stat">
+
+                <FaUsers />
+
+                <div>
+                  <strong>Connected</strong>
+                  <span>Healthcare community</span>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =====================================================
+          FINAL CTA
+      ===================================================== */}
+
+      <section className="badanix-about-final">
+
+        <div className="badanix-about-container">
+
+          <div className="badanix-about-final-card">
+
+            <div className="badanix-about-final-decoration"></div>
+
+            <div className="badanix-about-final-content">
+
+              <span className="badanix-about-eyebrow">
+                THE FUTURE OF HEALTHCARE
+              </span>
+
+              <h2>
+                Let's build a
+                <span> healthier future.</span>
+              </h2>
+
+              <p>
+                Whether you're looking for convenient digital healthcare or
+                want to bring your healthcare practice into the digital
+                future, BADANIX is building the ecosystem to make it happen.
+              </p>
+
+              <div className="badanix-about-final-actions">
+
+                <a
+                  href="/patient/register"
+                  className="badanix-about-final-primary"
+                >
+                  Get Started
+                  <FaArrowRight />
                 </a>
 
+                <a
+                  href="/services"
+                  className="badanix-about-final-secondary"
+                >
+                  View Services
+                </a>
+
+              </div>
+
             </div>
+
+            <div className="badanix-about-final-icon">
+              <FaHeartbeat />
+            </div>
+
+          </div>
 
         </div>
 
-    </div>
+      </section>
 
-</section>
-    </>
+    </main>
   );
-};
-
-export default About;
+}

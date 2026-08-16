@@ -1,394 +1,1271 @@
-/* ===========================
-   PARTNER HERO
-=========================== */
+/* =========================================================
+   PARTNER SECTION
+========================================================= */
 
-.partner-hero{
-    background: linear-gradient(135deg,var(--primary) 0%, #1d4f2a 100%);
-    padding:100px 0;
-    color:var(--white);
-    overflow:hidden;
-    position:relative;
+.partner-section {
+    position: relative;
+    width: 100%;
+
+    padding: 20px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4f8f5 0%,
+            #eef5f0 50%,
+            #f8faf8 100%
+        );
+
+    overflow: hidden;
 }
 
-.partner-badge{
-    display:inline-block;
-    background:rgba(255,255,255,.12);
-    color:var(--warning);
-    padding:10px 18px;
-    border-radius:50px;
-    font-size:.85rem;
-    font-weight:600;
-    letter-spacing:1px;
-    margin-bottom:20px;
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.partner-content {
+    position: relative;
+    z-index: 3;
+
+    max-width: 590px;
 }
 
-.partner-title{
-    font-size:3.4rem;
-    font-weight:800;
-    line-height:1.2;
-    margin-bottom:25px;
+
+/* =========================================================
+   SECTION LABEL
+========================================================= */
+
+.partner-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 20px;
+
+    padding: 8px 14px;
+
+    border-radius: 50px;
+
+    background: rgba(20, 54, 29, 0.07);
+
+    border: 1px solid rgba(20, 54, 29, 0.12);
+
+    color: var(--primary);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 1.1px;
 }
 
-.partner-title span{
-    color:var(--warning);
+
+/* Label dot */
+
+.partner-label-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+
+    box-shadow:
+        0 0 0 4px rgba(20, 54, 29, 0.08);
 }
 
-.partner-description{
-    font-size:1.08rem;
-    line-height:1.9;
-    color:rgba(255,255,255,.9);
-    margin-bottom:35px;
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.partner-title {
+    margin: 0 0 20px;
+
+    max-width: 560px;
+
+    color: var(--primary);
+
+    font-size: clamp(34px, 4vw, 50px);
+
+    font-weight: 800;
+
+    line-height: 1.12;
+
+    letter-spacing: -1px;
 }
 
-.partner-buttons{
-    display:flex;
-    flex-wrap:wrap;
-    gap:15px;
+
+/* Highlight */
+
+.partner-title span {
+    display: block;
+
+    color: var(--primary);
 }
 
-.partner-btn-primary{
-    background:var(--secondary);
-    color:var(--white);
-    border:none;
-    padding:14px 30px;
-    border-radius:50px;
-    font-weight:600;
-    transition:.35s;
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.partner-text {
+    max-width: 540px;
+
+    margin: 0 0 30px;
+
+    color: #596272;
+
+    font-size: 16px;
+
+    line-height: 1.75;
 }
 
-.partner-btn-primary:hover{
-    background:var(--warning);
-    color:var(--black);
-    transform:translateY(-3px);
+
+/* =========================================================
+   BENEFITS
+========================================================= */
+
+.benefits {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 11px 20px;
+
+    margin-bottom: 32px;
+
+    max-width: 570px;
+    font-size: 16px;
 }
 
-.partner-btn-outline{
-    border:2px solid var(--white);
-    color:var(--white);
-    padding:12px 30px;
-    border-radius:50px;
-    transition:.35s;
+
+/* =========================================================
+   BENEFIT
+========================================================= */
+
+.benefit {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    min-width: 0;
+
+    color: var(--primary);
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    line-height: 1.45;
 }
 
-.partner-btn-outline:hover{
-    background:var(--white);
-    color:var(--primary);
+
+/* =========================================================
+   BENEFIT ICON
+========================================================= */
+
+.benefit-icon {
+    width: 25px;
+    height: 25px;
+
+    min-width: 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(20, 54, 29, 0.08);
+
+    color: var(--primary);
+
+    font-size: 13px;
 }
 
-.partner-stats{
-    display:flex;
-    gap:40px;
-    margin-top:55px;
+
+/* =========================================================
+   BENEFIT TEXT
+========================================================= */
+
+.benefit-text {
+    min-width: 0;
 }
 
-.partner-stat h3{
-    color:var(--warning);
-    font-size:2rem;
-    margin-bottom:5px;
+
+/* =========================================================
+   PARTNER BUTTON
+========================================================= */
+
+.partner-btn {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 18px;
+
+    min-height: 52px;
+
+    padding: 7px 8px 7px 22px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background: var(--primary);
+
+    color: #fff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 12px 28px rgba(20, 54, 29, 0.18);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
 }
 
-.partner-stat p{
-    color:rgba(255,255,255,.85);
-    margin:0;
+
+/* Button hover */
+
+.partner-btn:hover {
+    transform: translateY(-4px);
+
+    background: #0f2c17;
+
+    box-shadow:
+        0 18px 35px rgba(20, 54, 29, 0.24);
 }
 
-.partner-image-wrapper{
-    position:relative;
+
+/* =========================================================
+   BUTTON ICON
+========================================================= */
+
+.partner-btn-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.14);
+
+    font-size: 13px;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
 }
 
-.partner-main-image{
-    border-radius:30px;
-    width:100%;
-    box-shadow:0 30px 70px rgba(0,0,0,.35);
+
+.partner-btn:hover .partner-btn-icon {
+    transform: translateX(3px);
+
+    background: rgba(255, 255, 255, 0.22);
 }
 
-.floating-card{
-    position:absolute;
-    background:var(--white);
-    color:var(--primary);
-    padding:15px 22px;
-    border-radius:15px;
-    font-weight:600;
-    box-shadow:0 12px 30px rgba(0,0,0,.15);
+
+/* =========================================================
+   VISUAL AREA
+========================================================= */
+
+.partner-visual {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 540px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
 }
 
-.card-one{
-    top:40px;
-    left:-30px;
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.partner-image {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(430px, 82%);
+
+    height: 500px;
+
+    padding: 10px;
+
+    border-radius: 32px;
+
+    background: rgba(255, 255, 255, 0.45);
+
+    border: 1px solid rgba(20, 54, 29, 0.10);
+
+    box-shadow:
+        0 30px 70px rgba(20, 54, 29, 0.16);
+
+    transform: rotate(2deg);
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
 }
 
-.card-two{
-    bottom:40px;
-    right:-30px;
+
+.partner-image:hover {
+    transform:
+        rotate(0deg)
+        translateY(-7px);
+
+    box-shadow:
+        0 38px 80px rgba(20, 54, 29, 0.20);
 }
 
-/* ===========================
-SECTION TITLE
-=========================== */
 
-.section-title{
-    max-width:760px;
-    margin:auto;
+/* =========================================================
+   IMAGE ITSELF
+========================================================= */
+
+.partner-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 25px;
 }
 
-.section-title span{
-    color:var(--secondary);
-    font-weight:700;
-    letter-spacing:2px;
-    font-size:.85rem;
+
+/* =========================================================
+   DECORATIVE ORBS
+========================================================= */
+
+.partner-orb {
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
 }
 
-.section-title h2{
-    font-size:2.6rem;
-    color:var(--primary);
-    font-weight:700;
-    margin:18px 0;
+
+/* Large orb */
+
+.partner-orb-one {
+    width: 350px;
+    height: 350px;
+
+    right: 2%;
+    top: 5%;
+
+    background:
+        rgba(20, 54, 29, 0.08);
+
+    filter: blur(2px);
 }
 
-.section-title p{
-    color:var(--gray);
-    line-height:1.8;
+
+/* Small orb */
+
+.partner-orb-two {
+    width: 150px;
+    height: 150px;
+
+    left: 5%;
+    bottom: 4%;
+
+    background:
+        rgba(20, 54, 29, 0.10);
+
+    filter: blur(2px);
 }
 
-/* ===========================
-BENEFITS
-=========================== */
 
-.partner-benefits{
-    padding:100px 0;
-    background:var(--lightGray);
+/* =========================================================
+   EXPERIENCE CARD
+========================================================= */
+
+.experience-card {
+    position: absolute;
+
+    z-index: 5;
+
+    left: 2%;
+
+    bottom: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 220px;
+
+    padding: 14px 17px;
+
+    border-radius: 17px;
+
+    background:
+        rgba(255, 255, 255, 0.82);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.65);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 18px 40px rgba(20, 54, 29, 0.16);
+
+    animation:
+        partnerFloat 4s ease-in-out infinite;
 }
 
-.benefit-card{
-    background:var(--white);
-    padding:40px 30px;
-    border-radius:20px;
-    height:100%;
-    transition:.35s;
-    box-shadow:0 10px 35px rgba(0,0,0,.06);
-    border-top:5px solid transparent;
+
+/* =========================================================
+   EXPERIENCE ICON
+========================================================= */
+
+.experience-icon {
+    width: 43px;
+    height: 43px;
+
+    min-width: 43px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background: var(--primary);
+
+    color: #fff;
+
+    font-size: 18px;
 }
 
-.benefit-card:hover{
-    transform:translateY(-10px);
-    border-color:var(--secondary);
+
+/* =========================================================
+   EXPERIENCE CONTENT
+========================================================= */
+
+.experience-content {
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
 }
 
-.benefit-icon{
-    width:75px;
-    height:75px;
-    background:rgba(133,100,67,.12);
-    color:var(--primary);
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:2rem;
-    margin-bottom:25px;
+
+.experience-content strong {
+    color: var(--primary);
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    line-height: 1.1;
 }
 
-.benefit-card h4{
-    color:var(--primary);
-    font-weight:700;
-    margin-bottom:15px;
+
+.experience-content span {
+    margin-top: 3px;
+
+    color: #596272;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    line-height: 1.3;
 }
 
-.benefit-card p{
-    color:var(--gray);
-    line-height:1.8;
+
+/* =========================================================
+   MINI CARD
+========================================================= */
+
+.partner-mini-card {
+    position: absolute;
+
+    z-index: 5;
+
+    right: 0;
+
+    top: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 11px 14px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(20, 54, 29, 0.88);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(16px);
+
+    -webkit-backdrop-filter: blur(16px);
+
+    box-shadow:
+        0 15px 35px rgba(20, 54, 29, 0.20);
 }
 
-/* ===========================
-REGISTER SECTION
-=========================== */
 
-.partner-register-section{
-    padding:100px 0;
-    background:var(--white);
+.partner-mini-card > svg {
+    color: #fff;
+
+    font-size: 17px;
 }
 
-.register-card{
-    background:var(--white);
-    border-radius:25px;
-    overflow:hidden;
-    box-shadow:0 18px 40px rgba(0,0,0,.08);
-    transition:.35s;
-    height:100%;
+
+.partner-mini-card div {
+    display: flex;
+
+    flex-direction: column;
 }
 
-.register-card:hover{
-    transform:translateY(-8px);
+
+.partner-mini-card strong {
+    color: #fff;
+
+    font-size: 11px;
+
+    font-weight: 700;
 }
 
-.register-image{
-    width:100%;
-    height:270px;
-    object-fit:cover;
+
+.partner-mini-card span {
+    margin-top: 2px;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 9px;
 }
 
-.register-content{
-    padding:35px;
-}
 
-.register-label{
-    display:inline-block;
-    color:var(--secondary);
-    font-size:.82rem;
-    font-weight:700;
-    letter-spacing:1px;
-    margin-bottom:10px;
-}
+/* =========================================================
+   FLOAT ANIMATION
+========================================================= */
 
-.register-content h3{
-    color:var(--primary);
-    font-weight:700;
-    margin-bottom:18px;
-}
+@keyframes partnerFloat {
 
-.register-content p{
-    color:var(--gray);
-    line-height:1.8;
-}
-
-.partner-list{
-    list-style:none;
-    padding:0;
-    margin:25px 0;
-}
-
-.partner-list li{
-    margin-bottom:12px;
-    color:var(--darkGray);
-    font-weight:500;
-}
-
-/* ===========================
-COUNTERS
-=========================== */
-
-.partner-counter{
-    background:var(--primary);
-    color:var(--white);
-    padding:80px 0;
-}
-
-.counter-box h2{
-    color:var(--warning);
-    font-size:3rem;
-    font-weight:700;
-}
-
-.counter-box p{
-    margin-top:10px;
-    color:rgba(255,255,255,.85);
-}
-
-/* ===========================
-CTA
-=========================== */
-
-.partner-cta{
-    background:var(--lightGray);
-    padding:100px 0;
-}
-
-.cta-box{
-    background:var(--primary);
-    color:var(--white);
-    padding:70px 50px;
-    border-radius:30px;
-}
-
-.cta-box span{
-    color:var(--warning);
-    font-weight:700;
-    letter-spacing:2px;
-}
-
-.cta-box h2{
-    font-size:2.8rem;
-    margin:20px 0;
-    font-weight:700;
-}
-
-.cta-box p{
-    max-width:750px;
-    margin:0 auto;
-    color:rgba(255,255,255,.88);
-    line-height:1.8;
-}
-
-/* ===========================
-RESPONSIVE
-=========================== */
-
-@media(max-width:991px){
-
-    .partner-hero{
-        text-align:center;
-        padding:80px 0;
+    0% {
+        transform: translateY(0);
     }
 
-    .partner-title{
-        font-size:2.6rem;
+    50% {
+        transform: translateY(-8px);
     }
 
-    .partner-buttons{
-        justify-content:center;
-    }
-
-    .partner-stats{
-        justify-content:center;
-        flex-wrap:wrap;
-        gap:25px;
-    }
-
-    .floating-card{
-        display:none;
-    }
-
-    .section-title h2{
-        font-size:2rem;
-    }
-
-    .cta-box{
-        padding:50px 30px;
-    }
-
-    .cta-box h2{
-        font-size:2rem;
+    100% {
+        transform: translateY(0);
     }
 }
 
-@media(max-width:576px){
 
-    .partner-title{
-        font-size:2rem;
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1400px) {
+
+    .partner-section {
+        padding: 125px 0;
     }
 
-    .partner-description{
-        font-size:1rem;
+    .partner-title {
+        font-size: 52px;
     }
 
-    .partner-btn-primary,
-    .partner-btn-outline{
-        width:100%;
-        text-align:center;
+    .partner-visual {
+        min-height: 570px;
     }
 
-    .partner-buttons{
-        flex-direction:column;
+    .partner-image {
+        width: 450px;
+        height: 530px;
     }
 
-    .section-title h2{
-        font-size:1.7rem;
+    .experience-card {
+        left: 0;
+        bottom: 60px;
     }
 
-    .cta-box h2{
-        font-size:1.6rem;
+    .partner-mini-card {
+        right: 1%;
+        top: 65px;
+    }
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1199px) {
+
+    .partner-section {
+        padding: 90px 0;
     }
 
-    .counter-box{
-        margin-bottom:35px;
+    .partner-title {
+        font-size: 42px;
+    }
+
+    .partner-text {
+        font-size: 16px;
+    }
+
+    .partner-visual {
+        min-height: 500px;
+    }
+
+    .partner-image {
+        width: 390px;
+        height: 460px;
+    }
+
+    .experience-card {
+        left: 0;
+        bottom: 45px;
+    }
+
+    .partner-mini-card {
+        right: -5px;
+        top: 55px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .partner-section {
+        padding: 80px 0;
+    }
+
+    .partner-content {
+        max-width: 700px;
+
+        margin: 0 auto;
+
+        text-align: center;
+    }
+
+    .partner-label {
+        margin-bottom: 17px;
+    }
+
+    .partner-title {
+        max-width: 650px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        font-size: 38px;
+    }
+
+    .partner-text {
+        max-width: 650px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        font-size: 15px;
+    }
+
+    .benefits {
+        max-width: 620px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        text-align: left;
+    }
+
+    .partner-btn {
+        margin-top: 2px;
+    }
+
+    .partner-visual {
+        min-height: 520px;
+
+        margin-top: 15px;
+    }
+
+    .partner-image {
+        width: 380px;
+        height: 460px;
+    }
+
+    .experience-card {
+        left: 12%;
+
+        bottom: 40px;
+    }
+
+    .partner-mini-card {
+        right: 12%;
+
+        top: 45px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .partner-section {
+        padding: 65px 0;
+    }
+
+    .partner-content {
+        text-align: center;
+    }
+
+    .partner-label {
+        font-size: 10px;
+
+        padding: 7px 12px;
+
+        letter-spacing: 0.9px;
+    }
+
+    .partner-title {
+        font-size: 32px;
+
+        line-height: 1.13;
+
+        letter-spacing: -0.6px;
+
+        margin-bottom: 16px;
+    }
+
+    .partner-title span {
+        display: inline;
+    }
+
+    .partner-text {
+        font-size: 16px;
+
+        line-height: 1.7;
+
+        margin-bottom: 25px;
+    }
+
+    .benefits {
+        grid-template-columns: 1fr;
+
+        gap: 9px;
+
+        max-width: 420px;
+
+        margin-bottom: 27px;
+    }
+
+    .benefit {
+        justify-content: flex-start;
+
+        font-size: 15px;
+
+        text-align: left;
+    }
+
+    .benefit-icon {
+        width: 24px;
+        height: 24px;
+
+        min-width: 24px;
+
+        font-size: 12px;
+    }
+
+    .partner-btn {
+        min-height: 50px;
+
+        padding-left: 20px;
+
+        font-size: 12px;
+    }
+
+    .partner-btn-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .partner-visual {
+        min-height: 440px;
+
+        margin-top: 5px;
+    }
+
+    .partner-image {
+        width: 300px;
+
+        height: 390px;
+
+        padding: 8px;
+
+        border-radius: 25px;
+    }
+
+    .partner-image img {
+        border-radius: 19px;
+    }
+
+    .partner-orb-one {
+        width: 280px;
+        height: 280px;
+    }
+
+    .partner-orb-two {
+        width: 110px;
+        height: 110px;
+    }
+
+    .experience-card {
+        left: 4%;
+
+        bottom: 25px;
+
+        min-width: 190px;
+
+        padding: 11px 13px;
+
+        gap: 9px;
+
+        border-radius: 14px;
+    }
+
+    .experience-icon {
+        width: 37px;
+        height: 37px;
+
+        min-width: 37px;
+
+        border-radius: 10px;
+
+        font-size: 15px;
+    }
+
+    .experience-content strong {
+        font-size: 17px;
+    }
+
+    .experience-content span {
+        font-size: 9px;
+    }
+
+    .partner-mini-card {
+        right: 2%;
+
+        top: 35px;
+
+        padding: 9px 11px;
+
+        border-radius: 12px;
+    }
+
+    .partner-mini-card > svg {
+        font-size: 14px;
+    }
+
+    .partner-mini-card strong {
+        font-size: 9px;
+    }
+
+    .partner-mini-card span {
+        font-size: 8px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 576px) {
+
+    .partner-section {
+        padding: 55px 0;
+    }
+
+    .partner-title {
+        font-size: 29px;
+
+        line-height: 1.15;
+    }
+
+    .partner-text {
+        font-size: 15px;
+
+        line-height: 1.65;
+    }
+
+    .benefits {
+        gap: 8px;
+    }
+
+    .benefit {
+        font-size: 13px;
+    }
+
+    .partner-btn {
+        width: 100%;
+
+        justify-content: space-between;
+    }
+
+    .partner-visual {
+        min-height: 390px;
+    }
+
+    .partner-image {
+        width: 250px;
+
+        height: 335px;
+
+        padding: 7px;
+
+        border-radius: 22px;
+    }
+
+    .partner-image img {
+        border-radius: 16px;
+    }
+
+    .experience-card {
+        left: 0;
+
+        bottom: 17px;
+
+        min-width: 170px;
+
+        padding: 9px 11px;
+    }
+
+    .experience-icon {
+        width: 34px;
+        height: 34px;
+
+        min-width: 34px;
+
+        font-size: 14px;
+    }
+
+    .experience-content strong {
+        font-size: 15px;
+    }
+
+    .experience-content span {
+        font-size: 8px;
+    }
+
+    .partner-mini-card {
+        right: 0;
+
+        top: 22px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .partner-section {
+        padding: 45px 0;
+    }
+
+    .partner-title {
+        font-size: 26px;
+
+        letter-spacing: -0.4px;
+    }
+
+    .partner-text {
+        font-size: 15px;
+    }
+
+    .benefit {
+        font-size: 13px;
+    }
+
+    .partner-btn {
+        min-height: 48px;
+
+        padding-left: 17px;
+
+        font-size: 11.5px;
+    }
+
+    .partner-btn-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .partner-visual {
+        min-height: 350px;
+    }
+
+    .partner-image {
+        width: 215px;
+
+        height: 295px;
+
+        padding: 6px;
+
+        border-radius: 19px;
+    }
+
+    .partner-image img {
+        border-radius: 14px;
+    }
+
+    .partner-orb-one {
+        width: 220px;
+        height: 220px;
+    }
+
+    .partner-orb-two {
+        width: 80px;
+        height: 80px;
+    }
+
+    .experience-card {
+        left: -4px;
+
+        bottom: 10px;
+
+        min-width: 155px;
+
+        padding: 8px 9px;
+
+        gap: 7px;
+    }
+
+    .experience-icon {
+        width: 30px;
+        height: 30px;
+
+        min-width: 30px;
+
+        font-size: 12px;
+    }
+
+    .experience-content strong {
+        font-size: 14px;
+    }
+
+    .experience-content span {
+        font-size: 7.5px;
+    }
+
+    .partner-mini-card {
+        right: -4px;
+
+        top: 14px;
+
+        padding: 7px 9px;
+
+        gap: 6px;
+    }
+
+    .partner-mini-card > svg {
+        font-size: 12px;
+    }
+
+    .partner-mini-card strong {
+        font-size: 8px;
+    }
+
+    .partner-mini-card span {
+        font-size: 7px;
+    }
+}
+
+
+/* =========================================================
+   EXTRA SMALL PHONES
+========================================================= */
+
+@media (max-width: 320px) {
+
+    .partner-section {
+        padding: 38px 0;
+    }
+
+    .partner-title {
+        font-size: 24px;
+
+        line-height: 1.15;
+    }
+
+    .partner-text {
+        font-size: 15px;
+
+        line-height: 1.6;
+    }
+
+    .benefits {
+        gap: 7px;
+    }
+
+    .benefit {
+        font-size: 13px;
+
+        gap: 8px;
+    }
+
+    .benefit-icon {
+        width: 21px;
+        height: 21px;
+
+        min-width: 21px;
+
+        font-size: 13px;
+    }
+
+    .partner-btn {
+        min-height: 46px;
+
+        padding-left: 14px;
+
+        font-size: 10.5px;
+    }
+
+    .partner-btn-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .partner-visual {
+        min-height: 310px;
+    }
+
+    .partner-image {
+        width: 190px;
+
+        height: 260px;
+
+        padding: 5px;
+
+        border-radius: 17px;
+    }
+
+    .partner-image img {
+        border-radius: 12px;
+    }
+
+    .experience-card {
+        left: -8px;
+
+        bottom: 5px;
+
+        min-width: 140px;
+
+        padding: 7px;
+    }
+
+    .experience-icon {
+        width: 27px;
+        height: 27px;
+
+        min-width: 27px;
+
+        font-size: 11px;
+    }
+
+    .experience-content strong {
+        font-size: 12px;
+    }
+
+    .experience-content span {
+        font-size: 7px;
+    }
+
+    .partner-mini-card {
+        right: -8px;
+
+        top: 8px;
+
+        padding: 6px 7px;
+    }
+
+    .partner-mini-card strong {
+        font-size: 7px;
+    }
+
+    .partner-mini-card span {
+        font-size: 6px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .partner-image,
+    .partner-btn,
+    .partner-btn-icon,
+    .experience-card {
+        animation: none;
+
+        transition: none;
+    }
+
+    .partner-image:hover,
+    .partner-btn:hover,
+    .partner-btn:hover .partner-btn-icon {
+        transform: none;
     }
 }

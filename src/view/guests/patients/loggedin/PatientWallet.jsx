@@ -142,9 +142,10 @@ export default function PatientWallet() {
           Authorization: `Bearer ${token}`,
         },
 
-        body: JSON.stringify({
-          amount: Number(amount),
-        }),
+       body: JSON.stringify({
+  amount: Number(amount),
+  platform: "web",
+}),
       });
 
       const data = await response.json();
@@ -339,8 +340,10 @@ export default function PatientWallet() {
               onClick={payWithPaystack}
               disabled={loading}
             >
-              <img src="/paystack.png" alt="Paystack" />
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk7pkVlAhrrwFQ5Eq1QOdvUk6nuxnmPnQJv8VD8qmc-Q&s" alt="Paystack" />
             </button>
+
+            
           </div>
         </div>
       )}

@@ -16,6 +16,9 @@ import {
   Testimonial,
   Contacts,
   Partner,
+  PrivacyPolicy,
+  TermsOfService,
+  Cookies,
 } from "./view/guests/pages";
 
 import {
@@ -141,6 +144,9 @@ function AppRouter() {
       "/partner": "Partner",
       "/universallogin": "Universal Login",
       "/universalregister": "Universal Register",
+      "/privacypolicy": "Privacy Policy",
+      "/terms": "Terms & Conditions",
+      "/cookies": "Cookies Policy",
 
       //Patients
       "/patient/register": "Register",
@@ -202,7 +208,7 @@ function AppRouter() {
       "/institution/verify-reset-code": "Verify Reset Code",
       "/institution/resetpassword": "Reset Password",
       "/institution/changepassword": "Change Password",
-      "institution/profilefill": "Profile Fill",
+      "/institution/profilefill": "Profile Fill",
 
       "/hospital/dashboard": "Hospital Dashboard",
       "/hospital/documentupload": "Hospital Document Upload",
@@ -244,6 +250,9 @@ function AppRouter() {
         <Route path="/partner" element={<Partner />} />
         <Route path="/universallogin" element={<UniversalLogin />} />
         <Route path="/universalregister" element={<UniversalRegister />} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsOfService />} />
+        <Route path="/cookies" element={<Cookies />} />
       </Route>
 
       <Route path="/patient/register" element={<PatientRegister />} />

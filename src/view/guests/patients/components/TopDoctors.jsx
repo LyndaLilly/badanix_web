@@ -33,10 +33,22 @@ export default function TopDoctors() {
     }
   };
 
+  const getDoctorImage = (doctor) => {
+    if (!doctor?.profile?.profile_image) {
+      return null;
+    }
+
+    return `${ApiUrl.IMAGE_BASE_URL}/${doctor.profile.profile_image.replace(
+      /^uploads\//,
+      "",
+    )}`;
+  };
+
   return (
     <div className="dashboard-box top-doctors-widget">
-      <div className="dashboard-box-header top-doctors-header">
-        <div>
+      {/* HEADER */}
+      <div className="top-doctors-header">
+        <div className="top-doctors-title">
           <h5>Top E-Specialists</h5>
           <small>Highest rated doctors on BADANIX</small>
         </div>
@@ -47,37 +59,50 @@ export default function TopDoctors() {
         </Link>
       </div>
 
+      {/* LOADING */}
       {loading ? (
-        <div className="text-center py-5">
+        <div className="top-doctors-loading">
           <div
             className="spinner-border spinner-border-sm text-success"
             role="status"
-          ></div>
+          />
 
-          <div className="mt-2 small text-muted">Loading specialists...</div>
+          <div>Loading specialists...</div>
+        </div>
+      ) : doctors.length === 0 ? (
+        /* EMPTY */
+        <div className="top-doctors-empty">
+          <div className="top-doctors-empty-icon">
+            <FaUserMd />
+          </div>
+
+          <h6>No Top Specialists Yet</h6>
+
+          <p>
+            Doctors will appear here after receiving patient ratings.
+          </p>
         </div>
       ) : (
-        <div className="table-responsive">
-          <table className="table doctor-table align-middle mb-0">
-            <thead>
-              <tr>
-                <th>Doctor</th>
-                <th>Specialty</th>
-                <th>Rating</th>
-                <th>Reviews</th>
-                <th className="text-end">Book</th>
-              </tr>
-            </thead>
+        <>
+          {/* ==========================================
+              DESKTOP TABLE
+          ========================================== */}
 
-            <tbody>
-              {doctors.length > 0 ? (
-                doctors.map((doctor) => {
-                  const profileImage = doctor.profile?.profile_image
-                    ? `${ApiUrl.IMAGE_BASE_URL}/${doctor.profile.profile_image.replace(
-                        /^uploads\//,
-                        "",
-                      )}`
-                    : null;
+          <div className="top-doctors-desktop">
+            <table className="doctor-table">
+              <thead>
+                <tr>
+                  <th>Doctor</th>
+                  <th>Specialty</th>
+                  <th>Rating</th>
+                  <th>Reviews</th>
+                  <th>Book</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {doctors.map((doctor) => {
+                  const profileImage = getDoctorImage(doctor);
 
                   return (
                     <tr key={doctor.id}>
@@ -85,7 +110,10 @@ export default function TopDoctors() {
                         <div className="doctor-profile">
                           <div className="doctor-avatar">
                             {profileImage ? (
-                              <img src={profileImage} alt={doctor.fullname} />
+                              <img
+                                src={profileImage}
+                                alt={doctor.fullname}
+                              />
                             ) : (
                               <FaUserMd />
                             )}
@@ -99,16 +127,18 @@ export default function TopDoctors() {
 
                       <td>
                         <span className="doctor-specialization">
-                          {doctor.specialization}
+                          {doctor.specialization ||
+                            "General Practitioner"}
                         </span>
                       </td>
 
                       <td>
                         <div className="doctor-rating">
                           <FaStar />
-
                           <span>
-                            {Number(doctor.average_rating || 0).toFixed(1)}
+                            {Number(
+                              doctor.average_rating || 0,
+                            ).toFixed(1)}
                           </span>
                         </div>
                       </td>
@@ -119,7 +149,7 @@ export default function TopDoctors() {
                         </span>
                       </td>
 
-                      <td className="text-end">
+                      <td>
                         <Link
                           to="/patient/bookappointment"
                           state={{ doctor }}
@@ -131,23 +161,81 @@ export default function TopDoctors() {
                       </td>
                     </tr>
                   );
-                })
-              ) : (
-                <tr>
-                  <td colSpan="5" className="text-center py-5">
-                    <FaUserMd size={34} className="text-muted mb-2" />
+                })}
+              </tbody>
+            </table>
+          </div>
 
-                    <div className="fw-semibold">No Top Specialists Yet</div>
+          {/* ==========================================
+              MOBILE CARDS
+          ========================================== */}
 
-                    <small className="text-muted">
-                      Doctors will appear here after receiving patient ratings.
-                    </small>
-                  </td>
-                </tr>
-              )}
-            </tbody>
-          </table>
-        </div>
+          <div className="top-doctors-mobile">
+            {doctors.map((doctor) => {
+              const profileImage = getDoctorImage(doctor);
+
+              return (
+                <div className="doctor-mobile-card" key={doctor.id}>
+                  {/* TOP */}
+                  <div className="doctor-mobile-top">
+                    <div className="doctor-profile">
+                      <div className="doctor-avatar">
+                        {profileImage ? (
+                          <img
+                            src={profileImage}
+                            alt={doctor.fullname}
+                          />
+                        ) : (
+                          <FaUserMd />
+                        )}
+                      </div>
+
+                      <div className="doctor-info">
+                        <h6>{doctor.fullname}</h6>
+
+                        <span>
+                          {doctor.specialization ||
+                            "General Practitioner"}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* RATING */}
+                    <div className="doctor-mobile-rating">
+                      <FaStar />
+
+                      <span>
+                        {Number(
+                          doctor.average_rating || 0,
+                        ).toFixed(1)}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* BOTTOM */}
+                  <div className="doctor-mobile-bottom">
+                    <div className="doctor-mobile-reviews">
+                      <span>Reviews</span>
+
+                      <strong>
+                        {doctor.rating_count || 0}
+                      </strong>
+                    </div>
+
+                    <Link
+                      to="/patient/bookappointment"
+                      state={{ doctor }}
+                      className="doctor-book-btn"
+                    >
+                      <FaCalendarCheck />
+                      <span>Book Appointment</span>
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </>
       )}
     </div>
   );

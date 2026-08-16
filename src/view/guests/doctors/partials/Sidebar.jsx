@@ -11,62 +11,88 @@ import { useDoctorAuth } from "../../../../contexts/DoctorAuthContext";
 
 import "../../../../assets/css/sidebar.css";
 
-export default function DoctorSidebar({ doctor, sidebarOpen, closeSidebar }) {
+export default function DoctorSidebar({
+  doctor,
+  sidebarOpen,
+  closeSidebar,
+}) {
   const { logout, profileCompleted } = useDoctorAuth();
 
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    await logout();
+    // Close sidebar first
+    closeSidebar();
 
-    navigate("/doctor/login", {
+    const logoutPromise = logout();
+
+    navigate("/universallogin", {
       replace: true,
     });
+
+    await logoutPromise;
   };
 
   const handleBlockedClick = (e) => {
     if (!profileCompleted) {
       e.preventDefault();
 
+      // Close sidebar before showing warning
+      closeSidebar();
+
       Swal.fire({
         icon: "warning",
-
         title: "Complete Profile First",
-
         text: "You need to update your doctor profile before accessing the dashboard.",
-
         confirmButtonText: "Update Profile",
-
         allowOutsideClick: false,
-
         allowEscapeKey: false,
       }).then(() => {
         navigate("/doctor/profilefill", {
           replace: true,
         });
       });
+
+      return;
     }
+
+    // Close sidebar when navigation is allowed
+    closeSidebar();
   };
 
   return (
     <>
+      {/* Click outside sidebar to close */}
       {sidebarOpen && (
-        <div className="doctor-sidebar-overlay" onClick={closeSidebar} />
+        <div
+          className="doctor-sidebar-overlay"
+          onClick={closeSidebar}
+        />
       )}
 
       <aside
-        className={`doctor-sidebar ${sidebarOpen ? "doctor-sidebar-open" : ""}`}
+        className={`doctor-sidebar ${
+          sidebarOpen ? "doctor-sidebar-open" : ""
+        }`}
       >
         <div className="doctor-sidebar-header">
           <h3>BADANIX</h3>
 
-          <button className="doctor-sidebar-close" onClick={closeSidebar}>
+          <button
+            type="button"
+            className="doctor-sidebar-close"
+            onClick={closeSidebar}
+          >
             <FaTimes />
           </button>
         </div>
 
         <nav className="doctor-sidebar-nav">
-          <NavLink to="/doctor/dashboard" onClick={handleBlockedClick}>
+          {/* Dashboard */}
+          <NavLink
+            to="/doctor/dashboard"
+            onClick={handleBlockedClick}
+          >
             <img
               src={walletIcon}
               alt="Dashboard"
@@ -76,7 +102,11 @@ export default function DoctorSidebar({ doctor, sidebarOpen, closeSidebar }) {
             <span>Dashboard</span>
           </NavLink>
 
-          <NavLink to="/doctor/appointments" onClick={handleBlockedClick}>
+          {/* Appointments */}
+          <NavLink
+            to="/doctor/appointments"
+            onClick={handleBlockedClick}
+          >
             <img
               src={scheduleIcon}
               alt="Appointments"
@@ -86,7 +116,11 @@ export default function DoctorSidebar({ doctor, sidebarOpen, closeSidebar }) {
             <span>Appointments</span>
           </NavLink>
 
-          <NavLink to="/doctor/patients" onClick={handleBlockedClick}>
+          {/* Patients */}
+          <NavLink
+            to="/doctor/patients"
+            onClick={handleBlockedClick}
+          >
             <img
               src={PatientIcon}
               alt="Patients"
@@ -96,7 +130,11 @@ export default function DoctorSidebar({ doctor, sidebarOpen, closeSidebar }) {
             <span>Patients</span>
           </NavLink>
 
-          <NavLink to="/doctor/patientehr" onClick={handleBlockedClick}>
+          {/* Patient EHR */}
+          <NavLink
+            to="/doctor/patientehr"
+            onClick={handleBlockedClick}
+          >
             <img
               src={PatientIcon}
               alt="Patient EHR"
@@ -106,25 +144,50 @@ export default function DoctorSidebar({ doctor, sidebarOpen, closeSidebar }) {
             <span>Patient EHR</span>
           </NavLink>
 
-          <NavLink to="/doctor/wallet" onClick={handleBlockedClick}>
-            <img src={walletIcon} alt="Wallet" className="sidebar-menu-image" />
+          {/* Wallet */}
+          <NavLink
+            to="/doctor/wallet"
+            onClick={handleBlockedClick}
+          >
+            <img
+              src={walletIcon}
+              alt="Wallet"
+              className="sidebar-menu-image"
+            />
 
             <span>Wallet</span>
           </NavLink>
 
-          <NavLink to="/doctor/documentupload" onClick={handleBlockedClick}>
-            <img src={walletIcon} alt="Document Upload" className="sidebar-menu-image" />
+          {/* Document Upload */}
+          <NavLink
+            to="/doctor/documentupload"
+            onClick={handleBlockedClick}
+          >
+            <img
+              src={walletIcon}
+              alt="Document Upload"
+              className="sidebar-menu-image"
+            />
 
             <span>Document Upload</span>
           </NavLink>
 
-          <NavLink to="/doctor/settings" onClick={handleBlockedClick}>
+          {/* Settings */}
+          <NavLink
+            to="/doctor/settings"
+            onClick={handleBlockedClick}
+          >
             <FaKey />
 
             <span>Settings</span>
           </NavLink>
 
-          <button className="doctor-sidebar-logout" onClick={handleLogout}>
+          {/* Logout */}
+          <button
+            type="button"
+            className="doctor-sidebar-logout"
+            onClick={handleLogout}
+          >
             <FaSignOutAlt />
 
             <span>Logout</span>

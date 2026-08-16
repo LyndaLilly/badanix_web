@@ -1,7 +1,10 @@
 // src/constants/ApiUrl.js
 
-const BASE_URL = "http://127.0.0.1:8000/api";
-const IMAGE_BASE_URL = "http://127.0.0.1:8000/uploads";
+// const BASE_URL = "http://127.0.0.1:8000/api";
+// const IMAGE_BASE_URL = "http://127.0.0.1:8000/uploads";
+
+const BASE_URL = "https://badanixapi.com/api";
+const IMAGE_BASE_URL = "https://badanixapi.com/public/uploads";
 
 const ApiUrl = {
   BASE_URL,

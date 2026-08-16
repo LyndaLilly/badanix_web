@@ -13,7 +13,7 @@ export default function WelcomeHeader() {
     greeting = "Good Evening";
   }
 
-  const upcomingAppointments = stats?.upcoming_appointments ?? 0;
+  const upcomingAppointments = stats?.confirmed_appointments ?? 0;
 
   return (
     <div className="patient-welcome">
@@ -23,7 +23,10 @@ export default function WelcomeHeader() {
 
       <p>
         Welcome back. You have{" "}
-        <strong>{upcomingAppointments} upcoming appointment{upcomingAppointments !== 1 && "s"}</strong>{" "}
+        <strong>
+          {upcomingAppointments} upcoming appointment
+          {upcomingAppointments !== 1 ? "s" : ""}
+        </strong>{" "}
         scheduled.
       </p>
     </div>

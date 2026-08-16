@@ -196,3 +196,10 @@
   color: var(--secondary);
   font-size: 22px !important;
 }
+
+@media(max-width: 768px){
+  .doctor-navbar-avatar{
+    width:37px;
+    height:37px;
+  }
+}

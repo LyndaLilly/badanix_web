@@ -1,54 +1,91 @@
 /* ==========================================================
-   TOP E-SPECIALISTS
+   TOP E-SPECIALISTS WIDGET
 ========================================================== */
 
 .top-doctors-widget {
-    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+
     background: #fff;
     border-radius: 20px;
     padding: 22px;
+
     box-shadow: 0 10px 30px rgba(20, 54, 29, 0.08);
+
+    overflow: hidden;
 }
+
 
 /* ==========================================================
    HEADER
 ========================================================== */
 
 .top-doctors-header {
+    width: 100%;
+    min-width: 0;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 18px;
+    justify-content: space-between;
+
     gap: 15px;
+    margin-bottom: 18px;
+}
+
+.top-doctors-title {
+    min-width: 0;
 }
 
 .top-doctors-header h5 {
     margin: 0;
+
+    color: #14361d;
     font-size: 17px;
     font-weight: 700;
-    color: #14361d;
 }
 
 .top-doctors-header small {
     display: block;
+
     margin-top: 3px;
+
     color: #8b9392;
     font-size: 12px;
+    line-height: 1.4;
 }
+
+
+/* ==========================================================
+   VIEW ALL
+========================================================== */
 
 .top-doctors-view-all {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+
     gap: 6px;
+
+    flex-shrink: 0;
+
     padding: 8px 14px;
+
     border-radius: 10px;
-    background: rgba(20, 54, 29, .08);
+
+    background: rgba(20, 54, 29, 0.08);
+
     color: #14361d;
+
     text-decoration: none;
+
     font-size: 12px;
     font-weight: 600;
-    transition: .25s;
+
     white-space: nowrap;
+
+    transition: 0.25s ease;
 }
 
 .top-doctors-view-all:hover {
@@ -56,211 +93,664 @@
     color: #fff;
 }
 
+.top-doctors-view-all svg {
+    font-size: 11px;
+}
+
+
+/* ==========================================================
+   DESKTOP TABLE WRAPPER
+========================================================== */
+
+.top-doctors-desktop {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: thin;
+}
+
+.top-doctors-desktop::-webkit-scrollbar {
+    height: 5px;
+}
+
+.top-doctors-desktop::-webkit-scrollbar-thumb {
+    background: #d7dfda;
+    border-radius: 20px;
+}
+
+
 /* ==========================================================
    TABLE
 ========================================================== */
 
 .doctor-table {
-    margin: 0;
+    width: 100%;
+
+    border-collapse: collapse;
+
+    /*
+     * Keeps enough room for the Book button.
+     */
+    table-layout: auto;
+
+    min-width: 650px;
 }
+
+
+/* ==========================================================
+   TABLE HEADER
+========================================================== */
 
 .doctor-table thead th {
     background: #f6f8f7;
+
     border: none;
+
     color: #6d7875;
+
     font-size: 11px;
     font-weight: 700;
+
     text-transform: uppercase;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
+
     padding: 12px 10px;
+
+    text-align: left;
+
     white-space: nowrap;
 }
 
+
+/* ==========================================================
+   TABLE ROW
+========================================================== */
+
 .doctor-table tbody tr {
-    transition: .25s;
+    transition: 0.25s ease;
 }
 
 .doctor-table tbody tr:hover {
     background: #fbfcfc;
 }
 
-.doctor-table td {
-    padding: 14px 10px;
-    vertical-align: middle;
-    border-color: #eef2f1;
-    font-size: 13px;
-}
 
 /* ==========================================================
-   PROFILE
+   TABLE CELLS
+========================================================== */
+
+.doctor-table td {
+    padding: 14px 10px;
+
+    vertical-align: middle;
+
+    border-bottom: 1px solid #eef2f1;
+
+    font-size: 13px;
+
+    white-space: nowrap;
+}
+
+
+/*
+==========================================================
+   IMPORTANT:
+   Reserve space for Book column
+==========================================================
+*/
+
+.doctor-table th:last-child,
+.doctor-table td:last-child {
+    width: 115px;
+
+    min-width: 115px;
+
+    text-align: center;
+}
+
+
+/* ==========================================================
+   DOCTOR PROFILE
 ========================================================== */
 
 .doctor-profile {
     display: flex;
     align-items: center;
+
     gap: 10px;
-    min-width: 170px;
+
+    min-width: 0;
 }
 
 .doctor-avatar {
     width: 44px;
     height: 44px;
+
     flex-shrink: 0;
+
     border-radius: 12px;
+
     overflow: hidden;
+
     background: #eef6ef;
+
     color: #14361d;
+
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
     font-size: 18px;
 }
 
 .doctor-avatar img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+}
+
+
+/* ==========================================================
+   DOCTOR INFO
+========================================================== */
+
+.doctor-info {
+    min-width: 0;
 }
 
 .doctor-info h6 {
     margin: 0;
+
     color: #14361d;
+
     font-size: 13px;
     font-weight: 700;
+
     line-height: 1.3;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .doctor-info span {
-    color: #9aa4a1;
-    font-size: 11px;
+    display: block;
+
+    margin-top: 3px;
+
+    color: #14361d;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
 
 /* ==========================================================
    SPECIALIZATION
 ========================================================== */
 
-.doctor-specialization {
+.doctor-table .doctor-specialization {
     display: inline-block;
+
+    max-width: 180px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
     font-size: 12px;
+
     color: #555;
+
     font-weight: 500;
 }
+
 
 /* ==========================================================
    RATING
 ========================================================== */
 
-.doctor-rating {
+.doctor-table .doctor-rating {
     display: inline-flex;
+
     align-items: center;
-    gap: 4px;
+
+    gap: 5px;
+
+    color: #14361d;
+
     font-size: 13px;
     font-weight: 700;
-    color: #f5b301;
+
+    white-space: nowrap;
 }
 
-.doctor-rating svg {
-    font-size: 12px;
+.doctor-table .doctor-rating svg {
+    color: #ffc107;
+
+    font-size: 13px;
+
+    flex-shrink: 0;
 }
+
+.doctor-table .doctor-rating span {
+    color: #14361d;
+
+    font-size: 13px;
+}
+
+
+/* ==========================================================
+   REVIEWS
+========================================================== */
 
 .review-count {
     display: inline-flex;
-    justify-content: center;
+
     align-items: center;
+    justify-content: center;
+
     min-width: 32px;
     height: 26px;
+
+    padding: 0 7px;
+
+    box-sizing: border-box;
+
     border-radius: 8px;
+
     background: #f4f6f5;
+
     color: #14361d;
+
     font-size: 12px;
     font-weight: 600;
 }
+
 
 /* ==========================================================
    BOOK BUTTON
 ========================================================== */
 
-.doctor-book-btn {
+.doctor-table .doctor-book-btn {
     display: inline-flex;
+
     align-items: center;
+    justify-content: center;
+
     gap: 6px;
+
+    width: auto;
+    min-width: 82px;
+
     padding: 8px 12px;
+
+    box-sizing: border-box;
+
     border-radius: 10px;
+
     background: #14361d;
+
     color: #fff;
+
     text-decoration: none;
+
     font-size: 12px;
     font-weight: 600;
-    transition: .25s;
+
+    white-space: nowrap;
+
+    visibility: visible;
+    opacity: 1;
+
+    transition:
+        background 0.25s ease,
+        transform 0.2s ease;
 }
 
-.doctor-book-btn:hover {
+.doctor-table .doctor-book-btn:hover {
     background: #856443;
+
+    color: #fff;
+
+    transform: translateY(-1px);
+}
+
+.doctor-table .doctor-book-btn svg {
+    display: block;
+
+    flex-shrink: 0;
+
+    font-size: 11px;
+}
+
+
+/* ==========================================================
+   MOBILE CARDS
+========================================================== */
+
+.top-doctors-mobile {
+    display: none;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+
+/* ==========================================================
+   MOBILE DOCTOR CARD
+========================================================== */
+
+.doctor-mobile-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    box-sizing: border-box;
+
+    padding: 14px;
+
+    margin-bottom: 10px;
+
+    border: 1px solid #edf1ef;
+
+    border-radius: 14px;
+
+    background: #fff;
+
+    transition: 0.2s ease;
+}
+
+.doctor-mobile-card:last-child {
+    margin-bottom: 0;
+}
+
+.doctor-mobile-card:hover {
+    background: #fbfdfb;
+
+    border-color: #dfe8e2;
+}
+
+
+/* ==========================================================
+   MOBILE TOP
+========================================================== */
+
+.doctor-mobile-top {
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.doctor-mobile-top .doctor-profile {
+    min-width: 0;
+
+    flex: 1;
+}
+
+
+/* ==========================================================
+   MOBILE RATING
+========================================================== */
+
+.doctor-mobile-rating {
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px;
+
+    flex-shrink: 0;
+
+    padding: 5px 8px;
+
+    border-radius: 8px;
+
+    background: #fff8df;
+
+    color: #14361d;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+.doctor-mobile-rating svg {
+    color: #ffc107;
+
+    font-size: 11px;
+}
+
+
+/* ==========================================================
+   MOBILE BOTTOM
+========================================================== */
+
+.doctor-mobile-bottom {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-top: 13px;
+
+    padding-top: 12px;
+
+    border-top: 1px solid #eef2f1;
+}
+
+
+/* ==========================================================
+   MOBILE REVIEWS
+========================================================== */
+
+.doctor-mobile-reviews {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: #8b9392;
+
+    font-size: 11px;
+
+    flex-shrink: 0;
+}
+
+.doctor-mobile-reviews strong {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 27px;
+    height: 23px;
+
+    padding: 0 6px;
+
+    border-radius: 7px;
+
+    background: #f4f6f5;
+
+    color: #14361d;
+
+    font-size: 10px;
+}
+
+
+/* ==========================================================
+   MOBILE BOOK BUTTON
+========================================================== */
+
+.doctor-mobile-bottom .doctor-book-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    flex-shrink: 0;
+
+    padding: 7px 10px;
+
+    border-radius: 8px;
+
+    background: #14361d;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    visibility: visible;
+    opacity: 1;
+}
+
+.doctor-mobile-bottom .doctor-book-btn:hover {
+    background: #856443;
+
     color: #fff;
 }
 
-.doctor-book-btn svg {
-    font-size: 11px;
+.doctor-mobile-bottom .doctor-book-btn svg {
+    display: block;
+
+    flex-shrink: 0;
+
+    font-size: 10px;
 }
+
 
 /* ==========================================================
    EMPTY STATE
 ========================================================== */
 
-.doctor-table tbody td.text-center {
-    padding: 45px 20px;
+.top-doctors-empty {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 40px 20px;
+
+    text-align: center;
 }
 
-.doctor-table tbody td.text-center svg {
-    color: #bfc7c5;
-}
+.top-doctors-empty-icon {
+    width: 55px;
+    height: 55px;
 
-.doctor-table tbody td.text-center .fw-semibold {
+    margin: 0 auto 12px;
+
+    border-radius: 50%;
+
+    background: #edf6ef;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
     color: #14361d;
-    margin-top: 10px;
-    font-size: 15px;
+
+    font-size: 23px;
 }
 
-.doctor-table tbody td.text-center small {
-    font-size: 12px;
-    color: #8d9593;
+.top-doctors-empty h6 {
+    margin: 0 0 6px;
+
+    color: #14361d;
+
+    font-size: 15px;
+
+    font-weight: 700;
 }
+
+.top-doctors-empty p {
+    margin: 0;
+
+    color: #8d9593;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
 
 /* ==========================================================
    LOADING
 ========================================================== */
+
+.top-doctors-loading {
+    min-height: 140px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    color: #8d9593;
+
+    font-size: 12px;
+}
 
 .spinner-border {
     width: 1.5rem;
     height: 1.5rem;
 }
 
+
 /* ==========================================================
-   RESPONSIVE
+   TABLET
 ========================================================== */
 
 @media (max-width: 991px) {
 
-    .doctor-table {
-        min-width: 650px;
-    }
-
-}
-
-@media (max-width: 768px) {
-
     .top-doctors-widget {
-        padding: 18px;
+        padding: 20px;
     }
 
-    .top-doctors-header {
-        flex-direction: column;
-        align-items: flex-start;
+    .doctor-table {
+        min-width: 620px;
     }
 
-    .top-doctors-view-all {
-        width: 100%;
-        justify-content: center;
+    .doctor-table thead th {
+        padding: 11px 8px;
+    }
+
+    .doctor-table td {
+        padding: 12px 8px;
+        font-size: 12px;
     }
 
     .doctor-avatar {
@@ -272,31 +762,367 @@
         font-size: 12px;
     }
 
-    .doctor-info span {
-        font-size: 10px;
-    }
-
-    .doctor-book-btn {
-        padding: 7px 10px;
+    .doctor-table .doctor-specialization {
+        max-width: 140px;
         font-size: 11px;
     }
 
+    .doctor-table .doctor-book-btn {
+        min-width: 78px;
+        padding: 7px 9px;
+        font-size: 11px;
+    }
 }
 
-.doctor-rating {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 13px;
-    font-weight: 700;
-    color: #14361d;
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .top-doctors-widget {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+
+        padding: 16px;
+
+        border-radius: 16px;
+
+        overflow: hidden;
+    }
+
+
+    /* Header */
+
+    .top-doctors-header {
+        width: 100%;
+
+        gap: 8px;
+
+        margin-bottom: 15px;
+    }
+
+    .top-doctors-header h5 {
+        font-size: 15px;
+    }
+
+    .top-doctors-header small {
+        font-size: 10px;
+    }
+
+    .top-doctors-view-all {
+        padding: 7px 10px;
+
+        font-size: 10px;
+
+        border-radius: 8px;
+    }
+
+
+    /* Hide table */
+
+    .top-doctors-desktop {
+        display: none;
+    }
+
+
+    /* Show cards */
+
+    .top-doctors-mobile {
+        display: block;
+
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+
+    /* Card */
+
+    .doctor-mobile-card {
+        width: 100%;
+        max-width: 100%;
+
+        padding: 13px;
+
+        border-radius: 13px;
+
+        box-sizing: border-box;
+    }
+
+
+    /* Avatar */
+
+    .doctor-avatar {
+        width: 38px;
+        height: 38px;
+
+        border-radius: 10px;
+
+        font-size: 15px;
+    }
+
+
+    /* Doctor name */
+
+    .doctor-info h6 {
+        font-size: 12px;
+
+        max-width: 150px;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .doctor-info span {
+        font-size: 12px;
+
+        max-width: 150px;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+
+    /* Rating */
+
+    .doctor-mobile-rating {
+        padding: 4px 7px;
+
+        font-size: 10px;
+    }
+
+
+    /* Bottom */
+
+    .doctor-mobile-bottom {
+        margin-top: 11px;
+
+        padding-top: 10px;
+    }
+
+
+    /* Reviews */
+
+    .doctor-mobile-reviews {
+        font-size: 10px;
+    }
+
+
+    /* Book */
+
+    .doctor-mobile-bottom .doctor-book-btn {
+        min-width: 0;
+
+        padding: 7px 10px;
+
+        font-size: 10px;
+
+        border-radius: 8px;
+    }
 }
 
-.doctor-rating svg {
-    color: #FFC107;
-    font-size: 13px;
+
+/* ==========================================================
+   SMALL PHONES
+========================================================== */
+
+@media (max-width: 480px) {
+
+    .top-doctors-widget {
+        padding: 14px;
+
+        border-radius: 14px;
+    }
+
+
+    .top-doctors-header {
+        align-items: center;
+
+        gap: 6px;
+    }
+
+    .top-doctors-header h5 {
+        font-size: 14px;
+    }
+
+    .top-doctors-header small {
+        font-size: 9px;
+    }
+
+    .top-doctors-view-all {
+        padding: 6px 8px;
+
+        font-size: 9px;
+    }
+
+
+    .doctor-mobile-card {
+        padding: 12px;
+
+        margin-bottom: 9px;
+    }
+
+
+    .doctor-mobile-top {
+        gap: 7px;
+    }
+
+
+    .doctor-avatar {
+        width: 35px;
+        height: 35px;
+    }
+
+
+    .doctor-info h6 {
+        max-width: 130px;
+
+        font-size: 11px;
+    }
+
+    .doctor-info span {
+        max-width: 130px;
+
+        font-size: 12px;
+    }
+
+
+    .doctor-mobile-rating {
+        padding: 4px 6px;
+
+        font-size: 9px;
+    }
+
+    .doctor-mobile-rating svg {
+        font-size: 9px;
+    }
+
+
+    .doctor-mobile-bottom {
+        gap: 7px;
+    }
+
+
+    .doctor-mobile-reviews {
+        font-size: 9px;
+    }
+
+
+    .doctor-mobile-reviews strong {
+        min-width: 25px;
+
+        height: 21px;
+
+        font-size: 9px;
+    }
+
+
+    .doctor-mobile-bottom .doctor-book-btn {
+        padding: 6px 8px;
+
+        font-size: 9px;
+    }
 }
 
-.doctor-rating span {
-    color: #14361d;
+
+/* ==========================================================
+   VERY SMALL PHONES
+========================================================== */
+
+@media (max-width: 380px) {
+
+    .top-doctors-widget {
+        padding: 12px;
+    }
+
+
+    .top-doctors-header h5 {
+        font-size: 13px;
+    }
+
+    .top-doctors-header small {
+        font-size: 8px;
+    }
+
+    .top-doctors-view-all {
+        padding: 5px 7px;
+
+        font-size: 8px;
+    }
+
+
+    .doctor-mobile-card {
+        padding: 10px;
+    }
+
+
+    .doctor-avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+
+    .doctor-info h6 {
+        max-width: 115px;
+
+        font-size: 10px;
+    }
+
+    .doctor-info span {
+        max-width: 115px;
+
+        font-size: 11px;
+    }
+
+
+    .doctor-mobile-rating {
+        padding: 3px 5px;
+
+        font-size: 8px;
+    }
+
+
+    .doctor-mobile-bottom {
+        margin-top: 9px;
+
+        padding-top: 9px;
+    }
+
+
+    .doctor-mobile-reviews {
+        font-size: 8px;
+    }
+
+
+    .doctor-mobile-bottom .doctor-book-btn {
+        padding: 5px 7px;
+
+        font-size: 8px;
+    }
+}
+
+
+/* ==========================================================
+   GLOBAL BOX SIZING
+========================================================== */
+
+.top-doctors-widget,
+.top-doctors-widget *,
+.top-doctors-mobile,
+.doctor-mobile-card {
+    box-sizing: border-box;
+}
+
+
+/* ==========================================================
+   FINAL OVERFLOW PROTECTION
+========================================================== */
+
+.top-doctors-widget {
+    overflow-x: hidden;
 }

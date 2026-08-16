@@ -84,28 +84,32 @@ export default function Login() {
 
         await login(data.token, data.institution);
 
-        await Swal.fire({
+        const type = data.institution.institution_type;
+
+        Swal.fire({
           icon: "success",
           title: "Login Successful",
           text: data.message,
+          showConfirmButton: false,
+          timer: 1500,
+          timerProgressBar: true,
           confirmButtonColor: "#14361D",
+          willClose: () => {
+            if (type === "hospital") {
+              navigate("/hospital/dashboard", {
+                replace: true,
+              });
+            } else if (type === "pharmacy") {
+              navigate("/pharmacy/dashboard", {
+                replace: true,
+              });
+            } else if (type === "laboratory") {
+              navigate("/laboratory/dashboard", {
+                replace: true,
+              });
+            }
+          },
         });
-
-        const type = data.institution.institution_type;
-
-        if (type === "hospital") {
-          navigate("/hospital/dashboard", {
-            replace: true,
-          });
-        } else if (type === "pharmacy") {
-          navigate("/pharmacy/dashboard", {
-            replace: true,
-          });
-        } else if (type === "laboratory") {
-          navigate("/laboratory/dashboard", {
-            replace: true,
-          });
-        }
       } else if (response.status === 422) {
         setErrors(data.errors || {});
       } else if (response.status === 403) {

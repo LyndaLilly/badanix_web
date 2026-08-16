@@ -1,285 +1,593 @@
 /* ===================================
-   HISTORY CARD
+   APPOINTMENT HISTORY CARD
 =================================== */
 
+.appointment-history-card,
 .patient-history-card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 8px 24px rgba(20, 54, 29, .08);
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+
+    box-shadow: 0 8px 24px rgba(20, 54, 29, 0.08);
+
+    overflow: hidden;
 }
+
 
 /* ===================================
    HEADER
 =================================== */
 
-.patient-history-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+.box-title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    min-width: 0;
 }
 
-.patient-history-header h5 {
-  margin: 0;
-  color: #14361d;
-  font-size: 17px;
-  font-weight: 700;
+.history-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
 }
 
-.patient-history-header svg {
-  color: #856443;
-  font-size: 20px;
+.history-title h5 {
+    margin: 0;
+    color: #14361d;
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
 }
+
+.box-icon {
+    color: #856443;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+
+/* ===================================
+   SEE MORE
+=================================== */
+
+.history-see-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    flex-shrink: 0;
+
+    border: none;
+    background: transparent;
+
+    color: #14361d;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.history-see-more svg {
+    font-size: 12px;
+    transition: transform 0.3s;
+}
+
+.history-see-more:hover {
+    color: #856443;
+}
+
+.history-see-more:hover svg {
+    transform: translateX(4px);
+}
+
+
+/* ===================================
+   TABLE WRAPPER
+=================================== */
+
+.patient-history-table-wrapper {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    -webkit-overflow-scrolling: touch;
+}
+
 
 /* ===================================
    TABLE
 =================================== */
 
-.patient-history-table-wrapper {
-  width: 100%;
-  overflow-x: auto;
-}
-
 .patient-history-table {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
 }
 
 .patient-history-table thead {
-  background: #14361d;
+    background: #14361d;
 }
 
 .patient-history-table th {
-  padding: 16px;
-  color: #fff;
-  text-align: left;
-  font-size: 14px;
-  font-weight: 700;
+    padding: 14px 12px;
+
+    color: #fff;
+    text-align: left;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    white-space: nowrap;
 }
 
 .patient-history-table td {
-  padding: 18px 16px;
-  border-bottom: 1px solid #edf1f4;
-  font-size: 14px;
-  color: #555;
+    padding: 15px 12px;
+
+    border-bottom: 1px solid #edf1f4;
+
+    font-size: 13px;
+    color: #555;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .patient-history-table tbody tr:hover {
-  background: #f8fbf9;
+    background: #f8fbf9;
 }
+
+
+/* ===================================
+   COLUMN WIDTHS
+=================================== */
+
+.patient-history-table th:nth-child(1),
+.patient-history-table td:nth-child(1) {
+    width: 34%;
+}
+
+.patient-history-table th:nth-child(2),
+.patient-history-table td:nth-child(2) {
+    width: 28%;
+}
+
+.patient-history-table th:nth-child(3),
+.patient-history-table td:nth-child(3) {
+    width: 20%;
+}
+
+.patient-history-table th:nth-child(4),
+.patient-history-table td:nth-child(4) {
+    width: 18%;
+}
+
 
 /* ===================================
    DOCTOR
 =================================== */
 
 .patient-history-doctor {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    min-width: 0;
 }
 
 .patient-history-avatar {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  overflow: hidden;
-  flex-shrink: 0;
+    width: 42px;
+    height: 42px;
 
-  background: #14361d;
+    border-radius: 50%;
+    overflow: hidden;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    flex-shrink: 0;
+
+    background: #14361d;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .patient-history-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .patient-history-avatar svg {
-  color: #fff;
-  font-size: 18px;
+    color: #fff;
+    font-size: 17px;
 }
 
 .patient-history-doctor span {
-  color: #14361d;
-  font-weight: 600;
+    color: #14361d;
+    font-weight: 600;
+
+    min-width: 0;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
+
 
 /* ===================================
    STATUS
 =================================== */
 
 .patient-status {
-  display: inline-block;
-  padding: 6px 14px;
-  border-radius: 30px;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: capitalize;
+    display: inline-block;
+
+    max-width: 100%;
+
+    padding: 5px 11px;
+
+    border-radius: 30px;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-transform: capitalize;
+
+    white-space: nowrap;
 }
 
 .status-completed {
-  background: #e9f8ee;
-  color: #198754;
+    background: #e9f8ee;
+    color: #198754;
 }
 
 .status-confirmed {
-  background: #e8f2ff;
-  color: #2563eb;
+    background: #e8f2ff;
+    color: #2563eb;
 }
 
 .status-pending {
-  background: #fff6df;
-  color: #d97706;
+    background: #fff6df;
+    color: #d97706;
 }
 
 .status-cancelled {
-  background: #ffecec;
-  color: #dc2626;
+    background: #ffecec;
+    color: #dc2626;
 }
 
 .status-rejected {
-  background: #f2f2f2;
-  color: #666;
+    background: #f2f2f2;
+    color: #666;
 }
 
 .status-default {
-  background: #ececec;
-  color: #555;
+    background: #ececec;
+    color: #555;
 }
 
+
 /* ===================================
-   EMPTY
+   EMPTY STATE
+=================================== */
+
+.history-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    padding: 45px 20px;
+
+    text-align: left;
+}
+
+.history-icon-wrapper {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+
+    background: #edf6ef;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.history-icon-wrapper svg {
+    font-size: 27px;
+    color: #14361d;
+}
+
+.history-text {
+    min-width: 0;
+}
+
+.history-text h4 {
+    margin: 0 0 7px;
+    color: #14361d;
+    font-size: 17px;
+}
+
+.history-text p {
+    margin: 0;
+    color: #777;
+    font-size: 13px;
+}
+
+
+/* ===================================
+   OLD EMPTY CLASS SUPPORT
 =================================== */
 
 .patient-history-empty {
-  text-align: center;
-  padding: 60px 20px;
+    text-align: center;
+    padding: 60px 20px;
 }
 
 .patient-history-empty svg {
-  font-size: 50px;
-  color: #14361d;
-  margin-bottom: 18px;
+    font-size: 50px;
+    color: #14361d;
+    margin-bottom: 18px;
 }
 
 .patient-history-empty h4 {
-  margin-bottom: 8px;
-  color: #14361d;
+    margin-bottom: 8px;
+    color: #14361d;
 }
 
 .patient-history-empty p {
-  color: #777;
+    color: #777;
 }
+
 
 /* ===================================
    FOOTER
 =================================== */
 
 .patient-history-footer {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .patient-history-btn {
-  width: 100%;
-  border: none;
-  border-radius: 10px;
-  background: #14361d;
-  color: #fff;
-  padding: 14px;
-  font-weight: 600;
-  cursor: pointer;
+    width: 100%;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
+    border: none;
+    border-radius: 10px;
 
-  transition: .3s;
+    background: #14361d;
+    color: #fff;
+
+    padding: 14px;
+
+    font-weight: 600;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    transition: 0.3s;
 }
 
 .patient-history-btn:hover {
-  background: #856443;
+    background: #856443;
 }
 
-/* ===================================
-   RESPONSIVE
-=================================== */
-
-@media (max-width:768px){
-
-  .patient-history-card{
-      padding:18px;
-  }
-
-  .patient-history-table{
-      min-width:700px;
-  }
-
-}
 
 /* ==========================================
-   HEADER
+   TABLET
 ========================================== */
 
-.box-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+@media (max-width: 900px) {
+
+    .appointment-history-card,
+    .patient-history-card {
+        padding: 18px;
+    }
+
+    .patient-history-table th {
+        padding: 12px 10px;
+        font-size: 12px;
+    }
+
+    .patient-history-table td {
+        padding: 13px 10px;
+        font-size: 12px;
+    }
+
+    .patient-history-avatar {
+        width: 38px;
+        height: 38px;
+    }
+
+    .patient-history-status {
+        font-size: 10px;
+    }
 }
 
-.history-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.history-title h5 {
-  margin: 0;
-  color: #14361d;
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.box-icon {
-  color: #856443;
-  font-size: 18px;
-}
 
 /* ==========================================
-   SEE MORE
+   MOBILE
 ========================================== */
 
-.history-see-more {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+@media (max-width: 600px) {
 
-  border: none;
-  background: transparent;
+    .appointment-history-card,
+    .patient-history-card {
+        padding: 15px;
+        border-radius: 13px;
+    }
 
-  color: #14361d;
-  font-size: 14px;
-  font-weight: 600;
 
-  cursor: pointer;
-  transition: 0.3s;
+    /* HEADER */
+
+    .box-title {
+        margin-bottom: 16px;
+        align-items: center;
+    }
+
+    .history-title {
+        gap: 7px;
+    }
+
+    .history-title h5 {
+        font-size: 13px;
+    }
+
+    .box-icon {
+        font-size: 15px;
+    }
+
+    .history-see-more {
+        font-size: 12px;
+        gap: 4px;
+    }
+
+    .history-see-more svg {
+        font-size: 10px;
+    }
+
+
+    /*
+       IMPORTANT:
+       Do NOT force the table to 700px.
+       Allow it to fit the available width.
+    */
+
+    .patient-history-table-wrapper {
+        overflow-x: hidden;
+    }
+
+    .patient-history-table {
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    .patient-history-table th,
+    .patient-history-table td {
+        padding: 10px 6px;
+    }
+
+    .patient-history-table th {
+        font-size: 10px;
+    }
+
+    .patient-history-table td {
+        font-size: 10px;
+    }
+
+
+    /* DOCTOR */
+
+    .patient-history-doctor {
+        gap: 6px;
+    }
+
+    .patient-history-avatar {
+        width: 30px;
+        height: 30px;
+    }
+
+    .patient-history-avatar svg {
+        font-size: 13px;
+    }
+
+    .patient-history-doctor span {
+        font-size: 10px;
+    }
+
+
+    /* STATUS */
+
+    .patient-status {
+        padding: 4px 7px;
+        font-size: 9px;
+    }
+
+
+    /* EMPTY */
+
+    .history-content {
+        flex-direction: column;
+        text-align: center;
+
+        padding: 35px 10px;
+
+        gap: 12px;
+    }
+
+    .history-icon-wrapper {
+        width: 50px;
+        height: 50px;
+    }
+
+    .history-icon-wrapper svg {
+        font-size: 22px;
+    }
+
+    .history-text h4 {
+        font-size: 15px;
+    }
+
+    .history-text p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
 }
 
-.history-see-more svg {
-  font-size: 12px;
-  transition: transform 0.3s;
-}
 
-.history-see-more:hover {
-  color: #856443;
-}
+/* ==========================================
+   VERY SMALL PHONES
+========================================== */
 
-.history-see-more:hover svg {
-  transform: translateX(4px);
+@media (max-width: 380px) {
+
+    .appointment-history-card,
+    .patient-history-card {
+        padding: 12px;
+    }
+
+    .history-title h5 {
+        font-size: 12px;
+    }
+
+    .history-see-more {
+        font-size: 11px;
+    }
+
+    .patient-history-table th,
+    .patient-history-table td {
+        padding: 8px 4px;
+    }
+
+    .patient-history-avatar {
+        width: 27px;
+        height: 27px;
+    }
+
+    .patient-history-doctor span {
+        font-size: 9px;
+    }
+
+    .patient-status {
+        padding: 3px 5px;
+        font-size: 8px;
+    }
 }

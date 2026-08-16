@@ -1,63 +1,130 @@
 import "../assets/css/sechome.css";
+
 import {
   FaStethoscope,
   FaPills,
   FaHospital,
   FaFlask,
+  FaArrowRight,
 } from "react-icons/fa";
 
 const services = [
   {
     icon: <FaStethoscope />,
     title: "Virtual Consultations",
-    text: "Connect you to our certified e-specialists across the globe via video call",
+    text: "Connect with certified e-specialists across the globe through secure video consultations.",
   },
   {
     icon: <FaPills />,
     title: "Pharmacy Services",
-    text: "Order your prescribed medication through our leading pharmaceutical providers",
+    text: "Order your prescribed medication through trusted pharmaceutical providers.",
   },
   {
     icon: <FaHospital />,
     title: "Hospital Services",
-    text: "Connect you to our certified e-specialists across the globe",
+    text: "Connect with certified hospitals and access the healthcare services you need.",
   },
   {
     icon: <FaFlask />,
     title: "Laboratory Access",
-    text: "Enjoy top notch diagnosis services at any of our laboratories partner of your choice.",
+    text: "Access quality diagnostic services from laboratories you can trust.",
   },
 ];
 
 export default function Services() {
   return (
-    <section className="services-section py-5" id="services">
+    <section className="services-section">
+
       <div className="container">
 
-        <div className="text-center mb-5">
-          <h2 className="services-heading">Our Services</h2>
-          <div className="heading-line"></div>
+        {/* =================================
+            SECTION HEADER
+        ================================= */}
+
+        <div className="services-header">
+
+          <div className="services-label">
+            <span className="services-label-dot"></span>
+            WHAT WE OFFER
+          </div>
+
+          <h2 className="services-heading">
+            Healthcare services,
+            <span> all in one place.</span>
+          </h2>
+
+          <p className="services-subheading">
+            Everything you need to access, manage and experience better
+            healthcare through BADANIX.
+          </p>
+
         </div>
 
-        <div className="row g-4">
+
+        {/* =================================
+            SERVICES
+        ================================= */}
+
+        <div className="services-grid">
+
           {services.map((service, index) => (
-            <div className="col-lg-3 col-md-6" key={index}>
-              <div className="service-card h-100">
 
-                <div className="service-icon">
-                  {service.icon}
-                </div>
+            <div
+              className="service-card"
+              key={index}
+            >
 
-                <h4>{service.title}</h4>
+              {/* Decorative number */}
 
-                <p>{service.text}</p>
+              <span className="service-number">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
+
+              {/* Icon */}
+
+              <div className="service-icon">
+                {service.icon}
+              </div>
+
+
+              {/* Content */}
+
+              <div className="service-content">
+
+                <h3>
+                  {service.title}
+                </h3>
+
+                <p>
+                  {service.text}
+                </p>
 
               </div>
+
+
+              {/* Bottom action */}
+
+              <div className="service-footer">
+
+                <span>
+                  Explore service
+                </span>
+
+                <span className="service-arrow">
+                  <FaArrowRight />
+                </span>
+
+              </div>
+
             </div>
+
           ))}
+
         </div>
 
       </div>
+
     </section>
   );
 }

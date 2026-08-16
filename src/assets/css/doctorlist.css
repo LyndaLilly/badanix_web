@@ -1,517 +1,752 @@
-/* ================================
-   Doctor List Page
-================================ */
+/* =========================================================
+   DOCTOR LIST PAGE
+========================================================= */
 
 .doctor-list-page {
-    width:100%;
-    min-height:100vh;
-    padding:25px;
-    background:var(--lightGray);
-    box-sizing:border-box;
+  width: 100%;
+  min-height: 100vh;
+  padding: 25px;
+  background: var(--lightGray);
+  box-sizing: border-box;
 }
 
-
-/* ================================
- Header
-================================ */
-
+/* =========================================================
+   HEADER
+========================================================= */
 
 .doctor-list-header {
-
-    display:flex;
-    align-items:center;
-    gap:18px;
-    margin-bottom:30px;
-
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 30px;
 }
-
 
 .doctor-back-btn {
+  width: 42px;
+  height: 42px;
 
-    width:42px;
-    height:42px;
+  border: none;
+  border-radius: 8px;
 
-    border:none;
-    border-radius:8px;
+  background: var(--primary);
+  color: var(--white);
 
-    background:var(--primary);
-    color:var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+  cursor: pointer;
 
-    cursor:pointer;
-
+  transition: 0.3s;
 }
 
+.doctor-back-btn:hover {
+  background: var(--secondary);
+}
 
 .doctor-list-header h2 {
+  margin: 0;
 
-    margin:0;
+  font-size: 26px;
 
-    font-size:26px;
-
-    color:var(--primary);
-
+  color: var(--primary);
 }
-
 
 .doctor-list-header span {
-
-    color:var(--gray);
-
-    font-size:14px;
-
+  color: var(--gray);
+  font-size: 14px;
 }
 
-
-
-/* ================================
- Doctor Grid
-================================ */
-
+/* =========================================================
+   DOCTOR GRID
+========================================================= */
 
 .doctor-list-container {
+  display: grid;
 
-    display:grid;
+  grid-template-columns: repeat(3, 1fr);
 
-    grid-template-columns:repeat(3,1fr);
-
-    gap:25px;
-
+  gap: 25px;
 }
 
-
-
-/* ================================
- Bootstrap Profile Card
-================================ */
-
+/* =========================================================
+   DOCTOR CARD
+========================================================= */
 
 .doctor-card {
+  position: relative;
 
-    background:var(--white);
+  background: var(--white);
 
-    border-radius:12px;
+  border-radius: 12px;
 
-    overflow:hidden;
+  overflow: hidden;
 
-    border:1px solid #e5e5e5;
+  border: 1px solid #e5e5e5;
 
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 
-    transition:.3s;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
 
-    cursor:pointer;
+  cursor: pointer;
 
-    display:flex;
-
-    flex-direction:column;
-
+  display: flex;
+  flex-direction: column;
 }
-
-
 
 .doctor-card:hover {
+  transform: translateY(-5px);
 
-    transform:translateY(-5px);
-
-    box-shadow:0 8px 25px rgba(20,54,29,.15);
-
+  box-shadow: 0 8px 25px rgba(20, 54, 29, 0.15);
 }
 
+/* =========================================================
+   DISABLED / UNAVAILABLE DOCTOR
+========================================================= */
 
+.doctor-card.doctor-disabled {
+  opacity: 0.58;
 
-/* ================================
- Profile Top
-================================ */
+  cursor: not-allowed;
 
+  background: #f7f7f7;
+
+  filter: grayscale(15%);
+}
+
+.doctor-card.doctor-disabled:hover {
+  transform: none;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================================================
+   PROFILE TOP
+========================================================= */
 
 .doctor-card-top {
+  display: flex;
 
-    display:flex;
+  gap: 18px;
 
-    gap:18px;
+  padding: 20px;
 
-    padding:20px;
-
-    align-items:flex-start;
-
+  align-items: flex-start;
 }
 
+/* =========================================================
+   IMAGE WRAPPER
+========================================================= */
 
+.doctor-image-wrapper {
+  position: relative;
 
-/* Rectangular Image */
+  width: 95px;
+  height: 110px;
+
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   DOCTOR IMAGE
+========================================================= */
 
 .doctor-image {
+  width: 95px;
+  height: 110px;
 
-    width:95px;
+  object-fit: cover;
 
-    height:110px;
+  border-radius: 10px;
 
-    object-fit:cover;
+  border: 1px solid #ddd;
 
-    border-radius:10px;
-
-    border:1px solid #ddd;
-
+  display: block;
 }
 
 
+
+.doctor-badge {
+  padding: 4px 8px;
+
+  border-radius: 5px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  white-space: nowrap;
+}
+
+.doctor-badge.available {
+  background: #e7f6eb;
+
+  color: #16833b;
+
+  border: 1px solid #bde5c8;
+}
+
+.doctor-badge.unavailable {
+  background: #eeeeee;
+
+  color: #777;
+
+  border: 1px solid #d5d5d5;
+}
+
+/* =========================================================
+   MAIN DETAILS
+========================================================= */
 
 .doctor-main-details {
+  flex: 1;
 
-    flex:1;
-
+  min-width: 0;
 }
 
-
-
-/* Name */
+/* =========================================================
+   NAME
+========================================================= */
 
 .doctor-name-row {
+  display: flex;
 
-    display:flex;
+  justify-content: space-between;
 
-    justify-content:space-between;
+  align-items: flex-start;
 
-    align-items:flex-start;
-
-    gap:8px;
-
+  gap: 8px;
 }
-
 
 .doctor-name-row h3 {
+  margin: 0;
 
-    margin:0;
+  font-size: 17px;
 
-    font-size:17px;
+  color: var(--primary);
 
-    color:var(--primary);
+  font-weight: 700;
 
-    font-weight:700;
-
+  line-height: 1.3;
 }
 
+/* =========================================================
+   RATING CONTAINER
+========================================================= */
 
+/*
+   IMPORTANT:
+   This overrides the old yellow background
+   that was applied to .doctor-rating.
+*/
 
-/* Rating */
+.doctor-card .doctor-rating {
+  display: flex;
 
-.doctor-rating {
+  align-items: center;
 
-    display:flex;
+  gap: 6px;
 
-    align-items:center;
+  background: transparent !important;
 
-    gap:4px;
+  padding: 0 !important;
 
-    background:var(--warning);
+  border-radius: 0;
 
-    padding:4px 8px;
+  color: var(--darkGray);
 
-    border-radius:6px;
+  font-size: 13px;
 
-    font-size:12px;
-
-    color:var(--black);
-
-    white-space:nowrap;
-
+  white-space: nowrap;
 }
 
+/* =========================================================
+   STAR CONTAINER
+========================================================= */
 
+.doctor-card .stars {
+  display: flex;
 
-.doctor-rating svg {
+  align-items: center;
 
-    font-size:12px;
+  gap: 2px;
 
+  line-height: 1;
 }
 
+/* =========================================================
+   ALL STARS
+========================================================= */
 
+.doctor-card .stars svg {
+  width: 15px;
+  height: 15px;
 
-/* Specialization */
+  flex-shrink: 0;
 
+  display: block;
+}
+
+/* =========================================================
+   FILLED STARS
+========================================================= */
+
+.doctor-card .stars svg.filled-star {
+  color: #ffcc00 !important;
+
+  fill: #ffcc00 !important;
+}
+
+/* =========================================================
+   EMPTY STARS
+========================================================= */
+
+.doctor-card .stars svg.empty-star {
+  color: #d9d9d9 !important;
+
+  fill: #d9d9d9 !important;
+}
+
+/* =========================================================
+   RATING NUMBER
+========================================================= */
+
+.doctor-card .doctor-rating > span {
+  color: var(--gray);
+
+  font-size: 13px;
+
+  font-weight: 500;
+}
+
+/* =========================================================
+   SPECIALIZATION
+========================================================= */
 
 .doctor-specialization {
+  display: block;
 
-    display:block;
+  margin-top: 7px;
 
-    margin-top:7px;
+  font-size: 13px;
 
-    font-size:13px;
+  font-weight: 600;
 
-    font-weight:600;
-
-    color:var(--secondary);
-
+  color: var(--secondary);
 }
 
-
-
-/* Location */
-
+/* =========================================================
+   LOCATION
+========================================================= */
 
 .doctor-info-row {
+  display: flex;
 
-    display:flex;
+  align-items: center;
 
-    align-items:center;
+  gap: 7px;
 
-    gap:7px;
+  margin-top: 10px;
 
-    margin-top:10px;
+  font-size: 13px;
 
-    font-size:13px;
-
-    color:var(--gray);
-
+  color: var(--gray);
 }
-
-
 
 .doctor-info-row svg {
+  color: var(--secondary);
 
-    color:var(--secondary);
-
+  flex-shrink: 0;
 }
 
+/* =========================================================
+   GENDER
+========================================================= */
 
+.doctor-card-top > div:first-child > .doctor-stat {
+  margin-top: 8px;
 
-/* ================================
- Doctor Details
-================================ */
+  justify-content: center;
 
+  min-width: 95px;
+
+  padding: 6px 8px;
+
+  background: #fafafa;
+}
+
+/* =========================================================
+   DOCTOR CARD MIDDLE
+========================================================= */
 
 .doctor-card-middle {
+  margin: 0 20px;
 
-    margin:0 20px;
+  padding: 15px 0;
 
-    padding:15px 0;
+  border-top: 1px solid #eee;
 
-    border-top:1px solid #eee;
+  border-bottom: 1px solid #eee;
 
-    border-bottom:1px solid #eee;
+  display: flex;
 
-    display:flex;
-
-    gap:12px;
-
+  gap: 12px;
 }
 
-
+/* =========================================================
+   STAT
+========================================================= */
 
 .doctor-stat {
+  flex: 1;
 
-    flex:1;
+  background: #fafafa;
 
-    background:#fafafa;
+  padding: 10px;
 
-    padding:10px;
+  border-radius: 8px;
 
-    border-radius:8px;
+  display: flex;
 
-    display:flex;
+  align-items: center;
 
-    align-items:center;
+  gap: 8px;
 
-    gap:8px;
-
+  min-width: 0;
 }
-
-
 
 .doctor-stat svg {
+  color: var(--primary);
 
-    color:var(--primary);
+  font-size: 18px;
 
-    font-size:18px;
-
+  flex-shrink: 0;
 }
-
-
 
 .doctor-stat small {
+  display: block;
 
-    display:block;
+  color: var(--gray);
 
-    color:var(--gray);
+  font-size: 11px;
 
-    font-size:11px;
-
+  margin-bottom: 2px;
 }
-
-
 
 .doctor-stat strong {
+  display: block;
 
-    display:block;
+  color: var(--darkGray);
 
-    color:var(--darkGray);
+  font-size: 13px;
 
-    font-size:13px;
-
+  word-break: break-word;
 }
 
-
-
-/* ================================
- Footer
-================================ */
-
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .doctor-card-footer {
+  padding: 20px;
 
-    padding:20px;
-
-    margin-top:auto;
-
+  margin-top: auto;
 }
 
-
+/* =========================================================
+   VIEW PROFILE BUTTON
+========================================================= */
 
 .view-profile-btn {
+  width: 100%;
 
-    width:100%;
+  height: 42px;
 
-    height:42px;
+  border: none;
 
-    border:none;
+  border-radius: 8px;
 
-    border-radius:8px;
+  background: var(--primary);
 
-    background:var(--primary);
+  color: var(--white);
 
-    color:var(--white);
+  font-size: 14px;
 
-    font-size:14px;
+  font-weight: 600;
 
-    font-weight:600;
+  display: flex;
 
-    display:flex;
+  justify-content: center;
 
-    justify-content:center;
+  align-items: center;
 
-    align-items:center;
+  gap: 8px;
 
-    gap:8px;
+  cursor: pointer;
 
-    cursor:pointer;
-
-    transition:.3s;
-
+  transition: 0.3s;
 }
-
-
 
 .view-profile-btn:hover {
-
-    background:var(--secondary);
-
+  background: var(--secondary);
 }
 
+/* =========================================================
+   DISABLED BUTTON
+========================================================= */
 
+.view-profile-btn.disabled,
+.view-profile-btn:disabled {
+  background: #d5d5d5;
 
-/* ================================
- Empty
-================================ */
+  color: #777;
 
+  cursor: not-allowed;
+
+  opacity: 1;
+}
+
+.view-profile-btn.disabled:hover,
+.view-profile-btn:disabled:hover {
+  background: #d5d5d5;
+}
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
 
 .doctor-empty-state {
+  background: var(--white);
 
-    background:var(--white);
+  border-radius: 12px;
 
-    border-radius:12px;
+  padding: 50px;
 
-    padding:50px;
+  text-align: center;
 
-    text-align:center;
+  border: 1px solid #e5e5e5;
+}
 
+.doctor-empty-state > svg {
+  font-size: 45px;
+
+  color: var(--primary);
+
+  margin-bottom: 15px;
+}
+
+.doctor-empty-state h3 {
+  margin: 0 0 8px;
+
+  color: var(--primary);
+}
+
+.doctor-empty-state p {
+  margin: 0;
+
+  color: var(--gray);
+
+  font-size: 14px;
+}
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading-page {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  min-height: 60vh;
+}
+
+.loading-page h3 {
+  color: var(--primary);
+}
+
+/* =========================================================
+   RESPONSIVE - LARGE TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+  .doctor-list-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .doctor-list-page {
+    padding: 20px;
+  }
+
+  .doctor-list-container {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+  }
+
+  .doctor-card-top {
+    gap: 14px;
+
+    padding: 16px;
+  }
+
+  .doctor-image-wrapper,
+  .doctor-image {
+    width: 85px;
+
+    height: 100px;
+  }
+
+  .doctor-name-row h3 {
+    font-size: 14px;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .doctor-list-page {
+    padding: 15px;
+  }
+
+  .doctor-list-header {
+    gap: 12px;
+
+    margin-bottom: 20px;
+  }
+
+  .doctor-list-header h2 {
+    font-size: 22px;
+  }
+
+  .doctor-list-container {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+  }
+
+  .doctor-card-top {
+    flex-direction: row;
+
+    padding: 16px;
+
+    gap: 14px;
+  }
+
+  .doctor-image-wrapper,
+  .doctor-image {
+    width: 85px;
+
+    height: 100px;
+  }
+
+  .doctor-card-middle {
+    margin: 0 16px;
+
+    gap: 8px;
+  }
+
+  .doctor-card-footer {
+    padding: 16px;
+  }
+
+  .doctor-name-row {
+    flex-direction: column;
+
+    gap: 5px;
+  }
+
+  .doctor-name-row h3 {
+    font-size: 14px;
+  }
+
+  .doctor-card .doctor-rating {
+    font-size: 12px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+  .doctor-list-page {
+    padding: 12px;
+  }
+
+  .doctor-card-top {
+    padding: 13px;
+
+    gap: 10px;
+  }
+
+  .doctor-image-wrapper,
+  .doctor-image {
+    width: 75px;
+
+    height: 90px;
+  }
+
+  .doctor-badge {
+    font-size: 9px;
+
+    padding: 3px 5px;
+  }
+
+  .doctor-name-row h3 {
+    font-size: 14px;
+  }
+
+  .doctor-specialization {
+    font-size: 12px;
+  }
+
+  .doctor-info-row {
+    font-size: 12px;
+  }
+
+  .doctor-card-middle {
+    margin: 0 13px;
+
+    padding: 12px 0;
+  }
+
+  .doctor-stat {
+    padding: 8px;
+  }
+
+  .doctor-stat small {
+    font-size: 10px;
+  }
+
+  .doctor-stat strong {
+    font-size: 12px;
+  }
+
+  .doctor-card-footer {
+    padding: 13px;
+  }
 }
 
 
 
-/* ================================
- Responsive
-================================ */
-
-
-@media(max-width:1200px){
-
-    .doctor-list-container{
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
-
-}
-
-
-
-@media(max-width:700px){
-
-    .doctor-list-page{
-
-        padding:15px;
-
-    }
-
-
-    .doctor-list-container{
-
-        grid-template-columns:1fr;
-
-    }
-
-
-    .doctor-card-top{
-
-        flex-direction:row;
-
-    }
-
-}
-
-.doctor-rating {
-
-    display:flex;
-    align-items:center;
-    gap:6px;
-
-    background:none;
-
-    padding:0;
-
-    color:var(--darkGray);
-
-    font-size:13px;
-
-}
-
-
-.stars {
-
-    display:flex;
-
-    gap:2px;
-
-}
-
-
-.filled-star {
-
-    color:#FFCC00;
-
-    font-size:15px;
-
-}
-
-
-.empty-star {
-
-    color:#ddd;
-
-    font-size:15px;
-
+.doctor-name-wrapper{
+    display: flex;
+    gap: 5px;
+    align-items: center;
 }

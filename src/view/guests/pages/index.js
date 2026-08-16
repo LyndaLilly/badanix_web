@@ -5,3 +5,6 @@ export {default as Testimonial} from "./Testimonial";
 export {default as Contacts} from "./Contacts";
 export {default as Partner} from "./Partner";
 export {default as UniversalLogin} from "./auth/UniversalLogin";
+export {default as PrivacyPolicy} from "./PrivacyPolicy";
+export {default as TermsOfService} from "./Terms";
+export {default as Cookies} from "./Cookies";

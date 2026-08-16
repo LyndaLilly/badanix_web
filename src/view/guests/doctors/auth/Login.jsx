@@ -13,7 +13,6 @@ import "../../../../assets/css/login.css";
 import ApiUrl from "../../../../constants/ApiUrl";
 import { useDoctorAuth } from "../../../../contexts/DoctorAuthContext";
 
-
 export default function Login() {
   const navigate = useNavigate();
 
@@ -68,23 +67,22 @@ export default function Login() {
       if (response.ok) {
         await login(data.token);
 
-        await Swal.fire({
+        Swal.fire({
           icon: "success",
           title: "Login Successful",
           text: data.message,
+          showConfirmButton: false,
+          timer: 1500,
+          timerProgressBar: true,
           confirmButtonColor: "#14361D",
-        });
-
-        navigate("/doctor/dashboard", {
-          replace: true,
+          willClose: () => {
+            navigate("/doctor/dashboard", { replace: true });
+          },
         });
       } else if (response.status === 422) {
         setErrors(data.errors || {});
       } else if (response.status === 403) {
-        localStorage.setItem(
-          "doctor_verify_email",
-          data.email
-        );
+        localStorage.setItem("doctor_verify_email", data.email);
 
         await Swal.fire({
           icon: "warning",
@@ -115,7 +113,7 @@ export default function Login() {
       setLoading(false);
     }
   };
-    return (
+  return (
     <div className="patient-login-page">
       <div className="container py-5">
         <div className="patient-login-container">
@@ -135,8 +133,8 @@ export default function Login() {
                     <h1>BADANIX</h1>
 
                     <p>
-                      Secure Doctor Portal for managing patients,
-                      appointments and Electronic Health Records.
+                      Secure Doctor Portal for managing patients, appointments
+                      and Electronic Health Records.
                     </p>
                   </div>
                 </div>
@@ -197,11 +195,7 @@ export default function Login() {
                         </span>
 
                         <input
-                          type={
-                            showPassword
-                              ? "text"
-                              : "password"
-                          }
+                          type={showPassword ? "text" : "password"}
                           className="form-control"
                           placeholder="Password"
                           name="password"
@@ -212,15 +206,9 @@ export default function Login() {
                         <button
                           type="button"
                           className="btn btn-light border-start-0"
-                          onClick={() =>
-                            setShowPassword(!showPassword)
-                          }
+                          onClick={() => setShowPassword(!showPassword)}
                         >
-                          {showPassword ? (
-                            <FaEyeSlash />
-                          ) : (
-                            <FaEye />
-                          )}
+                          {showPassword ? <FaEyeSlash /> : <FaEye />}
                         </button>
                       </div>
 

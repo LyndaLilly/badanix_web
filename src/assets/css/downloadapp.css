@@ -1,127 +1,1292 @@
-.download-section{
-    padding:100px 0;
-    background:#f8faf8;
+/* =========================================================
+   DOWNLOAD APP SECTION
+========================================================= */
+
+.download-section {
+    position: relative;
+
+    width: 100%;
+
+    padding:20px 0;
+
+    background: #f5f7f5;
+
+    overflow: hidden;
 }
 
-.download-box{
-    background:white;
-    border-radius:35px;
-    padding:70px;
-    box-shadow:0 25px 70px rgba(0,0,0,.08);
-    overflow:hidden;
-    position:relative;
+
+/* =========================================================
+   MAIN DOWNLOAD BOX
+========================================================= */
+
+.download-box {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 560px;
+
+    padding: 65px 70px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #14361d 0%,
+            #194523 50%,
+            #102d18 100%
+        );
+
+    border-radius: 34px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 70px rgba(20, 54, 29, 0.20);
 }
 
-.phone-wrapper{
-    position:relative;
+
+/* =========================================================
+   DECORATIVE BACKGROUND
+========================================================= */
+
+.download-decoration {
+    position: absolute;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: 0;
 }
 
-.circle-bg{
-    width:470px;
-    height:470px;
-    background:#0b4b2d;
-    border-radius:50%;
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
+.download-decoration-one {
+    width: 420px;
+    height: 420px;
+
+    right: -170px;
+    top: -190px;
+
+    background:
+        rgba(133, 100, 67, 0.18);
+
+    filter: blur(2px);
 }
 
-.phone-image{
-    position:relative;
-    width:90%;
-    max-width:560px;
-    border-radius:30px;
-    box-shadow:0 30px 60px rgba(0,0,0,.25);
+.download-decoration-two {
+    width: 300px;
+    height: 300px;
+
+    left: -150px;
+    bottom: -170px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    filter: blur(4px);
 }
 
-.download-box h2{
-    font-size:54px;
-    font-weight:800;
-    color:#0b4b2d;
-    line-height:1.15;
-    margin:20px 0;
+
+/* =========================================================
+   VISUAL AREA
+========================================================= */
+
+.download-visual {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    min-height: 450px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
 }
 
-.download-box p{
-    font-size:20px;
-    color:#666;
-    line-height:1.9;
-    margin-bottom:35px;
+
+/* =========================================================
+   IMAGE GLOW
+========================================================= */
+
+.download-glow {
+    position: absolute;
+
+    width: 390px;
+    height: 390px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(133, 100, 67, 0.20);
+
+    filter: blur(30px);
+
+    animation:
+        downloadGlow 5s ease-in-out infinite;
 }
 
-.feature-list{
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-    margin-bottom:40px;
+
+/* =========================================================
+   CIRCLE BEHIND IMAGE
+========================================================= */
+
+.download-circle {
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.10);
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
-.feature-list div{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    font-size:20px;
-    font-weight:600;
+
+/* =========================================================
+   IMAGE CARD
+========================================================= */
+
+.download-image-card {
+    position: relative;
+
+    z-index: 3;
+
+    width: 300px;
+
+    padding: 9px;
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.20);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    transform:
+        rotate(-4deg);
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
 }
 
-.feature-list svg{
-    color:#0b4b2d;
-    font-size:24px;
+.download-image-card:hover {
+    transform:
+        rotate(0deg)
+        translateY(-8px);
+
+    box-shadow:
+        0 40px 80px rgba(0, 0, 0, 0.40),
+        inset 0 1px 0 rgba(255, 255, 255, 0.20);
 }
 
-.store-buttons{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
+
+/* =========================================================
+   APP IMAGE
+========================================================= */
+
+.download-app-image {
+    display: block;
+
+    width: 100%;
+    height: 390px;
+
+    object-fit: cover;
+
+    border-radius: 23px;
 }
 
-.store-btn{
-    border:none;
-    background:#0b4b2d;
-    color:white;
-    padding:18px 34px;
-    border-radius:14px;
-    font-size:18px;
-    font-weight:700;
-    display:flex;
-    align-items:center;
-    gap:12px;
-    transition:.3s;
+
+/* =========================================================
+   FLOATING BADGE
+========================================================= */
+
+.download-floating-badge {
+    position: absolute;
+
+    z-index: 5;
+
+    left: 0;
+    bottom: 55px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px 15px;
+
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.20);
+
+    animation:
+        downloadBadgeFloat 4s ease-in-out infinite;
 }
 
-.store-btn svg{
-    font-size:24px;
+.download-floating-badge > svg {
+    color: var(--primary);
+
+    font-size: 22px;
+
+    flex-shrink: 0;
 }
 
-.store-btn:hover{
-    background:#8b6b43;
+.download-floating-badge div {
+    display: flex;
+
+    flex-direction: column;
 }
 
-@media(max-width:991px){
+.download-floating-badge strong {
+    color: var(--primary);
 
-.download-box{
-padding:40px 25px;
+    font-size: 12px;
+
+    font-weight: 800;
+
+    line-height: 1.2;
 }
 
-.circle-bg{
-width:320px;
-height:320px;
+.download-floating-badge span {
+    color: #68716b;
+
+    font-size: 10px;
+
+    margin-top: 2px;
+
+    line-height: 1.2;
 }
 
-.phone-image{
-margin-bottom:40px;
+
+/* =========================================================
+   MINI BADGE
+========================================================= */
+
+.download-floating-mini {
+    position: absolute;
+
+    z-index: 5;
+
+    top: 55px;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 9px 12px;
+
+    color: var(--white);
+
+    background:
+        rgba(20, 54, 29, 0.72);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.13);
+
+    border-radius: 30px;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
-.download-box h2{
-font-size:36px;
+.mini-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #7dc48b;
+
+    box-shadow:
+        0 0 0 4px rgba(125, 196, 139, 0.10);
 }
 
-.download-box p{
-font-size:17px;
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.download-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 610px;
+
+    padding-left: 20px;
 }
 
-.feature-list div{
-font-size:17px;
+
+/* =========================================================
+   TAG
+========================================================= */
+
+.download-tag {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 8px 13px;
+
+    margin-bottom: 18px;
+
+    color: var(--white);
+
+    background:
+        rgba(133, 100, 67, 0.22);
+
+    border:
+        1px solid rgba(133, 100, 67, 0.38);
+
+    border-radius: 30px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
 }
+
+.download-tag-dot {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: var(--secondary);
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.download-title {
+    margin: 0 0 18px;
+
+    color: var(--white);
+
+    font-size: clamp(31px, 3.3vw, 48px);
+
+    font-weight: 800;
+
+    line-height: 1.12;
+
+    letter-spacing: -1px;
+}
+
+.download-title span {
+    color: var(--secondary);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.download-description {
+    max-width: 570px;
+
+    margin: 0 0 27px;
+
+    color: rgba(255, 255, 255, 0.78);
+
+    font-size: 16px;
+
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.download-features {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 11px 18px;
+
+    margin-bottom: 28px;
+}
+
+.download-feature {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: rgba(255, 255, 255, 0.88);
+
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+.download-feature-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: var(--secondary);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   DOWNLOAD ACTION
+========================================================= */
+
+.download-actions {
+    padding-top: 20px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.10);
+}
+
+.download-actions-title {
+    margin-bottom: 12px;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   STORE BUTTONS
+========================================================= */
+
+.download-store-buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.download-store-btn {
+    position: relative;
+
+    min-width: 175px;
+    min-height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 9px 13px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.16);
+
+    border-radius: 13px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    color: var(--white);
+
+    cursor: pointer;
+
+    text-align: left;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.download-store-btn > svg:first-child {
+    font-size: 25px;
+
+    flex-shrink: 0;
+}
+
+.download-store-btn span {
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    min-width: 0;
+
+    color: var(--white);
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    line-height: 1.15;
+}
+
+.download-store-btn small {
+    margin-bottom: 3px;
+
+    color: rgba(255, 255, 255, 0.60);
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    line-height: 1;
+}
+
+.download-store-arrow {
+    font-size: 11px !important;
+
+    opacity: 0.65;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.download-store-btn:hover {
+    transform: translateY(-4px);
+
+    background:
+        rgba(255, 255, 255, 0.14);
+
+    border-color:
+        rgba(255, 255, 255, 0.25);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.download-store-btn:hover .download-store-arrow {
+    transform: translateX(4px);
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes downloadGlow {
+
+    0%,
+    100% {
+        transform: scale(1);
+
+        opacity: 0.75;
+    }
+
+    50% {
+        transform: scale(1.08);
+
+        opacity: 1;
+    }
+}
+
+@keyframes downloadBadgeFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1400px) {
+
+    .download-box {
+        padding: 75px 85px;
+    }
+
+    .download-image-card {
+        width: 320px;
+    }
+
+    .download-app-image {
+        height: 410px;
+    }
+
+    .download-content {
+        padding-left: 30px;
+    }
+}
+
+
+/* =========================================================
+   LAPTOP
+========================================================= */
+
+@media (max-width: 1199px) {
+
+    .download-box {
+        padding: 55px 45px;
+    }
+
+    .download-visual {
+        min-height: 410px;
+    }
+
+    .download-image-card {
+        width: 270px;
+    }
+
+    .download-app-image {
+        height: 350px;
+    }
+
+    .download-circle {
+        width: 320px;
+        height: 320px;
+    }
+
+    .download-glow {
+        width: 350px;
+        height: 350px;
+    }
+
+    .download-content {
+        padding-left: 5px;
+    }
+
+    .download-title {
+        font-size: 40px;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .download-section {
+        padding: 5px 0;
+    }
+
+    .download-box {
+        padding: 55px 45px;
+    }
+
+    .download-visual {
+        min-height: 430px;
+
+        margin-bottom: 10px;
+    }
+
+    .download-image-card {
+        width: 280px;
+    }
+
+    .download-app-image {
+        height: 360px;
+    }
+
+    .download-content {
+        max-width: 700px;
+
+        margin: 0 auto;
+
+        padding-left: 0;
+
+        text-align: center;
+    }
+
+    .download-title {
+        font-size: 38px;
+    }
+
+    .download-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .download-features {
+        max-width: 600px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        text-align: left;
+    }
+
+    .download-actions {
+        text-align: center;
+    }
+
+    .download-store-buttons {
+        justify-content: center;
+    }
+}
+
+
+/* =========================================================
+   MOBILE TABLET
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .download-section {
+        padding: 5px 0;
+    }
+
+    .download-box {
+        padding: 45px 25px;
+
+        border-radius: 27px;
+    }
+
+    .download-visual {
+        min-height: 370px;
+    }
+
+    .download-circle {
+        width: 285px;
+        height: 285px;
+    }
+
+    .download-glow {
+        width: 300px;
+        height: 300px;
+    }
+
+    .download-image-card {
+        width: 245px;
+
+        border-radius: 25px;
+    }
+
+    .download-app-image {
+        height: 315px;
+
+        border-radius: 19px;
+    }
+
+    .download-floating-badge {
+        left: 3%;
+
+        bottom: 35px;
+
+        padding: 10px 12px;
+    }
+
+    .download-floating-mini {
+        right: 3%;
+
+        top: 35px;
+
+        font-size: 9px;
+    }
+
+    .download-title {
+        font-size: 32px;
+
+        letter-spacing: -0.6px;
+    }
+
+    .download-description {
+        font-size: 16px;
+
+        line-height: 1.7;
+    }
+
+    .download-features {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+    }
+
+    .download-feature {
+        justify-content: flex-start;
+
+        font-size: 14px;
+    }
+
+    .download-store-buttons {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .download-store-btn {
+        width: 100%;
+
+        min-width: 0;
+    }
+}
+
+
+/* =========================================================
+   NORMAL MOBILE
+========================================================= */
+
+@media (max-width: 576px) {
+
+    .download-section {
+        padding: 5px 0;
+    }
+
+    .download-box {
+        padding: 35px 18px;
+
+        border-radius: 23px;
+    }
+
+    .download-visual {
+        min-height: 330px;
+    }
+
+    .download-circle {
+        width: 245px;
+        height: 245px;
+    }
+
+    .download-glow {
+        width: 260px;
+        height: 260px;
+
+        filter: blur(25px);
+    }
+
+    .download-image-card {
+        width: 215px;
+
+        padding: 7px;
+
+        border-radius: 21px;
+    }
+
+    .download-app-image {
+        height: 275px;
+
+        border-radius: 16px;
+    }
+
+    .download-floating-badge {
+        left: -2px;
+
+        bottom: 20px;
+
+        padding: 8px 10px;
+
+        gap: 7px;
+    }
+
+    .download-floating-badge > svg {
+        font-size: 18px;
+    }
+
+    .download-floating-badge strong {
+        font-size: 10px;
+    }
+
+    .download-floating-badge span {
+        font-size: 8px;
+    }
+
+    .download-floating-mini {
+        right: -2px;
+
+        top: 25px;
+
+        padding: 7px 9px;
+
+        font-size: 8px;
+    }
+
+    .mini-dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    .download-tag {
+        margin-bottom: 14px;
+
+        padding: 7px 11px;
+
+        font-size: 9px;
+    }
+
+    .download-title {
+        font-size: 32px;
+
+        line-height: 1.15;
+    }
+
+    .download-description {
+        font-size: 15px;
+
+        line-height: 1.65;
+
+        margin-bottom: 23px;
+    }
+
+    .download-feature {
+        font-size: 14px;
+    }
+
+    .download-feature-icon {
+        font-size: 14px;
+    }
+
+    .download-actions {
+        padding-top: 17px;
+    }
+
+    .download-actions-title {
+        font-size: 10px;
+    }
+
+    .download-store-btn {
+        min-height: 55px;
+
+        padding: 8px 11px;
+
+        border-radius: 11px;
+    }
+
+    .download-store-btn > svg:first-child {
+        font-size: 23px;
+    }
+
+    .download-store-btn span {
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .download-section {
+        padding: 5px 0;
+    }
+
+    .download-box {
+        padding: 30px 14px;
+
+        border-radius: 20px;
+    }
+
+    .download-visual {
+        min-height: 290px;
+    }
+
+    .download-circle {
+        width: 215px;
+        height: 215px;
+    }
+
+    .download-glow {
+        width: 225px;
+        height: 225px;
+    }
+
+    .download-image-card {
+        width: 190px;
+
+        padding: 6px;
+
+        border-radius: 18px;
+    }
+
+    .download-app-image {
+        height: 245px;
+
+        border-radius: 14px;
+    }
+
+    .download-floating-badge {
+        left: -5px;
+
+        bottom: 12px;
+
+        padding: 7px 8px;
+    }
+
+    .download-floating-badge > svg {
+        font-size: 16px;
+    }
+
+    .download-floating-badge strong {
+        font-size: 9px;
+    }
+
+    .download-floating-badge span {
+        font-size: 7px;
+    }
+
+    .download-floating-mini {
+        right: -5px;
+
+        top: 15px;
+
+        padding: 6px 8px;
+
+        font-size: 7px;
+    }
+
+    .download-title {
+        font-size: 30px;
+
+        letter-spacing: -0.4px;
+    }
+
+    .download-description {
+        font-size: 15px;
+
+        line-height: 1.6;
+    }
+
+    .download-feature {
+        font-size: 14px;
+
+        gap: 7px;
+    }
+
+    .download-feature-icon {
+        font-size: 14px;
+    }
+
+    .download-store-btn {
+        min-height: 52px;
+
+        padding: 7px 10px;
+    }
+
+    .download-store-btn > svg:first-child {
+        font-size: 21px;
+    }
+
+    .download-store-btn span {
+        font-size: 13px;
+    }
+
+    .download-store-btn small {
+        font-size: 6.5px;
+    }
+}
+
+
+/* =========================================================
+   EXTRA SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .download-box {
+        padding: 27px 12px;
+    }
+
+    .download-visual {
+        min-height: 265px;
+    }
+
+    .download-circle {
+        width: 195px;
+        height: 195px;
+    }
+
+    .download-glow {
+        width: 205px;
+        height: 205px;
+    }
+
+    .download-image-card {
+        width: 170px;
+
+        border-radius: 16px;
+    }
+
+    .download-app-image {
+        height: 220px;
+
+        border-radius: 12px;
+    }
+
+    .download-floating-badge {
+        transform: scale(0.88);
+        transform-origin: left bottom;
+    }
+
+    .download-floating-mini {
+        transform: scale(0.88);
+        transform-origin: right top;
+    }
+
+    .download-title {
+        font-size: 28px;
+    }
+
+    .download-description {
+        font-size: 15px;
+    }
+
+    .download-feature {
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================================
+   320px AND BELOW
+========================================================= */
+
+@media (max-width: 320px) {
+
+    .download-section {
+        padding: 5px 0;
+    }
+
+    .download-box {
+        padding: 24px 10px;
+
+        border-radius: 18px;
+    }
+
+    .download-visual {
+        min-height: 240px;
+    }
+
+    .download-circle {
+        width: 175px;
+        height: 175px;
+    }
+
+    .download-glow {
+        width: 185px;
+        height: 185px;
+    }
+
+    .download-image-card {
+        width: 155px;
+
+        padding: 5px;
+    }
+
+    .download-app-image {
+        height: 200px;
+    }
+
+    .download-floating-badge {
+        transform: scale(0.78);
+    }
+
+    .download-floating-mini {
+        transform: scale(0.78);
+    }
+
+    .download-title {
+        font-size: 26px;
+
+        line-height: 1.17;
+    }
+
+    .download-description {
+        font-size: 14px;
+
+        line-height: 1.55;
+    }
+
+    .download-feature {
+        font-size: 14px;
+    }
+
+    .download-store-btn {
+        min-height: 50px;
+
+        padding: 6px 8px;
+
+        gap: 8px;
+    }
+
+    .download-store-btn > svg:first-child {
+        font-size: 19px;
+    }
+
+    .download-store-btn span {
+        font-size: 12px;
+    }
+
+    .download-store-btn small {
+        font-size: 6px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .download-glow,
+    .download-floating-badge {
+        animation: none;
+    }
+
+    .download-image-card,
+    .download-store-btn {
+        transition: none;
+    }
+
 }

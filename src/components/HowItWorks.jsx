@@ -1,10 +1,6 @@
 import "../assets/css/works.css";
-import {
-  FaSearch,
-  FaCalendarAlt,
-  FaUserMd,
-  FaPills,
-} from "react-icons/fa";
+import { FaSearch, FaCalendarAlt, FaUserMd, FaPills } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const steps = [
   {
@@ -32,18 +28,22 @@ const steps = [
 export default function HowItWorks() {
   return (
     <section className="works-section">
-
       <div className="container">
-
         <div className="row align-items-center">
-
           {/* Left */}
 
           <div className="col-lg-5 mb-5 mb-lg-0">
+            <div className="works-heading">
+              <span className="works-eyebrow">SIMPLE. SMART. SEAMLESS.</span>
 
-            <h2 className="works-title">
-              HOW BADANIX WORKS
-            </h2>
+              <h2 className="works-title">
+                Your Health,
+                <br />
+                <span>Simplified.</span>
+              </h2>
+
+              <div className="works-heading-line"></div>
+            </div>
 
             <p className="works-description">
               Introducing BADANIX, your dedicated online telemedicine platform
@@ -53,48 +53,32 @@ export default function HowItWorks() {
               convenient and effective.
             </p>
 
-            <button className="btn works-btn">
+            <Link style={{ textDecoration: "none" }} to="/patient/register" className="works-btn2">
               Book Now on BADANIX
-            </button>
-
+            </Link>
           </div>
 
           {/* Right */}
 
           <div className="col-lg-7">
-
             <div className="row g-4">
-
               {steps.map((item, index) => (
                 <div className="col-md-6" key={index}>
-
                   <div className="step-box">
-
-                    <div className="step-icon">
-                      {item.icon}
-                    </div>
+                    <div className="step-icon">{item.icon}</div>
 
                     <div>
-
                       <h5>{item.title}</h5>
 
                       <p>{item.text}</p>
-
                     </div>
-
                   </div>
-
                 </div>
               ))}
-
             </div>
-
           </div>
-
         </div>
-
       </div>
-
     </section>
   );
 }

@@ -45,8 +45,41 @@ export default function PatientEhr({
   const [profile, setProfile] = useState(null);
   const [medicalHistory, setMedicalHistory] = useState([]);
   const [showRecordsModal, setShowRecordsModal] = useState(false);
+  const [consultationStarted, setConsultationStarted] = useState(false);
+  const [timeMessage, setTimeMessage] = useState("");
 
   const storageKey = `ehr-draft-${appointmentId}`;
+
+  const checkConsultationTime = (appointmentData) => {
+    if (!appointmentData?.appointment_date || !appointmentData?.start_time) {
+      setConsultationStarted(false);
+      setTimeMessage("Consultation time has not been scheduled yet.");
+      return;
+    }
+
+    const now = new Date();
+
+    const startDateTime = new Date(
+      `${appointmentData.appointment_date}T${appointmentData.start_time}`,
+    );
+
+    if (now >= startDateTime) {
+      setConsultationStarted(true);
+      setTimeMessage("");
+    } else {
+      setConsultationStarted(false);
+
+      setTimeMessage(
+        `Patient notes will be available from ${startDateTime.toLocaleString(
+          [],
+          {
+            dateStyle: "medium",
+            timeStyle: "short",
+          },
+        )}.`,
+      );
+    }
+  };
 
   const emptyForm = {
     chief_complaint: "",
@@ -69,6 +102,18 @@ export default function PatientEhr({
       loadPatient();
     }
   }, [appointmentId]);
+
+  useEffect(() => {
+    if (!appointment) return;
+
+    checkConsultationTime(appointment);
+
+    const interval = setInterval(() => {
+      checkConsultationTime(appointment);
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [appointment]);
 
   const loadPatient = async () => {
     try {
@@ -98,6 +143,8 @@ export default function PatientEhr({
       // Appointment & Profile
       setAppointment(data.appointment);
       setProfile(data.appointment.patient.profile);
+
+      checkConsultationTime(data.appointment);
 
       // Temporary prefilled values for testing
       setForm({
@@ -635,9 +682,18 @@ X-Ray Chest`}
               />
             </div>
             <div className="ehr-footer">
-              <button type="submit" className="ehr-save-btn" disabled={saving}>
+              <button
+                type="submit"
+                className="ehr-save-btn"
+                disabled={saving || !consultationStarted}
+              >
                 <FaSave />
-                {saving ? "Saving..." : "Save Consultation"}
+
+                {saving
+                  ? "Saving..."
+                  : consultationStarted
+                    ? "Save Consultation"
+                    : "Consultation Not Started"}
               </button>
             </div>
           </form>

@@ -3,1954 +3,2199 @@
 ========================================================= */
 
 .hero-section {
-    position: relative;
-    min-height: 95vh;
+  position: relative;
 
-    display: flex;
-    align-items: center;
+  width: 100%;
+  min-height: 95vh;
 
-    background: var(--primary);
+  display: flex;
+  align-items: center;
 
-    overflow: hidden;
+  background: var(--primary);
+
+  overflow: hidden;
+
+  isolation: isolate;
 }
-
 
 /* =========================================================
-   HERO OVERLAY
+   CAROUSEL VIEWPORT
 ========================================================= */
 
-.hero-overlay {
-    display: none;
+.hero-carousel-viewport {
+  position: relative;
+
+  width: 100%;
+  min-height: 95vh;
+
+  overflow: hidden;
+
+  cursor: grab;
+
+  touch-action: pan-y;
+
+  user-select: none;
+  -webkit-user-select: none;
 }
 
+.hero-carousel-viewport:active {
+  cursor: grabbing;
+}
+
+/* =========================================================
+   CAROUSEL TRACK
+========================================================= */
+
+.hero-carousel-track {
+  display: flex;
+
+  width: 100%;
+  min-height: 95vh;
+
+  will-change: transform;
+
+  transition: transform 0.75s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.hero-carousel-track.is-dragging {
+  transition: none;
+
+  cursor: grabbing;
+}
+
+/* =========================================================
+   EACH SLIDE
+========================================================= */
+
+.hero-carousel-slide {
+  position: relative;
+
+  flex: 0 0 100%;
+
+  width: 100%;
+  min-height: 95vh;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   SLIDE BACKGROUND IMAGE
+========================================================= */
+
+.hero-slide-background {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -3;
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  transform: scale(1.04);
+
+  transition:
+    transform 1.2s ease,
+    opacity 0.8s ease;
+
+  pointer-events: none;
+}
+
+/*
+ * Slight zoom on the currently visible slide.
+ */
+
+.hero-carousel-slide.active .hero-slide-background {
+  transform: scale(1);
+}
+
+/* =========================================================
+   DARK GREEN OVERLAY
+========================================================= */
+
+.hero-slide-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -2;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    rgba(20, 54, 29, 0.98) 0%,
+
+    rgba(20, 54, 29, 0.94) 25%,
+
+    rgba(20, 54, 29, 0.86) 48%,
+
+    rgba(20, 54, 29, 0.78) 70%,
+
+    rgba(20, 54, 29, 0.9) 100%
+  );
+}
+
+/* =========================================================
+   EXTRA DARK GRADIENT
+========================================================= */
+
+.hero-slide-gradient {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 72% 50%,
+      rgba(133, 100, 67, 0.2) 0%,
+      rgba(133, 100, 67, 0.08) 28%,
+      transparent 58%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(20, 54, 29, 0.15) 0%,
+      rgba(20, 54, 29, 0.08) 50%,
+      rgba(20, 54, 29, 0.3) 100%
+    );
+}
 
 /* =========================================================
    DECORATIVE CIRCLES
 ========================================================= */
 
 .hero-decoration {
-    position: absolute;
+  position: absolute;
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    pointer-events: none;
+  pointer-events: none;
 
-    z-index: 1;
+  z-index: 1;
 }
 
-
-/* Top right */
+/* =========================================================
+   TOP RIGHT
+========================================================= */
 
 .hero-decoration-one {
-    width: 450px;
-    height: 450px;
+  width: 450px;
+  height: 450px;
 
-    right: -200px;
-    top: -150px;
+  right: -200px;
+  top: -150px;
 
-    background: rgba(133, 100, 67, 0.22);
+  background: rgba(133, 100, 67, 0.18);
 
-    border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-
-/* Bottom right */
+/* =========================================================
+   BOTTOM RIGHT
+========================================================= */
 
 .hero-decoration-two {
-    width: 300px;
-    height: 300px;
+  width: 300px;
+  height: 300px;
 
-    right: 22%;
-    bottom: -190px;
+  right: 22%;
+  bottom: -190px;
 
-    background: rgba(133, 100, 67, 0.12);
+  background: rgba(133, 100, 67, 0.12);
 }
 
-
-/* Bottom left */
+/* =========================================================
+   BOTTOM LEFT
+========================================================= */
 
 .hero-decoration-three {
-    width: 190px;
-    height: 190px;
+  width: 190px;
+  height: 190px;
 
-    left: -100px;
-    bottom: 8%;
+  left: -100px;
+  bottom: 8%;
 
-    background: rgba(255, 255, 255, 0.025);
+  background: rgba(255, 255, 255, 0.025);
 }
-
 
 /* =========================================================
    MAIN CONTAINER
 ========================================================= */
 
 .hero-section .container {
-    position: relative;
+  position: relative;
 
-    z-index: 2;
+  z-index: 5;
 
-    width: 100%;
+  width: 100%;
 }
-
 
 /* =========================================================
    HERO CONTENT
 ========================================================= */
 
 .hero-content {
-    position: relative;
+  position: relative;
 
-    z-index: 4;
+  z-index: 4;
 
-    width: 100%;
-    max-width: 760px;
+  width: 100%;
+  max-width: 760px;
 
-    padding: 55px;
+  padding: 55px;
 
-    text-align: left;
+  text-align: left;
 
-    background: transparent;
+  background: transparent;
 
-    border: none;
+  border: none;
 
-    border-radius: 28px;
+  border-radius: 28px;
 
-    box-shadow: none;
+  box-shadow: none;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
+
+  margin-top: 90px;
 }
-
 
 /* =========================================================
    HERO TAG
 ========================================================= */
 
 .hero-tag {
-    display: inline-flex;
+  display: inline-flex;
 
-    align-items: center;
+  align-items: center;
 
-    gap: 9px;
+  gap: 9px;
 
-    padding: 10px 20px;
+  padding: 10px 20px;
 
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 
-    border-radius: 50px;
+  border-radius: 50px;
 
-    background: rgba(133, 100, 67, 0.28);
+  background: rgba(133, 100, 67, 0.32);
 
-    border: 1px solid rgba(133, 100, 67, 0.45);
+  border: 1px solid rgba(133, 100, 67, 0.55);
 
-    color: var(--white);
+  color: var(--white);
 
-    font-size: 14px;
+  font-size: 14px;
 
-    font-weight: 700;
+  font-weight: 700;
 
-    letter-spacing: 0.3px;
+  letter-spacing: 0.3px;
 
-    text-align: left;
+  text-align: left;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
+
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .hero-tag svg {
-    color: var(--secondary);
+  color: var(--secondary);
 
-    font-size: 16px;
+  font-size: 16px;
 
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
-
 
 /* =========================================================
    HERO TITLE
 ========================================================= */
 
 .hero-title {
-    color: var(--white);
+  color: var(--white);
 
-    font-size: clamp(40px, 4.4vw, 62px);
+  font-size: clamp(40px, 4.4vw, 62px);
 
-    font-weight: 800;
+  font-weight: 800;
 
-    line-height: 1.08;
+  line-height: 1.08;
 
-    letter-spacing: -1.5px;
+  letter-spacing: -1.5px;
 
-    margin: 0 0 25px;
+  margin: 0 0 25px;
 
-    max-width: 680px;
+  max-width: 680px;
 
-    text-align: left;
+  text-align: left;
 
-    word-spacing: normal;
+  word-spacing: normal;
 
-    white-space: normal;
+  white-space: normal;
 
-    overflow-wrap: normal;
+  overflow-wrap: normal;
+
+  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.28);
 }
 
-
-/* Optional highlighted text */
+/* =========================================================
+   HIGHLIGHT
+========================================================= */
 
 .hero-title span {
-    color: var(--secondary);
+  color: var(--secondary);
 
-    display: inline;
+  display: inline;
+
+  text-shadow: 0 3px 18px rgba(133, 100, 67, 0.35);
 }
-
 
 /* =========================================================
    HERO DESCRIPTION
 ========================================================= */
 
 .hero-text {
-    color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.9);
 
-    font-size: 19px;
+  font-size: 19px;
 
-    line-height: 1.8;
+  line-height: 1.8;
 
-    max-width: 700px;
+  max-width: 700px;
 
-    margin: 0;
+  margin: 0;
 
-    text-align: left;
+  text-align: left;
+
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.3);
 }
 
-
 /* =========================================================
-   APP STORE BUTTONS
+   STORE BUTTONS
 ========================================================= */
 
 .hero-buttons {
-    display: flex;
+  display: flex;
 
-    align-items: center;
+  align-items: center;
 
-    gap: 15px;
+  gap: 15px;
 
-    margin-top: 35px;
+  margin-top: 35px;
 
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
-
 
 /* =========================================================
    STORE BUTTON
 ========================================================= */
 
 .store-btn-hero {
-    border: none;
-    outline: none;
+  border: none;
+  outline: none;
 
-    background: var(--white);
+  background: var(--white);
 
-    color: var(--primary);
+  color: var(--primary);
 
-    border-radius: 14px;
+  border-radius: 14px;
 
-    padding: 14px 20px;
+  padding: 14px 20px;
 
-    width: 190px;
-    min-width: 190px;
+  width: 190px;
+  min-width: 190px;
 
-    min-height: 62px;
+  min-height: 62px;
 
-    display: flex;
+  display: flex;
 
-    align-items: center;
+  align-items: center;
 
-    justify-content: flex-start;
+  justify-content: flex-start;
 
-    gap: 12px;
+  gap: 12px;
 
-    text-align: left;
+  text-align: left;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        background 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 }
 
 .store-btn-hero:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 
-    background: var(--white);
+  background: var(--white);
 
-    box-shadow:
-        0 15px 35px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.28);
 }
-
 
 /* =========================================================
    STORE ICON
 ========================================================= */
 
 .store-icon {
-    color: var(--primary);
+  color: var(--primary);
 
-    font-size: 32px;
+  font-size: 32px;
 
-    width: 32px;
-    min-width: 32px;
+  width: 32px;
+  min-width: 32px;
 
-    height: 32px;
+  height: 32px;
 
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
-
 
 /* =========================================================
    STORE TEXT
 ========================================================= */
 
 .store-text {
-    min-width: 0;
+  min-width: 0;
 
-    flex: 1;
+  flex: 1;
 
-    display: flex;
+  display: flex;
 
-    flex-direction: column;
+  flex-direction: column;
 
-    justify-content: center;
+  justify-content: center;
 
-    text-align: left;
+  text-align: left;
 
-    overflow: hidden;
+  overflow: hidden;
 }
-
-
-/* Small store text */
 
 .store-btn-hero small {
-    display: block;
+  display: block;
 
-    color: var(--gray);
+  color: var(--gray);
 
-    font-size: 9px;
+  font-size: 9px;
 
-    font-weight: 700;
+  font-weight: 700;
 
-    letter-spacing: 0.4px;
+  letter-spacing: 0.4px;
 
-    line-height: 1.2;
+  line-height: 1.2;
 
-    margin: 0 0 3px;
+  margin: 0 0 3px;
 
-    padding: 0;
+  padding: 0;
 
-    white-space: nowrap;
+  white-space: nowrap;
 
-    overflow: hidden;
+  overflow: hidden;
 
-    text-overflow: clip;
+  text-overflow: clip;
 }
-
-
-/* Store name */
 
 .store-btn-hero h6 {
-    color: var(--primary);
+  color: var(--primary);
 
-    margin: 0;
+  margin: 0;
 
-    padding: 0;
+  padding: 0;
 
-    font-size: 18px;
+  font-size: 18px;
 
-    font-weight: 700;
+  font-weight: 700;
 
-    line-height: 1.15;
+  line-height: 1.15;
 
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
-
 /* =========================================================
-   HERO FEATURE CARDS
+   HERO FEATURES
 ========================================================= */
 
 .hero-features {
-    width: 100%;
+  width: 100%;
 
-    display: grid;
+  display: grid;
 
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
-    gap: 12px;
+  gap: 12px;
 
-    margin-top: 38px;
+  margin-top: 38px;
 }
 
-
-/* Individual feature card */
+/* =========================================================
+   FEATURE CARD
+========================================================= */
 
 .hero-features > div {
-    position: relative;
+  position: relative;
 
-    min-width: 0;
+  min-width: 0;
 
-    min-height: 68px;
+  min-height: 68px;
 
-    display: flex;
+  display: flex;
 
-    align-items: center;
+  align-items: center;
 
-    gap: 10px;
+  gap: 10px;
 
-    padding: 11px 12px;
+  padding: 11px 12px;
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(133, 100, 67, 0.32),
-            rgba(133, 100, 67, 0.16)
-        );
+  background: linear-gradient(
+    135deg,
+    rgba(133, 100, 67, 0.34),
+    rgba(20, 54, 29, 0.38)
+  );
 
-    border: 1px solid rgba(133, 100, 67, 0.60);
+  border: 1px solid rgba(133, 100, 67, 0.6);
 
-    border-radius: 14px;
+  border-radius: 14px;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    color: var(--white);
+  color: var(--white);
 
-    font-size: 12px;
+  font-size: 12px;
 
-    font-weight: 600;
+  font-weight: 600;
 
-    line-height: 1.3;
+  line-height: 1.3;
 
-    overflow: hidden;
+  overflow: hidden;
 
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-
-/* Subtle background glow inside card */
+/* =========================================================
+   FEATURE CARD GLOW
+========================================================= */
 
 .hero-features > div::before {
-    content: "";
+  content: "";
 
-    position: absolute;
+  position: absolute;
 
-    width: 70px;
-    height: 70px;
+  width: 70px;
+  height: 70px;
 
-    right: -25px;
-    top: -30px;
+  right: -25px;
+  top: -30px;
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05);
 
-    pointer-events: none;
+  pointer-events: none;
 }
 
-
-/* Feature hover */
+/* =========================================================
+   FEATURE HOVER
+========================================================= */
 
 .hero-features > div:hover {
-    transform: translateY(-4px);
+  transform: translateY(-4px);
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(133, 100, 67, 0.46),
-            rgba(133, 100, 67, 0.24)
-        );
+  background: linear-gradient(
+    135deg,
+    rgba(133, 100, 67, 0.48),
+    rgba(20, 54, 29, 0.42)
+  );
 
-    border-color: var(--secondary);
+  border-color: var(--secondary);
 
-    box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.20);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
-
-/* Feature icon */
+/* =========================================================
+   FEATURE ICON
+========================================================= */
 
 .hero-features svg {
-    position: relative;
+  position: relative;
 
-    z-index: 1;
+  z-index: 1;
 
-    width: 38px;
-    min-width: 38px;
+  width: 38px;
+  min-width: 38px;
 
-    height: 38px;
+  height: 38px;
 
-    display: flex;
+  display: flex;
 
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
 
-    padding: 9px;
+  padding: 9px;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 
-    border-radius: 10px;
+  border-radius: 10px;
 
-    background: var(--secondary);
+  background: var(--secondary);
 
-    color: var(--white);
+  color: var(--white);
 
-    font-size: 18px;
+  font-size: 18px;
 
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
 
-
-/* Feature text */
+/* =========================================================
+   FEATURE TEXT
+========================================================= */
 
 .hero-features span {
-    position: relative;
+  position: relative;
 
-    z-index: 1;
+  z-index: 1;
 
-    display: block;
+  display: block;
 
-    min-width: 0;
+  min-width: 0;
 
-    color: var(--white);
+  color: var(--white);
 
-    font-size: 12px;
+  font-size: 12px;
 
-    font-weight: 600;
+  font-weight: 600;
 
-    line-height: 1.35;
+  line-height: 1.35;
 
-    overflow-wrap: anywhere;
+  overflow-wrap: anywhere;
 }
-
 
 /* =========================================================
    APP AREA
 ========================================================= */
 
 .hero-app-area {
-    position: relative;
+  position: relative;
 
-    width: 100%;
+  width: 100%;
 
-    min-height: 700px;
+  min-height: 700px;
 
-    display: flex;
+  display: flex;
 
-    align-items: center;
+  align-items: center;
 
-    justify-content: center;
+  justify-content: center;
 
-    z-index: 3;
+  z-index: 3;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 
 /* =========================================================
    PHONE GLOW
 ========================================================= */
 
 .hero-app-glow {
-    position: absolute;
+  position: absolute;
 
-    width: 500px;
-    height: 500px;
+  width: 500px;
+  height: 500px;
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    background:
-        radial-gradient(
-            circle,
-            rgba(133, 100, 67, 0.30) 0%,
-            rgba(133, 100, 67, 0.14) 45%,
-            transparent 72%
-        );
+  background: radial-gradient(
+    circle,
+    rgba(133, 100, 67, 0.35) 0%,
+    rgba(133, 100, 67, 0.16) 45%,
+    transparent 72%
+  );
 
-    filter: blur(20px);
+  filter: blur(20px);
 
-    z-index: 0;
+  z-index: 0;
 
-    pointer-events: none;
+  pointer-events: none;
 }
-
 
 /* =========================================================
    PHONE WRAPPER
 ========================================================= */
 
 .hero-phone-wrapper {
-    position: relative;
+  position: relative;
 
-    z-index: 3;
+  z-index: 3;
 
-    transform:
-        rotate(7deg)
-        translateY(10px);
+  transform: rotate(7deg) translateY(10px);
 
-    animation:
-        heroPhoneFloat 5s ease-in-out infinite;
+  animation: heroPhoneFloat 5s ease-in-out infinite;
 }
 
-
 /* =========================================================
-   PHONE FRAME
+   PHONE
 ========================================================= */
 
 .hero-phone {
-    position: relative;
+  position: relative;
 
-    width: 330px;
+  width: 330px;
 
-    padding: 10px;
+  padding: 10px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #2a2a2a,
-            #080808
-        );
+  background: linear-gradient(145deg, #2a2a2a, #080808);
 
-    border-radius: 43px;
+  border-radius: 43px;
 
-    border: 2px solid rgba(255, 255, 255, 0.20);
+  border: 2px solid rgba(255, 255, 255, 0.2);
 
-    box-shadow:
-        0 45px 90px rgba(0, 0, 0, 0.52),
-        0 0 0 8px rgba(255, 255, 255, 0.035);
+  box-shadow:
+    0 45px 90px rgba(0, 0, 0, 0.52),
+    0 0 0 8px rgba(255, 255, 255, 0.035);
 
-    overflow: hidden;
+  overflow: hidden;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-
 /* =========================================================
-   APP SCREEN IMAGE
+   APP SCREEN
 ========================================================= */
 
 .hero-app-image {
-    display: block;
+  display: block;
 
-    width: 100%;
-    height: 500px;
+  width: 100%;
+  height: 500px;
 
-    max-width: 100%;
+  max-width: 100%;
 
-    border-radius: 34px;
+  border-radius: 34px;
 
-    object-fit: cover;
+  object-fit: cover;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.5s ease;
 }
-
 
 /* =========================================================
    PHONE NOTCH
 ========================================================= */
 
 .phone-speaker {
-    position: absolute;
+  position: absolute;
 
-    z-index: 5;
+  z-index: 5;
 
-    top: 17px;
+  top: 17px;
 
-    left: 50%;
+  left: 50%;
 
-    transform: translateX(-50%);
+  transform: translateX(-50%);
 
-    width: 75px;
-    height: 20px;
+  width: 75px;
+  height: 20px;
 
-    background: #050505;
+  background: #050505;
 
-    border-radius: 20px;
+  border-radius: 20px;
 }
-
 
 /* =========================================================
    FLOATING CARDS
 ========================================================= */
 
 .hero-floating-card {
-    position: absolute;
+  position: absolute;
 
-    z-index: 6;
+  z-index: 6;
 
-    display: flex;
+  display: flex;
 
-    align-items: center;
+  align-items: center;
 
-    gap: 12px;
+  gap: 12px;
 
-    width: 190px;
-    min-width: 190px;
+  width: 190px;
+  min-width: 190px;
 
-    padding: 13px 17px;
+  padding: 13px 17px;
 
-    background: rgba(255, 255, 255, 0.97);
+  background: rgba(255, 255, 255, 0.97);
 
-    border: 1px solid rgba(255, 255, 255, 0.30);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 
-    border-radius: 15px;
+  border-radius: 15px;
 
-    box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 
-    backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 
-    -webkit-backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
-    box-sizing: border-box;
+  box-sizing: border-box;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
 }
-
 
 /* =========================================================
    FLOATING CARD TEXT
 ========================================================= */
 
 .hero-floating-card strong {
-    display: block;
+  display: block;
 
-    color: var(--primary);
+  color: var(--primary);
 
-    font-size: 13px;
+  font-size: 13px;
 
-    font-weight: 700;
+  font-weight: 700;
 
-    line-height: 1.3;
+  line-height: 1.3;
 }
 
 .hero-floating-card span {
-    display: block;
+  display: block;
 
-    color: var(--gray);
+  color: var(--gray);
 
-    font-size: 11px;
+  font-size: 11px;
 
-    line-height: 1.3;
+  line-height: 1.3;
 
-    margin-top: 2px;
+  margin-top: 2px;
 }
-
 
 /* =========================================================
    FLOATING ICON
 ========================================================= */
 
 .floating-icon {
-    width: 38px;
-    height: 38px;
+  width: 38px;
+  height: 38px;
 
-    display: flex;
+  display: flex;
 
-    align-items: center;
+  align-items: center;
 
-    justify-content: center;
+  justify-content: center;
 
-    flex-shrink: 0;
+  flex-shrink: 0;
 
-    border-radius: 11px;
+  border-radius: 11px;
 
-    background: rgba(133, 100, 67, 0.14);
+  background: rgba(133, 100, 67, 0.14);
 
-    color: var(--secondary);
+  color: var(--secondary);
 
-    font-size: 17px;
+  font-size: 17px;
 }
 
-
 /* =========================================================
-   TOP FLOATING CARD
+   TOP CARD
 ========================================================= */
 
 .hero-card-top {
-    top: 100px;
+  top: 100px;
 
-    left: -15px;
+  left: -15px;
 
-    transform: rotate(-4deg);
+  transform: rotate(-4deg);
 }
 
-
 /* =========================================================
-   BOTTOM FLOATING CARD
+   BOTTOM CARD
 ========================================================= */
 
 .hero-card-bottom {
-    right: -15px;
+  right: -15px;
 
-    bottom: 105px;
+  bottom: 105px;
 
-    transform: rotate(-4deg);
+  transform: rotate(-4deg);
 }
 
-
 /* =========================================================
-   PHONE FLOAT ANIMATION
+   PHONE FLOAT
 ========================================================= */
 
 @keyframes heroPhoneFloat {
+  0% {
+    transform: rotate(7deg) translateY(10px);
+  }
 
-    0% {
-        transform:
-            rotate(7deg)
-            translateY(10px);
-    }
+  50% {
+    transform: rotate(7deg) translateY(-15px);
+  }
 
-    50% {
-        transform:
-            rotate(7deg)
-            translateY(-15px);
-    }
-
-    100% {
-        transform:
-            rotate(7deg)
-            translateY(10px);
-    }
+  100% {
+    transform: rotate(7deg) translateY(10px);
+  }
 }
 
+/* =========================================================
+   CAROUSEL CONTENT ANIMATION
+========================================================= */
+
+.hero-carousel-slide .hero-content {
+  opacity: 0.35;
+
+  transform: translateX(45px) scale(0.98);
+
+  transition:
+    opacity 0.65s ease,
+    transform 0.75s ease;
+}
+
+.hero-carousel-slide.active .hero-content {
+  opacity: 1;
+
+  transform: translateX(0) scale(1);
+}
+
+/* =========================================================
+   CAROUSEL PHONE ANIMATION
+========================================================= */
+
+.hero-carousel-slide .hero-app-area {
+  opacity: 0.3;
+
+  transform: translateX(70px) scale(0.94);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.hero-carousel-slide.active .hero-app-area {
+  opacity: 1;
+
+  transform: translateX(0) scale(1);
+}
+
+/* =========================================================
+   FLOATING CARD ANIMATION
+========================================================= */
+
+.hero-carousel-slide .hero-card-top {
+  opacity: 0;
+
+  transform: translateX(35px) rotate(-4deg);
+
+  transition:
+    opacity 0.6s ease 0.15s,
+    transform 0.7s ease 0.15s;
+}
+
+.hero-carousel-slide.active .hero-card-top {
+  opacity: 1;
+
+  transform: translateX(0) rotate(-4deg);
+}
+
+.hero-carousel-slide .hero-card-bottom {
+  opacity: 0;
+
+  transform: translateX(-35px) rotate(-4deg);
+
+  transition:
+    opacity 0.6s ease 0.25s,
+    transform 0.7s ease 0.25s;
+}
+
+.hero-carousel-slide.active .hero-card-bottom {
+  opacity: 1;
+
+  transform: translateX(0) rotate(-4deg);
+}
+
+/* =========================================================
+   CAROUSEL CONTROLS
+========================================================= */
+
+.hero-carousel-controls {
+  position: absolute;
+
+  z-index: 50;
+
+  left: 55px;
+  bottom: 35px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+/* =========================================================
+   ARROWS
+========================================================= */
+
+.hero-carousel-arrow {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  background: rgba(255, 255, 255, 0.08);
+
+  color: var(--white);
+
+  cursor: pointer;
+
+  backdrop-filter: blur(12px);
+
+  -webkit-backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.hero-carousel-arrow:hover {
+  transform: translateY(-3px);
+
+  background: var(--secondary);
+
+  border-color: var(--secondary);
+}
+
+/* =========================================================
+   DOT CONTAINER
+========================================================= */
+
+.hero-carousel-dots {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+}
+
+/* =========================================================
+   DOT
+========================================================= */
+
+.hero-carousel-dot {
+  position: relative;
+
+  width: 22px;
+  height: 5px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 20px;
+
+  background: rgba(255, 255, 255, 0.25);
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  transition:
+    width 0.35s ease,
+    background 0.35s ease;
+}
+
+.hero-carousel-dot.active {
+  width: 58px;
+
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* =========================================================
+   DOT PROGRESS
+========================================================= */
+
+.hero-carousel-dot span {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: var(--secondary);
+
+  transform: scaleX(0);
+
+  transform-origin: left;
+}
+
+.hero-carousel-dot.active span {
+  animation: heroCarouselProgress 6s linear forwards;
+}
+
+@keyframes heroCarouselProgress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* =========================================================
+   COUNTER
+========================================================= */
+
+.hero-counter {
+  position: absolute;
+
+  z-index: 50;
+
+  right: 55px;
+  bottom: 42px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: rgba(255, 255, 255, 0.45);
+
+  font-size: 12px;
+
+  letter-spacing: 1px;
+}
+
+.hero-counter strong {
+  color: var(--white);
+
+  font-size: 17px;
+}
+
+.hero-counter span:first-of-type {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* =========================================================
+   DRAG HINT
+========================================================= */
+
+.hero-drag-hint {
+  position: absolute;
+
+  z-index: 40;
+
+  right: 45px;
+
+  top: 50%;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  writing-mode: vertical-rl;
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+}
 
 /* =========================================================
    LARGE DESKTOP
 ========================================================= */
 
 @media (min-width: 1400px) {
+  .hero-content {
+    padding: 60px;
+  }
 
-    .hero-content {
-        padding: 60px;
-    }
+  .hero-title {
+    font-size: 64px;
 
-    .hero-title {
-        font-size: 64px;
+    max-width: 700px;
+  }
 
-        max-width: 700px;
-    }
+  .hero-phone {
+    width: 350px;
+  }
 
-    .hero-phone {
-        width: 350px;
-    }
+  .hero-app-area {
+    min-height: 750px;
+  }
 
-    .hero-app-area {
-        min-height: 750px;
-    }
+  .hero-features {
+    gap: 14px;
+  }
 
-    .hero-features {
-        gap: 14px;
-    }
+  .hero-features > div {
+    padding: 13px 14px;
+  }
 
-    .hero-features > div {
-        padding: 13px 14px;
-    }
+  .hero-carousel-controls {
+    left: 70px;
+  }
+
+  .hero-counter {
+    right: 70px;
+  }
 }
-
 
 /* =========================================================
    LAPTOP
 ========================================================= */
 
 @media (max-width: 1199px) {
+  .hero-content {
+    padding: 45px;
+  }
 
-    .hero-content {
-        padding: 45px;
-    }
+  .hero-title {
+    font-size: clamp(40px, 4.5vw, 57px);
 
-    .hero-title {
-        font-size:
-            clamp(
-                40px,
-                4.5vw,
-                57px
-            );
+    max-width: 620px;
+  }
 
-        max-width: 620px;
-    }
+  .hero-text {
+    font-size: 18px;
+  }
 
-    .hero-text {
-        font-size: 18px;
-    }
+  .hero-phone {
+    width: 290px;
+  }
 
-    .hero-phone {
-        width: 290px;
-    }
+  .hero-app-area {
+    min-height: 620px;
+  }
 
-    .hero-app-area {
-        min-height: 620px;
-    }
+  .hero-card-top {
+    left: -5px;
+  }
 
-    .hero-card-top {
-        left: -5px;
-    }
+  .hero-card-bottom {
+    right: -5px;
+  }
 
-    .hero-card-bottom {
-        right: -5px;
-    }
+  .hero-features {
+    gap: 9px;
+  }
 
-    .hero-features {
-        gap: 9px;
-    }
+  .hero-features > div {
+    padding: 10px;
 
-    .hero-features > div {
-        padding: 10px;
-        gap: 8px;
-    }
+    gap: 8px;
+  }
 
-    .hero-features svg {
-        width: 34px;
-        min-width: 34px;
-        height: 34px;
-        padding: 8px;
-        font-size: 16px;
-    }
+  .hero-features svg {
+    width: 34px;
+    min-width: 34px;
 
-    .hero-features span {
-        font-size: 11px;
-    }
+    height: 34px;
+
+    padding: 8px;
+
+    font-size: 16px;
+  }
+
+  .hero-features span {
+    font-size: 11px;
+  }
 }
-
 
 /* =========================================================
    TABLET
 ========================================================= */
 
 @media (max-width: 991px) {
+  .hero-carousel-viewport {
+    min-height: auto;
+  }
 
-    .hero-section {
-        min-height: auto;
+  .hero-carousel-track {
+    min-height: auto;
+  }
 
-        padding:
-            80px
-            0
-            90px;
-    }
+  .hero-carousel-slide {
+    min-height: auto;
+  }
 
-    .hero-content {
-        max-width: 850px;
+  /* Keep background visible */
 
-        margin: 0 auto;
+  .hero-slide-background {
+    background-position: center center;
 
-        padding: 40px;
+    transform: scale(1.02);
+  }
 
-        text-align: center;
-    }
+  .hero-slide-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(20, 54, 29, 0.94) 0%,
 
-    .hero-tag {
-        text-align: center;
-    }
+      rgba(20, 54, 29, 0.88) 40%,
 
-    .hero-title {
-        max-width: 100%;
+      rgba(20, 54, 29, 0.94) 72%,
 
-        font-size:
-            clamp(
-                40px,
-                7vw,
-                58px
-            );
+      rgba(20, 54, 29, 0.98) 100%
+    );
+  }
 
-        text-align: center;
-    }
+  .hero-slide-gradient {
+    background: radial-gradient(
+      circle at 50% 30%,
+      rgba(133, 100, 67, 0.18),
+      transparent 55%
+    );
+  }
 
-    .hero-text {
-        max-width: 750px;
+  .hero-carousel-slide .hero-content {
+    opacity: 1;
 
-        margin-left: auto;
-        margin-right: auto;
+    transform: none;
+  }
 
-        font-size: 18px;
+  .hero-carousel-slide .hero-app-area {
+    opacity: 1;
 
-        text-align: center;
-    }
+    transform: none;
+  }
 
-    .hero-buttons {
-        justify-content: center;
+  .hero-section {
+    min-height: auto;
 
-        width: 100%;
-    }
+    padding: 80px 0 90px;
+  }
 
-    .store-btn-hero {
-        width: 190px;
-    }
+  .hero-content {
+    max-width: 850px;
 
-    .hero-features {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 0 auto;
 
-        justify-content: center;
+    padding: 40px;
 
-        max-width: 750px;
+    text-align: center;
+  }
 
-        margin-left: auto;
-        margin-right: auto;
+  .hero-tag {
+    text-align: center;
+  }
 
-        gap: 10px;
-    }
+  .hero-title {
+    max-width: 100%;
 
-    .hero-features > div {
-        min-height: 64px;
+    font-size: clamp(40px, 7vw, 58px);
 
-        padding: 9px 10px;
-    }
+    text-align: center;
+  }
 
-    .hero-features svg {
-        width: 32px;
-        min-width: 32px;
+  .hero-text {
+    max-width: 750px;
 
-        height: 32px;
+    margin-left: auto;
+    margin-right: auto;
 
-        padding: 7px;
+    font-size: 18px;
 
-        font-size: 15px;
-    }
+    text-align: center;
+  }
 
-    .hero-features span {
-        font-size: 10.5px;
-    }
+  .hero-buttons {
+    justify-content: center;
 
-    .hero-app-area {
-        min-height: 600px;
+    width: 100%;
+  }
 
-        margin-top: 25px;
-    }
+  .hero-features {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 
-    .hero-phone {
-        width: 300px;
-    }
+    justify-content: center;
 
-    .hero-card-top {
-        left: 12%;
-    }
+    max-width: 750px;
 
-    .hero-card-bottom {
-        right: 12%;
-    }
+    margin-left: auto;
+    margin-right: auto;
+
+    gap: 10px;
+  }
+
+  .hero-features > div {
+    min-height: 64px;
+
+    padding: 9px 10px;
+  }
+
+  .hero-features svg {
+    width: 32px;
+    min-width: 32px;
+
+    height: 32px;
+
+    padding: 7px;
+
+    font-size: 15px;
+  }
+
+  .hero-features span {
+    font-size: 10.5px;
+  }
+
+  .hero-app-area {
+    min-height: 600px;
+
+    margin-top: 25px;
+  }
+
+  .hero-phone {
+    width: 300px;
+  }
+
+  .hero-card-top {
+    left: 12%;
+  }
+
+  .hero-card-bottom {
+    right: 12%;
+  }
+
+  .hero-carousel-controls {
+    left: 50%;
+
+    bottom: 25px;
+
+    transform: translateX(-50%);
+  }
+
+  .hero-counter,
+  .hero-drag-hint {
+    display: none;
+  }
 }
-
-@media(max-width: 768px){
-      .hero-app-image{
-        height: 500px;
-        width: 500px;
-    }
-
-}
-
 
 /* =========================================================
-   MOBILE TABLET
+   MOBILE
 ========================================================= */
 
 @media (max-width: 767px) {
+  .hero-section {
+    min-height: 100vh;
 
-       .hero-app-area{
-        display: none;
-    }
+    padding: 55px 0 70px;
+  }
 
-  
-    .hero-section {
-        padding:
-            55px
-            0
-            70px;
-    }
+  .hero-carousel-viewport {
+    min-height: auto;
+  }
 
-    .hero-content {
-        padding:
-            30px
-            22px;
+  .hero-carousel-track {
+    min-height: auto;
+  }
 
-        border-radius: 22px;
-    }
+  .hero-carousel-slide {
+    min-height: auto;
 
-    .hero-tag {
-        font-size: 12px;
+    padding-bottom: 90px;
+  }
 
-        padding:
-            8px
-            15px;
-    }
+  /* =====================================================
+       MOBILE BACKGROUND
+    ===================================================== */
 
-    .hero-title {
-        font-size:
-            clamp(
-                34px,
-                8vw,
-                45px
-            );
+  .hero-slide-background {
+    background-size: cover;
 
-        line-height: 1.10;
+    background-position: center center;
 
-        letter-spacing: -0.8px;
+    transform: scale(1.01);
+  }
 
-        margin-bottom: 20px;
+  /*
+     * Stronger overlay on mobile because
+     * there is no phone image competing
+     * with the background.
+     */
 
-        text-align: center;
-    }
+  .hero-slide-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(20, 54, 29, 0.93) 0%,
 
-    .hero-text {
-        font-size: 16px;
+      rgba(20, 54, 29, 0.86) 28%,
 
-        line-height: 1.7;
+      rgba(20, 54, 29, 0.91) 60%,
 
-        text-align: center;
-    }
+      rgba(20, 54, 29, 0.98) 100%
+    );
+  }
 
+  .hero-slide-gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(133, 100, 67, 0.08),
+      transparent 45%,
+      rgba(20, 54, 29, 0.3)
+    );
+  }
 
-    /* =====================================================
+  .hero-carousel-slide .hero-content {
+    margin-top: 50px;
+  }
+
+  .hero-content {
+    padding: 30px 22px;
+
+    border-radius: 22px;
+  }
+
+  .hero-tag {
+    font-size: 12px;
+
+    padding: 8px 15px;
+  }
+
+  .hero-title {
+    font-size: clamp(34px, 8vw, 45px);
+
+    line-height: 1.1;
+
+    letter-spacing: -0.8px;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+  }
+
+  .hero-text {
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    text-align: center;
+  }
+
+  /* =====================================================
        STORE BUTTONS
     ===================================================== */
 
-    .hero-buttons {
-        width: 100%;
+  .hero-buttons {
+    width: 100%;
 
-        display: flex;
+    display: flex;
 
-        flex-direction: column;
+    flex-direction: column;
 
-        align-items: stretch;
+    align-items: stretch;
 
-        gap: 12px;
+    gap: 12px;
 
-        margin-top: 28px;
-    }
+    margin-top: 28px;
+  }
 
-    .store-btn-hero {
-        width: 100%;
+  .store-btn-hero {
+    width: 100%;
 
-        min-width: 0;
+    min-width: 0;
 
-        min-height: 60px;
+    min-height: 60px;
 
-        padding:
-            12px
-            18px;
+    padding: 12px 18px;
 
-        justify-content: flex-start;
+    justify-content: flex-start;
 
-        gap: 12px;
-    }
+    gap: 12px;
+  }
 
-    .store-icon {
-        font-size: 30px;
+  .store-icon {
+    font-size: 30px;
 
-        width: 30px;
-        min-width: 30px;
+    width: 30px;
+    min-width: 30px;
 
-        height: 30px;
-    }
+    height: 30px;
+  }
 
-    .store-btn-hero small {
-        font-size: 9px;
+  .store-btn-hero small {
+    font-size: 9px;
 
-        line-height: 1.2;
+    line-height: 1.2;
 
-        letter-spacing: 0.35px;
+    letter-spacing: 0.35px;
 
-        white-space: nowrap;
-    }
+    white-space: nowrap;
+  }
 
-    .store-btn-hero h6 {
-        font-size: 17px;
+  .store-btn-hero h6 {
+    font-size: 17px;
 
-        line-height: 1.15;
-    }
+    line-height: 1.15;
+  }
 
-
-    /* =====================================================
-       FEATURE CARDS
+  /* =====================================================
+       FEATURES
     ===================================================== */
 
-    .hero-features {
-        width: 100%;
+  .hero-features {
+    width: 100%;
 
-        display: grid;
+    display: grid;
 
-        grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
 
-        gap: 10px;
+    gap: 10px;
 
-        margin-top: 30px;
-    }
+    margin-top: 30px;
+  }
 
-    .hero-features > div {
-        width: 100%;
+  .hero-features > div {
+    width: 100%;
 
-        min-height: 58px;
+    min-height: 58px;
 
-        padding:
-            10px
-            12px;
+    padding: 10px 12px;
 
-        gap: 10px;
+    gap: 10px;
 
-        border-radius: 13px;
+    border-radius: 13px;
 
-        justify-content: flex-start;
+    justify-content: flex-start;
 
-        text-align: left;
-    }
+    text-align: left;
+  }
 
-    .hero-features svg {
-        width: 34px;
-        min-width: 34px;
+  .hero-features svg {
+    width: 34px;
+    min-width: 34px;
 
-        height: 34px;
+    height: 34px;
 
-        padding: 8px;
+    padding: 8px;
 
-        font-size: 16px;
-    }
+    font-size: 16px;
+  }
 
-    .hero-features span {
-        font-size: 12px;
+  .hero-features span {
+    font-size: 12px;
 
-        line-height: 1.3;
+    line-height: 1.3;
 
-        text-align: left;
-    }
+    text-align: left;
+  }
 
-
-    /* =====================================================
-       APP AREA
+  /* =====================================================
+       HIDE PHONE ON MOBILE
     ===================================================== */
 
-    .hero-app-area {
-        width: 100%;
+  .hero-app-area {
+    display: none;
+  }
 
-        min-height: 500px;
-
-        margin-top: 15px;
-
-        overflow: visible;
-    }
-
-    .hero-app-glow {
-        width: 380px;
-
-        height: 380px;
-    }
-
-    .hero-phone {
-        width: 260px;
-
-        padding: 8px;
-
-        border-radius: 35px;
-    }
-
-    .hero-app-image {
-        border-radius: 27px;
-    }
-
-
-    /* =====================================================
-       FLOATING CARDS
+  /* =====================================================
+       CONTROLS
     ===================================================== */
 
-    .hero-floating-card {
-        width: 175px;
+  .hero-carousel-controls {
+    bottom: 20px;
 
-        min-width: 175px;
+    gap: 10px;
+  }
 
-        padding:
-            10px
-            12px;
+  .hero-carousel-arrow {
+    width: 38px;
+    height: 38px;
 
-        gap: 9px;
-    }
+    font-size: 11px;
+  }
 
-    .hero-floating-card strong {
-        font-size: 11px;
-    }
+  .hero-carousel-dot {
+    width: 16px;
 
-    .hero-floating-card span {
-        font-size: 9px;
-    }
+    height: 4px;
+  }
 
-    .floating-icon {
-        width: 32px;
+  .hero-carousel-dot.active {
+    width: 42px;
+  }
 
-        height: 32px;
+  .hero-decoration-one {
+    width: 300px;
+    height: 300px;
 
-        font-size: 14px;
-    }
+    right: -180px;
+  }
 
-    .hero-card-top {
-        top: 55px;
+  .hero-decoration-two {
+    width: 220px;
+    height: 220px;
 
-        left: 2px;
-
-        transform:
-            scale(0.82)
-            rotate(-4deg);
-    }
-
-    .hero-card-bottom {
-        right: 2px;
-
-        bottom: 45px;
-
-        transform:
-            scale(0.82)
-            rotate(-4deg);
-    }
+    right: -80px;
+  }
 }
 
-
 /* =========================================================
-   NORMAL MOBILE
+   SMALL MOBILE
 ========================================================= */
 
 @media (max-width: 576px) {
+  .hero-section {
+    padding: 45px 0 55px;
+  }
 
-    .hero-section {
-        padding:
-            45px
-            0
-            55px;
-    }
+  .hero-carousel-slide {
+    padding-bottom: 85px;
+  }
 
-    .hero-content {
-        padding:
-            27px
-            18px;
+  .hero-carousel-slide .hero-content {
+    margin-top: 40px;
+  }
 
-        border-radius: 20px;
-    }
+  .hero-content {
+    padding: 27px 18px;
 
-    .hero-tag {
-        font-size: 11px;
+    border-radius: 20px;
+  }
 
-        padding:
-            8px
-            13px;
-    }
+  .hero-tag {
+    font-size: 11px;
 
-    .hero-title {
-        font-size: 33px;
+    padding: 8px 13px;
+  }
 
-        line-height: 1.12;
+  .hero-title {
+    font-size: 33px;
 
-        letter-spacing: -0.6px;
+    line-height: 1.12;
 
-        text-align: center;
-    }
+    letter-spacing: -0.6px;
 
-    .hero-text {
-        font-size: 15px;
+    text-align: center;
+  }
 
-        line-height: 1.65;
-    }
+  .hero-text {
+    font-size: 15px;
 
+    line-height: 1.65;
+  }
 
-    /* =====================================================
-       STORE BUTTONS
+  /* =====================================================
+       BUTTONS
     ===================================================== */
 
-    .hero-buttons {
-        gap: 10px;
+  .hero-buttons {
+    gap: 10px;
 
-        margin-top: 25px;
-    }
+    margin-top: 25px;
+  }
 
-    .store-btn-hero {
-        width: 100%;
+  .store-btn-hero {
+    width: 100%;
 
-        min-height: 58px;
+    min-height: 58px;
 
-        padding:
-            11px
-            16px;
+    padding: 11px 16px;
 
-        border-radius: 12px;
+    border-radius: 12px;
 
-        gap: 11px;
-    }
+    gap: 11px;
+  }
 
-    .store-icon {
-        font-size: 28px;
+  .store-icon {
+    font-size: 28px;
 
-        width: 28px;
-        min-width: 28px;
+    width: 28px;
+    min-width: 28px;
 
-        height: 28px;
-    }
+    height: 28px;
+  }
 
-    .store-btn-hero small {
-        font-size: 8px;
+  .store-btn-hero small {
+    font-size: 8px;
 
-        line-height: 1.2;
+    line-height: 1.2;
 
-        letter-spacing: 0.3px;
+    letter-spacing: 0.3px;
+  }
 
-        white-space: nowrap;
-    }
+  .store-btn-hero h6 {
+    font-size: 16px;
 
-    .store-btn-hero h6 {
-        font-size: 16px;
+    line-height: 1.15;
+  }
 
-        line-height: 1.15;
-    }
-
-
-    /* =====================================================
-       FEATURE CARDS
+  /* =====================================================
+       FEATURES
     ===================================================== */
 
-    .hero-features {
-        gap: 9px;
+  .hero-features {
+    gap: 9px;
 
-        margin-top: 27px;
-    }
+    margin-top: 27px;
+  }
 
-    .hero-features > div {
-        min-height: 55px;
+  .hero-features > div {
+    min-height: 55px;
 
-        padding:
-            9px
-            11px;
+    padding: 9px 11px;
 
-        border-radius: 12px;
-    }
+    border-radius: 12px;
+  }
 
-    .hero-features svg {
-        width: 32px;
-        min-width: 32px;
+  .hero-features svg {
+    width: 32px;
+    min-width: 32px;
 
-        height: 32px;
+    height: 32px;
 
-        padding: 7px;
+    padding: 7px;
 
-        font-size: 15px;
-    }
+    font-size: 15px;
+  }
 
-    .hero-features span {
-        font-size: 11.5px;
+  .hero-features span {
+    font-size: 11.5px;
 
-        line-height: 1.3;
-    }
+    line-height: 1.3;
+  }
 
-
-    /* =====================================================
-       APP
+  /* =====================================================
+       CONTROLS
     ===================================================== */
 
-    .hero-app-area {
-        min-height: 440px;
-    }
+  .hero-carousel-controls {
+    bottom: 17px;
 
-    .hero-phone {
-        width: 230px;
+    gap: 9px;
+  }
 
-        border-radius: 31px;
-    }
+  .hero-carousel-arrow {
+    width: 34px;
+    height: 34px;
+  }
 
-    .hero-app-image {
-        border-radius: 24px;
-    }
+  .hero-carousel-dot {
+    width: 14px;
 
+    height: 4px;
+  }
 
-    /* =====================================================
-       NOTCH
-    ===================================================== */
-
-    .phone-speaker {
-        width: 60px;
-
-        height: 15px;
-
-        top: 13px;
-    }
-
-
-    /* =====================================================
-       FLOATING CARDS
-    ===================================================== */
-
-    .hero-floating-card {
-        width: 150px;
-
-        min-width: 150px;
-
-        padding:
-            9px
-            11px;
-
-        gap: 8px;
-    }
-
-    .hero-floating-card strong {
-        font-size: 11px;
-    }
-
-    .hero-floating-card span {
-        font-size: 9px;
-    }
-
-    .floating-icon {
-        width: 31px;
-
-        height: 31px;
-
-        font-size: 13px;
-    }
-
-    .hero-card-top {
-        top: 40px;
-
-        left: -8px;
-
-        transform:
-            scale(0.72)
-            rotate(-4deg);
-    }
-
-    .hero-card-bottom {
-        right: -8px;
-
-        bottom: 35px;
-
-        transform:
-            scale(0.72)
-            rotate(-4deg);
-    }
-
-
-    /* =====================================================
-       GLOW
-    ===================================================== */
-
-    .hero-app-glow {
-        width: 300px;
-
-        height: 300px;
-    }
+  .hero-carousel-dot.active {
+    width: 35px;
+  }
 }
-
 
 /* =========================================================
    SMALL PHONES
 ========================================================= */
 
 @media (max-width: 400px) {
+  .hero-section {
+    padding: 35px 0 45px;
+  }
 
-    .hero-section {
-        padding:
-            35px
-            0
-            45px;
-    }
+  .hero-carousel-slide {
+    padding-bottom: 80px;
+  }
 
-    .hero-content {
-        padding:
-            23px
-            15px;
-    }
+  .hero-carousel-slide .hero-content {
+    margin-top: 40px;
+  }
 
-    .hero-tag {
-        font-size: 10px;
+  .hero-content {
+    padding: 23px 15px;
+  }
 
-        padding:
-            7px
-            11px;
-    }
+  .hero-tag {
+    font-size: 10px;
 
-    .hero-title {
-        font-size: 30px;
+    padding: 7px 11px;
+  }
 
-        line-height: 1.12;
+  .hero-title {
+    font-size: 30px;
 
-        letter-spacing: -0.5px;
-    }
+    line-height: 1.12;
 
-    .hero-text {
-        font-size: 14px;
+    letter-spacing: -0.5px;
+  }
 
-        line-height: 1.65;
-    }
+  .hero-text {
+    font-size: 14px;
 
+    line-height: 1.65;
+  }
 
-    /* =====================================================
-       STORE BUTTONS
-    ===================================================== */
+  .hero-buttons {
+    width: 100%;
 
-    .hero-buttons {
-        width: 100%;
+    gap: 9px;
+  }
 
-        gap: 9px;
-    }
+  .store-btn-hero {
+    min-height: 56px;
 
-    .store-btn-hero {
-        width: 100%;
+    padding: 10px 14px;
 
-        min-height: 56px;
+    gap: 10px;
+  }
 
-        padding:
-            10px
-            14px;
+  .store-icon {
+    font-size: 25px;
 
-        gap: 10px;
-    }
+    width: 26px;
+    min-width: 26px;
 
-    .store-icon {
-        font-size: 25px;
+    height: 26px;
+  }
 
-        width: 26px;
-        min-width: 26px;
+  .store-btn-hero small {
+    font-size: 8px;
+  }
 
-        height: 26px;
-    }
+  .store-btn-hero h6 {
+    font-size: 15px;
+  }
 
-    .store-btn-hero small {
-        font-size: 8px;
+  .hero-features {
+    gap: 8px;
+  }
 
-        line-height: 1.2;
+  .hero-features > div {
+    min-height: 53px;
 
-        letter-spacing: 0.2px;
+    padding: 8px 10px;
+  }
 
-        white-space: nowrap;
-    }
+  .hero-features svg {
+    width: 30px;
+    min-width: 30px;
 
-    .store-btn-hero h6 {
-        font-size: 15px;
+    height: 30px;
 
-        line-height: 1.15;
+    padding: 7px;
 
-        white-space: nowrap;
-    }
+    font-size: 14px;
+  }
 
+  .hero-features span {
+    font-size: 11px;
 
-    /* =====================================================
-       FEATURE CARDS
-    ===================================================== */
-
-    .hero-features {
-        gap: 8px;
-    }
-
-    .hero-features > div {
-        min-height: 53px;
-
-        padding:
-            8px
-            10px;
-    }
-
-    .hero-features svg {
-        width: 30px;
-        min-width: 30px;
-
-        height: 30px;
-
-        padding: 7px;
-
-        font-size: 14px;
-    }
-
-    .hero-features span {
-        font-size: 11px;
-    }
-
-
-    /* =====================================================
-       APP
-    ===================================================== */
-
-    .hero-phone {
-        width: 210px;
-    }
-
-    .hero-app-area {
-        min-height: 410px;
-    }
-
-
-    /* =====================================================
-       FLOATING CARDS
-    ===================================================== */
-
-    .hero-card-top {
-        left: -18px;
-
-        transform:
-            scale(0.65)
-            rotate(-4deg);
-    }
-
-    .hero-card-bottom {
-        right: -18px;
-
-        transform:
-            scale(0.65)
-            rotate(-4deg);
-    }
+    line-height: 1.25;
+  }
 }
-
 
 /* =========================================================
    VERY SMALL PHONES
 ========================================================= */
 
 @media (max-width: 360px) {
+  .hero-section {
+    padding: 25px 0 40px;
+  }
 
-    .hero-section {
-        padding:
-            25px
-            0
-            40px;
-    }
+  .hero-carousel-slide {
+    padding-bottom: 75px;
+  }
 
-    .hero-content {
-        padding:
-            20px
-            13px;
+  .hero-carousel-slide .hero-content {
+    margin-top: 30px;
+  }
 
-        border-radius: 18px;
-    }
+  .hero-content {
+    padding: 20px 13px;
 
-    .hero-title {
-        font-size: 27px;
+    border-radius: 18px;
+  }
 
-        line-height: 1.12;
-    }
+  .hero-title {
+    font-size: 27px;
 
-    .hero-text {
-        font-size: 13.5px;
-    }
+    line-height: 1.12;
+  }
 
-    .hero-tag {
-        font-size: 9px;
-    }
+  .hero-text {
+    font-size: 13.5px;
+  }
 
+  .hero-tag {
+    font-size: 9px;
+  }
 
-    /* =====================================================
-       STORE BUTTONS
-    ===================================================== */
+  .hero-buttons {
+    gap: 8px;
+  }
 
-    .hero-buttons {
-        gap: 8px;
-    }
+  .store-btn-hero {
+    min-height: 54px;
 
-    .store-btn-hero {
-        min-height: 54px;
+    padding: 9px 12px;
 
-        padding:
-            9px
-            12px;
+    gap: 9px;
+  }
 
-        gap: 9px;
-    }
+  .store-icon {
+    font-size: 23px;
 
-    .store-icon {
-        font-size: 23px;
+    width: 24px;
+    min-width: 24px;
 
-        width: 24px;
-        min-width: 24px;
+    height: 24px;
+  }
 
-        height: 24px;
-    }
+  .store-btn-hero small {
+    font-size: 7.5px;
+  }
 
-    .store-btn-hero small {
-        font-size: 7.5px;
+  .store-btn-hero h6 {
+    font-size: 14px;
+  }
 
-        line-height: 1.2;
+  .hero-features {
+    gap: 7px;
+  }
 
-        letter-spacing: 0;
+  .hero-features > div {
+    min-height: 50px;
 
-        white-space: nowrap;
-    }
+    padding: 7px 9px;
 
-    .store-btn-hero h6 {
-        font-size: 14px;
+    gap: 8px;
+  }
 
-        line-height: 1.15;
-    }
+  .hero-features svg {
+    width: 28px;
+    min-width: 28px;
 
+    height: 28px;
 
-    /* =====================================================
-       FEATURE CARDS
-    ===================================================== */
+    padding: 6px;
 
-    .hero-features {
-        gap: 7px;
-    }
+    font-size: 13px;
+  }
 
-    .hero-features > div {
-        min-height: 50px;
+  .hero-features span {
+    font-size: 10.5px;
 
-        padding:
-            7px
-            9px;
-
-        gap: 8px;
-    }
-
-    .hero-features svg {
-        width: 28px;
-        min-width: 28px;
-
-        height: 28px;
-
-        padding: 6px;
-
-        font-size: 13px;
-    }
-
-    .hero-features span {
-        font-size: 10.5px;
-
-        line-height: 1.25;
-    }
-
-
-    /* =====================================================
-       PHONE
-    ===================================================== */
-
-    .hero-phone {
-        width: 195px;
-
-        padding: 7px;
-    }
-
-    .hero-app-area {
-        min-height: 380px;
-    }
-
-
-    /* =====================================================
-       FLOATING CARDS
-    ===================================================== */
-
-    .hero-card-top {
-        left: -24px;
-
-        transform:
-            scale(0.58)
-            rotate(-4deg);
-    }
-
-    .hero-card-bottom {
-        right: -24px;
-
-        transform:
-            scale(0.58)
-            rotate(-4deg);
-    }
+    line-height: 1.25;
+  }
 }
-
 
 /* =========================================================
    EXTRA SMALL PHONES
 ========================================================= */
 
 @media (max-width: 320px) {
+  .hero-title {
+    font-size: 25px;
+  }
 
-    .hero-title {
-        font-size: 25px;
-    }
+  .hero-text {
+    font-size: 13px;
+  }
 
-    .hero-text {
-        font-size: 13px;
-    }
+  .store-btn-hero {
+    min-height: 52px;
 
+    padding: 8px 10px;
 
-    /* =====================================================
-       STORE BUTTONS
-    ===================================================== */
+    gap: 8px;
+  }
 
-    .store-btn-hero {
-        min-height: 52px;
+  .store-icon {
+    font-size: 21px;
 
-        padding:
-            8px
-            10px;
+    width: 22px;
+    min-width: 22px;
 
-        gap: 8px;
-    }
+    height: 22px;
+  }
 
-    .store-icon {
-        font-size: 21px;
+  .store-btn-hero small {
+    font-size: 7px;
+  }
 
-        width: 22px;
-        min-width: 22px;
+  .store-btn-hero h6 {
+    font-size: 13px;
+  }
 
-        height: 22px;
-    }
+  .hero-features {
+    gap: 6px;
+  }
 
-    .store-btn-hero small {
-        font-size: 7px;
+  .hero-features > div {
+    min-height: 48px;
 
-        line-height: 1.15;
+    padding: 7px 8px;
 
-        letter-spacing: 0;
-    }
+    gap: 7px;
 
-    .store-btn-hero h6 {
-        font-size: 13px;
+    border-radius: 10px;
+  }
 
-        line-height: 1.15;
-    }
+  .hero-features svg {
+    width: 26px;
+    min-width: 26px;
 
+    height: 26px;
 
-    /* =====================================================
-       FEATURE CARDS
-    ===================================================== */
+    padding: 6px;
 
-    .hero-features {
-        gap: 6px;
-    }
+    font-size: 12px;
 
-    .hero-features > div {
-        min-height: 48px;
+    border-radius: 8px;
+  }
 
-        padding:
-            7px
-            8px;
+  .hero-features span {
+    font-size: 10px;
 
-        gap: 7px;
+    line-height: 1.2;
+  }
+}
 
-        border-radius: 10px;
-    }
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
 
-    .hero-features svg {
-        width: 26px;
-        min-width: 26px;
+@media (prefers-reduced-motion: reduce) {
+  .hero-carousel-track,
+  .hero-carousel-slide .hero-content,
+  .hero-carousel-slide .hero-app-area,
+  .hero-carousel-slide .hero-card-top,
+  .hero-carousel-slide .hero-card-bottom,
+  .hero-slide-background,
+  .hero-phone-wrapper {
+    transition: none !important;
 
-        height: 26px;
+    animation: none !important;
+  }
 
-        padding: 6px;
+  .hero-carousel-dot.active span {
+    animation: none !important;
 
-        font-size: 12px;
-
-        border-radius: 8px;
-    }
-
-    .hero-features span {
-        font-size: 10px;
-
-        line-height: 1.2;
-    }
-
-
-    /* =====================================================
-       PHONE
-    ===================================================== */
-
-    .hero-phone {
-        width: 180px;
-    }
-
-    .hero-app-area {
-        min-height: 350px;
-    }
+    transform: scaleX(1);
+  }
 }

@@ -1,0 +1,537 @@
+/* =========================================================
+   BADANIX TERMS & CONDITIONS
+   Uses existing root colors only
+========================================================= */
+
+.bdx-terms-hero {
+    position: relative;
+    min-height: 430px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            #21482c
+        );
+}
+
+.bdx-terms-hero::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    right: -180px;
+    top: -220px;
+}
+
+.bdx-terms-hero::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    left: -180px;
+    bottom: -220px;
+}
+
+.bdx-terms-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(20, 54, 29, 0.95),
+            rgba(20, 54, 29, 0.78)
+        );
+}
+
+.bdx-terms-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.bdx-terms-back {
+    display: inline-flex;
+    align-items: center;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 65px;
+    transition: 0.3s ease;
+}
+
+.bdx-terms-back:hover {
+    color: var(--secondary);
+    transform: translateX(-4px);
+}
+
+.bdx-terms-hero-inner {
+    max-width: 850px;
+}
+
+.bdx-terms-hero-label {
+    display: inline-block;
+    color: var(--secondary);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.bdx-terms-hero-inner h1 {
+    color: var(--white);
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.bdx-terms-hero-inner p {
+    max-width: 720px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1.1rem;
+    line-height: 1.9;
+    margin: 0;
+}
+
+
+/* =========================================================
+   MAIN SECTION
+========================================================= */
+
+.bdx-terms-section {
+    background: var(--lightGray);
+    padding: 90px 0;
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.bdx-terms-sidebar {
+    position: sticky;
+    top: 30px;
+    background: var(--white);
+    border-radius: 18px;
+    padding: 28px 0;
+    border: 1px solid rgba(20, 54, 29, 0.08);
+    box-shadow: 0 12px 35px rgba(20, 54, 29, 0.07);
+    overflow: hidden;
+}
+
+.bdx-terms-sidebar-title {
+    color: var(--primary);
+    font-size: 1.1rem;
+    font-weight: 800;
+    padding: 0 25px 20px;
+    border-bottom: 1px solid rgba(20, 54, 29, 0.08);
+    margin-bottom: 12px;
+}
+
+.bdx-terms-sidebar a {
+    display: block;
+    color: var(--gray);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    padding: 9px 25px;
+    border-left: 3px solid transparent;
+    transition: 0.25s ease;
+}
+
+.bdx-terms-sidebar a:hover {
+    color: var(--primary);
+    background: rgba(133, 100, 67, 0.07);
+    border-left-color: var(--secondary);
+    padding-left: 30px;
+}
+
+
+/* =========================================================
+   DOCUMENT
+========================================================= */
+
+.bdx-terms-document {
+    background: var(--white);
+    border-radius: 22px;
+    padding: 55px;
+    box-shadow: 0 15px 45px rgba(20, 54, 29, 0.07);
+    border: 1px solid rgba(20, 54, 29, 0.07);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.bdx-terms-introduction {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 25px;
+    background: rgba(133, 100, 67, 0.07);
+    border-left: 4px solid var(--secondary);
+    border-radius: 12px;
+    margin-bottom: 55px;
+}
+
+.bdx-terms-intro-icon {
+    min-width: 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.bdx-terms-introduction strong {
+    display: block;
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.bdx-terms-introduction p {
+    margin: 0;
+    color: var(--gray);
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   TERMS BLOCK
+========================================================= */
+
+.bdx-terms-block {
+    display: grid;
+    grid-template-columns: 65px 1fr;
+    gap: 25px;
+    padding: 0 0 50px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid rgba(20, 54, 29, 0.09);
+    scroll-margin-top: 30px;
+}
+
+.bdx-terms-block:last-of-type {
+    border-bottom: none;
+}
+
+.bdx-terms-number {
+    width: 55px;
+    height: 55px;
+    border-radius: 14px;
+    background: rgba(20, 54, 29, 0.08);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.bdx-terms-block h2 {
+    color: var(--primary);
+    font-size: 1.65rem;
+    font-weight: 750;
+    margin: 0 0 20px;
+}
+
+.bdx-terms-block p {
+    color: var(--darkGray);
+    font-size: 1rem;
+    line-height: 1.9;
+    margin-bottom: 17px;
+}
+
+.bdx-terms-block p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   LISTS
+========================================================= */
+
+.bdx-terms-block ul {
+    margin: 15px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bdx-terms-block li {
+    position: relative;
+    color: var(--darkGray);
+    font-size: 1rem;
+    line-height: 1.8;
+    padding-left: 28px;
+    margin-bottom: 13px;
+}
+
+.bdx-terms-block li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--secondary);
+}
+
+.bdx-terms-block li:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   DISCLAIMER / NOTICE
+========================================================= */
+
+.bdx-terms-notice {
+    margin-top: 28px;
+    padding: 22px 25px;
+    border-radius: 12px;
+    background: rgba(20, 54, 29, 0.06);
+    border: 1px solid rgba(20, 54, 29, 0.1);
+}
+
+.bdx-terms-notice strong {
+    display: block;
+    color: var(--primary);
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.bdx-terms-notice p {
+    margin: 0;
+    color: var(--darkGray);
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.bdx-terms-contact {
+    padding-bottom: 45px;
+}
+
+.bdx-terms-email {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 20px;
+    border-radius: 9px;
+    background: rgba(133, 100, 67, 0.08);
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.bdx-terms-email:hover {
+    background: var(--secondary);
+    color: var(--white);
+}
+
+
+/* =========================================================
+   FINAL AREA
+========================================================= */
+
+.bdx-terms-final {
+    text-align: center;
+    padding-top: 15px;
+}
+
+.bdx-terms-final-line {
+    width: 70px;
+    height: 3px;
+    background: var(--secondary);
+    border-radius: 10px;
+    margin: 0 auto 25px;
+}
+
+.bdx-terms-final p {
+    max-width: 650px;
+    margin: 0 auto 25px;
+    color: var(--gray);
+    line-height: 1.8;
+}
+
+.bdx-terms-home-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    color: var(--white);
+    padding: 13px 25px;
+    border-radius: 9px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.bdx-terms-home-btn:hover {
+    background: var(--secondary);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .bdx-terms-hero {
+        min-height: 380px;
+    }
+
+    .bdx-terms-hero-inner h1 {
+        font-size: 3.2rem;
+    }
+
+    .bdx-terms-sidebar {
+        position: static;
+    }
+
+    .bdx-terms-sidebar a {
+        display: inline-block;
+        width: 50%;
+        vertical-align: top;
+    }
+
+    .bdx-terms-document {
+        padding: 40px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .bdx-terms-hero {
+        min-height: 360px;
+    }
+
+    .bdx-terms-hero-content {
+        padding-top: 25px;
+        padding-bottom: 40px;
+    }
+
+    .bdx-terms-back {
+        margin-bottom: 45px;
+    }
+
+    .bdx-terms-hero-inner h1 {
+        font-size: 2.5rem;
+    }
+
+    .bdx-terms-hero-inner p {
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+
+    .bdx-terms-section {
+        padding: 55px 0;
+    }
+
+    .bdx-terms-sidebar {
+        border-radius: 14px;
+    }
+
+    .bdx-terms-sidebar a {
+        width: 100%;
+    }
+
+    .bdx-terms-document {
+        padding: 28px 22px;
+        border-radius: 16px;
+    }
+
+    .bdx-terms-introduction {
+        padding: 20px;
+        gap: 14px;
+        margin-bottom: 40px;
+    }
+
+    .bdx-terms-block {
+        grid-template-columns: 1fr;
+        gap: 17px;
+        padding-bottom: 38px;
+        margin-bottom: 38px;
+    }
+
+    .bdx-terms-number {
+        width: 45px;
+        height: 45px;
+        border-radius: 11px;
+    }
+
+    .bdx-terms-block h2 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+    .bdx-terms-block p,
+    .bdx-terms-block li {
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+
+    .bdx-terms-notice {
+        padding: 18px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .bdx-terms-hero-inner h1 {
+        font-size: 2.1rem;
+    }
+
+    .bdx-terms-hero-label {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+    }
+
+    .bdx-terms-document {
+        padding: 24px 18px;
+    }
+
+    .bdx-terms-sidebar {
+        padding: 20px 0;
+    }
+
+    .bdx-terms-sidebar-title {
+        padding-left: 20px;
+    }
+
+    .bdx-terms-sidebar a {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

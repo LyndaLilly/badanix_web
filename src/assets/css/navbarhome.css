@@ -1,0 +1,1194 @@
+/* =========================================================
+   BADANIX NAVBAR
+========================================================= */
+
+.badanix-nav-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+
+    padding: 16px 0;
+
+    background: var(--white);
+
+    transition:
+        padding 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* =========================================================
+   NAV CONTAINER
+========================================================= */
+
+.badanix-nav-container {
+    width: min(1380px, calc(100% - 40px));
+    min-height: 70px;
+
+    margin: 0 auto;
+    padding: 9px 12px 9px 20px;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border: 1px solid rgba(20, 54, 29, 0.07);
+
+    box-shadow:
+        0 10px 35px rgba(20, 54, 29, 0.08);
+
+    transition:
+        background 0.35s ease,
+        box-shadow 0.35s ease,
+        border-radius 0.35s ease;
+}
+
+
+/* =========================================================
+   SCROLLED NAVBAR
+========================================================= */
+
+.badanix-nav-scrolled {
+    padding: 9px 0;
+}
+
+.badanix-nav-scrolled .badanix-nav-container {
+    background: rgba(255, 255, 255, 0.97);
+
+    box-shadow:
+        0 12px 35px rgba(20, 54, 29, 0.15);
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.badanix-nav-logo-link {
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    text-decoration: none;
+
+    position: relative;
+    z-index: 20;
+}
+
+.badanix-nav-logo {
+    width: 250px;
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    transition: transform 0.3s ease;      
+     margin-left:  -30px;
+}
+
+.badanix-nav-logo-link:hover .badanix-nav-logo {
+    transform: scale(1.035);
+}
+
+
+/* =========================================================
+   MAIN MENU
+========================================================= */
+
+.badanix-nav-menu {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-left: 38px;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.badanix-nav-links {
+    display: flex;
+    align-items: center;
+
+    gap: 3px;
+}
+
+.badanix-nav-link {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    min-height: 42px;
+
+    padding: 9px 13px;
+
+    border: 0;
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: #354238;
+
+    font-family: inherit;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    line-height: 1;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.badanix-nav-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 13px;
+    right: 13px;
+    bottom: 4px;
+
+    height: 2px;
+
+    border-radius: 10px;
+
+    background: var(--secondary);
+
+    transform: scaleX(0);
+
+    transition:
+        transform 0.3s ease;
+}
+
+.badanix-nav-link:hover {
+    color: var(--primary);
+
+    background: rgba(20, 54, 29, 0.055);
+}
+
+.badanix-nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   PARTNER
+========================================================= */
+
+.badanix-nav-partner {
+    position: relative;
+}
+
+.badanix-nav-partner-trigger svg {
+    font-size: 10px;
+
+    transition:
+        transform 0.3s ease;
+}
+
+.badanix-nav-partner-open
+.badanix-nav-partner-trigger svg {
+    transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   DESKTOP DROPDOWN
+========================================================= */
+
+.badanix-nav-dropdown {
+    position: absolute;
+
+    top: calc(100% + 12px);
+    left: 50%;
+
+    width: 290px;
+
+    padding: 8px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border:
+        1px solid rgba(20, 54, 29, 0.08);
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 22px 55px rgba(20, 54, 29, 0.17);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%, -8px)
+        scale(0.96);
+
+    transform-origin: top center;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* Desktop hover */
+@media (min-width: 992px) {
+
+    .badanix-nav-partner:hover
+    .badanix-nav-dropdown,
+
+    .badanix-nav-partner-open
+    .badanix-nav-dropdown {
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+
+        transform:
+            translate(-50%, 0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   DROPDOWN ITEM
+========================================================= */
+
+.badanix-nav-dropdown-item {
+    width: 100%;
+
+    min-height: 62px;
+
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    box-sizing: border-box;
+
+    text-decoration: none;
+
+    border-radius: 12px;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+.badanix-nav-dropdown-item:hover {
+    background:
+        rgba(20, 54, 29, 0.055);
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   DROPDOWN ICON
+========================================================= */
+
+.badanix-nav-dropdown-icon {
+    width: 40px;
+    height: 40px;
+
+    min-width: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background:
+        rgba(133, 100, 67, 0.12);
+
+    color: var(--primary);
+
+    font-size: 17px;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.badanix-nav-dropdown-item:hover
+.badanix-nav-dropdown-icon {
+    background: var(--primary);
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   DROPDOWN TEXT
+========================================================= */
+
+.badanix-nav-dropdown-content {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.badanix-nav-dropdown-content strong {
+    color: var(--primary);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    line-height: 1.3;
+}
+
+.badanix-nav-dropdown-content small {
+    color: #737b75;
+
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.badanix-nav-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-left: 20px;
+}
+
+
+/* =========================================================
+   REGISTER
+========================================================= */
+
+.badanix-nav-register {
+    min-height: 43px;
+
+    padding: 10px 16px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border-radius: 11px;
+
+    background: var(--primary);
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 7px 20px rgba(20, 54, 29, 0.17);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.badanix-nav-register:hover {
+    color: #fff;
+
+    background: #0f2c17;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 26px rgba(20, 54, 29, 0.23);
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+.badanix-nav-login {
+    min-height: 43px;
+
+    padding: 9px 16px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(133, 100, 67, 0.09);
+
+    border:
+        1px solid rgba(133, 100, 67, 0.23);
+
+    color: var(--primary);
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.badanix-nav-login:hover {
+    color: var(--primary);
+
+    background:
+        rgba(133, 100, 67, 0.16);
+
+    border-color:
+        rgba(133, 100, 67, 0.38);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   MOBILE TOGGLE
+========================================================= */
+
+.badanix-nav-toggle {
+    display: none;
+
+    width: 44px;
+    height: 44px;
+
+    margin-left: auto;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 12px;
+
+    background:
+        rgba(20, 54, 29, 0.07);
+
+    cursor: pointer;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    position: relative;
+
+    z-index: 30;
+}
+
+.badanix-nav-toggle span {
+    width: 21px;
+    height: 2px;
+
+    border-radius: 20px;
+
+    background: var(--primary);
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease,
+        width 0.3s ease;
+}
+
+
+/* =========================================================
+   TOGGLE ACTIVE
+========================================================= */
+
+.badanix-nav-toggle-active
+span:nth-child(1) {
+    transform:
+        translateY(7px)
+        rotate(45deg);
+}
+
+.badanix-nav-toggle-active
+span:nth-child(2) {
+    opacity: 0;
+
+    width: 0;
+}
+
+.badanix-nav-toggle-active
+span:nth-child(3) {
+    transform:
+        translateY(-7px)
+        rotate(-45deg);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1150px) {
+
+    .badanix-nav-container {
+        width: calc(100% - 30px);
+    }
+
+    .badanix-nav-logo {
+        width: 250px;
+    }
+
+    .badanix-nav-menu {
+        margin-left: 22px;
+    }
+
+    .badanix-nav-link {
+        padding-left: 9px;
+        padding-right: 9px;
+
+        font-size: 13px;
+    }
+
+    .badanix-nav-actions {
+        margin-left: 10px;
+    }
+
+    .badanix-nav-register,
+    .badanix-nav-login {
+        padding-left: 12px;
+        padding-right: 12px;
+
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+@media (max-width: 991px) {
+
+    .badanix-nav-header {
+        padding: 10px 0;
+    }
+
+    .badanix-nav-container {
+        width: calc(100% - 24px);
+
+        min-height: 62px;
+
+        padding:
+            8px
+            9px
+            8px
+            15px;
+
+        border-radius: 17px;
+    }
+
+    .badanix-nav-logo {
+        width: 250px;
+    }
+
+
+    /* =========================================
+       TOGGLE
+    ========================================= */
+
+    .badanix-nav-toggle {
+        display: flex;
+    }
+
+
+    /* =========================================
+       MOBILE MENU
+    ========================================= */
+
+    .badanix-nav-menu {
+        position: absolute;
+
+        top: calc(100% + 8px);
+
+        left: 0;
+
+        width: 100%;
+
+        margin: 0;
+
+        padding: 10px;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: stretch;
+
+        justify-content: flex-start;
+
+        gap: 8px;
+
+        box-sizing: border-box;
+
+        background:
+            rgba(255, 255, 255, 0.98);
+
+        border:
+            1px solid rgba(20, 54, 29, 0.08);
+
+        border-radius: 18px;
+
+        box-shadow:
+            0 20px 55px rgba(20, 54, 29, 0.17);
+
+        backdrop-filter: blur(22px);
+        -webkit-backdrop-filter: blur(22px);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+
+        transform:
+            translateY(-12px)
+            scale(0.98);
+
+        transform-origin: top center;
+
+        transition:
+            opacity 0.28s ease,
+            visibility 0.28s ease,
+            transform 0.28s ease;
+
+        max-height:
+            calc(100vh - 95px);
+
+        overflow-y: auto;
+    }
+
+
+    .badanix-nav-menu-open {
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+
+    /* =========================================
+       MOBILE LINKS
+    ========================================= */
+
+    .badanix-nav-links {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 3px;
+    }
+
+    .badanix-nav-link {
+        width: 100%;
+
+        min-height: 47px;
+
+        padding:
+            12px
+            14px;
+
+        justify-content: space-between;
+
+        box-sizing: border-box;
+
+        border-radius: 11px;
+
+        font-size: 14px;
+
+        text-align: left;
+    }
+
+    .badanix-nav-link::after {
+        display: none;
+    }
+
+    .badanix-nav-link:hover {
+        background:
+            rgba(20, 54, 29, 0.065);
+
+        transform: none;
+    }
+
+
+    /* =========================================
+       PARTNER
+    ========================================= */
+
+    .badanix-nav-partner {
+        width: 100%;
+    }
+
+    .badanix-nav-partner-trigger {
+        width: 100%;
+
+        display: flex;
+
+        justify-content: space-between;
+    }
+
+
+    /* =========================================
+       MOBILE DROPDOWN
+    ========================================= */
+
+    .badanix-nav-dropdown {
+        position: static;
+
+        width: 100%;
+
+        margin: 3px 0 4px;
+
+        padding: 4px;
+
+        box-sizing: border-box;
+
+        background:
+            rgba(20, 54, 29, 0.035);
+
+        border:
+            1px solid rgba(20, 54, 29, 0.055);
+
+        border-radius: 13px;
+
+        box-shadow: none;
+
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+
+        transform: none;
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+
+        max-height: 0;
+
+        overflow: hidden;
+
+        transition:
+            max-height 0.35s ease,
+            opacity 0.25s ease,
+            visibility 0.25s ease;
+    }
+
+
+    /*
+       IMPORTANT:
+       Only React state opens the mobile dropdown.
+    */
+
+    .badanix-nav-partner-open
+    .badanix-nav-dropdown {
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+
+        max-height: 190px;
+    }
+
+
+    /*
+       Disable desktop hover behavior completely
+       on mobile.
+    */
+
+    .badanix-nav-partner:hover
+    .badanix-nav-dropdown {
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+
+        max-height: 0;
+    }
+
+    .badanix-nav-partner-open:hover
+    .badanix-nav-dropdown {
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+
+        max-height: 190px;
+    }
+
+
+    /* =========================================
+       DROPDOWN ITEMS
+    ========================================= */
+
+    .badanix-nav-dropdown-item {
+        min-height: 56px;
+
+        padding: 9px;
+
+        border-radius: 10px;
+    }
+
+    .badanix-nav-dropdown-item:hover {
+        transform: none;
+    }
+
+    .badanix-nav-dropdown-icon {
+        width: 36px;
+        height: 36px;
+
+        min-width: 36px;
+
+        border-radius: 10px;
+
+        font-size: 15px;
+    }
+
+    .badanix-nav-dropdown-content strong {
+        font-size: 12px;
+    }
+
+    .badanix-nav-dropdown-content small {
+        font-size: 9.5px;
+    }
+
+
+    /* =========================================
+       ACTIONS
+    ========================================= */
+
+    .badanix-nav-actions {
+        width: 100%;
+
+        margin: 0;
+
+        padding-top: 9px;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 8px;
+
+        border-top:
+            1px solid rgba(20, 54, 29, 0.08);
+    }
+
+    .badanix-nav-register,
+    .badanix-nav-login {
+        width: 100%;
+
+        min-height: 45px;
+
+        padding: 10px;
+
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .badanix-nav-header {
+        padding: 8px 0;
+    }
+
+    .badanix-nav-container {
+        width: calc(100% - 18px);
+
+        min-height: 58px;
+
+        padding:
+            7px
+            8px
+            7px
+            13px;
+
+        border-radius: 15px;
+    }
+
+    .badanix-nav-logo {
+        width: 200px;
+    }
+
+    .badanix-nav-toggle {
+        width: 42px;
+        height: 42px;
+
+        border-radius: 11px;
+    }
+
+    .badanix-nav-menu {
+        top: calc(100% + 7px);
+
+        border-radius: 16px;
+    }
+
+    .badanix-nav-link {
+        min-height: 45px;
+
+        font-size: 13px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .badanix-nav-container {
+        width: calc(100% - 12px);
+
+        min-height: 54px;
+
+        padding-left: 10px;
+
+        border-radius: 13px;
+    }
+
+    .badanix-nav-logo {
+        width: 200px;
+    }
+
+    .badanix-nav-toggle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .badanix-nav-menu {
+        max-height:
+            calc(100vh - 78px);
+
+        padding: 8px;
+
+        border-radius: 14px;
+    }
+
+    .badanix-nav-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .badanix-nav-register,
+    .badanix-nav-login {
+        min-height: 44px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .badanix-nav-container {
+        width: calc(100% - 8px);
+
+        min-height: 51px;
+
+        padding:
+            6px
+            7px
+            6px
+            9px;
+    }
+
+    .badanix-nav-logo {
+        width: 200px;
+    }
+
+    .badanix-nav-toggle {
+        width: 38px;
+        height: 38px;
+
+        border-radius: 10px;
+    }
+
+    .badanix-nav-toggle span {
+        width: 18px;
+    }
+
+    .badanix-nav-menu {
+        padding: 7px;
+    }
+
+    .badanix-nav-link {
+        min-height: 43px;
+
+        padding:
+            11px
+            12px;
+
+        font-size: 12.5px;
+    }
+
+    .badanix-nav-dropdown-item {
+        min-height: 52px;
+
+        padding: 8px;
+    }
+
+    .badanix-nav-dropdown-icon {
+        width: 33px;
+        height: 33px;
+
+        min-width: 33px;
+
+        font-size: 14px;
+    }
+
+    .badanix-nav-dropdown-content strong {
+        font-size: 11px;
+    }
+
+    .badanix-nav-dropdown-content small {
+        font-size: 8.5px;
+    }
+}
+
+
+/* =========================================================
+   EXTRA SMALL
+========================================================= */
+
+@media (max-width: 320px) {
+
+    .badanix-nav-logo {
+        width: 150px;
+        margin-left: -30px;
+    }
+
+    .badanix-nav-container {
+        min-height: 48px;
+    }
+
+    .badanix-nav-toggle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .badanix-nav-link {
+        min-height: 41px;
+
+        font-size: 12px;
+    }
+
+    .badanix-nav-register,
+    .badanix-nav-login {
+        min-height: 41px;
+
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.badanix-nav-link:focus-visible,
+.badanix-nav-register:focus-visible,
+.badanix-nav-login:focus-visible,
+.badanix-nav-dropdown-item:focus-visible,
+.badanix-nav-toggle:focus-visible {
+    outline:
+        3px solid rgba(133, 100, 67, 0.35);
+
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .badanix-nav-header,
+    .badanix-nav-container,
+    .badanix-nav-logo,
+    .badanix-nav-link,
+    .badanix-nav-dropdown,
+    .badanix-nav-dropdown-item,
+    .badanix-nav-register,
+    .badanix-nav-login,
+    .badanix-nav-toggle span {
+        transition: none;
+    }
+}

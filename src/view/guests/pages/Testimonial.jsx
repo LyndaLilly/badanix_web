@@ -1,38 +1,194 @@
 import "../../../assets/css/testimonial.css";
+
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import {
+  Autoplay,
+  Pagination,
+  Navigation,
+} from "swiper/modules";
+
+import {
+  FaQuoteLeft,
+  FaStar,
+  FaArrowRight,
+  FaHeart,
+  FaPaperPlane,
+} from "react-icons/fa";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 const Testimonial = () => {
+  const testimonials = [
+    {
+      name: "Dr. Sarah Kesandra",
+      role: "Healthcare Provider",
+      image: "https://randomuser.me/api/portraits/women/44.jpg",
+      text:
+        "As a healthcare provider, I am always looking for ways to enhance patient care. BADANIX has provided me with the tools to connect with my patients effectively, even when we can't meet in person. The platform's user-friendly interface and comprehensive features have made consultations easier and more efficient.",
+    },
+    {
+      name: "John Danta",
+      role: "e-Patient",
+      image: "https://randomuser.me/api/portraits/men/35.jpg",
+      text:
+        "I was initially hesitant about using a digital healthcare platform, but BADANIX has completely changed my perspective. The convenience of scheduling appointments and consulting with my doctor from home has been a game-changer.",
+    },
+    {
+      name: "Dr. Sarah Kesandra",
+      role: "Healthcare Provider",
+      image: "https://randomuser.me/api/portraits/women/48.jpg",
+      text:
+        "BADANIX has made it easier to maintain meaningful connections with patients while keeping consultations organized and accessible. The platform brings several important healthcare tools together in one convenient environment.",
+    },
+    {
+      name: "Michael James",
+      role: "Healthcare Partner",
+      image: "https://randomuser.me/api/portraits/men/61.jpg",
+      text:
+        "BADANIX has transformed the way our clinic interacts with patients. Scheduling, records, and consultations are now much easier and more organized. The platform gives our team a better way to coordinate healthcare services.",
+    },
+  ];
+
   return (
-    <>
-      {/* ================= HERO ================= */}
+    <div className="bdx-testimonial-page">
 
-      <section className="testimonial-hero">
-        <div className="testimonial-hero-overlay"></div>
+      {/* =====================================================
+          HERO
+      ===================================================== */}
 
-        <div className="container testimonial-hero-content">
+      <section className="bdx-testimonial-hero">
 
-          <a href="/" className="testimonial-back-link">
-            ← Back to Home
-          </a>
+        <div className="bdx-testimonial-hero-glow"></div>
+        <div className="bdx-testimonial-hero-pattern"></div>
 
-          <div className="row justify-content-center">
+        <div className="bdx-testimonial-hero-inner">
 
-            <div className="col-lg-10 text-center">
+          <div className="bdx-testimonial-hero-copy">
 
-              <h1 className="testimonial-hero-title">
-                BADANIX DIGITAL HEALTHCARE TESTIMONIALS
-              </h1>
+            <a
+              href="/"
+              className="bdx-testimonial-back"
+            >
+              <span>←</span>
+              Back to Home
+            </a>
 
-              <p className="testimonial-hero-text">
-                Discover how BADANIX Digital Healthcare has transformed the
-                healthcare experience for patients, healthcare providers, and
-                partners. Hear directly from those whose lives and services have
-                improved through our cutting-edge digital solutions.
+            <div className="bdx-testimonial-eyebrow">
+              <span></span>
+              REAL EXPERIENCES
+            </div>
+
+            <h1>
+              Healthcare
+              <strong> That Makes a Difference.</strong>
+            </h1>
+
+            <p>
+              Discover how BADANIX Digital Healthcare is helping
+              patients, healthcare providers and partners experience
+              a smarter, more connected approach to healthcare.
+            </p>
+
+            <div className="bdx-testimonial-hero-actions">
+
+              <a
+                href="#stories"
+                className="bdx-testimonial-primary-btn"
+              >
+                Explore Stories
+                <FaArrowRight />
+              </a>
+
+              <div className="bdx-testimonial-rating-summary">
+
+                <div className="bdx-testimonial-stars">
+                  <FaStar />
+                  <FaStar />
+                  <FaStar />
+                  <FaStar />
+                  <FaStar />
+                </div>
+
+                <span>
+                  Trusted healthcare experiences
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div className="bdx-testimonial-hero-visual">
+
+            <div className="bdx-testimonial-image-frame">
+
+              <img
+                src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=85"
+                alt="Healthcare professional"
+              />
+
+              <div className="bdx-testimonial-floating-card">
+
+                <div className="bdx-testimonial-floating-icon">
+                  <FaHeart />
+                </div>
+
+                <div>
+                  <strong>Better Connected Care</strong>
+                  <span>
+                    Technology with people at its heart
+                  </span>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div className="bdx-testimonial-circle"></div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      {/* =====================================================
+          INTRO
+      ===================================================== */}
+
+      <section
+        className="bdx-testimonial-intro"
+        id="stories"
+      >
+
+        <div className="bdx-testimonial-container">
+
+          <div className="bdx-testimonial-intro-grid">
+
+            <div>
+
+              <span className="bdx-testimonial-section-label">
+                OUR IMPACT
+              </span>
+
+              <h2>
+                Real stories.
+                <span> Real experiences.</span>
+              </h2>
+
+            </div>
+
+            <div>
+
+              <p>
+                At BADANIX Digital Healthcare, we believe technology
+                should make healthcare easier, more accessible and
+                more human. These experiences reflect the difference
+                our digital healthcare solutions can make.
               </p>
 
             </div>
@@ -43,172 +199,132 @@ const Testimonial = () => {
 
       </section>
 
-      {/* ================= STORIES ================= */}
 
-    <section className="testimonial-section">
-  <div className="container">
+      {/* =====================================================
+          TESTIMONIAL SLIDER
+      ===================================================== */}
 
-    <div className="testimonial-heading text-center">
-      <h2>Our Impact Through Real Stories</h2>
+      <section className="bdx-testimonial-stories">
 
-      <p>
-        "At BADANIX DIGITAL HEALTHCARE, we believe in the power of
-        transformation through technology. Here are some inspiring stories
-        from our users who have experienced significant improvements in
-        their healthcare journey with us."
-      </p>
-    </div>
+        <div className="bdx-testimonial-container">
 
-    <Swiper
-      modules={[Autoplay, Pagination, Navigation]}
-      loop={true}
-      speed={900}
-      spaceBetween={30}
-      slidesPerView={3}
-      autoplay={{
-        delay: 4000,
-        disableOnInteraction: false,
-      }}
-      pagination={{
-        clickable: true,
-      }}
-      navigation
-      breakpoints={{
-        0: {
-          slidesPerView: 1,
-        },
-        768: {
-          slidesPerView: 2,
-        },
-        1200: {
-          slidesPerView: 3,
-        },
-      }}
-      className="testimonialSwiper"
-    >
-      {/* Testimonial 1 */}
+          <div className="bdx-testimonial-slider-heading">
 
-      <SwiperSlide>
-        <div className="testimonial-card">
+            <div>
+              <span className="bdx-testimonial-section-label">
+                VOICES OF BADANIX
+              </span>
 
-          <img
-            src="https://randomuser.me/api/portraits/women/44.jpg"
-            alt=""
-          />
+              <h2>
+                What people are saying
+              </h2>
+            </div>
 
-          <p>
-            "As a healthcare provider, I am always looking for ways to
-            enhance patient care. BADANIX has provided me with the tools
-            to connect with my patients effectively, even when we can't
-            meet in person. The platform's user-friendly interface and
-            comprehensive features have made consultations easier and more
-            efficient. I appreciate how BADANIX prioritizes patient safety
-            and satisfaction!"
-          </p>
+            <p>
+              Hear from people who have experienced BADANIX
+              from different sides of the healthcare ecosystem.
+            </p>
 
-          <h5>Dr. Sarah Kesandra</h5>
+          </div>
 
-        </div>
-      </SwiperSlide>
 
-      {/* Testimonial 2 */}
+          <div className="bdx-testimonial-slider-wrapper">
 
-      <SwiperSlide>
-        <div className="testimonial-card">
+            <Swiper
+              modules={[
+                Autoplay,
+                Pagination,
+                Navigation,
+              ]}
+              loop={true}
+              speed={800}
+              spaceBetween={24}
+              slidesPerView={1}
+              autoplay={{
+                delay: 4500,
+                disableOnInteraction: false,
+              }}
+              pagination={{
+                clickable: true,
+              }}
+              navigation={{
+                nextEl: ".bdx-testimonial-next",
+                prevEl: ".bdx-testimonial-prev",
+              }}
+              breakpoints={{
+                700: {
+                  slidesPerView: 2,
+                },
+                1100: {
+                  slidesPerView: 3,
+                },
+              }}
+              className="bdx-testimonial-swiper"
+            >
 
-          <img
-            src="https://randomuser.me/api/portraits/men/35.jpg"
-            alt=""
-          />
+              {testimonials.map((testimonial, index) => (
+                <SwiperSlide key={index}>
 
-          <p>
-            "I was initially hesitant about using a digital healthcare
-            platform, but BADANIX has completely changed my perspective.
-            The convenience of scheduling appointments and consulting with
-            my doctor from home has been a game-changer. The team is
-            professional and responsive, making my healthcare journey much
-            smoother. I highly recommend BADANIX to anyone looking for
-            reliable healthcare solutions!"
-          </p>
+                  <article className="bdx-testimonial-card">
 
-          <h5>John Danta</h5>
+                    <div className="bdx-testimonial-card-top">
 
-        </div>
-      </SwiperSlide>
+                      <div className="bdx-testimonial-quote">
+                        <FaQuoteLeft />
+                      </div>
 
-      {/* Testimonial 3 */}
+                      <div className="bdx-testimonial-card-stars">
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                      </div>
 
-      <SwiperSlide>
-        <div className="testimonial-card">
+                    </div>
 
-          <img
-            src="https://randomuser.me/api/portraits/women/48.jpg"
-            alt=""
-          />
+                    <p className="bdx-testimonial-card-text">
+                      "{testimonial.text}"
+                    </p>
 
-          <p>
-            "As a healthcare provider, I am always looking for ways to
-            enhance patient care. BADANIX has provided me with the tools
-            to connect with my patients effectively, even when we can't
-            meet in person. The platform's user-friendly interface and
-            comprehensive features have made consultations easier and more
-            efficient. I appreciate how BADANIX prioritizes patient safety
-            and satisfaction!"
-          </p>
+                    <div className="bdx-testimonial-person">
 
-          <h5>Dr. Sarah Kesandra</h5>
+                      <img
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                      />
 
-        </div>
-      </SwiperSlide>
+                      <div>
+                        <h4>{testimonial.name}</h4>
+                        <span>{testimonial.role}</span>
+                      </div>
 
-      {/* Duplicate them so the loop looks natural */}
+                    </div>
 
-      <SwiperSlide>
-        <div className="testimonial-card">
+                  </article>
 
-          <img
-            src="https://randomuser.me/api/portraits/men/61.jpg"
-            alt=""
-          />
+                </SwiperSlide>
+              ))}
 
-          <p>
-            "BADANIX has transformed the way our clinic interacts with
-            patients. Scheduling, records, and consultations are now much
-            easier and more organized."
-          </p>
+            </Swiper>
 
-          <h5>Michael James</h5>
+            <div className="bdx-testimonial-slider-controls">
 
-        </div>
-      </SwiperSlide>
+              <button
+                type="button"
+                className="bdx-testimonial-prev"
+                aria-label="Previous testimonial"
+              >
+                ←
+              </button>
 
-    </Swiper>
-
-  </div>
-</section>
-
-       {/* ================= JOIN & SHARE ================= */}
-
-      <section className="testimonial-join-section">
-
-        <div className="container">
-
-          <div className="row">
-
-            <div className="col-lg-12">
-
-              <div className="testimonial-join-banner">
-
-                <h2>Join Us &amp; Share Your Experience</h2>
-
-                <p>
-                  We value your feedback and encourage you to share your
-                  experience with BADANIX. Your testimonial helps others
-                  understand how our digital healthcare solutions can make a
-                  difference. Please use the form below to submit your story.
-                </p>
-
-              </div>
+              <button
+                type="button"
+                className="bdx-testimonial-next"
+                aria-label="Next testimonial"
+              >
+                →
+              </button>
 
             </div>
 
@@ -218,80 +334,156 @@ const Testimonial = () => {
 
       </section>
 
-      {/* ================= SHARE STORY ================= */}
 
-      <section className="testimonial-form-section">
+      {/* =====================================================
+          JOIN BANNER
+      ===================================================== */}
 
-        <div className="container">
+      <section className="bdx-testimonial-join">
 
-          <div className="row justify-content-center">
+        <div className="bdx-testimonial-container">
 
-            <div className="col-lg-7 col-md-9">
+          <div className="bdx-testimonial-join-card">
 
-              <h2 className="testimonial-form-title">
-                Share Your Story
+            <div className="bdx-testimonial-join-decoration"></div>
+
+            <div className="bdx-testimonial-join-content">
+
+              <span className="bdx-testimonial-section-label">
+                YOUR EXPERIENCE MATTERS
+              </span>
+
+              <h2>
+                Have a BADANIX story
+                <span> to share?</span>
               </h2>
 
-              <div className="testimonial-form-card">
+              <p>
+                Your experience can help others understand how
+                digital healthcare can make everyday healthcare
+                simpler, more connected and accessible.
+              </p>
 
-                <form>
+            </div>
 
-                  <div className="mb-4">
+            <a
+              href="#share-story"
+              className="bdx-testimonial-join-btn"
+            >
+              Share Your Story
+              <FaArrowRight />
+            </a>
 
-                    <label className="form-label">
-                      Name
-                    </label>
+          </div>
 
-                    <input
-                      type="text"
-                      className="form-control testimonial-input"
-                      placeholder="Your name"
-                    />
+        </div>
 
-                  </div>
+      </section>
 
-                  <div className="mb-4">
 
-                    <label className="form-label">
-                      Email
-                    </label>
+      {/* =====================================================
+          FORM
+      ===================================================== */}
 
-                    <input
-                      type="email"
-                      className="form-control testimonial-input"
-                      placeholder="Your email"
-                    />
+      <section
+        className="bdx-testimonial-form-section"
+        id="share-story"
+      >
 
-                  </div>
+        <div className="bdx-testimonial-container">
 
-                  <div className="mb-4">
+          <div className="bdx-testimonial-form-layout">
 
-                    <label className="form-label">
-                      Testimonial
-                    </label>
+            <div className="bdx-testimonial-form-intro">
 
-                    <textarea
-                      rows="6"
-                      className="form-control testimonial-input"
-                      placeholder="Share your experience..."
-                    ></textarea>
+              <span className="bdx-testimonial-section-label">
+                SHARE YOUR EXPERIENCE
+              </span>
 
-                  </div>
+              <h2>
+                Tell us what
+                <span> BADANIX means to you.</span>
+              </h2>
 
-                  <div className="text-center">
+              <p>
+                Whether you're a patient, healthcare provider or
+                partner, we'd love to hear about your experience.
+              </p>
 
-                    <button
-                      type="submit"
-                      className="testimonial-submit-btn"
-                    >
-                      Submit Testimonial
-                    </button>
+              <div className="bdx-testimonial-form-note">
 
-                  </div>
+                <div>
+                  <FaHeart />
+                </div>
 
-                </form>
+                <span>
+                  Every story helps us build better digital
+                  healthcare experiences.
+                </span>
 
               </div>
+
+            </div>
+
+
+            <div className="bdx-testimonial-form-card">
+
+              <form>
+
+                <div className="bdx-testimonial-field">
+
+                  <label htmlFor="testimonial-name">
+                    Your Name
+                  </label>
+
+                  <input
+                    id="testimonial-name"
+                    type="text"
+                    placeholder="Enter your name"
+                  />
+
+                </div>
+
+
+                <div className="bdx-testimonial-field">
+
+                  <label htmlFor="testimonial-email">
+                    Email Address
+                  </label>
+
+                  <input
+                    id="testimonial-email"
+                    type="email"
+                    placeholder="Enter your email"
+                  />
+
+                </div>
+
+
+                <div className="bdx-testimonial-field">
+
+                  <label htmlFor="testimonial-message">
+                    Your Experience
+                  </label>
+
+                  <textarea
+                    id="testimonial-message"
+                    rows="6"
+                    placeholder="Tell us about your experience with BADANIX..."
+                  ></textarea>
+
+                </div>
+
+
+                <button
+                  type="submit"
+                  className="bdx-testimonial-submit"
+                >
+                  <span>Submit Testimonial</span>
+                  <FaPaperPlane />
+                </button>
+
+              </form>
 
             </div>
 
@@ -300,7 +492,8 @@ const Testimonial = () => {
         </div>
 
       </section>
-    </>
+
+    </div>
   );
 };
 

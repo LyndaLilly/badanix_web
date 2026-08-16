@@ -17,13 +17,13 @@ export default function Dashboard() {
 
   return (
     <div className="patient-dashboard">
-      {/* Welcome */}
+   
       <WelcomeHeader patient={patient} stats={stats} />
 
-      {/* Top Statistics */}
+   
       <DashboardStats wallet={wallet} stats={stats} />
 
-      {/* Middle Row */}
+  
       <div className="row g-3 mt-2">
         <div className="col-lg-6">
           <AppointmentHistory />
@@ -34,7 +34,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/*Bottom Row */}
+   
       <div className="row g-3 mt-2">
         <div className="col-lg-6">
           <TopDoctors />

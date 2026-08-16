@@ -1,89 +1,196 @@
 import "../assets/css/downloadapp.css";
+
 import {
   FaGooglePlay,
   FaApple,
   FaCheckCircle,
+  FaArrowRight,
 } from "react-icons/fa";
+
+import appImage from "../assets/img/img1.jpg";
 
 export default function DownloadApp() {
   return (
     <section className="download-section">
 
-      <div className="container">
+      <div className="container-fluid">
 
         <div className="download-box">
 
-          <div className="row align-items-center">
+          {/* =========================================
+              DECORATIVE ELEMENTS
+          ========================================= */}
 
-            <div className="col-lg-6 text-center">
+          <div className="download-decoration download-decoration-one"></div>
+          <div className="download-decoration download-decoration-two"></div>
 
-              <div className="phone-wrapper">
 
-                <div className="circle-bg"></div>
+          <div className="row align-items-center g-5">
 
-                <img
-                  src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=900"
-                  alt=""
-                  className="phone-image"
-                />
+            {/* =========================================
+                APP IMAGE
+            ========================================= */}
+
+            <div className="col-lg-5">
+
+              <div className="download-visual">
+
+                <div className="download-glow"></div>
+
+                <div className="download-circle"></div>
+
+                <div className="download-image-card">
+
+                  <img
+                    src={appImage}
+                    alt="BADANIX mobile application"
+                    className="download-app-image"
+                  />
+
+                </div>
+
+
+                {/* Floating badge */}
+
+                <div className="download-floating-badge">
+
+                  <FaCheckCircle />
+
+                  <div>
+                    <strong>Healthcare</strong>
+                    <span>at your fingertips</span>
+                  </div>
+
+                </div>
+
+
+                {/* Floating mini badge */}
+
+                <div className="download-floating-mini">
+                  <span className="mini-dot"></span>
+                  Secure & Reliable
+                </div>
 
               </div>
 
             </div>
 
-            <div className="col-lg-6">
 
-              <span className="section-tag">
-                MOBILE APP
-              </span>
+            {/* =========================================
+                CONTENT
+            ========================================= */}
 
-              <h2>
-                Download BADANIX &
-                <br />
-                Get Quality Healthcare Anywhere
-              </h2>
+            <div className="col-lg-7">
 
-              <p>
-                Access certified doctors, hospitals, pharmacies,
-                laboratories and your Electronic Health Record all
-                from one secure mobile application.
-              </p>
+              <div className="download-content">
 
-              <div className="feature-list">
+                <span className="download-tag">
+                  <span className="download-tag-dot"></span>
+                  BADANIX MOBILE APP
+                </span>
 
-                <div>
-                  <FaCheckCircle />
-                  Instant Video Consultation
+
+                <h2 className="download-title">
+                  Your healthcare,
+                  <span> wherever you go.</span>
+                </h2>
+
+
+                <p className="download-description">
+                  Take BADANIX with you wherever you go. Connect with
+                  certified healthcare professionals, manage your health
+                  records and access essential healthcare services from
+                  one secure mobile application.
+                </p>
+
+
+                {/* =========================================
+                    FEATURES
+                ========================================= */}
+
+                <div className="download-features">
+
+                  <div className="download-feature">
+                    <span className="download-feature-icon">
+                      <FaCheckCircle />
+                    </span>
+
+                    <span>Instant Video Consultation</span>
+                  </div>
+
+
+                  <div className="download-feature">
+                    <span className="download-feature-icon">
+                      <FaCheckCircle />
+                    </span>
+
+                    <span>Secure Electronic Health Records</span>
+                  </div>
+
+
+                  <div className="download-feature">
+                    <span className="download-feature-icon">
+                      <FaCheckCircle />
+                    </span>
+
+                    <span>Book Hospitals & Laboratories</span>
+                  </div>
+
+
+                  <div className="download-feature">
+                    <span className="download-feature-icon">
+                      <FaCheckCircle />
+                    </span>
+
+                    <span>Prescription & Pharmacy Services</span>
+                  </div>
+
                 </div>
 
-                <div>
-                  <FaCheckCircle />
-                  Secure Electronic Health Records
+
+                {/* =========================================
+                    DOWNLOAD AREA
+                ========================================= */}
+
+                <div className="download-actions">
+
+                  <div className="download-actions-title">
+                    Download the app and get started
+                  </div>
+
+
+                  <div className="download-store-buttons">
+
+                    <button className="download-store-btn">
+
+                      <FaGooglePlay />
+
+                      <span>
+                        <small>GET IT ON</small>
+                        Google Play
+                      </span>
+
+                      <FaArrowRight className="download-store-arrow" />
+
+                    </button>
+
+
+                    <button className="download-store-btn">
+
+                      <FaApple />
+
+                      <span>
+                        <small>DOWNLOAD ON THE</small>
+                        App Store
+                      </span>
+
+                      <FaArrowRight className="download-store-arrow" />
+
+                    </button>
+
+                  </div>
+
                 </div>
-
-                <div>
-                  <FaCheckCircle />
-                  Book Hospitals & Laboratories
-                </div>
-
-                <div>
-                  <FaCheckCircle />
-                  Prescription & Pharmacy Services
-                </div>
-
-              </div>
-
-              <div className="store-buttons">
-
-                <button className="store-btn">
-                  <FaGooglePlay />
-                  Google Play
-                </button>
-
-                <button className="store-btn">
-                  <FaApple />
-                  App Store
-                </button>
 
               </div>
 

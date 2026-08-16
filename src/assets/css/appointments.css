@@ -41,7 +41,7 @@ TABS
 
 .appointment-tabs {
   display: flex;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   gap: 15px;
   margin-bottom: 35px;
   justify-content: space-between;
@@ -469,4 +469,11 @@ REJECT
   cursor: not-allowed;
 
   opacity: 0.8;
+}
+
+
+.appointment-avatar{
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
 }

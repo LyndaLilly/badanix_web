@@ -127,11 +127,9 @@
   line-height: 1.7;
 }
 
-/* =========================================================
-   NOTIFICATION
-========================================================= */
 
-.notification-dropdown {
+
+/* .notification-dropdown {
   position: absolute;
   top: 38px;
   right: 0;
@@ -178,7 +176,7 @@
   padding: 20px;
   text-align: center;
   color: #777;
-}
+} */
 
 /* =========================================================
    WELCOME

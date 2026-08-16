@@ -1,11 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  FaSearch,
-  FaUserMd,
-  FaSpinner,
-  FaStar,
-} from "react-icons/fa";
+import { FaSearch, FaUserMd, FaSpinner, FaStar } from "react-icons/fa";
 
 import "../../../../assets/css/doctorslist.css";
 
@@ -18,8 +13,7 @@ export default function Doctors() {
   const [loading, setLoading] = useState(true);
   const [doctors, setDoctors] = useState([]);
   const [search, setSearch] = useState("");
-  const [selectedSpecialization, setSelectedSpecialization] =
-    useState("All");
+  const [selectedSpecialization, setSelectedSpecialization] = useState("All");
 
   useEffect(() => {
     fetchDoctors();
@@ -43,7 +37,6 @@ export default function Doctors() {
         console.log(data.doctors);
         setDoctors(data.doctors || []);
       }
-      
     } catch (error) {
       console.log(error);
     } finally {
@@ -61,9 +54,7 @@ export default function Doctors() {
     return [
       "All",
       ...new Set(
-        doctors
-          .map((doctor) => doctor.specialization)
-          .filter(Boolean)
+        doctors.map((doctor) => doctor.specialization).filter(Boolean),
       ),
     ];
   }, [doctors]);
@@ -75,19 +66,26 @@ export default function Doctors() {
   */
 
   const filteredDoctors = useMemo(() => {
-    return doctors.filter((doctor) => {
-      const keyword = search.toLowerCase();
+    return doctors
+      .filter((doctor) => {
+        const keyword = search.toLowerCase();
 
-      const matchesSearch =
-        doctor.fullname?.toLowerCase().includes(keyword) ||
-        doctor.specialization?.toLowerCase().includes(keyword);
+        const matchesSearch =
+          doctor.fullname?.toLowerCase().includes(keyword) ||
+          doctor.specialization?.toLowerCase().includes(keyword);
 
-      const matchesSpecialization =
-        selectedSpecialization === "All" ||
-        doctor.specialization === selectedSpecialization;
+        const matchesSpecialization =
+          selectedSpecialization === "All" ||
+          doctor.specialization === selectedSpecialization;
 
-      return matchesSearch && matchesSpecialization;
-    });
+        return matchesSearch && matchesSpecialization;
+      })
+      .sort((a, b) => {
+        const ratingA = Number(a.average_rating ?? 0);
+        const ratingB = Number(b.average_rating ?? 0);
+
+        return ratingB - ratingA;
+      });
   }, [doctors, search, selectedSpecialization]);
 
   /*
@@ -107,7 +105,7 @@ export default function Doctors() {
       </div>
     );
   }
-    return (
+  return (
     <div className="doctor-page">
       {/* Header */}
 
@@ -177,10 +175,7 @@ export default function Doctors() {
               : doctorImage;
 
             return (
-              <div
-                className="col-xl-4 col-lg-4 col-md-6"
-                key={doctor.id}
-              >
+              <div className="col-xl-4 col-lg-4 col-md-6" key={doctor.id}>
                 <div
                   className={`doctor-card ${
                     doctor.can_book ? "" : "doctor-disabled"
@@ -217,9 +212,7 @@ export default function Doctors() {
 
                     <div className="doctor-status">
                       {doctor.can_book ? (
-                        <span className="verified-text">
-                          ✓ Verified
-                        </span>
+                        <span className="verified-text">✓ Verified</span>
                       ) : (
                         <span className="not-verified-text">
                           ✕ Not Verified
@@ -236,9 +229,7 @@ export default function Doctors() {
                             key={star}
                             className={
                               star <=
-                              Math.round(
-                                Number(doctor.average_rating ?? 0),
-                              )
+                              Math.round(Number(doctor.average_rating ?? 0))
                                 ? "filled-star"
                                 : "empty-star"
                             }
@@ -247,9 +238,7 @@ export default function Doctors() {
                       </div>
 
                       <span className="doctor-rating-value">
-                        {Number(
-                          doctor.average_rating ?? 0,
-                        ).toFixed(1)}
+                        {Number(doctor.average_rating ?? 0).toFixed(1)}
                       </span>
                     </div>
 
@@ -268,9 +257,7 @@ export default function Doctors() {
                         })
                       }
                     >
-                      {doctor.can_book
-                        ? "View Profile"
-                        : "Unavailable"}
+                      {doctor.can_book ? "View Profile" : "Unavailable"}
                     </button>
                   </div>
                 </div>
@@ -291,5 +278,4 @@ export default function Doctors() {
       </div>
     </div>
   );
-  }
-
+}

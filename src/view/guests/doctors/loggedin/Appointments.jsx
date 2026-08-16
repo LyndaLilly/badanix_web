@@ -15,6 +15,7 @@ import "../../../../assets/css/appointments.css";
 
 import ApiUrl from "../../../../constants/ApiUrl";
 import { useDoctorAuth } from "../../../../contexts/DoctorAuthContext";
+import PatientIcon from "../../../../assets/icons/patient.png";
 
 export default function Appointments() {
   const navigate = useNavigate();
@@ -324,7 +325,22 @@ export default function Appointments() {
               <div className="appointment-card-header">
                 <div className="doctor-profile">
                   <div className="appointment-avatar">
-                    <FaUser />
+                    <img
+                      src={
+                        appointment.patient?.profile?.profile_image
+                          ? `${ApiUrl.IMAGE_BASE_URL}/${appointment.patient.profile.profile_image.replace(/^uploads\//, "")}`
+                          : PatientIcon
+                      }
+                      alt={appointment.patient_fullname || "Patient"}
+                      onError={(e) => {
+                        console.error(
+                          "Patient profile image failed:",
+                          e.currentTarget.src,
+                        );
+
+                        e.currentTarget.src = PatientIcon;
+                      }}
+                    />
                   </div>
 
                   <div>

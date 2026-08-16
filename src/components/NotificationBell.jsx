@@ -91,27 +91,7 @@ const NotificationBell = () => {
         </span>
       )}
 
-      {open && (
-        <div
-          style={{
-            position: "absolute",
-            right: 0,
-            top: "35px",
-            width: "320px",
-            background: "#fff",
-            borderRadius: "8px",
-            boxShadow: "0 4px 15px rgba(0,0,0,.15)",
-            zIndex: 1000,
-            padding: "15px",
-          }}
-        >
-          {loading ? (
-            <p>Loading...</p>
-          ) : (
-            <p>Notifications coming soon...</p>
-          )}
-        </div>
-      )}
+     
     </div>
   );
 };

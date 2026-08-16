@@ -157,37 +157,121 @@ export default function VideoConsultation() {
     //   setRemoteJoined(false);
     // });
 
-    client.current.on("user-left", async (user) => {
-      console.log("Patient left:", user.uid);
+    // client.current.on("user-left", async (user) => {
+    //   console.log("Patient left:", user.uid);
 
+    //   setRemoteJoined(false);
+
+    //   try {
+    //     // Stop local media
+    //     localTracksRef.current.forEach((track) => {
+    //       track.stop();
+    //       track.close();
+    //     });
+
+    //     // Leave Agora
+    //     if (client.current) {
+    //       await client.current.leave();
+    //     }
+
+    //     setJoined(false);
+
+    //     if (!systemEndingRef.current) {
+    //       await Swal.fire({
+    //         icon: "info",
+    //         title: "Consultation Ended",
+    //         text: "The patient has ended the consultation.",
+    //         confirmButtonColor: "#14361D",
+    //       });
+    //     }
+    //     navigate("/doctor/appointments");
+    //   } catch (err) {
+    //     console.error(err);
+    //   }
+    // });
+
+    client.current.on("user-left", async (user) => {
+      console.log("===== PATIENT LEFT AGORA =====");
+      console.log("Patient UID:", user.uid);
+
+      // Patient is temporarily no longer visible in Agora.
       setRemoteJoined(false);
 
-      try {
-        // Stop local media
-        localTracksRef.current.forEach((track) => {
-          track.stop();
-          track.close();
-        });
+      // IMPORTANT:
+      // Do NOT immediately end the doctor's consultation.
+      // First check the backend to see whether the consultation
+      // has actually been ended.
+      setTimeout(async () => {
+        try {
+          console.log("===== CHECKING BACKEND AFTER PATIENT LEFT =====");
 
-        // Leave Agora
-        if (client.current) {
-          await client.current.leave();
-        }
+          const response = await getVideoCall(appointmentId, token);
 
-        setJoined(false);
+          const latestVideoCall = response?.video_call;
 
-        if (!systemEndingRef.current) {
-          await Swal.fire({
-            icon: "info",
-            title: "Consultation Ended",
-            text: "The patient has ended the consultation.",
-            confirmButtonColor: "#14361D",
+          console.log("BACKEND VIDEO CALL STATUS:", latestVideoCall?.status);
+
+          // Backend is the source of truth.
+          const consultationEnded =
+            latestVideoCall?.status === "ended" ||
+            latestVideoCall?.status === "completed" ||
+            latestVideoCall?.status === "cancelled" ||
+            latestVideoCall?.status === "left";
+
+          if (!consultationEnded) {
+            console.log(
+              "Patient disconnected from Agora, but consultation is still active.",
+            );
+
+            console.log("Doctor will remain in the consultation.");
+
+            return;
+          }
+
+          // ==========================================
+          // BACKEND CONFIRMED CONSULTATION ENDED
+          // ==========================================
+
+          console.log("===== BACKEND CONFIRMED CONSULTATION ENDED =====");
+
+          if (!systemEndingRef.current) {
+            await Swal.fire({
+              icon: "info",
+              title: "Consultation Ended",
+              text: "The consultation has ended.",
+              confirmButtonColor: "#14361D",
+            });
+          }
+
+          // Stop local media
+          localTracksRef.current.forEach((track) => {
+            try {
+              track.stop();
+              track.close();
+            } catch (err) {
+              console.log("TRACK CLEANUP ERROR:", err);
+            }
           });
+
+          // Leave Agora
+          if (client.current) {
+            try {
+              await client.current.leave();
+            } catch (err) {
+              console.log("AGORA LEAVE ERROR:", err);
+            }
+          }
+
+          setJoined(false);
+          setRemoteJoined(false);
+
+          navigate("/doctor/appointments");
+        } catch (err) {
+          console.error("===== CHECK BACKEND AFTER PATIENT LEFT ERROR =====");
+
+          console.error(err);
         }
-        navigate("/doctor/appointments");
-      } catch (err) {
-        console.error(err);
-      }
+      }, 3000);
     });
 
     return () => {
