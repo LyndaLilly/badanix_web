@@ -8,6 +8,7 @@ import HospitalLayout from "./layouts/HospitalLayout";
 import LaboratoryLayout from "./layouts/LaboratoryLayout";
 import UniversalLogin from "./view/guests/pages/auth/UniversalLogin"
 import UniversalRegister from "./view/guests/pages/auth/UniversalRegister"
+import PageNotFound from "./view/errorpages/404";
 
 import {
   Home,
@@ -147,6 +148,8 @@ function AppRouter() {
       "/privacypolicy": "Privacy Policy",
       "/terms": "Terms & Conditions",
       "/cookies": "Cookies Policy",
+       "/404": "Page Not Found",
+      "/403": "Page Forbidden",
 
       //Patients
       "/patient/register": "Register",
@@ -381,8 +384,8 @@ function AppRouter() {
 
 
 
-      {/* 
-      <Route path="*" element={<PageNotFound />} /> */}
+   
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 }
