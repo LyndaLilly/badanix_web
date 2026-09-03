@@ -7,6 +7,7 @@ import PatientIcon from "../../../../assets/icons/patient.png";
 import scheduleIcon from "../../../../assets/icons/schedule.png";
 import walletIcon from "../../../../assets/icons/wallet.png";
 import PharmacyIcon from "../../../../assets/icons/pharmacy.png";
+import logo2 from "../../../../assets/img/logo2.png";
 
 import { usePatientAuth } from "../../../../contexts/PatientAuthContext";
 import "../../../../assets/css/sidebar.css";
@@ -74,7 +75,12 @@ export default function PatientSidebar({
         }`}
       >
         <div className="doctor-sidebar-header">
-          <h3>BADANIX</h3>
+             <img
+            src={logo2}
+            alt="BADANIX"
+            className="doctor-sidebar-logo"
+          />
+  
 
           <button
             type="button"
@@ -109,7 +115,7 @@ export default function PatientSidebar({
               alt="Doctors"
               className="sidebar-menu-image"
             />
-            <span>Doctors Categories</span>
+            <span>Book Appointment</span>
           </NavLink>
 
           {/* Doctors */}

@@ -45,9 +45,8 @@ export default function DoctorProfileUpdate() {
 
   const [formData, setFormData] = useState({
     profile_image: null,
-
-    // Personal Information
     dob: "",
+    dob_updated: 0,
     gender: "",
     pref_language: "",
     phone_country: "ng",
@@ -115,6 +114,7 @@ export default function DoctorProfileUpdate() {
 
         // Personal
         dob: profile.dob || "",
+        dob_updated: Number(profile.dob_updated) || 0,
 
         gender: profile.gender || "",
 
@@ -591,7 +591,15 @@ export default function DoctorProfileUpdate() {
                         value={formData.dob}
                         onChange={handleChange}
                         max={maxDobString}
+                        disabled={formData.dob_updated === 1}
                       />
+
+                      {formData.dob_updated === 1 && (
+                        <small className="text-danger d-block mt-2">
+                          Your date of birth has already been updated once and
+                          can no longer be changed.
+                        </small>
+                      )}
 
                       {errors.dob && (
                         <small className="text-danger">{errors.dob}</small>
@@ -608,6 +616,7 @@ export default function DoctorProfileUpdate() {
                         name="gender"
                         value={formData.gender}
                         onChange={handleChange}
+                        disabled
                       >
                         <option value="">Select Gender</option>
 

@@ -72,6 +72,7 @@ import {
   DoctorRating,
   Doctors,
   PatientDiamondCollection,
+  PatientNotifications
 } from "./view/guests/patients/loggedin";
 
 import {
@@ -89,6 +90,7 @@ import {
   DoctorWalletTransactions,
   DoctorSettings,
   DoctorHistory,
+  DoctorNotifications
 } from "./view/guests/doctors/loggedin";
 
 import {
@@ -178,6 +180,7 @@ function AppRouter() {
       "patient/ratedoctor": "Rate Doctor",
       "/patient/doctors": "Doctors",
       "/patient/diamondcollection": "Diamond Collection",
+      "patient/patientnotifications": "Notifications",
 
       //doctors
       "/doctor/register": "Register",
@@ -201,6 +204,7 @@ function AppRouter() {
       "/doctor/transactions": "Transaction History",
       "/doctor/settings": "Settings",
       "/doctor/history": "Withdrawal History",
+      "/doctor/doctornotifications": "Notifications",
 
 
       //institutions
@@ -287,6 +291,7 @@ function AppRouter() {
           <Route path="/patient/ratedoctor/:appointmentId" element={<DoctorRating />} />
           <Route path="/patient/doctors" element={<Doctors />} />
           <Route path="/patient/diamondcollection" element={<PatientDiamondCollection />} />
+          <Route path="/patient/patientnotifications" element={<PatientNotifications />} />
 
         </Route>
       </Route>
@@ -318,6 +323,7 @@ function AppRouter() {
           <Route path="/doctor/transactions" element={<DoctorWalletTransactions />} />
           <Route path="/doctor/settings" element={<DoctorSettings />} />
           <Route path="/doctor/history" element={<DoctorHistory />} />
+          <Route path="/doctor/doctornotifications" element={<DoctorNotifications />} />
         </Route>
       </Route>
 

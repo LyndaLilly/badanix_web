@@ -12,3 +12,4 @@ export {default as DoctorWallet} from "./DoctorWallet";
 export {default as DoctorWalletTransactions} from "./Transaction";
 export {default as DoctorSettings} from "./Settings";
 export {default as DoctorHistory} from "./History";
+export {default as DoctorNotifications} from "./DoctorNotifications";

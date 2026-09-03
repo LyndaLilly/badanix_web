@@ -15,24 +15,24 @@ function AppointmentCalendar({
 }) {
   const availableDates =
     availabilities?.map((item) => item.available_date.split("T")[0]) || [];
-    console.log("Available dates from API:", availableDates);
+  console.log("Available dates from API:", availableDates);
 
-const availableMonths = [
-  ...new Set(
-    availableDates.map((date) => {
-      const [year, month] = date.split("-").map(Number);
-      return `${year}-${month - 1}`;
-    }),
-  ),
-];
+  const availableMonths = [
+    ...new Set(
+      availableDates.map((date) => {
+        const [year, month] = date.split("-").map(Number);
+        return `${year}-${month - 1}`;
+      }),
+    ),
+  ];
 
-const [currentMonth, setCurrentMonth] = useState(() => {
-  if (!availableDates.length) return new Date();
+  const [currentMonth, setCurrentMonth] = useState(() => {
+    if (!availableDates.length) return new Date();
 
-  const [year, month] = availableDates[0].split("-").map(Number);
+    const [year, month] = availableDates[0].split("-").map(Number);
 
-  return new Date(year, month - 1, 1);
-});
+    return new Date(year, month - 1, 1);
+  });
 
   const year = currentMonth.getFullYear();
   const month = currentMonth.getMonth();
@@ -71,10 +71,47 @@ const [currentMonth, setCurrentMonth] = useState(() => {
   };
 
   return (
-    <div className="calendar-modal">
-      <div className="calendar-card">
+    <div className="calendar-modal" onClick={onClose}>
+      <div className="calendar-card" onClick={(e) => e.stopPropagation()}>
+        {/* Modal Header */}
+        <div className="calendar-modal-header">
+          <div>
+            <span className="calendar-modal-eyebrow">Select a Date</span>
+          </div>
+
+          <button
+            type="button"
+            className="calendar-modal-close"
+            onClick={onClose}
+            aria-label="Close calendar"
+          >
+            ×
+          </button>
+        </div>
+
+        {/* Legend */}
+        <div className="calendar-legend">
+          <div className="calendar-legend-item">
+            <span className="legend-dot available-dot"></span>
+            <span>Available</span>
+          </div>
+
+          <div className="calendar-legend-item">
+            <span className="legend-dot unavailable-dot"></span>
+            <span>Unavailable</span>
+          </div>
+        </div>
+
+        {/* Calendar Navigation */}
         <div className="calendar-header">
-          <button onClick={previousMonth}>←</button>
+          <button
+            type="button"
+            onClick={previousMonth}
+            disabled={availableMonths.indexOf(`${year}-${month}`) <= 0}
+            aria-label="Previous month"
+          >
+            ←
+          </button>
 
           <h3>
             {currentMonth.toLocaleString("default", {
@@ -83,29 +120,45 @@ const [currentMonth, setCurrentMonth] = useState(() => {
             })}
           </h3>
 
-          <button onClick={nextMonth}>→</button>
+          <button
+            type="button"
+            onClick={nextMonth}
+            disabled={
+              availableMonths.indexOf(`${year}-${month}`) >=
+              availableMonths.length - 1
+            }
+            aria-label="Next month"
+          >
+            →
+          </button>
         </div>
 
+        {/* Weekdays */}
         <div className="calendar-week">
           {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => (
             <span key={d}>{d}</span>
           ))}
         </div>
 
+        {/* Calendar Days */}
         <div className="calendar-grid">
           {calendarDays.map((day, index) => {
             if (!day) {
-              return <div key={index}></div>;
+              return <div key={index} className="empty-calendar-day" />;
             }
 
-            const date = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+            const date = `${year}-${String(month + 1).padStart(
+              2,
+              "0",
+            )}-${String(day).padStart(2, "0")}`;
 
             const today = new Date();
             today.setHours(0, 0, 0, 0);
 
-           const [y, m, d] = date.split("-").map(Number);
-const currentDate = new Date(y, m - 1, d);
-currentDate.setHours(0, 0, 0, 0);
+            const [y, m, d] = date.split("-").map(Number);
+            const currentDate = new Date(y, m - 1, d);
+            currentDate.setHours(0, 0, 0, 0);
+
             const isPast = currentDate < today;
 
             const available = availableDates.includes(date) && !isPast;
@@ -113,12 +166,15 @@ currentDate.setHours(0, 0, 0, 0);
             const selected = selectedDate === date;
 
             return (
-              <div
+              <button
+                type="button"
                 key={date}
                 className={`calendar-day
-    ${available ? "available" : "unavailable"}
-    ${selected ? "selected" : ""}
-  `}
+                ${available ? "available" : "unavailable"}
+                ${selected ? "selected" : ""}
+                ${isPast ? "past-date" : ""}
+              `}
+                disabled={!available}
                 onClick={() => {
                   if (!available) return;
 
@@ -127,14 +183,10 @@ currentDate.setHours(0, 0, 0, 0);
                 }}
               >
                 {day}
-              </div>
+              </button>
             );
           })}
         </div>
-
-        <button className="calendar-close" onClick={onClose}>
-          Close
-        </button>
       </div>
     </div>
   );
@@ -222,113 +274,136 @@ export default function BookAppointment() {
     doctor?.availabilities?.map((item) => item.available_date.split("T")[0]) ||
     [];
 
- const bookAppointment = async () => {
-  if (!appointmentDate) {
-    return Swal.fire("Required", "Please select a date.", "warning");
-  }
+  const bookAppointment = async () => {
+    if (!appointmentDate) {
+      return Swal.fire("Required", "Please select a date.", "warning");
+    }
 
-  if (!purpose.trim()) {
-    return Swal.fire("Required", "Please enter the purpose.", "warning");
-  }
+    if (!purpose.trim()) {
+      return Swal.fire("Required", "Please enter the purpose.", "warning");
+    }
 
-  // Confirm details before proceeding
+    // Confirm details before proceeding
   const confirm = await Swal.fire({
-    title: "Confirm Appointment Details",
-    html: `
-      <div style="text-align:left">
-        <p><strong>Doctor:</strong> ${
+  title: "Confirm Appointment Details",
+  html: `
+    <div class="appointment-confirm-details">
+
+      <div class="confirm-detail-row">
+        <span class="confirm-label">Doctor</span>
+        <span class="confirm-value">${
           doctor.fullname.toLowerCase().startsWith("dr")
             ? doctor.fullname
             : `Dr. ${doctor.fullname}`
-        }</p>
-
-      <p><strong>Date:</strong> ${(() => {
-  const [year, month, day] = appointmentDate.split("-").map(Number);
-
-  return new Date(year, month - 1, day).toLocaleDateString("en-US", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-})()}</p>
-
-        <p><strong>Purpose:</strong> ${purpose}</p>
-
-        <p><strong>Payment:</strong> Wallet</p>
-
-        <p><strong>Amount:</strong> ₦${Number(
-          bookingAmount,
-        ).toLocaleString("en-US")}</p>
+        }</span>
       </div>
-    `,
-    icon: "question",
-    showCancelButton: true,
-    confirmButtonText: "Proceed Booking",
-    cancelButtonText: "Edit Details",
-    confirmButtonColor: "#14361D",
-    cancelButtonColor: "#856443",
-  });
 
-  if (!confirm.isConfirmed) return;
+      <div class="confirm-detail-row">
+        <span class="confirm-label">Appointment Date</span>
+        <span class="confirm-value">
+          ${(() => {
+            const [year, month, day] = appointmentDate.split("-").map(Number);
 
-  try {
-    setLoading(true);
+            return new Date(year, month - 1, day).toLocaleDateString("en-US", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            });
+          })()}
+        </span>
+      </div>
 
-    const response = await fetch(ApiUrl.BOOK_APPOINTMENT, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        doctor_id: doctor.id,
-        appointment_date: appointmentDate,
-        purpose,
-        payment_method: paymentMethod,
-      }),
-    });
+      <div class="confirm-detail-row purpose-row">
+        <span class="confirm-label">Signs & Symptoms</span>
+        <span class="confirm-value purpose-value">${purpose}</span>
+      </div>
 
-    const data = await response.json();
+      <div class="confirm-detail-row">
+        <span class="confirm-label">Payment Method</span>
+        <span class="confirm-value wallet-badge">Wallet</span>
+      </div>
 
-    if (response.ok) {
-      await Swal.fire({
-        title: "Appointment Booked",
-        text: "Your appointment has been submitted successfully.",
-        icon: "success",
-        confirmButtonColor: "#14361D",
+      <div class="confirm-amount">
+        <span>Booking Amount</span>
+        <strong>₦${Number(bookingAmount).toLocaleString("en-US")}</strong>
+      </div>
+
+    </div>
+  `,
+  showCancelButton: true,
+  confirmButtonText: "Proceed Booking",
+  cancelButtonText: "Edit Details",
+  buttonsStyling: false,
+  customClass: {
+    popup: "appointment-confirm-modal",
+    title: "appointment-confirm-title",
+    htmlContainer: "appointment-confirm-html",
+    actions: "appointment-confirm-actions",
+    confirmButton: "appointment-confirm-btn",
+    cancelButton: "appointment-cancel-btn",
+  },
+});
+
+    if (!confirm.isConfirmed) return;
+
+    try {
+      setLoading(true);
+
+      const response = await fetch(ApiUrl.BOOK_APPOINTMENT, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          doctor_id: doctor.id,
+          appointment_date: appointmentDate,
+          purpose,
+          payment_method: paymentMethod,
+        }),
       });
 
-      navigate("/patient/appointments");
-    } else {
-      if (data.message === "Insufficient wallet balance.") {
-        Swal.fire({
-          icon: "warning",
-          title: "Insufficient Wallet Balance",
-          text: "You don't have enough money in your wallet to book this appointment.",
-          confirmButtonText: "Fund Wallet",
-          showCancelButton: true,
-          cancelButtonText: "Cancel",
+      const data = await response.json();
+
+      if (response.ok) {
+        await Swal.fire({
+          title: "Appointment Booked",
+          text: "Your appointment has been submitted successfully.",
+          icon: "success",
           confirmButtonColor: "#14361D",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            navigate("/patient/wallet");
-          }
         });
+
+        navigate("/patient/appointments");
       } else {
-        Swal.fire(
-          "Error",
-          data.message || "Unable to book appointment.",
-          "error",
-        );
+        if (data.message === "Insufficient wallet balance.") {
+          Swal.fire({
+            icon: "warning",
+            title: "Insufficient Wallet Balance",
+            text: "You don't have enough money in your wallet to book this appointment.",
+            confirmButtonText: "Fund Wallet",
+            showCancelButton: true,
+            cancelButtonText: "Cancel",
+            confirmButtonColor: "#14361D",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              navigate("/patient/wallet");
+            }
+          });
+        } else {
+          Swal.fire(
+            "Error",
+            data.message || "Unable to book appointment.",
+            "error",
+          );
+        }
       }
+    } catch (error) {
+      Swal.fire("Error", "Something went wrong.", "error");
+    } finally {
+      setLoading(false);
     }
-  } catch (error) {
-    Swal.fire("Error", "Something went wrong.", "error");
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   if (!doctor) {
     return null;
@@ -373,13 +448,13 @@ export default function BookAppointment() {
           />
         </div>
         <div className="form-group">
-          <label>Purpose</label>
+          <label>Signs and Symptoms of Illness</label>
 
           <textarea
             rows="5"
             value={purpose}
             onChange={(e) => setPurpose(e.target.value)}
-            placeholder="Describe the purpose of your appointment..."
+            placeholder="Describe the signs and symptoms of your illness..."
           />
         </div>
 

@@ -21,11 +21,14 @@ import {
 } from "react-icons/fa";
 
 import img1 from "../../../assets/img/img29.jpg"
-import img2 from "../../../assets/img/img7.jpg"
+
 
 import img4 from "../../../assets/img/img20.jpg"
 import img5 from "../../../assets/img/img24.jpg"
-import img6 from "../../../assets/img/img15.png"
+import img6 from "../../../assets/img/wear.jpg"
+import what from "../../../assets/img/institution.webp"
+import img2 from "../../../assets/img/elet.webp"
+
 
 const values = [
   {
@@ -286,9 +289,9 @@ export default function About() {
             <div className="badanix-about-values-image">
 
               <img
-                src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=1000&q=80"
-                alt="Healthcare professional"
-              />
+  src={what}
+  alt="Black healthcare professional"
+/>
 
               <div className="badanix-about-values-overlay">
 
@@ -502,10 +505,6 @@ export default function About() {
 
                   <p>{service.text}</p>
 
-                  {/* <div className="badanix-about-service-link">
-                    Learn more
-                    <FaArrowRight />
-                  </div> */}
 
                 </div>
 

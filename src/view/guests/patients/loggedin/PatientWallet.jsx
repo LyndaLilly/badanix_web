@@ -9,11 +9,7 @@ import { usePatientAuth } from "../../../../contexts/PatientAuthContext";
 import { Link } from "react-router-dom";
 
 export default function PatientWallet() {
-  const { token } = usePatientAuth();
-
-  const [wallet, setWallet] = useState({
-    balance: 0,
-  });
+  const { token, wallet, refreshWallet } = usePatientAuth();
 
   const [transactions, setTransactions] = useState([]);
 
@@ -142,10 +138,10 @@ export default function PatientWallet() {
           Authorization: `Bearer ${token}`,
         },
 
-       body: JSON.stringify({
-  amount: Number(amount),
-  platform: "web",
-}),
+        body: JSON.stringify({
+          amount: Number(amount),
+          platform: "web",
+        }),
       });
 
       const data = await response.json();
@@ -244,7 +240,8 @@ export default function PatientWallet() {
 
       setAmount("");
 
-      loadWallet();
+      // loadWallet();
+      await refreshWallet();
     } catch (error) {
       console.log(error);
     }
@@ -340,10 +337,11 @@ export default function PatientWallet() {
               onClick={payWithPaystack}
               disabled={loading}
             >
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk7pkVlAhrrwFQ5Eq1QOdvUk6nuxnmPnQJv8VD8qmc-Q&s" alt="Paystack" />
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk7pkVlAhrrwFQ5Eq1QOdvUk6nuxnmPnQJv8VD8qmc-Q&s"
+                alt="Paystack"
+              />
             </button>
-
-            
           </div>
         </div>
       )}

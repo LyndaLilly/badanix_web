@@ -25,8 +25,7 @@ export default function DoctorList() {
   const location = useLocation();
 
   const specializationId = location.state?.specializationId;
-  const specializationName =
-    location.state?.specialization || "Doctors";
+  const specializationName = location.state?.specialization || "Doctors";
 
   const [loading, setLoading] = useState(true);
   const [doctors, setDoctors] = useState([]);
@@ -105,14 +104,21 @@ export default function DoctorList() {
         ======================================================
         */
 
-        const sortedDoctors = [...(data.doctors || [])].sort(
-          (a, b) => {
-            const ratingA = Number(a.average_rating ?? 0);
-            const ratingB = Number(b.average_rating ?? 0);
+        const sortedDoctors = [...(data.doctors || [])].sort((a, b) => {
+          const canBookA = Boolean(a.can_book);
+          const canBookB = Boolean(b.can_book);
 
-            return ratingB - ratingA;
-          },
-        );
+          // Bookable doctors first
+          if (canBookA !== canBookB) {
+            return canBookB - canBookA;
+          }
+
+          // Then highest rated first
+          const ratingA = Number(a.average_rating ?? 0);
+          const ratingB = Number(b.average_rating ?? 0);
+
+          return ratingB - ratingA;
+        });
 
         setDoctors(sortedDoctors);
         setCategory(data.specialization);
@@ -152,13 +158,11 @@ export default function DoctorList() {
 
   return (
     <div className="doctor-list-page">
-
       {/* ==================================================
           HEADER
       ================================================== */}
 
       <div className="doctor-list-header">
-
         <button
           type="button"
           className="doctor-back-btn"
@@ -168,27 +172,21 @@ export default function DoctorList() {
         </button>
 
         <div>
-          <h2>
-            {category?.name || specializationName}
-          </h2>
+          <h2>{category?.name || specializationName}</h2>
 
           <span>
             {doctors.length} Doctor
             {doctors.length !== 1 ? "s" : ""} Available
           </span>
         </div>
-
       </div>
-
 
       {/* ==================================================
           EMPTY STATE
       ================================================== */}
 
       {doctors.length === 0 ? (
-
         <div className="doctor-empty-state">
-
           <FaUserMd />
 
           <h3>No Doctors Found</h3>
@@ -197,29 +195,21 @@ export default function DoctorList() {
             There are currently no doctors registered under{" "}
             <strong>{specializationName}</strong>.
           </p>
-
         </div>
-
       ) : (
-
         <div className="doctor-list-container">
-
           {doctors.map((doctor) => {
-
             /*
             ==================================================
             REAL RATING
             ==================================================
             */
 
-            const rating = Number(
-              doctor.average_rating ?? 0,
-            );
+            const rating = Number(doctor.average_rating ?? 0);
 
             const safeRating = Number.isFinite(rating)
               ? Math.max(0, Math.min(5, rating))
               : 0;
-
 
             /*
             ==================================================
@@ -234,7 +224,6 @@ export default function DoctorList() {
                 )}`
               : doctorImage;
 
-
             /*
             ==================================================
             BOOKING STATUS
@@ -243,51 +232,36 @@ export default function DoctorList() {
 
             const canBook = Boolean(doctor.can_book);
 
-
             return (
-
               <div
                 key={doctor.id}
-                className={`doctor-card ${
-                  canBook ? "" : "doctor-disabled"
-                }`}
+                className={`doctor-card ${canBook ? "" : "doctor-disabled"}`}
                 onClick={() => {
-
                   if (!canBook) return;
 
-                  navigate(
-                    "/patient/doctordetails",
-                    {
-                      state: {
-                        doctor,
-                      },
+                  navigate("/patient/doctordetails", {
+                    state: {
+                      doctor,
                     },
-                  );
-
+                  });
                 }}
               >
-
                 {/* ==================================================
                     TOP SECTION
                 ================================================== */}
 
                 <div className="doctor-card-top">
-
-
                   {/* ==================================================
                       IMAGE
                   ================================================== */}
 
                   <div className="doctor-image-section">
-
                     <div className="doctor-image-wrapper">
-
                       <img
                         src={image}
                         alt={doctor.fullname}
                         className="doctor-image"
                       />
-
 
                       {/* ==================================================
                           SMALL AVAILABILITY BADGE
@@ -295,152 +269,97 @@ export default function DoctorList() {
 
                       <span
                         className={`doctor-badge ${
-                          canBook
-                            ? "available"
-                            : "unavailable"
+                          canBook ? "available" : "unavailable"
                         }`}
                       >
-                        {canBook
-                          ? "Available"
-                          : "Unavailable"}
+                        {canBook ? "Available" : "Unavailable"}
                       </span>
-
                     </div>
-
 
                     {/* ==================================================
                         GENDER
                     ================================================== */}
 
                     {doctor.profile?.gender && (
-
                       <div className="doctor-gender">
-
                         <span>
-                          {doctor.profile.gender
-                            .charAt(0)
-                            .toUpperCase() +
+                          {doctor.profile.gender.charAt(0).toUpperCase() +
                             doctor.profile.gender.slice(1)}
                         </span>
-
                       </div>
-
                     )}
-
                   </div>
-
 
                   {/* ==================================================
                       DOCTOR DETAILS
                   ================================================== */}
 
                   <div className="doctor-main-details">
-
-
                     {/* ==================================================
                         NAME + VERIFIED
                     ================================================== */}
 
                     <div className="doctor-name-row">
-
                       <div className="doctor-name-wrapper">
-
                         <h3>
-                          {doctor.fullname
-                            ?.toLowerCase()
-                            .startsWith("dr")
+                          {doctor.fullname?.toLowerCase().startsWith("dr")
                             ? doctor.fullname
                             : `Dr. ${doctor.fullname}`}
                         </h3>
 
-
                         {/* VERIFIED CHECK */}
 
                         {canBook && (
-
                           <MdVerified
                             className="doctor-verified-icon"
                             title="Verified Doctor"
                           />
-
                         )}
-
                       </div>
-
                     </div>
-
 
                     {/* ==================================================
                         RATING
                     ================================================== */}
 
                     <div className="doctor-rating">
-
                       <div className="stars">
+                        {[1, 2, 3, 4, 5].map((star) => {
+                          const isFilled = star <= Math.floor(safeRating);
 
-                        {[1, 2, 3, 4, 5].map(
-                          (star) => {
-
-                            const isFilled =
-                              star <=
-                              Math.floor(
-                                safeRating,
-                              );
-
-                            return (
-
-                              <FaStar
-                                key={star}
-                                className={
-                                  isFilled
-                                    ? "filled-star"
-                                    : "empty-star"
-                                }
-                              />
-
-                            );
-                          },
-                        )}
-
+                          return (
+                            <FaStar
+                              key={star}
+                              className={
+                                isFilled ? "filled-star" : "empty-star"
+                              }
+                            />
+                          );
+                        })}
                       </div>
 
-
                       <span className="rating-number">
-
-                        {safeRating > 0
-                          ? safeRating.toFixed(1)
-                          : "No rating"}
-
+                        {safeRating > 0 ? safeRating.toFixed(1) : "No rating"}
                       </span>
-
                     </div>
-
 
                     {/* ==================================================
                         SPECIALIZATION
                     ================================================== */}
 
                     <span className="doctor-specialization">
-
-                      {doctor.specialization ||
-                        "Not specified"}
-
+                      {doctor.specialization || "Not specified"}
                     </span>
-
 
                     {/* ==================================================
                         LOCATION
                     ================================================== */}
 
-                    {(doctor.profile?.city ||
-                      doctor.profile?.state) && (
-
+                    {(doctor.profile?.city || doctor.profile?.state) && (
                       <div className="doctor-info-row">
-
                         <FaMapMarkerAlt />
 
                         <span>
-
                           {doctor.profile?.city}
 
                           {doctor.profile?.city &&
@@ -448,130 +367,77 @@ export default function DoctorList() {
                             ", "}
 
                           {doctor.profile?.state}
-
                         </span>
-
                       </div>
-
                     )}
-
                   </div>
-
                 </div>
-
 
                 {/* ==================================================
                     STATS
                 ================================================== */}
 
                 <div className="doctor-card-middle">
-
-
                   {/* EXPERIENCE */}
 
                   {doctor.profile?.experience && (
-
                     <div className="doctor-stat">
-
                       <FaBriefcase />
 
                       <div>
+                        <small>Experience</small>
 
-                        <small>
-                          Experience
-                        </small>
-
-                        <strong>
-                          {doctor.profile.experience} yrs
-                        </strong>
-
+                        <strong>{doctor.profile.experience} yrs</strong>
                       </div>
-
                     </div>
-
                   )}
-
 
                   {/* LANGUAGE */}
 
                   {doctor.profile?.pref_language && (
-
                     <div className="doctor-stat">
-
                       <FaLanguage />
 
                       <div>
+                        <small>Language</small>
 
-                        <small>
-                          Language
-                        </small>
-
-                        <strong>
-                          {doctor.profile.pref_language}
-                        </strong>
-
+                        <strong>{doctor.profile.pref_language}</strong>
                       </div>
-
                     </div>
-
                   )}
-
                 </div>
-
 
                 {/* ==================================================
                     FOOTER
                 ================================================== */}
 
                 <div className="doctor-card-footer">
-
                   <button
                     type="button"
                     disabled={!canBook}
-                    className={`view-profile-btn ${
-                      canBook
-                        ? ""
-                        : "disabled"
-                    }`}
+                    className={`view-profile-btn ${canBook ? "" : "disabled"}`}
                     onClick={(e) => {
-
                       e.stopPropagation();
 
                       if (!canBook) return;
 
-                      navigate(
-                        "/patient/doctordetails",
-                        {
-                          state: {
-                            doctor,
-                          },
+                      navigate("/patient/doctordetails", {
+                        state: {
+                          doctor,
                         },
-                      );
-
+                      });
                     }}
                   >
+                    {canBook ? "View Profile" : "Unavailable"}
 
-                    {canBook
-                      ? "View Profile"
-                      : "Unavailable"}
-
-                    {canBook && (
-                      <FaChevronRight />
-                    )}
-
+                    {canBook && <FaChevronRight />}
                   </button>
-
                 </div>
-
               </div>
-
             );
           })}
-
         </div>
-
       )}
-
     </div>
   );
 }

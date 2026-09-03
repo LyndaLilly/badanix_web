@@ -20,36 +20,56 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 const Testimonial = () => {
-  const testimonials = [
-    {
-      name: "Dr. Sarah Kesandra",
-      role: "Healthcare Provider",
-      image: "https://randomuser.me/api/portraits/women/44.jpg",
-      text:
-        "As a healthcare provider, I am always looking for ways to enhance patient care. BADANIX has provided me with the tools to connect with my patients effectively, even when we can't meet in person. The platform's user-friendly interface and comprehensive features have made consultations easier and more efficient.",
-    },
-    {
-      name: "John Danta",
-      role: "e-Patient",
-      image: "https://randomuser.me/api/portraits/men/35.jpg",
-      text:
-        "I was initially hesitant about using a digital healthcare platform, but BADANIX has completely changed my perspective. The convenience of scheduling appointments and consulting with my doctor from home has been a game-changer.",
-    },
-    {
-      name: "Dr. Sarah Kesandra",
-      role: "Healthcare Provider",
-      image: "https://randomuser.me/api/portraits/women/48.jpg",
-      text:
-        "BADANIX has made it easier to maintain meaningful connections with patients while keeping consultations organized and accessible. The platform brings several important healthcare tools together in one convenient environment.",
-    },
-    {
-      name: "Michael James",
-      role: "Healthcare Partner",
-      image: "https://randomuser.me/api/portraits/men/61.jpg",
-      text:
-        "BADANIX has transformed the way our clinic interacts with patients. Scheduling, records, and consultations are now much easier and more organized. The platform gives our team a better way to coordinate healthcare services.",
-    },
-  ];
+ const testimonials = [
+  {
+    name: "Chiamaka Okafor",
+    role: "Patient",
+    text:
+      "BADANIX has made accessing healthcare much easier for me. I can find the right healthcare provider, schedule appointments and manage my healthcare needs without the stress of unnecessary trips.",
+  },
+  {
+    name: "Abdullahi Musa",
+    role: "Patient",
+    text:
+      "I was initially unsure about using digital healthcare, but BADANIX made the experience simple. Being able to schedule an appointment and connect with a healthcare professional from home has been very convenient.",
+  },
+  {
+    name: "Dr. Emeka Nwosu",
+    role: "Healthcare Provider",
+    text:
+      "BADANIX gives healthcare providers a practical way to stay connected with patients. The platform makes consultations more accessible while helping us provide a more organized and efficient healthcare experience.",
+  },
+  {
+    name: "Ama Mensah",
+    role: "Patient",
+    text:
+      "What I appreciate about BADANIX is how convenient it makes healthcare. I can manage appointments and connect with healthcare professionals without having to go through a complicated process.",
+  },
+  {
+    name: "Yusuf Ibrahim",
+    role: "Healthcare Partner",
+    text:
+      "BADANIX is helping bring healthcare services closer to people. The platform provides a simple way for patients and healthcare professionals to connect and makes the overall healthcare journey more convenient.",
+  },
+  {
+    name: "Ngozi Eze",
+    role: "Patient",
+    text:
+      "Using BADANIX has given me a better way to manage my healthcare needs. The platform is straightforward, convenient and makes it easier to stay connected with healthcare providers.",
+  },
+  {
+    name: "Kwame Asante",
+    role: "Healthcare Provider",
+    text:
+      "Technology should make healthcare easier, and BADANIX does exactly that. It helps us connect with patients more effectively and provides useful tools that make managing consultations much easier.",
+  },
+  {
+    name: "Fatima Bello",
+    role: "Patient",
+    text:
+      "BADANIX has changed the way I think about accessing healthcare. Having healthcare services and consultations available through one platform makes the process much easier and more accessible.",
+  },
+];
 
   return (
     <div className="bdx-testimonial-page">
@@ -289,10 +309,7 @@ const Testimonial = () => {
 
                     <div className="bdx-testimonial-person">
 
-                      <img
-                        src={testimonial.image}
-                        alt={testimonial.name}
-                      />
+                  
 
                       <div>
                         <h4>{testimonial.name}</h4>

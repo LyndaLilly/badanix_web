@@ -179,27 +179,185 @@ export default function Appointments() {
   const rejectAppointment = async (appointmentId) => {
     const { value: rejectionReason } = await Swal.fire({
       title: "Reject Appointment",
-      input: "textarea",
-      inputLabel: "Reason (Optional)",
-      inputPlaceholder: "You may provide a reason...",
+
+      html: `
+      <div style="text-align: left;">
+        <p style="
+          margin: 0 0 18px;
+          color: #666;
+          font-size: 14px;
+          line-height: 1.5;
+        ">
+          Please tell the patient why you are unable to accept this appointment.
+        </p>
+
+        <label style="
+          display: block;
+          margin-bottom: 8px;
+          font-weight: 600;
+          color: #14361D;
+        ">
+          Select a reason <span style="color: #d33;">*</span>
+        </label>
+
+        <select 
+          id="rejection-reason-select"
+          class="swal2-select"
+          style="
+            display: block;
+            width: 100%;
+            margin: 0;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+          "
+        >
+          <option value="">-- Select a rejection reason --</option>
+
+          <option value="I am unavailable on the requested date">
+            I am unavailable on the requested date
+          </option>
+
+          <option value="I am unavailable at the requested time">
+            I am unavailable at the requested time
+          </option>
+
+          <option value="I have a scheduling conflict">
+            I have a scheduling conflict
+          </option>
+
+          <option value="The appointment time is no longer available">
+            The appointment time is no longer available
+          </option>
+
+          <option value="The appointment is outside my area of practice">
+            The appointment is outside my area of practice
+          </option>
+
+          <option value="I am unable to provide the requested consultation">
+            I am unable to provide the requested consultation
+          </option>
+
+          <option value="I need the patient to select another available time">
+            I need the patient to select another available time
+          </option>
+
+          <option value="other">
+            Other
+          </option>
+        </select>
+
+        <div 
+          id="other-rejection-reason-container"
+          style="display: none; margin-top: 16px;"
+        >
+          <label style="
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #14361D;
+          ">
+            Enter your reason <span style="color: #d33;">*</span>
+          </label>
+
+          <textarea
+            id="other-rejection-reason"
+            class="swal2-textarea"
+            placeholder="Please type your reason for rejecting this appointment..."
+            style="
+              display: block;
+              width: 100%;
+              min-height: 100px;
+              margin: 0;
+              padding: 12px;
+              border: 1px solid #ddd;
+              border-radius: 8px;
+              resize: vertical;
+              box-sizing: border-box;
+            "
+          ></textarea>
+        </div>
+      </div>
+    `,
+
       showCancelButton: true,
+
       confirmButtonText: "Reject Appointment",
-      confirmButtonColor: "#dc3545",
       cancelButtonText: "Cancel",
+
+      confirmButtonColor: "#dc3545",
+      cancelButtonColor: "#14361D",
+
+      focusConfirm: false,
+
+      didOpen: () => {
+        const select = document.getElementById("rejection-reason-select");
+
+        const otherContainer = document.getElementById(
+          "other-rejection-reason-container",
+        );
+
+        select.addEventListener("change", () => {
+          if (select.value === "other") {
+            otherContainer.style.display = "block";
+          } else {
+            otherContainer.style.display = "none";
+          }
+        });
+      },
+
+      preConfirm: () => {
+        const selectedReason = document
+          .getElementById("rejection-reason-select")
+          .value.trim();
+
+        const otherReason = document
+          .getElementById("other-rejection-reason")
+          ?.value.trim();
+
+        // Doctor must select a reason
+        if (!selectedReason) {
+          Swal.showValidationMessage(
+            "Please select a reason for rejecting the appointment.",
+          );
+
+          return false;
+        }
+
+        // If Other is selected, doctor must provide a reason
+        if (selectedReason === "other") {
+          if (!otherReason) {
+            Swal.showValidationMessage(
+              "Please type your reason for rejecting the appointment.",
+            );
+
+            return false;
+          }
+
+          return otherReason;
+        }
+
+        // Return selected reason
+        return selectedReason;
+      },
     });
 
-    if (rejectionReason === undefined) return;
+    // Doctor clicked Cancel or closed the modal
+    if (!rejectionReason) return;
 
     try {
       const response = await fetch(
         `${ApiUrl.REJECT_DOCTOR_APPOINTMENT}/${appointmentId}/reject`,
         {
           method: "POST",
+
           headers: {
             Authorization: `Bearer ${token}`,
             Accept: "application/json",
             "Content-Type": "application/json",
           },
+
           body: JSON.stringify({
             rejection_reason: rejectionReason,
           }),
@@ -212,16 +370,27 @@ export default function Appointments() {
         await Swal.fire({
           icon: "success",
           title: "Appointment Rejected",
-          text: data.message,
+          text:
+            data.message || "The appointment has been rejected successfully.",
           confirmButtonColor: "#14361D",
         });
 
         loadAppointments();
       } else {
-        Swal.fire("Error", data.message, "error");
+        Swal.fire({
+          icon: "error",
+          title: "Unable to Reject",
+          text: data.message || "Something went wrong. Please try again.",
+          confirmButtonColor: "#14361D",
+        });
       }
     } catch (error) {
-      Swal.fire("Error", "Unable to reject appointment.", "error");
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Unable to reject appointment. Please try again.",
+        confirmButtonColor: "#14361D",
+      });
     }
   };
 

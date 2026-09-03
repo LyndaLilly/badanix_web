@@ -41,30 +41,30 @@ export default function ProfileFill() {
     "Other",
   ];
 
-  //   const [formData, setFormData] = useState({
-  //     profile_image: null,
-  //     dob: "",
-  //     gender: "",
-  //     pref_language: "English",
-  //     phone_country: "ng",
-  //     phone: "",
-  //     about: "",
-  //     experience: "",
-  //     address: "",
-  //     city: "",
-  //     state: "",
-  //     country: "",
-  //     zipcode: "",
-  //     license_type: "",
-  //     license_no: "",
-  //     issuing_authority: "",
-  //     expiry_date: "",
-  //     accreditations: "",
-  //     services: "",
-  //     bank_name: "",
-  //     acct_name: "",
-  //     acct_num: "",
-  //   });
+  // const [formData, setFormData] = useState({
+  //   profile_image: null,
+  //   dob: "",
+  //   gender: "",
+  //   pref_language: "English",
+  //   phone_country: "ng",
+  //   phone: "",
+  //   about: "",
+  //   experience: "",
+  //   address: "",
+  //   city: "",
+  //   state: "",
+  //   country: "",
+  //   zipcode: "",
+  //   license_type: "",
+  //   license_no: "",
+  //   issuing_authority: "",
+  //   expiry_date: "",
+  //   accreditations: "",
+  //   services: "",
+  //   bank_name: "",
+  //   acct_name: "",
+  //   acct_num: "",
+  // });
 
   const [formData, setFormData] = useState({
     profile_image: null,
@@ -80,8 +80,7 @@ export default function ProfileFill() {
     about:
       "I am a dedicated medical doctor passionate about providing quality healthcare services and improving patient outcomes through compassionate care.",
 
-    experience:
-      "10 years experience in General Medicine with special interest in preventive healthcare and patient management.",
+    experience: "10 years",
 
     // Address
     address: "15 Admiralty Way",
@@ -267,8 +266,6 @@ export default function ProfileFill() {
         if (!formData.state) newErrors.state = "State is required.";
 
         if (!formData.country) newErrors.country = "Country is required.";
-
-        if (!formData.zipcode) newErrors.zipcode = "Zip code is required.";
 
         break;
 
@@ -661,7 +658,12 @@ export default function ProfileFill() {
                       </div>
 
                       <div className="col-md-6 mb-3">
-                        <label className="form-label">Zip Code</label>
+                        <label className="form-label">
+                          Zip Code
+                          <span className="profile-optional-badge ms-2">
+                            Optional
+                          </span>
+                        </label>
 
                         <input
                           type="text"

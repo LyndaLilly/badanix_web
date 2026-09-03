@@ -1,5 +1,5 @@
+import { useEffect } from "react";
 import { usePatientAuth } from "../../../../contexts/PatientAuthContext";
-
 import WelcomeHeader from "../components/WelcomeHeader";
 import DashboardStats from "../components/DashboardStats";
 import TopDoctors from "../components/TopDoctors";
@@ -11,7 +11,13 @@ import DiamondCollection from "../components/DiamondCollection";
 import "../../../../assets/css/patientdashboard.css";
 
 export default function Dashboard() {
-  const { patient, wallet, stats } = usePatientAuth();
+ const { patient, wallet, stats, refreshWallet } = usePatientAuth();
+
+ useEffect(() => {
+  if (patient) {
+    refreshWallet();
+  }
+}, [patient]);
 
   if (!patient) return null;
 

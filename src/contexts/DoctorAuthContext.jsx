@@ -84,6 +84,30 @@ export function DoctorAuthProvider({ children }) {
     }
   };
 
+
+  const refreshWallet = async () => {
+  const authToken = localStorage.getItem("doctor_token");
+
+  if (!authToken) return;
+
+  try {
+    const response = await fetch(ApiUrl.DOCTOR_ME, {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${authToken}`,
+      },
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      setWallet(data.wallet);
+    }
+  } catch (error) {
+    console.error("Wallet refresh error:", error);
+  }
+};
+
   /**
    * Login
    */
@@ -154,6 +178,7 @@ export function DoctorAuthProvider({ children }) {
         logout,
 
         refreshDoctor,
+        refreshWallet,
 
         profileCompleted,
       }}

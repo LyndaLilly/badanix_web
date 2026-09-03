@@ -99,6 +99,30 @@ export function PatientAuthProvider({ children }) {
     }
   };
 
+
+  const refreshWallet = async () => {
+  const authToken = localStorage.getItem("patient_token");
+
+  if (!authToken) return;
+
+  try {
+    const response = await fetch(ApiUrl.PATIENT_ME, {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${authToken}`,
+      },
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setWallet(data.wallet);
+    }
+  } catch (error) {
+    console.error("Wallet refresh error:", error);
+  }
+};
+
   /**
    * Login
    */
@@ -169,6 +193,8 @@ export function PatientAuthProvider({ children }) {
         logout,
 
         refreshPatient,
+
+         refreshWallet,
 
         profileCompleted,
       }}

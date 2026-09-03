@@ -173,6 +173,8 @@ export default function Register() {
                     <FaArrowLeft />
                   </button>
 
+          
+
                   <h2>Create Doctor Account</h2>
 
                   <p className="patient-register-subtitle">

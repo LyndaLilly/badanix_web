@@ -203,3 +203,11 @@
     height:37px;
   }
 }
+
+.doctor-sidebar-logo {
+  width: 180px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  margin-left: -30px;
+}

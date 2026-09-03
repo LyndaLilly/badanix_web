@@ -54,59 +54,21 @@ export default function Navbar() {
 
   return (
     <header
-      className={`badanix-nav-header ${
-        scrolled ? "badanix-nav-scrolled" : ""
-      }`}
+      className={`badanix-nav-header ${scrolled ? "badanix-nav-scrolled" : ""}`}
     >
       <nav className="badanix-nav-container">
-
-        {/* =========================================
-            LOGO
-        ========================================= */}
-
-        <Link
-          to="/"
-          className="badanix-nav-logo-link"
-          onClick={closeMenu}
-        >
-          <img
-            src={logo}
-            alt="BADANIX"
-            className="badanix-nav-logo"
-          />
+        <Link to="/" className="badanix-nav-logo-link" onClick={closeMenu}>
+          <img src={logo} alt="BADANIX" className="badanix-nav-logo" />
         </Link>
-
-
-        {/* =========================================
-            DESKTOP / MOBILE MENU
-        ========================================= */}
 
         <div
           className={`badanix-nav-menu ${
             menuOpen ? "badanix-nav-menu-open" : ""
           }`}
         >
-
-          {/* =========================================
-              NAVIGATION LINKS
-          ========================================= */}
-
           <div className="badanix-nav-links">
-
-            <Link
-              to="/about"
-              className="badanix-nav-link"
-              onClick={closeMenu}
-            >
+            <Link to="/about" className="badanix-nav-link" onClick={closeMenu}>
               About Us
-            </Link>
-
-            <Link
-              to="/contacts"
-              className="badanix-nav-link"
-              onClick={closeMenu}
-            >
-              Contact Us
             </Link>
 
             <Link
@@ -125,19 +87,19 @@ export default function Navbar() {
               Testimonials
             </Link>
 
-
-            {/* =========================================
-                PARTNER DROPDOWN
-            ========================================= */}
+            <Link
+              to="/contacts"
+              className="badanix-nav-link"
+              onClick={closeMenu}
+            >
+              Contact Us
+            </Link>
 
             <div
               className={`badanix-nav-partner ${
-                partnerOpen
-                  ? "badanix-nav-partner-open"
-                  : ""
+                partnerOpen ? "badanix-nav-partner-open" : ""
               }`}
             >
-
               <button
                 type="button"
                 className="badanix-nav-link badanix-nav-partner-trigger"
@@ -148,9 +110,7 @@ export default function Navbar() {
                 <FaChevronDown />
               </button>
 
-
               <div className="badanix-nav-dropdown">
-
                 <Link
                   to="/doctor/register"
                   className="badanix-nav-dropdown-item"
@@ -166,7 +126,6 @@ export default function Navbar() {
                   </span>
                 </Link>
 
-
                 <Link
                   to="/institution/register"
                   className="badanix-nav-dropdown-item"
@@ -181,20 +140,11 @@ export default function Navbar() {
                     <small>Partner your healthcare facility</small>
                   </span>
                 </Link>
-
               </div>
-
             </div>
-
           </div>
 
-
-          {/* =========================================
-              ACTION BUTTONS
-          ========================================= */}
-
           <div className="badanix-nav-actions">
-
             <Link
               to="/patient/register"
               className="badanix-nav-register"
@@ -202,11 +152,8 @@ export default function Navbar() {
             >
               <FaUserPlus />
 
-              <span>
-                e-Patient Registration
-              </span>
+              <span>e-Patient Registration</span>
             </Link>
-
 
             <Link
               to="/universallogin"
@@ -215,15 +162,10 @@ export default function Navbar() {
             >
               <FaSignInAlt />
 
-              <span>
-                Login
-              </span>
+              <span>Login</span>
             </Link>
-
           </div>
-
         </div>
-
 
         {/* =========================================
             MOBILE TOGGLE
@@ -236,9 +178,7 @@ export default function Navbar() {
           }`}
           onClick={() => setMenuOpen((prev) => !prev)}
           aria-label={
-            menuOpen
-              ? "Close navigation menu"
-              : "Open navigation menu"
+            menuOpen ? "Close navigation menu" : "Open navigation menu"
           }
           aria-expanded={menuOpen}
         >
@@ -246,7 +186,6 @@ export default function Navbar() {
           <span></span>
           <span></span>
         </button>
-
       </nav>
     </header>
   );

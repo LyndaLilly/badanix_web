@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaSearch, FaUserMd, FaSpinner, FaStar } from "react-icons/fa";
+import { FaSearch, FaUserMd, FaSpinner, FaStar, FaCheck } from "react-icons/fa";
 
 import "../../../../assets/css/doctorslist.css";
 
@@ -33,10 +33,22 @@ export default function Doctors() {
 
       const data = await response.json();
 
-      if (data.success) {
-        console.log(data.doctors);
-        setDoctors(data.doctors || []);
-      }
+   if (data.success) {
+  console.log("ALL DOCTORS:", data.doctors);
+
+  console.log(
+    "ALL DOCTORS RATING:",
+    data.doctors.map((doctor) => ({
+      name: doctor.fullname,
+      id: doctor.id,
+      average_rating: doctor.average_rating,
+      rating_count: doctor.rating_count,
+      ratings: doctor.ratings,
+    }))
+  );
+
+  setDoctors(data.doctors || []);
+}
     } catch (error) {
       console.log(error);
     } finally {
@@ -44,6 +56,7 @@ export default function Doctors() {
     }
   };
 
+  
   /*
   ==========================================================
   SPECIALIZATIONS
@@ -198,27 +211,27 @@ export default function Doctors() {
                   {/* Body */}
 
                   <div className="doctor-card-body">
-                    <h5>
-                      {doctor.fullname?.toLowerCase().startsWith("dr")
-                        ? doctor.fullname
-                        : `Dr. ${doctor.fullname}`}
-                    </h5>
+                    <div className="d-flex gap-2 align-items-center">
+                      <h5>
+                        {doctor.fullname?.toLowerCase().startsWith("dr")
+                          ? doctor.fullname
+                          : `Dr. ${doctor.fullname}`}
+                      </h5>
+
+                      {doctor.can_book && (
+                        <span
+                          className="doctor-verified-badge"
+                          title="Verified Doctor"
+                          aria-label="Verified Doctor"
+                        >
+                          <FaCheck />
+                        </span>
+                      )}
+                    </div>
 
                     <p className="doctor-specialization">
                       {doctor.specialization || "Not specified"}
                     </p>
-
-                    {/* Verification */}
-
-                    <div className="doctor-status">
-                      {doctor.can_book ? (
-                        <span className="verified-text">✓ Verified</span>
-                      ) : (
-                        <span className="not-verified-text">
-                          ✕ Not Verified
-                        </span>
-                      )}
-                    </div>
 
                     {/* Rating */}
 

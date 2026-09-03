@@ -6,6 +6,7 @@ import { FaGear } from "react-icons/fa6";
 import dashboardIcon from "../../../../../../assets/icons/wallet.png";
 import orderIcon from "../../../../../../assets/icons/schedule.png";
 import patientIcon from "../../../../../../assets/icons/patient.png";
+import logo2 from "../../../../../../assets/img/logo2.png";
 
 import { useInstitutionAuth } from "../../../../../../contexts/InstitutionAuthContext";
 
@@ -66,19 +67,14 @@ export default function LaboratorySidebar({
     <>
       {/* Click outside sidebar to close */}
       {sidebarOpen && (
-        <div
-          className="doctor-sidebar-overlay"
-          onClick={closeSidebar}
-        />
+        <div className="doctor-sidebar-overlay" onClick={closeSidebar} />
       )}
 
       <aside
-        className={`doctor-sidebar ${
-          sidebarOpen ? "doctor-sidebar-open" : ""
-        }`}
+        className={`doctor-sidebar ${sidebarOpen ? "doctor-sidebar-open" : ""}`}
       >
         <div className="doctor-sidebar-header">
-          <h3>BADANIX</h3>
+          <img src={logo2} alt="BADANIX" className="doctor-sidebar-logo" />
 
           <button
             type="button"
@@ -91,10 +87,7 @@ export default function LaboratorySidebar({
 
         <nav className="doctor-sidebar-nav">
           {/* Dashboard */}
-          <NavLink
-            to="/laboratory/dashboard"
-            onClick={handleBlockedClick}
-          >
+          <NavLink to="/laboratory/dashboard" onClick={handleBlockedClick}>
             <img
               src={dashboardIcon}
               alt="Dashboard"
@@ -105,24 +98,14 @@ export default function LaboratorySidebar({
           </NavLink>
 
           {/* Orders */}
-          <NavLink
-            to="/laboratory/orders"
-            onClick={handleBlockedClick}
-          >
-            <img
-              src={orderIcon}
-              alt="Orders"
-              className="sidebar-menu-image"
-            />
+          <NavLink to="/laboratory/orders" onClick={handleBlockedClick}>
+            <img src={orderIcon} alt="Orders" className="sidebar-menu-image" />
 
             <span>Orders</span>
           </NavLink>
 
           {/* Patients */}
-          <NavLink
-            to="/laboratory/patients"
-            onClick={handleBlockedClick}
-          >
+          <NavLink to="/laboratory/patients" onClick={handleBlockedClick}>
             <img
               src={patientIcon}
               alt="Patients"
@@ -133,20 +116,14 @@ export default function LaboratorySidebar({
           </NavLink>
 
           {/* Documents */}
-          <NavLink
-            to="/laboratory/documentupload"
-            onClick={handleBlockedClick}
-          >
+          <NavLink to="/laboratory/documentupload" onClick={handleBlockedClick}>
             <FaFileUpload className="sidebar-fa-icon" />
 
             <span>Documents</span>
           </NavLink>
 
           {/* Settings */}
-          <NavLink
-            to="/laboratory/settings"
-            onClick={handleBlockedClick}
-          >
+          <NavLink to="/laboratory/settings" onClick={handleBlockedClick}>
             <FaGear className="sidebar-fa-icon" />
 
             <span>Settings</span>

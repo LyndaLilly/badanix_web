@@ -146,7 +146,7 @@
 =========================== */
 
 .calendar-day.selected {
-  background: var(--primary);
+  background: green;
   color: var(--white);
   border-color: var(--primary);
 }
@@ -156,7 +156,7 @@
 =========================== */
 
 .calendar-day.saved {
-  background: var(--primary);
+  background: green;
   color: var(--white);
   border-color: var(--primary);
 }
@@ -418,9 +418,9 @@
 =========================== */
 
 .calendar-day.unsaved{
-    background:#FDECEC;
+    background:red;
     border:1px solid #E74C3C;
-    color:#C0392B;
+    color:white;
 }
 
 .calendar-day.unsaved:hover{

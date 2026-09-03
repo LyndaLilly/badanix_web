@@ -2,12 +2,12 @@ import WalletOverview from "./WalletOverview";
 import CompletedAppointments from "./CompletedAppointments";
 import PendingAppointments from "./PendingAppointments";
 
-export default function DashboardStats({ wallet, stats }) {
+export default function DashboardStats({ stats }) {
   return (
     <div className="row g-3 mt-2">
 
       <div className="col-lg-4 col-md-6">
-        <WalletOverview wallet={wallet} />
+        <WalletOverview />
       </div>
 
       <div className="col-lg-4 col-md-6">

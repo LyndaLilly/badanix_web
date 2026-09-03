@@ -764,7 +764,7 @@
 
     margin: 0 auto;
 
-    border: 1px solid rgba(255, 255, 255, 0.14);
+        border: 1px solid white;
 
     border-radius: 50%;
 }
@@ -776,7 +776,7 @@
 
     inset: 55px;
 
-    border: 1px dashed rgba(255, 255, 255, 0.15);
+    border: 3px solid white;
 
     border-radius: 50%;
 }
@@ -842,7 +842,7 @@
 
 .bdx-node-three {
     bottom: 60px;
-    right: -45px;
+    right: -20px;
 }
 
 .bdx-node-four {

@@ -5,8 +5,6 @@ import { useNavigate } from "react-router-dom";
 import ApiUrl from "../../../../constants/ApiUrl";
 import { usePatientAuth } from "../../../../contexts/PatientAuthContext";
 
-import countries from "../../../../components/country.json";
-
 import { Country, State, City } from "country-state-city";
 
 import "../../../../assets/css/profilefill.css";
@@ -88,91 +86,92 @@ export default function ProfileFill() {
 
   const insuranceTypes = ["Private", "Government", "Employer", "HMO", "Other"];
 
-  //   const [formData, setFormData] = useState({
-  //     profile_image: null,
+  // const [formData, setFormData] = useState({
+  //   profile_image: null,
 
-  //     dob: "",
-  //     gender: "",
-  //     pref_language: "",
-  //       phone_country: "ng",
-  //     phone: "",
+  //   dob: "",
+  //   gender: "",
+  //   pref_language: "",
+  //   phone_country: "ng",
+  //   phone: "",
 
-  //     address: "",
-  //     city: "",
-  //     state: "",
-  //     country: "",
-  //     zipcode: "",
+  //   address: "",
+  //   city: "",
+  //   state: "",
+  //   country: "",
+  //   zipcode: "",
 
-  //     name_insurance_provider: "",
-  //     type_insurance_provider: "",
-  //     policy_number: "",
-  //     insurance_coverage: "",
-  //     insurance_validity_period: "",
+  //   name_insurance_provider: "",
+  //   type_insurance_provider: "",
+  //   policy_number: "",
+  //   insurance_coverage: "",
+  //   insurance_validity_period: "",
 
-  //     weight: "",
-  //     height: "",
+  //   weight: "",
+  //   height: "",
 
-  //     exercise_routine: "",
-  //     nutrition_plan: "",
-  //     smoking_habbits: "",
-  //     alcohol_consumption: "",
-  //     sleep_pattern: "",
+  //   exercise_routine: "",
+  //   nutrition_plan: "",
+  //   smoking_habbits: "",
+  //   alcohol_consumption: "",
+  //   sleep_pattern: "",
 
-  //     blood_type: "",
-  //     name_primary_physician: "",
+  //   blood_type: "",
+  //   name_primary_physician: "",
 
-  //     existing_med_condition: "",
-  //     current_medication: "",
-  //     allergies: "",
-  //     past_surgeries: "",
-  //     chronic_illness: "",
+  //   existing_med_condition: "",
+  //   current_medication: "",
+  //   allergies: "",
+  //   past_surgeries: "",
+  //   chronic_illness: "",
 
-  //     mental_health: "",
-  //     family_health_history: "",
-  //   });
+  //   mental_health: "",
+  //   family_health_history: "",
+  // });
 
   const [formData, setFormData] = useState({
-    profile_image: null,
+  profile_image: null,
 
-    dob: "1998-05-15",
-    gender: "female",
-    pref_language: "English",
-    phone_country: "ng",
-    phone: "+2348012345678",
+  dob: "1998-05-15",
+  gender: "Female",
+  pref_language: "English",
+  phone_country: "ng",
+  phone: "08012345678",
 
-    address: "12 Admiralty Way",
-    city: "Lekki",
-    state: "Lagos",
-    country: "Nigeria",
-    zipcode: "101233",
+  address: "12 Aba Road",
+  city: "Port Harcourt",
+  state: "Rivers",
+  country: "Nigeria",
+  zipcode: "500001",
 
-    name_insurance_provider: "Reliance HMO",
-    type_insurance_provider: "HMO",
-    policy_number: "HMO-2026-001245",
-    insurance_coverage: "Full Coverage",
-    insurance_validity_period: "2027-12-31",
+  name_insurance_provider: "AXA Mansard",
+  type_insurance_provider: "Health Insurance",
+  policy_number: "AXA123456789",
+  insurance_coverage: "Comprehensive",
+  insurance_validity_period: "2026-12-31",
 
-    weight: "70 kg",
-    height: "175 cm",
+  weight: "65",
+  height: "168",
 
-    exercise_routine: "Weekly",
-    nutrition_plan: "Balanced Diet",
-    smoking_habbits: "Never",
-    alcohol_consumption: "Occasionally",
-    sleep_pattern: "6 - 8 hours",
+  exercise_routine: "3 times a week",
+  nutrition_plan: "Balanced diet",
+  smoking_habbits: "No",
+  alcohol_consumption: "Occasionally",
+  sleep_pattern: "7-8 hours daily",
 
-    blood_type: "B+",
-    name_primary_physician: "Dr. John Smith",
+  blood_type: "O+",
+  name_primary_physician: "Dr. John Smith",
 
-    existing_med_condition: "None",
-    current_medication: "None",
-    allergies: "None",
-    past_surgeries: "None",
-    chronic_illness: "None",
+  existing_med_condition: "None",
+  current_medication: "None",
+  allergies: "None",
+  past_surgeries: "None",
+  chronic_illness: "None",
 
-    mental_health: "Good",
-    family_health_history: "No significant family medical history",
-  });
+  mental_health: "Good",
+  family_health_history: "No significant family history",
+});
+
 
   const countries = Country.getAllCountries();
   const states = State.getStatesOfCountry(formData.country);
@@ -245,6 +244,7 @@ export default function ProfileFill() {
     let newErrors = {};
 
     switch (currentStep) {
+      // ================= STEP 1 =================
       case 1:
         if (!formData.dob) {
           newErrors.dob = "Date of birth is required.";
@@ -267,80 +267,123 @@ export default function ProfileFill() {
           }
         }
 
-        if (!formData.gender) newErrors.gender = "Gender is required.";
+        if (!formData.gender) {
+          newErrors.gender = "Gender is required.";
+        }
 
-        if (!formData.pref_language)
+        if (!formData.pref_language) {
           newErrors.pref_language = "Preferred language is required.";
+        }
 
-        if (!formData.phone) newErrors.phone = "Phone number is required.";
+        if (!formData.phone) {
+          newErrors.phone = "Phone number is required.";
+        }
+
         break;
 
+      // ================= STEP 2 =================
       case 2:
-        if (!formData.address) newErrors.address = "Address is required.";
+        if (!formData.address) {
+          newErrors.address = "Address is required.";
+        }
 
-        if (!formData.city) newErrors.city = "City is required.";
+        if (!formData.city) {
+          newErrors.city = "City is required.";
+        }
 
-        if (!formData.state) newErrors.state = "State is required.";
+        if (!formData.state) {
+          newErrors.state = "State is required.";
+        }
 
-        if (!formData.country) newErrors.country = "Country is required.";
+        if (!formData.country) {
+          newErrors.country = "Country is required.";
+        }
+
         break;
 
+      // ================= STEP 3 =================
+      // Lifestyle Information
       case 3:
-        // All optional
-        break;
+        if (!formData.weight) {
+          newErrors.weight = "Weight is required.";
+        }
 
-      case 4:
-        if (!formData.weight) newErrors.weight = "Weight is required.";
+        if (!formData.height) {
+          newErrors.height = "Height is required.";
+        }
 
-        if (!formData.height) newErrors.height = "Height is required.";
-
-        if (!formData.exercise_routine)
+        if (!formData.exercise_routine) {
           newErrors.exercise_routine = "Exercise routine is required.";
+        }
 
-        if (!formData.nutrition_plan)
+        if (!formData.nutrition_plan) {
           newErrors.nutrition_plan = "Nutrition plan is required.";
+        }
 
-        if (!formData.smoking_habbits)
+        if (!formData.smoking_habbits) {
           newErrors.smoking_habbits = "Smoking habit is required.";
+        }
 
-        if (!formData.alcohol_consumption)
+        if (!formData.alcohol_consumption) {
           newErrors.alcohol_consumption = "Alcohol consumption is required.";
+        }
 
-        if (!formData.sleep_pattern)
+        if (!formData.sleep_pattern) {
           newErrors.sleep_pattern = "Sleep pattern is required.";
+        }
 
         break;
 
-      case 5:
-        if (!formData.blood_type)
+      // ================= STEP 4 =================
+      // Medical Information
+      case 4:
+        if (!formData.blood_type) {
           newErrors.blood_type = "Blood type is required.";
+        }
 
-        if (!formData.existing_med_condition)
+        if (!formData.existing_med_condition) {
           newErrors.existing_med_condition =
             "Existing medical condition is required.";
+        }
 
-        if (!formData.current_medication)
+        if (!formData.current_medication) {
           newErrors.current_medication = "Current medication is required.";
+        }
 
-        if (!formData.allergies)
+        if (!formData.allergies) {
           newErrors.allergies = "Allergies field is required.";
+        }
+
+        break;
+
+
+      case 5:
+        if (!formData.past_surgeries) {
+          newErrors.past_surgeries = "Past surgeries field is required.";
+        }
+
+        if (!formData.chronic_illness) {
+          newErrors.chronic_illness = "Chronic illness field is required.";
+        }
+
+        if (!formData.mental_health) {
+          newErrors.mental_health = "Mental health field is required.";
+        }
+
+        if (!formData.family_health_history) {
+          newErrors.family_health_history =
+            "Family health history is required.";
+        }
 
         break;
 
       case 6:
-        if (!formData.past_surgeries)
-          newErrors.past_surgeries = "Past surgeries field is required.";
+        break;
 
-        if (!formData.chronic_illness)
-          newErrors.chronic_illness = "Chronic illness field is required.";
+      case 7:
+        break;
 
-        if (!formData.mental_health)
-          newErrors.mental_health = "Mental health field is required.";
-
-        if (!formData.family_health_history)
-          newErrors.family_health_history =
-            "Family health history is required.";
-
+      case 8:
         break;
 
       default:
@@ -366,56 +409,121 @@ export default function ProfileFill() {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    setLoading(true);
+  // Validate the current step first
+  if (!validateStep()) {
+    return;
+  }
 
-    try {
-      const payload = new FormData();
+  setLoading(true);
 
-      Object.entries(formData).forEach(([key, value]) => {
-        if (value !== "" && value !== null) {
-          payload.append(key, value);
-        }
-      });
+  // Clear previous errors before submitting
+  setErrors({});
 
-      const response = await fetch(ApiUrl.CREATE_PATIENT_PROFILE, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: payload,
-      });
+  try {
+    const payload = new FormData();
 
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.message || "Unable to save profile.");
+    Object.entries(formData).forEach(([key, value]) => {
+      if (value !== "" && value !== null && value !== undefined) {
+        payload.append(key, value);
       }
+    });
+
+    const response = await fetch(ApiUrl.CREATE_PATIENT_PROFILE, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: payload,
+    });
+
+    const result = await response.json();
+
+    console.log("PROFILE RESPONSE:", result);
+
+    // ==========================================
+    // VALIDATION ERROR - 422
+    // ==========================================
+    if (response.status === 422) {
+      const validationErrors = result.errors || {};
+
+      setErrors(validationErrors);
+
+      // Build readable error message for SweetAlert
+      const errorMessages = Object.entries(validationErrors)
+        .flatMap(([field, messages]) => {
+          const fieldMessages = Array.isArray(messages)
+            ? messages
+            : [messages];
+
+          return fieldMessages.map(
+            (message) => `<li>${message}</li>`
+          );
+        })
+        .join("");
 
       await Swal.fire({
-        icon: "success",
-        title: "Success",
-        text: result.message,
-      });
-
-      await refreshPatient();
-
-      navigate("/patient/dashboard", {
-        replace: true,
-      });
-    } catch (err) {
-      Swal.fire({
         icon: "error",
-        title: "Error",
-        text: err.message,
+        title: "Please correct the following",
+        html: `
+          <div style="text-align:left;">
+            <ul style="padding-left:20px; margin-bottom:0;">
+              ${errorMessages}
+            </ul>
+          </div>
+        `,
+        confirmButtonText: "OK",
       });
-    } finally {
-      setLoading(false);
+
+      return;
     }
-  };
+
+    // ==========================================
+    // OTHER API ERRORS
+    // ==========================================
+    if (!response.ok) {
+      const errorMessage =
+        result.error ||
+        result.message ||
+        "Unable to save profile.";
+
+      throw new Error(errorMessage);
+    }
+
+    // ==========================================
+    // SUCCESS
+    // ==========================================
+    await Swal.fire({
+      icon: "success",
+      title: "Success",
+      text: result.message || "Profile created successfully.",
+      confirmButtonText: "Continue",
+    });
+
+    await refreshPatient();
+
+    navigate("/patient/dashboard", {
+      replace: true,
+    });
+  } catch (err) {
+    console.error("PROFILE SUBMISSION ERROR:", err);
+
+    // Make sure the actual error is displayed
+    await Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: err.message || "Something went wrong while saving your profile.",
+      confirmButtonText: "OK",
+    });
+  } finally {
+    setLoading(false);
+  }
+};
+
+
 
   const progress = (currentStep / totalSteps) * 100;
 
@@ -734,147 +842,10 @@ export default function ProfileFill() {
                     </div>
                   </div>
                 )}
-                {/* ================= STEP 3 ================= */}
-
-                {currentStep === 3 && (
-                  <div>
-                    <h4 className="profile-section-title mb-4">
-                      Insurance Information
-                    </h4>
-
-                    <div className="row">
-                      <div className="col-md-6 mb-3">
-                        <label className="form-label">Insurance Provider</label>
-                        <span className="profile-optional-badge ms-2">
-                          Optional
-                        </span>
-
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="name_insurance_provider"
-                          value={formData.name_insurance_provider}
-                          onChange={handleChange}
-                          placeholder="e.g. AXA, Reliance HMO"
-                        />
-                        {errors.name_insurance_provider && (
-                          <small className="text-danger">
-                            {errors.name_insurance_provider}
-                          </small>
-                        )}
-                      </div>
-
-                      <div className="col-md-6 mb-3">
-                        <label className="form-label">Insurance Type</label>
-                        <span className="profile-optional-badge ms-2">
-                          Optional
-                        </span>
-
-                        <select
-                          className="form-select"
-                          name="type_insurance_provider"
-                          value={formData.type_insurance_provider}
-                          onChange={handleChange}
-                        >
-                          <option value="">Select Type</option>
-
-                          {insuranceTypes.map((type) => (
-                            <option key={type} value={type}>
-                              {type}
-                            </option>
-                          ))}
-                        </select>
-                        {errors.type_insurance_provider && (
-                          <small className="text-danger">
-                            {errors.type_insurance_provider}
-                          </small>
-                        )}
-                      </div>
-
-                      <div className="col-md-6 mb-3">
-                        <label className="form-label">Policy Number</label>
-                        <span className="profile-optional-badge ms-2">
-                          Optional
-                        </span>
-
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="policy_number"
-                          value={formData.policy_number}
-                          onChange={handleChange}
-                        />
-                        {errors.policy_number && (
-                          <small className="text-danger">
-                            {errors.policy_number}
-                          </small>
-                        )}
-                      </div>
-
-                      <div className="col-md-6 mb-3">
-                        <label className="form-label">Coverage</label>
-                        <span className="profile-optional-badge ms-2">
-                          Optional
-                        </span>
-
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="insurance_coverage"
-                          value={formData.insurance_coverage}
-                          onChange={handleChange}
-                          placeholder="e.g. Full Coverage"
-                        />
-                        {errors.insurance_coverage && (
-                          <small className="text-danger">
-                            {errors.insurance_coverage}
-                          </small>
-                        )}
-                      </div>
-
-                      <div className="col-md-6 mb-3">
-                        <label className="form-label">Valid Until</label>
-                        <span className="profile-optional-badge ms-2">
-                          Optional
-                        </span>
-                        <input
-                          type="date"
-                          className="form-control"
-                          name="insurance_validity_period"
-                          value={formData.insurance_validity_period}
-                          onChange={handleChange}
-                        />
-                        {errors.insurance_validity_period && (
-                          <small className="text-danger">
-                            {errors.insurance_validity_period}
-                          </small>
-                        )}
-                      </div>
-                    </div>
-
-                    <div className="d-flex justify-content-between mt-4">
-                      <button
-                        type="button"
-                        className="btn profile-prev-btn"
-                        onClick={previousStep}
-                      >
-                        Previous
-                      </button>
-
-                      <button
-                        type="button"
-                        className="btn profile-next-btn"
-                        onClick={nextStep}
-                      >
-                        Next
-                      </button>
-                    </div>
-                  </div>
-                )}
 
                 {/* ================= STEP 4 ================= */}
 
-                {currentStep === 4 && (
+                {currentStep === 3 && (
                   <div>
                     <h4 className="profile-section-title mb-4">
                       Lifestyle Information
@@ -1058,7 +1029,7 @@ export default function ProfileFill() {
                 )}
                 {/* ================= STEP 5 ================= */}
 
-                {currentStep === 5 && (
+                {currentStep === 4 && (
                   <div>
                     <h4 className="profile-section-title mb-4">
                       Medical Information
@@ -1183,7 +1154,7 @@ export default function ProfileFill() {
 
                 {/* ================= STEP 6 ================= */}
 
-                {currentStep === 6 && (
+                {currentStep === 5 && (
                   <div>
                     <h4 className="profile-section-title mb-4">
                       Health History
@@ -1280,6 +1251,145 @@ export default function ProfileFill() {
                     </div>
                   </div>
                 )}
+
+                {/* ================= STEP 3 ================= */}
+
+                {currentStep === 6 && (
+                  <div>
+                    <h4 className="profile-section-title mb-4">
+                      Insurance Information
+                    </h4>
+
+                    <div className="row">
+                      <div className="col-md-6 mb-3">
+                        <label className="form-label">Insurance Provider</label>
+                        <span className="profile-optional-badge ms-2">
+                          Optional
+                        </span>
+
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="name_insurance_provider"
+                          value={formData.name_insurance_provider}
+                          onChange={handleChange}
+                          placeholder="e.g. AXA, Reliance HMO"
+                        />
+                        {errors.name_insurance_provider && (
+                          <small className="text-danger">
+                            {errors.name_insurance_provider}
+                          </small>
+                        )}
+                      </div>
+
+                      <div className="col-md-6 mb-3">
+                        <label className="form-label">Insurance Type</label>
+                        <span className="profile-optional-badge ms-2">
+                          Optional
+                        </span>
+
+                        <select
+                          className="form-select"
+                          name="type_insurance_provider"
+                          value={formData.type_insurance_provider}
+                          onChange={handleChange}
+                        >
+                          <option value="">Select Type</option>
+
+                          {insuranceTypes.map((type) => (
+                            <option key={type} value={type}>
+                              {type}
+                            </option>
+                          ))}
+                        </select>
+                        {errors.type_insurance_provider && (
+                          <small className="text-danger">
+                            {errors.type_insurance_provider}
+                          </small>
+                        )}
+                      </div>
+
+                      <div className="col-md-6 mb-3">
+                        <label className="form-label">Policy Number</label>
+                        <span className="profile-optional-badge ms-2">
+                          Optional
+                        </span>
+
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="policy_number"
+                          value={formData.policy_number}
+                          onChange={handleChange}
+                        />
+                        {errors.policy_number && (
+                          <small className="text-danger">
+                            {errors.policy_number}
+                          </small>
+                        )}
+                      </div>
+
+                      <div className="col-md-6 mb-3">
+                        <label className="form-label">Coverage</label>
+                        <span className="profile-optional-badge ms-2">
+                          Optional
+                        </span>
+
+                        <input
+                          type="text"
+                          className="form-control"
+                          name="insurance_coverage"
+                          value={formData.insurance_coverage}
+                          onChange={handleChange}
+                          placeholder="e.g. Full Coverage"
+                        />
+                        {errors.insurance_coverage && (
+                          <small className="text-danger">
+                            {errors.insurance_coverage}
+                          </small>
+                        )}
+                      </div>
+
+                      <div className="col-md-6 mb-3">
+                        <label className="form-label">Valid Until</label>
+                        <span className="profile-optional-badge ms-2">
+                          Optional
+                        </span>
+                        <input
+                          type="date"
+                          className="form-control"
+                          name="insurance_validity_period"
+                          value={formData.insurance_validity_period}
+                          onChange={handleChange}
+                        />
+                        {errors.insurance_validity_period && (
+                          <small className="text-danger">
+                            {errors.insurance_validity_period}
+                          </small>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="d-flex justify-content-between mt-4">
+                      <button
+                        type="button"
+                        className="btn profile-prev-btn"
+                        onClick={previousStep}
+                      >
+                        Previous
+                      </button>
+
+                      <button
+                        type="button"
+                        className="btn profile-next-btn"
+                        onClick={nextStep}
+                      >
+                        Next
+                      </button>
+                    </div>
+                  </div>
+                )}
+
                 {/* ================= STEP 7 ================= */}
 
                 {currentStep === 7 && (

@@ -9,12 +9,8 @@ import { useDoctorAuth } from "../../../../contexts/DoctorAuthContext";
 import { Link } from "react-router-dom";
 
 export default function DoctorWallet() {
-  const { token } = useDoctorAuth();
+  const { token, wallet, refreshWallet } = useDoctorAuth();
   const [doctor, setDoctor] = useState(null);
-
-  const [wallet, setWallet] = useState({
-    balance: 0,
-  });
 
   const [transactions, setTransactions] = useState([]);
 
@@ -234,7 +230,7 @@ export default function DoctorWallet() {
 
       closeWithdrawModal();
 
-      await loadWallet();
+      await refreshWallet();
       await loadWithdrawals();
     } catch (error) {
       console.log(error);

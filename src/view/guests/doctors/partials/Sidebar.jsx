@@ -6,16 +6,13 @@ import Swal from "sweetalert2";
 import PatientIcon from "../../../../assets/icons/patient.png";
 import scheduleIcon from "../../../../assets/icons/schedule.png";
 import walletIcon from "../../../../assets/icons/wallet.png";
+import logo2 from "../../../../assets/img/logo2.png";
 
 import { useDoctorAuth } from "../../../../contexts/DoctorAuthContext";
 
 import "../../../../assets/css/sidebar.css";
 
-export default function DoctorSidebar({
-  doctor,
-  sidebarOpen,
-  closeSidebar,
-}) {
+export default function DoctorSidebar({ doctor, sidebarOpen, closeSidebar }) {
   const { logout, profileCompleted } = useDoctorAuth();
 
   const navigate = useNavigate();
@@ -64,19 +61,14 @@ export default function DoctorSidebar({
     <>
       {/* Click outside sidebar to close */}
       {sidebarOpen && (
-        <div
-          className="doctor-sidebar-overlay"
-          onClick={closeSidebar}
-        />
+        <div className="doctor-sidebar-overlay" onClick={closeSidebar} />
       )}
 
       <aside
-        className={`doctor-sidebar ${
-          sidebarOpen ? "doctor-sidebar-open" : ""
-        }`}
+        className={`doctor-sidebar ${sidebarOpen ? "doctor-sidebar-open" : ""}`}
       >
         <div className="doctor-sidebar-header">
-          <h3>BADANIX</h3>
+          <img src={logo2} alt="BADANIX" className="doctor-sidebar-logo" />
 
           <button
             type="button"
@@ -89,10 +81,7 @@ export default function DoctorSidebar({
 
         <nav className="doctor-sidebar-nav">
           {/* Dashboard */}
-          <NavLink
-            to="/doctor/dashboard"
-            onClick={handleBlockedClick}
-          >
+          <NavLink to="/doctor/dashboard" onClick={handleBlockedClick}>
             <img
               src={walletIcon}
               alt="Dashboard"
@@ -103,10 +92,7 @@ export default function DoctorSidebar({
           </NavLink>
 
           {/* Appointments */}
-          <NavLink
-            to="/doctor/appointments"
-            onClick={handleBlockedClick}
-          >
+          <NavLink to="/doctor/appointments" onClick={handleBlockedClick}>
             <img
               src={scheduleIcon}
               alt="Appointments"
@@ -117,10 +103,7 @@ export default function DoctorSidebar({
           </NavLink>
 
           {/* Patients */}
-          <NavLink
-            to="/doctor/patients"
-            onClick={handleBlockedClick}
-          >
+          <NavLink to="/doctor/patients" onClick={handleBlockedClick}>
             <img
               src={PatientIcon}
               alt="Patients"
@@ -131,10 +114,7 @@ export default function DoctorSidebar({
           </NavLink>
 
           {/* Patient EHR */}
-          <NavLink
-            to="/doctor/patientehr"
-            onClick={handleBlockedClick}
-          >
+          <NavLink to="/doctor/patientehr" onClick={handleBlockedClick}>
             <img
               src={PatientIcon}
               alt="Patient EHR"
@@ -145,24 +125,14 @@ export default function DoctorSidebar({
           </NavLink>
 
           {/* Wallet */}
-          <NavLink
-            to="/doctor/wallet"
-            onClick={handleBlockedClick}
-          >
-            <img
-              src={walletIcon}
-              alt="Wallet"
-              className="sidebar-menu-image"
-            />
+          <NavLink to="/doctor/wallet" onClick={handleBlockedClick}>
+            <img src={walletIcon} alt="Wallet" className="sidebar-menu-image" />
 
             <span>Wallet</span>
           </NavLink>
 
           {/* Document Upload */}
-          <NavLink
-            to="/doctor/documentupload"
-            onClick={handleBlockedClick}
-          >
+          <NavLink to="/doctor/documentupload" onClick={handleBlockedClick}>
             <img
               src={walletIcon}
               alt="Document Upload"
@@ -173,10 +143,7 @@ export default function DoctorSidebar({
           </NavLink>
 
           {/* Settings */}
-          <NavLink
-            to="/doctor/settings"
-            onClick={handleBlockedClick}
-          >
+          <NavLink to="/doctor/settings" onClick={handleBlockedClick}>
             <FaKey />
 
             <span>Settings</span>

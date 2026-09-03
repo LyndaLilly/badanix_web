@@ -88,6 +88,7 @@ export default function PatientProfileUpdate() {
     profile_image: null,
 
     dob: "",
+     dob_updated: 0,
     gender: "",
     pref_language: "",
     phone_country: "ng",
@@ -158,6 +159,7 @@ export default function PatientProfileUpdate() {
         profile_image: null,
 
         dob: profile.dob || "",
+        dob_updated: Number(profile.dob_updated) || 0,
         gender: profile.gender || "",
         pref_language: profile.pref_language || "",
         phone_country: "ng",
@@ -590,7 +592,15 @@ export default function PatientProfileUpdate() {
                         value={formData.dob}
                         onChange={handleChange}
                         max={maxDobString}
+                        disabled={formData.dob_updated === 1}
                       />
+
+                      {formData.dob_updated === 1 && (
+                        <small className="text-danger d-block mt-2">
+                          Your date of birth has already been updated once and
+                          can no longer be changed.
+                        </small>
+                      )}
 
                       {errors.dob && (
                         <small className="text-danger">{errors.dob}</small>
@@ -606,6 +616,7 @@ export default function PatientProfileUpdate() {
                         name="gender"
                         value={formData.gender}
                         onChange={handleChange}
+                        disabled
                       >
                         <option value="">Select Gender</option>
 

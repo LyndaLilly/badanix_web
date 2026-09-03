@@ -72,62 +72,220 @@ export default function Appointments() {
   const count = (status) =>
     appointments.filter((a) => a.status === status).length;
 
-  const cancelAppointment = async (appointmentId) => {
-    const { value: cancelReason } = await Swal.fire({
-      title: "Cancel Appointment",
-      input: "textarea",
-      inputLabel: "Reason for cancellation (optional)",
-      inputPlaceholder: "Tell us why you are cancelling this appointment...",
-      showCancelButton: true,
-      confirmButtonText: "Cancel Appointment",
-      cancelButtonText: "Go Back",
-      confirmButtonColor: "#14361D",
-      cancelButtonColor: "#d33",
-    });
-    if (cancelReason === undefined) return;
+const cancelAppointment = async (appointmentId) => {
+  const { value: formValues } = await Swal.fire({
+    title: "Cancel Appointment",
 
-    try {
-      const response = await fetch(
-        `${ApiUrl.CANCEL_APPOINTMENT}/${appointmentId}/cancel`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            cancel_reason: cancelReason?.trim() || null,
-          }),
-        },
+    html: `
+      <div style="text-align: left;">
+        <p style="
+          margin: 0 0 18px;
+          color: #666;
+          font-size: 14px;
+          line-height: 1.5;
+        ">
+          Please tell us why you want to cancel this appointment.
+        </p>
+
+        <label style="
+          display: block;
+          margin-bottom: 8px;
+          font-weight: 600;
+          color: #14361D;
+        ">
+          Select a reason <span style="color: #d33;">*</span>
+        </label>
+
+        <select 
+          id="cancel-reason-select"
+          class="swal2-select"
+          style="
+            display: block;
+            width: 100%;
+            margin: 0;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+          "
+        >
+          <option value="">-- Select a cancellation reason --</option>
+
+          <option value="I no longer need the appointment">
+            I no longer need the appointment
+          </option>
+
+          <option value="I booked the appointment by mistake">
+            I booked the appointment by mistake
+          </option>
+
+          <option value="I found another healthcare provider">
+            I found another healthcare provider
+          </option>
+
+          <option value="The appointment date is no longer convenient">
+            The appointment date is no longer convenient
+          </option>
+
+          <option value="The appointment time is no longer convenient">
+            The appointment time is no longer convenient
+          </option>
+
+          <option value="I have a scheduling conflict">
+            I have a scheduling conflict
+          </option>
+
+          <option value="My health issue has improved">
+            My health issue has improved
+          </option>
+
+          <option value="I want to reschedule instead">
+            I want to reschedule instead
+          </option>
+
+          <option value="other">
+            Other
+          </option>
+        </select>
+
+        <div 
+          id="other-reason-container"
+          style="display: none; margin-top: 16px;"
+        >
+          <label style="
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #14361D;
+          ">
+            Enter your reason <span style="color: #d33;">*</span>
+          </label>
+
+          <textarea
+            id="other-cancel-reason"
+            class="swal2-textarea"
+            placeholder="Please type your reason for cancelling..."
+            style="
+              display: block;
+              width: 100%;
+              min-height: 100px;
+              margin: 0;
+              padding: 12px;
+              border: 1px solid #ddd;
+              border-radius: 8px;
+              resize: vertical;
+            "
+          ></textarea>
+        </div>
+      </div>
+    `,
+
+    showCancelButton: true,
+
+    confirmButtonText: "Yes, Cancel Appointment",
+    cancelButtonText: "Go Back",
+
+    confirmButtonColor: "#14361D",
+    cancelButtonColor: "#d33",
+
+    focusConfirm: false,
+
+    didOpen: () => {
+      const select = document.getElementById("cancel-reason-select");
+      const otherContainer = document.getElementById(
+        "other-reason-container",
       );
 
-      const data = await response.json();
+      select.addEventListener("change", () => {
+        if (select.value === "other") {
+          otherContainer.style.display = "block";
+        } else {
+          otherContainer.style.display = "none";
+        }
+      });
+    },
 
-      if (response.ok) {
-        await Swal.fire({
-          icon: "success",
-          title: "Appointment Cancelled",
-          text: data.message,
-          confirmButtonColor: "#14361D",
-        });
+    preConfirm: () => {
+      const selectedReason = document
+        .getElementById("cancel-reason-select")
+        .value.trim();
 
-        loadAppointments();
-      } else {
-        Swal.fire({
-          icon: "error",
-          title: "Error",
-          text: data.message,
-        });
+      const otherReason = document
+        .getElementById("other-cancel-reason")
+        ?.value.trim();
+
+      // Patient must select a reason
+      if (!selectedReason) {
+        Swal.showValidationMessage(
+          "Please select a reason for cancelling the appointment.",
+        );
+        return false;
       }
-    } catch (error) {
+
+      // If Other is selected, typing a reason is compulsory
+      if (selectedReason === "other") {
+        if (!otherReason) {
+          Swal.showValidationMessage(
+            "Please type your reason for cancelling the appointment.",
+          );
+          return false;
+        }
+
+        return otherReason;
+      }
+
+      // Return selected dropdown reason
+      return selectedReason;
+    },
+  });
+
+  // User clicked Go Back or closed the modal
+  if (!formValues) return;
+
+  try {
+    const response = await fetch(
+      `${ApiUrl.CANCEL_APPOINTMENT}/${appointmentId}/cancel`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          cancel_reason: formValues,
+        }),
+      },
+    );
+
+    const data = await response.json();
+
+    if (response.ok) {
+      await Swal.fire({
+        icon: "success",
+        title: "Appointment Cancelled",
+        text: data.message || "Your appointment has been cancelled.",
+        confirmButtonColor: "#14361D",
+      });
+
+      loadAppointments();
+    } else {
       Swal.fire({
         icon: "error",
-        title: "Error",
-        text: "Unable to cancel appointment.",
+        title: "Unable to Cancel",
+        text: data.message || "Something went wrong. Please try again.",
+        confirmButtonColor: "#14361D",
       });
     }
-  };
+  } catch (error) {
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "Unable to cancel appointment. Please try again.",
+      confirmButtonColor: "#14361D",
+    });
+  }
+};
 
   const formatAppointmentDate = (date) => {
     const d = new Date(date);

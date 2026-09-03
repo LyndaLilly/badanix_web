@@ -17,3 +17,4 @@ export {default as PatientSettings} from "./Settings";
 export {default as DoctorRating} from "./DoctorRating";
 export {default as Doctors} from "./Doctors";
 export {default as PatientDiamondCollection} from "./PatientDiamondCollection";
+export {default as PatientNotifications} from "./PatientNotifications";

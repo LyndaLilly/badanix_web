@@ -10,6 +10,7 @@ import {
   FaLanguage,
   FaPhone,
   FaIdCard,
+  FaCheck,
 } from "react-icons/fa";
 
 import "../../../../assets/css/doctordetails.css";
@@ -18,7 +19,6 @@ import ApiUrl from "../../../../constants/ApiUrl";
 import doctorImage from "../../../../assets/icons/doctor.png";
 
 function DoctorCalendarAvailable({ availabilities }) {
-
   const availableDates =
     availabilities?.map((item) => item.available_date.split("T")[0]) || [];
 
@@ -110,30 +110,43 @@ function DoctorCalendarAvailable({ availabilities }) {
         ))}
       </div>
 
-      <div className="calendar-grid2">
-        {calendarDays.map((day, index) => {
-          if (!day) {
-            return <div key={index} className="empty-day" />;
-          }
+     <div className="calendar-grid2">
+  {calendarDays.map((day, index) => {
+    if (!day) {
+      return <div key={index} className="empty-day" />;
+    }
 
-          const dateString = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+    const dateString = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 
-          const available = availableDates.includes(dateString);
+    const available = availableDates.includes(dateString);
 
-          return (
-            <div
-              key={`${year}-${month}-${day}-${index}`}
-              className={
-                available
-                  ? "calendar-day available"
-                  : "calendar-day unavailable"
-              }
-            >
-              {day}
-            </div>
-          );
-        })}
+    return (
+      <div
+        key={`${year}-${month}-${day}-${index}`}
+        className={
+          available
+            ? "calendar-day available"
+            : "calendar-day unavailable"
+        }
+      >
+        {day}
       </div>
+    );
+  })}
+</div>
+
+{/* Calendar Legend */}
+<div className="calendar-legend">
+  <div className="calendar-legend-item">
+    <span className="legend-dot available-dot"></span>
+    <span>Available</span>
+  </div>
+
+  <div className="calendar-legend-item">
+    <span className="legend-dot unavailable-dot"></span>
+    <span>Unavailable</span>
+  </div>
+</div>
     </div>
   );
 }
@@ -146,7 +159,7 @@ export default function DoctorDetails() {
   const [showFullAbout, setShowFullAbout] = useState(false);
 
   const doctor = location.state?.doctor;
-    const rating = Number(doctor.average_rating || 0);
+  const rating = Number(doctor.average_rating || 0);
 
   console.log("Doctor:", doctor);
   console.log("Doctor availabilities:", doctor?.availabilities);
@@ -182,10 +195,22 @@ export default function DoctorDetails() {
         />
 
         <div className="doctor-profile-info">
-          <h1>
-            {doctor.fullname?.toLowerCase().startsWith("dr")
-              ? doctor.fullname
-              : `Dr. ${doctor.fullname}`}
+          <h1 className="doctor-name-with-verification">
+            <span>
+              {doctor.fullname?.toLowerCase().startsWith("dr")
+                ? doctor.fullname
+                : `Dr. ${doctor.fullname}`}
+            </span>
+
+            {doctor.can_book && (
+              <span
+                className="doctor-verified-badge"
+                title="Verified Doctor"
+                aria-label="Verified Doctor"
+              >
+                <FaCheck />
+              </span>
+            )}
           </h1>
 
           <h3>{doctor.specialization}</h3>
