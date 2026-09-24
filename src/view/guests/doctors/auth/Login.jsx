@@ -12,6 +12,7 @@ import {
 import "../../../../assets/css/login.css";
 import ApiUrl from "../../../../constants/ApiUrl";
 import { useDoctorAuth } from "../../../../contexts/DoctorAuthContext";
+import img1 from "../../../../assets/img/elet.webp"
 
 export default function Login() {
   const navigate = useNavigate();
@@ -123,7 +124,7 @@ export default function Login() {
             <div className="col-lg-6 d-none d-lg-block">
               <div className="patient-login-image-section">
                 <img
-                  src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200"
+                  src={img1}
                   alt="Doctor"
                   className="patient-login-image"
                 />

@@ -727,7 +727,12 @@ X-Ray Chest`}
                 medicalHistory.map((record) => (
                   <div key={record.id} className="ehr-history-card">
                     <div className="ehr-history-top">
-                      <h4>{record.doctor?.fullname}</h4>
+                      <div>
+                        <h4>{record.doctor?.fullname}</h4>
+                        <p style={{ color: "gray", marginLeft: "10px" }}>
+                          {record.doctor?.specialization || "--"}
+                        </p>
+                      </div>
 
                       <span>
                         {new Date(record.created_at).toLocaleString()}

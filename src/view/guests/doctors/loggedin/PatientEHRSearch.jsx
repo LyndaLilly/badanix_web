@@ -374,9 +374,14 @@ export default function PatientEHRSearch() {
                           <span>{formatDate(record.created_at)}</span>
                         </div>
 
-                        <span className="doctor-badge">
+                        <div>
+                             <span className="doctor-badge">
                           Dr. {record.doctor?.fullname || "--"}
                         </span>
+                          <p style={{ color: "gray", marginLeft: "10px", fontSize: "10px" }}>{record.doctor?.specialization || "--"}</p>
+                        </div>
+                     
+                        
                       </div>
 
                       {/* RECORD DETAILS */}

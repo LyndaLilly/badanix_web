@@ -1,380 +1,406 @@
-/* ============================
-   RECENT PATIENTS
-============================ */
 
 
 .recent-patients-box {
-
-  background:#fff;
-
-  border-radius:18px;
-
-  padding:20px;
-
-  height:100%;
-
-  box-shadow:0 8px 25px rgba(0,0,0,.08);
-
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  overflow: hidden;
 }
-
-
 
 /* HEADER */
 
 .recent-patients-box .dashboard-box-header {
-
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  margin-bottom:18px;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 18px;
+  min-width: 0;
 }
-
-
 
 .recent-patients-box h5 {
-
-  margin:0;
-
-  color:#14361D;
-
-  font-size:15px;
-
-  font-weight:800;
-
-  display:flex;
-
-  align-items:center;
-
+  margin: 0;
+  color: #14361D;
+  font-size: 15px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  min-width: 0;
 }
-
-
 
 .recent-patients-box h5 svg {
-
-  color:#856443;
-
+  color: #856443;
+  flex-shrink: 0;
 }
-
-
 
 .recent-patients-box small {
-
-  color:#777;
-
-  font-size:12px;
-
+  color: #777;
+  font-size: 12px;
 }
-
-
-
 
 /* VIEW BUTTON */
 
-
 .recent-patients-view-btn {
-
-  background:#856443;
-
-  border:none;
-
-  color:white;
-
-  padding:8px 15px;
-
-  border-radius:20px;
-
-  font-size:12px;
-
-  font-weight:700;
-
-  display:flex;
-
-  align-items:center;
-
-  gap:6px;
-
-  cursor:pointer;
-
-  transition:.3s ease;
-
+  background: #856443;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
-
 
 .recent-patients-view-btn:hover {
-
-  background:#14361D;
-
+  background: #14361D;
 }
-
-
-
 
 /* LIST */
 
-
 .recent-patients-list {
-
-  display:flex;
-
-  flex-direction:column;
-
-  gap:12px;
-
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
 }
-
-
-
 
 /* ITEM */
 
-
 .recent-patient-item {
-
-  background:#f8f8f8;
-
-  border-radius:15px;
-
-  padding:14px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
-  border-left:4px solid #14361D;
-
-  transition:.3s ease;
-
+  background: #f8f8f8;
+  border-radius: 15px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border-left: 4px solid #14361D;
+  transition: box-shadow 0.3s ease, background 0.3s ease;
 }
 
-
+/*
+  Do not use translateX here.
+  It can create horizontal overflow inside
+  narrow dashboard columns.
+*/
 
 .recent-patient-item:hover {
-
-  transform:translateX(5px);
-
-  box-shadow:0 5px 15px rgba(0,0,0,.08);
-
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
-
-
 
 /* LEFT */
 
-
 .recent-patient-left {
-
-  display:flex;
-
-  align-items:center;
-
-  gap:12px;
-
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
 }
-
-
 
 .recent-patient-avatar {
-
-  width:55px;
-
-  height:55px;
-
-  border-radius:50%;
-
-  object-fit:cover;
-
-  border:3px solid white;
-
-  box-shadow:0 3px 10px rgba(0,0,0,.15);
-
+  width: 55px;
+  height: 55px;
+  min-width: 55px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }
 
-
+.recent-patient-details {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
 
 .recent-patient-details h6 {
+  margin: 0;
+  color: #14361D;
+  font-size: 15px;
+  font-weight: 700;
 
-  margin:0;
-
-  color:#14361D;
-
-  font-size:15px;
-
-  font-weight:700;
-
+  /* Prevent long names from pushing the page */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
-
 
 .recent-patient-details small {
+  display: block;
+  color: #777;
+  font-size: 12px;
 
-  color:#777;
-
-  font-size:12px;
-
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
-
-
 
 /* DATE */
 
-
 .recent-patient-date {
-
-  display:flex;
-
-  align-items:center;
-
-  gap:6px;
-
-  margin-top:7px;
-
-  font-size:12px;
-
-  color:#856443;
-
-  font-weight:600;
-
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 7px;
+  font-size: 12px;
+  color: #856443;
+  font-weight: 600;
+  min-width: 0;
 }
-
-
 
 .recent-patient-date svg {
-
-  font-size:12px;
-
+  font-size: 12px;
+  flex-shrink: 0;
 }
-
-
-
 
 /* STATUS */
 
+.recent-patient-right {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: fit-content;
+}
 
 .recent-status {
-
-  padding:6px 12px;
-
-  border-radius:20px;
-
-  font-size:11px;
-
-  font-weight:700;
-
-  text-transform:capitalize;
-
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: capitalize;
+  white-space: nowrap;
 }
 
-
-
-/* statuses */
+/* STATUSES */
 
 .recent-status.completed {
-
-  background:#14361D;
-
-  color:white;
-
+  background: #14361D;
+  color: white;
 }
-
-
 
 .recent-status.confirmed {
-
-  background:#856443;
-
-  color:white;
-
+  background: #856443;
+  color: white;
 }
-
-
 
 .recent-status.pending {
-
-  background:#eee;
-
-  color:#856443;
-
+  background: #eee;
+  color: #856443;
 }
-
-
 
 .recent-status.cancelled,
-
 .recent-status.rejected {
-
-  background:#f1dddd;
-
-  color:#a33;
-
+  background: #f1dddd;
+  color: #a33;
 }
-
-
 
 .recent-status.default {
-
-  background:#eee;
-
-  color:#777;
-
+  background: #eee;
+  color: #777;
 }
 
-
-
-/* EMPTY */
+/* EMPTY / LOADING */
 
 .recent-patients-empty,
-
 .recent-patients-loading {
-
-  background:#f8f8f8;
-
-  border-radius:12px;
-
-  padding:35px;
-
-  text-align:center;
-
-  color:#777;
-
-  font-size:14px;
-
+  background: #f8f8f8;
+  border-radius: 12px;
+  padding: 35px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  color: #777;
+  font-size: 14px;
 }
 
+/* ============================
+   TABLET
+============================ */
 
+@media (max-width: 768px) {
+  .recent-patients-box {
+    padding: 16px;
+    border-radius: 15px;
+  }
 
-/* MOBILE */
+  .recent-patients-box .dashboard-box-header {
+    gap: 10px;
+  }
 
-@media(max-width:768px){
+  .recent-patients-view-btn {
+    padding: 7px 12px;
+    font-size: 11px;
+  }
 
+  .recent-patient-item {
+    padding: 12px;
+    gap: 8px;
+  }
 
-.recent-patient-item {
+  .recent-patient-avatar {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+  }
 
-  align-items:flex-start;
+  .recent-patient-left {
+    gap: 9px;
+  }
 
+  .recent-patient-details h6 {
+    font-size: 14px;
+  }
+
+  .recent-patient-details small,
+  .recent-patient-date {
+    font-size: 11px;
+  }
+
+  .recent-status {
+    padding: 5px 9px;
+    font-size: 10px;
+  }
 }
 
+/* ============================
+   MOBILE
+============================ */
 
-.recent-patient-right {
+@media (max-width: 576px) {
+  .recent-patients-box {
+    padding: 14px;
+    border-radius: 14px;
+  }
 
-  margin-left:10px;
+  .recent-patients-box .dashboard-box-header {
+    align-items: flex-start;
+  }
 
+  .recent-patients-box h5 {
+    font-size: 14px;
+  }
+
+  .recent-patients-box h5 svg {
+    margin-right: 5px !important;
+  }
+
+  .recent-patients-view-btn {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+
+  .recent-patient-item {
+    align-items: center;
+    padding: 11px;
+    border-left-width: 3px;
+  }
+
+  .recent-patient-avatar {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+  }
+
+  .recent-patient-left {
+    gap: 8px;
+  }
+
+  .recent-patient-details h6 {
+    font-size: 13px;
+  }
+
+  .recent-patient-details small {
+    font-size: 10px;
+  }
+
+  .recent-patient-date {
+    margin-top: 5px;
+    font-size: 10px;
+  }
+
+  .recent-status {
+    padding: 5px 8px;
+    font-size: 9px;
+  }
 }
 
+/* ============================
+   VERY SMALL PHONES
+============================ */
 
-.recent-patient-avatar {
+@media (max-width: 400px) {
+  .recent-patients-box {
+    padding: 12px;
+  }
 
- width:48px;
+  .recent-patients-box .dashboard-box-header {
+    gap: 6px;
+  }
 
- height:48px;
+  .recent-patients-box h5 {
+    font-size: 13px;
+  }
 
+  .recent-patients-box .dashboard-box-header small {
+    font-size: 10px;
+  }
+
+  .recent-patients-view-btn {
+    padding: 5px 8px;
+    font-size: 9px;
+  }
+
+  .recent-patient-item {
+    padding: 9px;
+    gap: 5px;
+  }
+
+  .recent-patient-avatar {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+
+  .recent-patient-left {
+    gap: 7px;
+  }
+
+  .recent-patient-details h6 {
+    font-size: 12px;
+  }
+
+  .recent-patient-details small {
+    font-size: 9px;
+  }
+
+  .recent-patient-date {
+    font-size: 9px;
+  }
+
+  .recent-status {
+    padding: 4px 7px;
+    font-size: 8px;
+  }
 }
 
-
-}

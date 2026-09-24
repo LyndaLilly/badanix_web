@@ -12,6 +12,9 @@ import {
 import "../../../../assets/css/login.css";
 import ApiUrl from "../../../../constants/ApiUrl";
 import { usePatientAuth } from "../../../../contexts/PatientAuthContext";
+import img1 from "../../../../assets/img/img1.jpg"
+
+
 
 export default function Login() {
   const navigate = useNavigate();
@@ -122,7 +125,7 @@ export default function Login() {
             <div className="col-lg-6 d-none d-lg-block">
               <div className="patient-login-image-section">
                 <img
-                  src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1200"
+                  src={img1}
                   alt="Healthcare"
                   className="patient-login-image"
                 />

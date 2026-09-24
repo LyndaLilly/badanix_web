@@ -13,6 +13,7 @@ import {
 
 import "../../../../assets/css/register.css";
 import ApiUrl from "../../../../constants/ApiUrl";
+import img1 from "../../../../assets/img/elet.webp"
 
 export default function Register() {
   const navigate = useNavigate();
@@ -142,7 +143,7 @@ export default function Register() {
             <div className="col-lg-6 d-none d-lg-block">
               <div className="patient-register-image-section">
                 <img
-                  src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=1200"
+                  src={img1}
                   alt="Healthcare"
                   className="patient-register-image"
                 />
